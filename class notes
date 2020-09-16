@@ -1,0 +1,52 @@
+#include <iostream>
+
+using namespace std;
+
+class spiderPig
+{
+  private:
+	  int size;
+
+  public:
+	  string colour;
+	  double weight;
+	  int numlegs;
+	
+  // function prototype
+	int getSize();
+	void setSize(int newSize);
+};
+
+int spiderPig::getSize(){return size;}
+void spiderPig::setSize(int newSize){size = newSize;}
+
+int main (void)
+{
+
+spiderPig porkChop;
+
+porkChop.setSize(4);
+porkChop.colour = "Purple";
+porkChop.weight = 40;
+porkChop.numLegs = 8;
+
+cout << "Pork Chop info: \n";
+cout << porkChop.getSize() << endl; 
+cout << porkChop.colour << endl; 
+cout << porkChop.weight << endl; 
+cout << porkChop.numLegs << endl; 
+
+
+
+int year = 2016;
+
+cout << "Hello World " << year << "  more stuff" << endl;
+
+int age;
+cout << "Enter age\n";
+cin >> age;
+cout << "Age is: " << age;
+
+
+return 0;
+}
