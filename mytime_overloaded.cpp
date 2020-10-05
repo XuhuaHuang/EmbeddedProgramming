@@ -39,7 +39,7 @@ class mytime
 int main (void)
 {
 	mytime userTime; // declaring an object
-	/*
+	
 	int userHour;
 	cout << "Please enter the hour you want to set to." << endl;
 	cin >> userHour;
@@ -56,7 +56,7 @@ int main (void)
 	userTime.setSecond(userSecond); 
 	
 	userTime.printTime(); // this line should print the time user sets to
-	*/
+	// asking the user to set section ends
 	
 	// test cases and print function
 	userTime.setTime(12,34); // valid hour, minute; should call mytime::setTime(int , int)
