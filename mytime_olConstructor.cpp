@@ -88,9 +88,9 @@ int main (void)
 	time2.printTime(); // 12:34:56
 	
 	mytime time3(12, 34);
-	time3.printTime(); // 12:34
+	time3.printTime(); // 12:34:00
 	
-	mytime time4(12); // 12:0:0
+	mytime time4(12); // 12:00:00
 	time4.printTime();
 	
 	return 0;
