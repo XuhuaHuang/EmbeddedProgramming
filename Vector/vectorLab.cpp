@@ -157,6 +157,9 @@ int main (void)
 	vector<string> teststring { testword };
 	palindrome(teststring); // should print not a palindrome
 	
+	// for vector<string>, I think the reason why it does NOT work is I had to go into the first element and reverse the element.
+	// instead of reversing the string vector
+	
 	string testword2 = "ANNAA";
 	vector<string> teststring2 { testword2 };
 	palindrome(teststring2); // should print is a palindrome
@@ -167,7 +170,7 @@ int main (void)
 	
 	vector<char> chartest2 { 'A','N','N','A' };
 	cout << "The word ANNA" << endl;
-	palindrome(chartest2); // not a palindrome
+	palindrome(chartest2); // a palindrome
 	
 	return 0;
 }
