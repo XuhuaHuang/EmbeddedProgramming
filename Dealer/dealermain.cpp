@@ -36,7 +36,7 @@ int main(void)
 		{
 			Card testOL(face, suit);
 			testOL.printCard();
-			cout << endl;
+			//cout << endl;
 		}
 	}
 	// end of test case 1
