@@ -2,7 +2,7 @@
 #include <cmath>
 #include <windows.h>
 #include <string>
-#include <stdio.h>
+//#include <stdio.h>
 
 using namespace std;
 
@@ -50,7 +50,7 @@ int main(void)
 			Sleep(100);
 		}
 		cout << endl;
-		printf("\r");
+		//printf("\r");
 		index--;
 	}
 	
