@@ -165,6 +165,7 @@ int main()
 		if (choiceDishPC == 1) // dishwasher
 		{
 			do {
+				tryAgain = 0;
 				cout << "It wasn't in the dishwasher so he carried on looking.\n" << endl;
 				cout << "Where should he look next?\n" << endl;
 				cout << "\033[1;31m"; // Change colour to red
