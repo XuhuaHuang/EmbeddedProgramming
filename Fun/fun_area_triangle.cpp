@@ -15,7 +15,7 @@ int main(void)
 	cout << "Please enter the third length of the side of the triangle: ";
 	cin >> c;
 
-	double s = (1 / 2) * (a + b + c);
+	double s = (0.5) * (a + b + c);
 	double area = sqrt(s * (s - a) * (s - b) * (s - c));
 
 	cout << "\nThe area of the triangle you just entered is: " << area << endl;
