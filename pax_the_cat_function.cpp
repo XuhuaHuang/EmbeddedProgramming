@@ -15,12 +15,13 @@ int main(void)
 
 	do
 	{
-		//tryAgain = 0;
+		tryAgain = 0;
+		int* pointerTryAgian = &tryAgain;
 
 		int bowlWash = 0;
 		cin >> bowlWash;
 
-		string bowlORwashing = select(option1, option2, bowlWash, &tryAgain);
+		string bowlORwashing = select(option1, option2, bowlWash, pointerTryAgain);
 		cout << bowlORwashing << endl;
 
 	} while (tryAgain == 1);
@@ -30,12 +31,14 @@ int main(void)
 
 string select(string option1, string option2, int userInput, int* comfirm)
 {
-	//string comfirm = "Invalid, please try again";
+	string choice = "Invalid, please try again";
 
 	if (userInput == 1)
-		return option1;
+		choice = option1;
 	else if (userInput == 2)
-		return option2;
+		choice = option2;
 	else
 		*comfirm = 1;
+	
+	return choice;
 }
