@@ -55,7 +55,7 @@ int main(void)
 	myAccount1.debit(300.30); // not enough funds to withdraw, print error only
 	cout << "\nKnown no changes should have been made to myAccount1. Balance remains: $ " << fixed << myAccount1.getBalance() << endl;
 	
-	cout << "Test cases for class \"Account\" ends here." << endl;
+	cout << "Test cases for class \"Account\" end here." << endl;
 
 
 	return 0;
