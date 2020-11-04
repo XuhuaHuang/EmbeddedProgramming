@@ -8,6 +8,7 @@
 * Derived Class 'CheckingAccount'				  
 */
 
+// Base class 'Account'
 class Account
 {
 private:
@@ -28,6 +29,7 @@ public:
 	bool debit(double withdraw);
 };
 
+// First-level derived class 'SavingsAccount'
 class SavingsAccount : public Account
 {
 private:
@@ -47,6 +49,7 @@ public:
 	double calculateInterest();
 };
 
+// First-level derived class 'CheckingAccount'
 class CheckingAccount : public Account
 {
 private:
