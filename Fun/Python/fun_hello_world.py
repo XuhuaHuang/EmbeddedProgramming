@@ -2,16 +2,23 @@ print("Hello World")
 first_name = input("\nPlease enter your first name to the right: ")
 last_name = input("Please enter your last name to the right: ")
 birth_year = input("What year were you born? ")
+
+first_name.capitalize()
+last_name.capitalize()
 print("\nYou full name is " + first_name + " " + last_name)
 
 # how to convert a string to integer?
 # print("It looks like you are " + age + " years old.")
 
 age = 2020 - int(birth_year)
-print(age)
+# print(age)
+print(f"It looks like you are {age} years old.")
 
 message = f'{first_name} {last_name} wants to be a programmer.'
 print(message)
+# message = f'{} {} wants to be a programmer.'
+# print(message.format(first_name, last_name))  # with format() method
+# print(f"{first_name} {last_name} wants to be a programmer.")
 
 weight_in_lbs = input("\nWhat is your weight in pounds? ")
 weight_in_kgs = float(weight_in_lbs) * 0.45
