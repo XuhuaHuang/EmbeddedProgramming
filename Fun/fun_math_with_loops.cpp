@@ -3,14 +3,23 @@
 
 using namespace std;
 
-// Nov 2, 2020 23:00 DST
+/*
+* Last updated: Nov 06, 2020
+* Created: Nov 02, 2020 23:00 DST
+*
+* To-do list:
+* Number of daffodils
+* Recurrance
+* Enumeration
+*/
 
 int main(void)
 {
 	// add num 1-100 using while loop
+	cout << "Adding number 1-100 with while loop." << endl;
 	int sum = 0;
 	int numtoAdd = 0;
-	
+
 	while (numtoAdd < 101)
 	{
 		sum += numtoAdd;
@@ -20,8 +29,8 @@ int main(void)
 
 	cout << sum << endl;
 
-
 	// 20*19*18*17*...*1 with while loop
+	cout << "\nMultiplying 20, 19, 18, ...3, 2, 1 together." << endl;
 	long long product = 1;
 	int numtoMultiply = 1;
 	while (numtoMultiply < 21)
@@ -31,27 +40,27 @@ int main(void)
 	}
 	cout << product << endl;
 
-
 	// calculating the number of digit of a number
 	int userInput = 0;
 	int numDigits = 0;
+	cout << "\nHelp to determine the number of digits of a number." << endl
+		 << "Please enter the number to determine number of digits: ";
 
-	cout << "Please enter the number to determine number of digits: ";
 	cin >> userInput;
 	int tempStorage = userInput;
 
 	userInput /= 10;
 	numDigits++;
 
-	/*while (userInput)
+	/*
+	while (userInput)
 	{
 		userInput /= 10;
 		numDigits++;
 	}
-	
 	cout << "The number " << tempStorage << " is a number of " << numDigits << " digit(s). "<< endl;
 	*/
-	
+
 	// with do-whil loop:
 	do
 	{
@@ -62,7 +71,7 @@ int main(void)
 
 	/*
 	* Taylor Series
-	* Analysis: adding n fractions numbers together
+	* adding n fractions numbers together
 	* numFraction: userinput, stands for number of fraction being added together
 	* sign: determine the sign of each fraction in this series
 	*/
@@ -71,7 +80,6 @@ int main(void)
 		 << "Please enter the number of the fraction numbers in the taylor series: ";
 
 	cin >> numFraction;	 // index of denominator
-	
 	// creating required variables
 	double result = 0.0;
 	double  term = 0.0; // i_th term = sign / index
@@ -95,19 +103,75 @@ int main(void)
 	}
 
 	// creating a right-angle-triangle with "numCh" amount of "userCh"
-	// Hint: determine the relationship between number of characters and the line index of nested for loops
-	char userCh; // custom character to create right-angle triangle with
+	// determine the relationship between number of characters and the line index of nested for loops
+	char userCh;
 	cin >> userCh;
-	int numCh; // number of character to form the side
+	int numCh;
 	cin >> numCh;
 
 	for (int i = 0; i < numCh; i++)
 	{
-		for (int j = 0; j < (i + 1); j++) // 'j< (i + 1);' is the key statement
+		for (int j = 0; j < (i + 1); j++)
 		{
 			cout << userCh;
 		}
 		cout << endl;
+	}
+
+
+	/* 
+	* Name: Find the amount of exchange
+	* Requirement: each kind of coin must present once
+	* 
+	* Last updated: Nov 06, 2020
+	* Created on: Nov 06, 2020
+	* 
+	* Method: Enumerate and loop through all possibilities untill find solution
+	*		  Sequential enumeration
+	* 
+	* Advantages: 
+	* 1) Easy to understand algorithm
+	* 2) Usually used to determine "how many combinations, if there's a solution" type of problem
+	* 
+	* BUT -  relys on heavy loaded calculation
+	*/
+	double total = 0;
+	double payed = 0;
+	
+	cout << "Please enter total amount invoice: ";
+	cin >> total;
+	
+	cout << "Please enter the amount customer payed: ";
+	cin >> payed;
+	
+	double exchange = payed - total;
+	cout << "The amount of exchange is: " << exchange << endl;
+
+	int num10Cents = 0; int num15Cents = 0; int num25Cents = 0; int num50Cents = 0;
+
+	for (int i = 0; i < exchange / 0.10; i++) // enumerate 10Cents
+	{
+		for (int j = 0; j < exchange / 0.15; j++) // enumerate 15Cents
+		{
+			for (int k = 0; k < exchange / 0.25; k++) // enumerate 25Cents
+			{
+				for (int l = 0; l < exchange / 0.50; l++) // enumerate 50Cents
+				{
+					if ( (i * 0.1 + j * 0.15 + k * 0.25 + l * 0.50 == exchange) // if adds up to desired exchange
+						&& (i != 0) 
+						&& (j != 0) 
+						&& (k != 0) 
+						&& (l != 0) ) // each kind of coin must present once
+					{
+						cout << "\nOne of the solutions: " << endl
+							 << "You will need " << i << " of 10 cents coins." << endl
+							 << j << " of 15 cents coins." << endl
+							 << k << " of 25 cents coins." << endl
+							 << l << " of 50 cents coins." << endl;
+					}
+				}
+			}
+		}
 	}
 
 	return 0;
