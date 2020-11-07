@@ -17,5 +17,15 @@ int main(void)
 		result = x - y;
 	*/
   
+	// nested conditional operation
+	cout << "\nNested conditionl operation" << endl;
+	int signX = determineSign(x);
+	cout << signX << endl;
+	
 	return 0;
+}
+
+int determineSign(int num)
+{
+	return (num > 0 ? 1 : (n < 0 ? -1 : 1)); // return +1 if positive, -1 if negative, 0 if zero
 }
