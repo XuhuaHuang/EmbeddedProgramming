@@ -66,6 +66,15 @@ pass_function()
 # 2.4
 # recursion - a function calls itself
 # can be avoided with proper manipulation with loops
+#
+# logic for the following function 'multi_recursion'
+# calling with 5: 5 + 4 + 3 + 2 + 1 = 15
+# considered complete iteration
+# subsequent calling listed as following:
+# calling with 4: 4 + 3 + 2 + 1 = 10
+# calling with 3: 3 + 2 + 1 = 6
+# calling with 2: 2 + 1 = 3
+# calling with 1: 1 + 0 = 1
 def multi_recursion(k):
     if k > 0:
         result = k + multi_recursion(k - 1)
@@ -75,4 +84,6 @@ def multi_recursion(k):
     return result
 
 
-multi_recursion(5)
+# multi_recursion(5)
+print(f"\nFinal calling result with argument 5: {multi_recursion(5)}.")
+
