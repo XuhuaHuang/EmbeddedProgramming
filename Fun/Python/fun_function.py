@@ -34,12 +34,12 @@ print(hypotenuse(3, 4))
 # syntax: def function_name(parameters):
 # no significant 'return variable' line
 # when calling: function_name(arguments)
-def hypotenuse(a, b):
+def hypotenuse_function(a, b):
     return sqrt(a * a + b * b)
 
 
 # calling above function
-hypotenuse2 = hypotenuse(6, 8)
+hypotenuse2 = hypotenuse_function(6, 8)
 print(hypotenuse2)
 
 
