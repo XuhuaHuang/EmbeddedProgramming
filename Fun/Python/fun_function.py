@@ -87,3 +87,16 @@ def multi_recursion(k):
 # multi_recursion(5)
 print(f"\nFinal calling result with argument 5: {multi_recursion(5)}.")
 
+
+# another recursion example
+# adding 1 - 100 with recursion function
+# 100 + 99 + 98 + ... + 3 + 2 + 1
+def summation(most_significant):
+    if most_significant == 1:
+        sum = 1
+    elif most_significant > 1:
+        sum = most_significant + summation(most_significant - 1)
+    return sum
+
+
+print(f"\nThe sum of integer from 1 to 100 is: {summation(100)}.")
