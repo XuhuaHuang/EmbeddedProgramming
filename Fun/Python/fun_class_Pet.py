@@ -39,7 +39,8 @@ class Pet:
         print(f"Your pet of name {self.name} is {self.age} years old.")
 
 
-print("An object of class \"Pet\" is created named \"myPet\", aged 5." )
+print("An object of class \"Pet\" is created named \"myPet\", aged 5." 
+# note: syntax of creating an object is different
 myPet = Pet("pet name", 5)  # creating object, name = pet name, age = 5
 
 print("\nPrinting variables inside of \"Pet\" class with get() functions: ")
@@ -52,3 +53,18 @@ print(f"Accessing variable \"age\" without get() function: {myPet.age}.")
 
 print("\nWith print function inside of \"Pet\" class:")
 myPet.print()
+
+# change properties of an object
+print('''
+\nChanging properties of object \"myPet\":
+name changed to \"new name\"
+age changed to 8
+Properties will be verified with \"object.print() function
+''')
+myPet.name = "new name"
+myPet.age = 8
+myPet.print()
+
+print("Deleting object \"myPet\"")
+del myPet  # object is deleted
+print("Deleted.")
