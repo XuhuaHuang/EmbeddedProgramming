@@ -72,19 +72,19 @@ public:
 	void setSize(int newSize) { size = newSize; }
 	int getSize() { return size; }
 
-	void setPtrNum(double* newPtrNum) { ptrNumberArray = newPtrNum; }
-	double* getPtrNum() { return ptrNumberArray; }
+	void setPtrNum(double* newPtrNum) { ptrNumber = newPtrNum; }
+	double* getPtrNum() { return ptrNumber; }
 
 	// overloaded constructor and destructor:
 	Numbers(int sizeOfArray); // overloaded constructor
 	~Numbers();
 
 	void store(int arrayIndex, double numToAdd);
-	double retreive(int arrayIndex);
+	double retrieve(int arrayIndex);
 	double average();
 
 private:
 
 	int size;
-	double* ptrNumberArray; // X.H. renamed variable poiter 'ptrNumber' to 'ptrNumberArray'
+	double* ptrNumber;
 };
