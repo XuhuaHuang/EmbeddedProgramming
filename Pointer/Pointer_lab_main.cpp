@@ -88,6 +88,8 @@ int main(void)
 	// calculate the average of all ten numbers in numObject1
 	double averageObj1 = numObject1.average();
 	cout << "The average of the array called \"numObject1\" is: " << averageObj1 << endl;
+	
+	delete student1; delete student2; delete student3; // releasing memory
 
 	return 0;
 }
