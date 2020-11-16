@@ -40,10 +40,10 @@ StudentClub::~StudentClub()
 {
 	cout << "\n[DEST]Destructing...Deleting all club members..." << endl;
 	
-	delete President;
-	delete VicePresident;
-	delete Secretary;
-	delete Treasurer;
+	President = NULL;
+	VicePresident = NULL;
+	Secretary = NULL;
+	Treasurer = NULL;
 
 	cout << "[DEST]Done. All members of club erased." << endl;
 }
