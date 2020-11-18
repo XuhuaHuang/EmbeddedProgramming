@@ -15,7 +15,7 @@ int sum(int num1, int num2) { return num1 + num2; }
 double sum(double num1, double num2) { return num1 + num2; }
 
 // function templates
-template<class Custom> // class type is a variable
+template<class Custom> // class type is a variable // equivalent to : template<typename Custom>
 Custom sum(Custom num1, Custom num2) // when calling: sum<Custom>(num1, num2)
 {
 	cout << num1 << " + " << num2 << " = " << num1 + num2 << endl;
