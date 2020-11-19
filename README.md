@@ -3,7 +3,7 @@ This is a repository created dedicated to embedded programming in Linux environm
 
 ## Special Thanks
 Prof. Charmaine Jirgens
-Teacher in Electronics and Information Technology program\n
+Teacher in Electronics and Information Technology program
 Heritage College, Gatineau, Quebec, Canada
 
 ## Language
