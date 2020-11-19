@@ -33,7 +33,7 @@ int main (void)
 	v1.push_back(7);
 	
 	// string iterator string::iterator iter;
-	vector<int>::iterator iterv1; // vector<datatype>::iterator iterName;
+	// vector<int>::iterator iterv1; // vector<datatype>::iterator iterName;
 	printIntVector(v1);	
 	cout << "The size of vector v1 is: " << v1.size() << endl << endl;
 	
