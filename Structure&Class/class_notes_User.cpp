@@ -16,6 +16,8 @@ class User
 public:
 	User();
 	~User();
+	
+	static int getUserCount(void) { return userCount; }
 
 	void setFirstName(string userFirstName) { firstName = userFirstName; }
 	string getFirstName(void) { return firstName; }
@@ -29,17 +31,24 @@ public:
 	void printInfo(void);
 
 private:
+	static int userCount; // a private static member data of the "User" class
 	string firstName;
 	string lastName;
 	string status;
 };
 
+int User::userCount = 0; // static member data MUST be assigned out of line
+
 User::User() // default constructor
 {
+	userCount++; // increment static member data "userCount" 
+	// when a User object is created
 }
 
 User::~User() // destructor
 {
+	userCount--; // decrement static member data "userCount" 
+	// when a User object is destroyed
 }
 
 void User::printInfo(void)
