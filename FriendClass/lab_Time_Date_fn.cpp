@@ -154,12 +154,14 @@ void Date::setDate(int userYear, int userMonth, int userDay)
 void Date::printDate(Time time)
 {
 	cout << "\n[fn]\"void Date::printDate(Time time)\" called" << endl
-		<< "[fn]Date: " << this->getMonth() << "/"
-		<< this->getDay() << "/"
-		<< this->getYear() << endl
-		<< "[fn]Time: " << time.getHour() << ":"
-		<< time.getMinute() << ":"
-		<< time.getSecond() << endl;
+	     << "[fn]Date: " << "\nMonth/day/Year" << endl
+		 	     << this->getMonth() << "/"
+			     << this->getDay() << "/"
+			     << this->getYear() << endl
+	     << "[fn]Time: " << "\nHour:Minute:Second" << endl
+		   	     << time.getHour() << ":"
+			     << time.getMinute() << ":"
+			     << time.getSecond() << endl;
 
 	return;
 }
