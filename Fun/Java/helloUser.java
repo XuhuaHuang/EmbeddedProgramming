@@ -19,6 +19,10 @@ public class helloUser {
 		// hold 'Ctrl' + 'Space'
 		System.out.println("\nYou said your name is " + name);
 		System.out.println("Hello " + name);
+			
+		// Creating a string with a string class constructor
+		String myString = new String("\nThis is my first string.\n");
+		System.out.println(myString + " :) "); // concatenate two strings
 	}
 	
 }
