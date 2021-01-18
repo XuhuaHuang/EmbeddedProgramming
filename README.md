@@ -7,4 +7,4 @@ Teacher in Electronics and Information Technology program
 Heritage College, Gatineau, Quebec, Canada
 
 ## Language
-Python, C++
+C++, Java, Python
