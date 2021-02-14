@@ -43,7 +43,7 @@ fn main() {
 			Ordering::Equal => {
 				println!("You win!");
 				break;
-			}
+			} // end Ordering::Equal arm
 		} // end match
 	} // end loop
 } // end main
