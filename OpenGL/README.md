@@ -16,9 +16,12 @@ Download 32-bit or 64-bit Windows binaries of both and link them with your own f
 
 ### Link Libraries
 1) Project -> Properties -> Select "All Configurations" as Configuration -> Select "Win32" as Platform  
-2) C/C++ -> Additional Include Directories -> type in "$(SolutionDir)Dependencies\GLFW\include; $(SolutionDir)Dependencies\GLEW\include".  
-3) Linker -> Additional Library Directions -> type in "$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(SolutionDir)Dependencies\GLEW\lib\Release\Win32".  
-4) Linker -> Input -> Additional Dependencies -> type in "glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib".  
+2) C/C++ -> Additional Include Directories -> type in  
+   "$(SolutionDir)Dependencies\GLFW\include; $(SolutionDir)Dependencies\GLEW\include".  
+3) Linker -> Additional Library Directions -> type in  
+   "$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(SolutionDir)Dependencies\GLEW\lib\Release\Win32".  
+4) Linker -> Input -> Additional Dependencies -> type in  
+   "glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib".  
 5) Click "Apply", then click "OK".
 
 ## Message
