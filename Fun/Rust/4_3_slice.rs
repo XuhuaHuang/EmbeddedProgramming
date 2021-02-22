@@ -40,7 +40,7 @@ fn main() {
 
     // String Literals as Slices
     // stirng literals are automatically string slices already
-    // &str is the syntax of string literals, equivalent to &String[], rfer to line 66 and 67
+    // &str is the syntax of string literals, equivalent to &String[], refer to line 66 and 67
 
     // UPCOMING: Struct, object oriented FINALLY!
 }
