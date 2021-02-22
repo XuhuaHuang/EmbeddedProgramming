@@ -3,14 +3,14 @@
   * Feb 2021
   */
 
-// compare constrast tuples and structs
+// compare contrast tuples and structs
 // object-oriented concept
 // data attributes, methods and functions
 
-// Define and intanciating structure
+// Define and instantiating structure
 // key: value pairs
 // consider a structure as a template/blueprint
-// instances fill in the template with particulur values
+// instances fill in the template with particular values
 struct User {
     // fields
     user_name: String,
@@ -28,9 +28,9 @@ fn main() {
     println!("Let's talk about structure in Rust!");
 
     println!("\nA structure \"User\" is defined");
-    println!("Intantiating an object");
+    println!("Instantiating an object");
 
-    // not neccessary to specify the fields in the same order declared
+    // not necessary to specify the fields in the same order declared
     // user1 is immutable without the keyword "mut"
     let mut user1 = User {
         user_name: String::from("user1"),
@@ -45,17 +45,17 @@ fn main() {
     println!("After changing, email of user1 is now: \"{}\"", user1.email);
 
     // Struct Update Syntax
-    // creating intances from other instances with struct update syntax
+    // creating instances from other instances with struct update syntax
     let user2 = User {
         user_name: String::from("user2"),
         email: String::from("another@email.com"),
         ..user1 // sign_in_count: user1.sign_in_count,
                 // active: user1.active,
-        // ".." syntax specifies the remaining field have the smae value as the given instance
+        // ".." syntax specifies the remaining field have the same value as the given instance
     };
 
     // using tuple structs without named fields to create different types
-    // tuple struct ignores the name of each field bacause they are verbose and redundant
+    // tuple struct ignores the name of each field because they are verbose and redundant
     let black = Color(0, 0, 0);     // Color tuple struct
     let origin = Point(0, 0, 0);    // Point tuple struct
 
