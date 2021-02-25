@@ -1,6 +1,6 @@
 # Topic: class in python
 # Author: Xuhua Huang
-#  Last updated: Nov 08, 2020
+# Last updated: Nov 08, 2020
 # Created on: Nov 08, 2020
 # 
 # no private and public specifier
@@ -18,7 +18,7 @@ class Pet:
     name = ""
     age = 0
 
-    # __init__ double underscore
+    # __init__ with double underscore
     # acts like a overloaded constructor
     def __init__(self, name, age):
         self.name = name
