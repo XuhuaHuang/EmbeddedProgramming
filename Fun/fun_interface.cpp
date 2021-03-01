@@ -42,7 +42,7 @@ private:
 	string lastName;
 public:
 	// implement defined interface
-	string getClassName() override { return "User : Entity"; }
+	string getClassName() override { return "User : public Entity"; }
 
 	// constructor and get function
 	User(string fn, string ln) : firstName(fn), lastName(ln) {}
