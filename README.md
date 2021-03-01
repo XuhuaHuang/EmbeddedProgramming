@@ -14,4 +14,4 @@ Directory *"Fun"* contains all code when self learning other concepts in all men
   
 Code written in Rust is placed under *"Fun/Rust"* directory.  
 Code written in Java is placed under *"Fun/Java"* directory.  
-Code written in Pytho is placed under *"Fun/Python"* directory.  
+Code written in Python is placed under *"Fun/Python"* directory.  
