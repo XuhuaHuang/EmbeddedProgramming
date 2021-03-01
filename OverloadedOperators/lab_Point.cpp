@@ -85,7 +85,7 @@ bool Point::operator==(Point pt)
 {
 	bool equal = false;
 	// short circuit comparsion
-	if (this->getX() == pt.getX() && this->getX() == pt.getX())
+	if (this->getX() == pt.getX() && this->getY() == pt.getY())
 		equal = true;
 
 	return equal;
