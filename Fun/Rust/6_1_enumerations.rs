@@ -38,6 +38,9 @@ struct IpAddress {
     address: String,
 }
 
+// empty function that takes ownership and does nothing
+fn route(_ip_kind: IpAddrKind) {}
+
 fn main() {
     println!("Let's talk about enumerations in Rust!");
 
@@ -82,7 +85,5 @@ fn main() {
     let some_string = Some(String::from("Hello, world!"));
     let null_number: Option<i32> = Option::None; // allocate 32-bit space for nothing
 
+    // UPCOMING: match operator
 }
-
-// empty function that takes ownership and does nothing
-fn route(_ip_kind: IpAddrKind) {}
