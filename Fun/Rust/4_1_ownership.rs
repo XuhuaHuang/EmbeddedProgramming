@@ -52,7 +52,7 @@ fn main() {
     // CLONE
     let ptr3 = ptr2.clone();
     // both ptr2 and ptr3 are valid
-    // occupying different space ont he heap
+    // occupying different space on the heap
     println!("\nptr1 is destroyed");
     println!("ptr2 = {}, ptr3 = {}", ptr2, ptr3);
 
