@@ -4,6 +4,7 @@
  * 
  * \author Xuhua Huang
  * \date   November 2020
+ * \last modified: March 2021
  *********************************************************************/
 
 #include <iostream>
@@ -17,18 +18,15 @@ using namespace std;
 void squareAndPrint(int x);
 
 template<class T>
-void printVector(vector<T> vectorT)
+void printVector(vector<T> argVector)
 {
 	cout << "\n[fn]The content of this vector is listed: " << endl;
 
-	typename vector<T>::iterator iterT; // keyword 'typename' is required for iterator
-	for (iterT = vectorT.begin(); iterT < vectorT.end(); iterT++)
-	{
-		cout << *iterT << endl;
-	} // end for
-
+	typename vector<T>::iterator iter; // keyword 'typename' is required for iterator
+	for (iter = argVector.begin(); iter < argVector.end(); iter++)
+		cout << *iter << endl; // dereference the iterator to print content
+	
 	cout << "[fn]This is the end of the vector." << endl;
-
 	return;
 }
 
