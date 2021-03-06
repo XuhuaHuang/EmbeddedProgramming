@@ -3,7 +3,7 @@
 * Variable Scope inside function and function recursion
 *
 * Author: Xuhua Huang
-* Last updated: Nov 07, 2020
+* Last updated: MArch 06, 2021
 * Created on: Nov 07, 2020
 */
 
@@ -73,7 +73,7 @@ int multiRecursion(int k)
 	{
 		result = k + multiRecursion(k - 1);
 		cout << "Variable \"K\" is: " << k << endl
-			 << "Variable \"result\" is: " << result << endl;
+		     << "Variable \"result\" is: " << result << endl;
 	}
 	else
 		result = 0;
@@ -110,12 +110,11 @@ void staticGlobalValTest()
 	int nonStaticVal = 10;
 
 	cout << "\nPrinting from function \"staticGlobalValTest()\":" << endl
-		 << "Staic value is: " << staticVal << endl
-		 << "Non-static value is: " << nonStaticVal << endl
-		 << endl;
+	     << "Staic value is: " << staticVal << endl
+	     << "Non-static value is: " << nonStaticVal << endl;
 	
-	staticVal = staticVal + 10;
-	nonStaticVal = nonStaticVal + 10;
+	staticVal += 10;
+	nonStaticVal += 10;
 
 	return;
 }
