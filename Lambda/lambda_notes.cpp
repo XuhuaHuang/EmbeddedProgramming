@@ -68,17 +68,18 @@ int main(void)
 
 	int m = 0;
 	int n = 0;
+	
 	// lambda captures variable m by reference and n by value
 	// parameter list: int a = 4
 	// mutale grants access to modify variable n
 	// -> trailing return type: -> void
 	[&m, n](int a) mutable -> void {
 		cout << "\nInside of lambda"
-			   << "\nBefore operation: m = " << m << ", n = " << n << ", a = " << a << endl;
+		     << "\nBefore operation: m = " << m << ", n = " << n << ", a = " << a << endl;
 		m = ++n + a;  // perform operation
 		cout << "After operation: m = " << m << ", n = " << n << ", a = " << a << endl;
 	}(4); // 4 is assigned to int a
-	// "int a" went out of scope, no longer valid
+	// "int a" went out of scope, thus it is no longer valid
 
 	cout << "\nOutside of lambda: m = " << m << ", n = " << n << endl;
 
