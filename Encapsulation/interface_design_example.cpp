@@ -119,9 +119,9 @@ Date::Date(const Month& m, const Day& d, const Year& y)
 void Date::printDate()
 {
 	cout << "[fn][Date::printDate()" << endl
-		   << this->month.getMonth() << " "
-		   << this->day.getDay() << ", " 
-		   << this->year.getYear() << endl;
+	     << this->month.getMonth() << " "
+	     << this->day.getDay() << ", " 
+	     << this->year.getYear() << endl;
 }
 
 int main(void)
