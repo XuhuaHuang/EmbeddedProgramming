@@ -36,9 +36,8 @@ public:
 		case 10: return "Oct";
 		case 11: return "Nov";
 		case 12: return "Dec";
-		}
-
-	}
+		} // end switch
+	} // end getMonth()
 	
 	// default constructor
 	explicit Month() { _month = 1; }
