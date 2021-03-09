@@ -1,9 +1,9 @@
 /*****************************************************************//**
  * \file   lab_Circle_Colour.cpp
  * \brief  class Circle, Colour, CC for multiple inheritance
- *		     one-line default and overloaded constructor
+ *	   one-line default and overloaded constructor
  * 
- * \author 1879700
+ * \author Xuhua Huang
  * \date   November 2020
  *********************************************************************/
 
