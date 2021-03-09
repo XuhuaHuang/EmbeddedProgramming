@@ -75,18 +75,18 @@ int main(void)
 	// test case 1 - default constructor
 	CC ccobj1;
 	cout << "\nTest case 1 with default constructor." << endl
-		 << "An object called \"ccobj1\" is created: " << endl
-		 << "\tArea: " << ccobj1.getArea() << endl
-		 << "\tLine colour: " << ccobj1.getLineColour() << endl
-		 << "\tFill colour: " << ccobj1.getFillColour() << endl;
+	     << "An object called \"ccobj1\" is created: " << endl
+	     << "\tArea: " << ccobj1.getArea() << endl
+	     << "\tLine colour: " << ccobj1.getLineColour() << endl
+	     << "\tFill colour: " << ccobj1.getFillColour() << endl;
 
 	// test case 2 - overload constructor
 	CC ccobj2(2, "red"); // (newRadius, customColour)
 	cout << "\nTest case 2 with overloaded constructor." << endl
-		 << "An object called \"ccobj2\" is created: " << endl
-		 << "\tArea: " << ccobj2.getArea() << endl
-		 << "\tLine colour: " << ccobj2.getLineColour() << endl
-		 << "\tFill colour: " << ccobj2.getFillColour() << endl;
+	     << "An object called \"ccobj2\" is created: " << endl
+	     << "\tArea: " << ccobj2.getArea() << endl
+	     << "\tLine colour: " << ccobj2.getLineColour() << endl
+	     << "\tFill colour: " << ccobj2.getFillColour() << endl;
 
 	return 0;
 }
