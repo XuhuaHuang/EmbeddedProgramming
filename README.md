@@ -10,7 +10,7 @@ Heritage College, Gatineau, Quebec, Canada
 **C++, Rust, Java, and Python**  
 
 ## Message
-Directory *"Fun"* contains all code when self learning other concepts in all mentioned languages.  
+> Directory *"Fun"* contains all code when self learning other concepts in all mentioned languages.  
   
 Code written in Rust is placed under *"Fun/Rust"* directory.  
 Code written in Java is placed under *"Fun/Java"* directory.  
