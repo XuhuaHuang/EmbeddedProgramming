@@ -1,0 +1,5 @@
+Script added to %PATH%:
+C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\Scripts
+
+Path for openpyxl:
+{%USER}\AppData\Roaming\Python\Python37\site-packages\openpyxl
