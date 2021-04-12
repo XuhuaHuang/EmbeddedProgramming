@@ -1,7 +1,7 @@
 /*****************************************************************//**
  * \file   OverloadedNewDelete.cpp
  * \brief  Overloading new and delete operator
- *			Memory allocation related with debug monitoring
+ *	   Memory allocation related with debug monitoring
  *
  * \author Xuhua Huang
  * \date   April 2021
