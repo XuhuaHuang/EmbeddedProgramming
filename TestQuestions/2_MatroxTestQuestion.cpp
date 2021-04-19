@@ -54,5 +54,23 @@ int main()
 	MyStr.Reverse();
 	DisplayString(MyStr);
 	
+	/* MEMORY ALLIGNMENT */
+	float a = 0.001;
+	float b = 0.003;
+	float c, * pa, * pb;
+	float* p;
+
+	pa = &a;
+	*pa = 2 * a;
+	pb = &b;
+	c = 4 * (*pb - *pa);
+	p = pb + 1;
+
+	cout << a << " " << b << " " << c << endl
+		 << (int)&a << " " << (int)&b << " " << (int)&c << endl
+		 << (int)pa << " " << *pa << " " << (int)&(*pa) << endl
+		 << (int)pb << " " << *pb << endl;
+	// 	 << (int)p << " " << (int)*p << endl; // undefined behaviour
+	
 	return 0;
 }
