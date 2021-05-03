@@ -24,7 +24,7 @@ class Pet:
         self.name = name
         self.age = age
     
-    # not necceary to have set and get function
+    # not necessary to have set and get function
     def set_name(self,user_name):
         self.name = user_name
     def get_name(self):
@@ -39,7 +39,7 @@ class Pet:
         print(f"Your pet of name {self.name} is {self.age} years old.")
 
 
-print("An object of class \"Pet\" is created named \"myPet\", aged 5." 
+print("An object of class \"Pet\" is created named \"myPet\", aged 5.")
 # note: syntax of creating an object is different
 myPet = Pet("pet name", 5)  # creating object, name = pet name, age = 5
 
