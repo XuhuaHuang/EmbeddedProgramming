@@ -38,8 +38,8 @@ class Pet:
         return self.age
 
     # other function
-    def print(self):
-        self.print(f"Your pet of name {self.name} is {self.age} years old.")
+    def print_pet(self):
+        print(f"Your pet of name {self.name} is {self.age} years old.")
 
 
 def main():
@@ -56,7 +56,7 @@ def main():
     print(f"Accessing variable \"age\" without get() function: {myPet.age}.")
 
     print("\nWith print function inside of \"Pet\" class:")
-    myPet.print()
+    myPet.print_pet()
 
     # change properties of an object
     print('''
@@ -67,7 +67,7 @@ def main():
     ''')
     myPet.name = "new name"
     myPet.age = 8
-    myPet.print()
+    myPet.print_pet()
 
     print("Deleting object \"myPet\"")
     del myPet  # object is deleted
