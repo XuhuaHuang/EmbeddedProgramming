@@ -43,34 +43,34 @@ class Pet:
 
 
 def main():
-    print("An object of class \"Pet\" is created named \"myPet\", aged 5.")
+    print("An object of class \"Pet\" is created named \"my_pet\", aged 5.")
     # note: syntax of creating an object is different
-    myPet = Pet("pet name", 5)  # creating object, name = pet name, age = 5
+    my_pet = Pet("pet name", 5)  # creating object, name = pet name, age = 5
 
     print("\nPrinting variables inside of \"Pet\" class with get() functions: ")
-    print(myPet.get_name())
-    print(myPet.get_age())
+    print(my_pet.get_name())
+    print(my_pet.get_age())
 
     print("\nVariables inside of \"Pet\" class can be accessed without get() functions in Python: ")
-    print(f"Accessing variable \"name\" without get() function: {myPet.name}.")
-    print(f"Accessing variable \"age\" without get() function: {myPet.age}.")
+    print(f"Accessing variable \"name\" without get() function: {my_pet.name}.")
+    print(f"Accessing variable \"age\" without get() function: {my_pet.age}.")
 
     print("\nWith print function inside of \"Pet\" class:")
-    myPet.print_pet()
+    my_pet.print_pet()
 
     # change properties of an object
     print('''
-    \nChanging properties of object \"myPet\":
+    \nChanging properties of object \"my_pet\":
     name changed to \"new name\"
     age changed to 8
     Properties will be verified with \"object.print() function
     ''')
-    myPet.name = "new name"
-    myPet.age = 8
-    myPet.print_pet()
+    my_pet.name = "new name"
+    my_pet.age = 8
+    my_pet.print_pet()
 
-    print("Deleting object \"myPet\"")
-    del myPet  # object is deleted
+    print("Deleting object \"my_pet\"")
+    del my_pet  # object is deleted
     print("Deleted.")
 
 
