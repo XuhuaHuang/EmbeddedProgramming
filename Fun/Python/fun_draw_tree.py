@@ -1,5 +1,6 @@
 from turtle import *
 
+
 def tree(plist, l, a, f):
     """plist is a list of pens
     l is length of the branch
@@ -9,13 +10,13 @@ def tree(plist, l, a, f):
     if l > 5:
         lst = []
         for p in plist:
-            p .forward(1)
+            p.forward(1)
             q = p.clone()
             p.left(a)
             q.right(a)
             lst.append(p)
             lst.append(q)
-        tree(lst, l*f, a, f)
+        tree(lst, l * f, a, f)
 
 
 def main():
@@ -24,7 +25,7 @@ def main():
     t.pensize(15)
     t.hideturtle()
     # FINISHED INITIALIZING
-    t.getscreen().tracer(30,0)
+    t.getscreen().tracer(30, 0)
     t.left(90)
     t.penup()
     t.goto(60, 60)
