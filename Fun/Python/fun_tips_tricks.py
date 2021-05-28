@@ -26,8 +26,7 @@ investment: int = 999_999_999
 print(investment)
 
 # open link with module 'webbrowser'
-import webbrowser
-
+# import webbrowser
 # webbrowser.open('https://www.google.ca')
 
 # concatenation strings without '+' operator
@@ -129,6 +128,7 @@ my_set = set(sorted_list)  # does not remove anything since no duplicated elemen
 
 # count number of elements with 'Counter' module
 from collections import Counter
+
 list = [10, 10, 10, 5, 5, 2, 9, 9, 9, 9, 9]
 print(Counter(list))  # automatically sorted with descending order of appeared times
 list_counter = Counter(list)
@@ -138,3 +138,17 @@ print(list_counter.most_common(1))  # returns a list of tuples
 list_of_string = ["Hello", "World", "from", "Python"]
 my_string = " ".join(list_of_string)
 print(my_string)
+
+# ternary conditional operator
+# typical usage:
+experience_in_years = 20
+if experience_in_years >= 15:
+    name = "Admin"
+else:
+    name = "Developer"
+
+print(name)  # admin
+
+experience_in_years = 30
+name = "Admin" if experience_in_years >= 35 else "Developer"
+print(name)  # Developer
