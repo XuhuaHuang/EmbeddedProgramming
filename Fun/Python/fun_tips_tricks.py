@@ -11,7 +11,7 @@ origin = 0, 0
 
 # print colored output
 # may be only available in console
-print("\033[91mHello, \033[96mworld")
+print("\033[91mHello, \033[94mworld\033[96m")  # red, blue, the rest of the output in green
 
 # raise a number to power
 print(5 ** 2)  # 25
@@ -98,6 +98,7 @@ print("Original list ID: " + str(id(languages)) + " " + \
 
 # deepcopy
 from copy import deepcopy
+
 tech = ['C', 'C++', 'Java', ['html', 'css']]
 learning = deepcopy(tech)
 print(id(tech) == id(learning))  # false
@@ -109,3 +110,31 @@ print(id(tech[-1]) == id(learning[-1]))  # false
 beginning = [1, 2, 3]
 end = [4, 5, 6]
 print(beginning + end)
+
+# globals() method
+# returns a dictionary of the current 'global' symbol table
+print("Current global exposures: " + str(globals()))
+
+# inline assignment for list
+squares = [i ** 2 for i in range(10)]
+print(squares)
+
+# sort data
+unordered_list = [2, 3, 5, 1, 4, 8, 6, 7]
+sorted_list = sorted(unordered_list, reverse=True)
+print(sorted_list)
+
+# set() returns an unique element from a list by removing duplicated elements
+my_set = set(sorted_list)  # does not remove anything since no duplicated element
+
+# count number of elements with 'Counter' module
+from collections import Counter
+list = [10, 10, 10, 5, 5, 2, 9, 9, 9, 9, 9]
+print(Counter(list))  # automatically sorted with descending order of appeared times
+list_counter = Counter(list)
+print(list_counter.most_common(1))  # returns a list of tuples
+
+# concatenate strings with .join() method
+list_of_string = ["Hello", "World", "from", "Python"]
+my_string = " ".join(list_of_string)
+print(my_string)
