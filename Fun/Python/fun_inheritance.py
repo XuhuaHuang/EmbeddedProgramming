@@ -10,12 +10,13 @@ class Animal:
         return "I am an unknown animal"
 
 
-class Dog(Animal):  # Dog inherits from Animal here (all methods as well)
-    def says(self):  # Called instead of Animal says method
-        return "I am a dog named {0}".format(self.name)
+def something_dogs_do():
+    return "Be loyal"
 
-    def something_dogs_do(self):
-        return "Be loyal"
+
+class Dog(Animal):  # dog inherits from Animal here (all methods as well)
+    def says(self):  # called instead of Animal says method
+        return "I am a dog named {0}".format(self.name)
 
 
 def main():
@@ -25,7 +26,7 @@ def main():
     print(formless.says())  # "I am an unknown animal"
     # Calls Dog says method
     print(rover.says())  # "I am a dog named Rover"
-    print(rover.something_dogs_do())  # Be royal
+    print(something_dogs_do())  # Be royal
     print(rover.get_legs())  # Calls get_legs method from animal class
 
 
