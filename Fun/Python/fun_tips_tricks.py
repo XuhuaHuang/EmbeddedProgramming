@@ -152,3 +152,83 @@ print(name)  # admin
 experience_in_years = 30
 name = "Admin" if experience_in_years >= 35 else "Developer"
 print(name)  # Developer
+
+# using else in a loop
+pets = ['dog', 'dog', 'cat', 'bird', 'chicken', 'dog']
+if 'cat' in pets:
+    print("cat found in the list 'pets'")  # option 1
+
+# option 2
+cat_found = False
+for pet in pets:
+    print(pet, end=" ")  # print with a spacer; do something with each element if needed
+    if pet == 'cat':
+        cat_found = True  # could count elements or perform other operations
+        break
+
+if cat_found:  # cat_found == True
+    print("cat found in the list 'pets'")  # option 2
+
+pets.remove('cat')
+for pet in pets:
+    print(pet, end=" ")
+    if pet == 'cat':
+        break
+
+else:  # no break -- option 3
+    print()
+    print("no cat found in the list 'pets'")
+
+
+# unpack operator
+def move_to_position(x: int, y: int, z: int):
+    print(f"[fn]move_to_position\nMoving cursor to ({x}, {y}, {z})")
+
+
+pos = [5, 10, 15]
+move_to_position(*pos)
+print(pos)
+
+# complex conditional
+experience_in_years = 20
+age = 40
+
+admin_condition = [
+    age >= 35,
+    experience_in_years >= 20
+]
+
+if any(admin_condition):
+    print("You are now an admin")  # expecting admin output
+
+# .split() method
+# split a string to multiple variables
+full_name = "Xuhua Huang"
+first_name, last_name = full_name.split()
+print(f"First Name: {first_name} Last Name: {last_name}")
+
+data = "1 2 3"
+data = [int(d) for d in data.split()]
+print(data)
+# similarly, get data from console separated with spaces
+first_name, last_name = input("Please enter your first name and last name separated by a space: ").split()
+print(f"You entered:\nFirst Name: {first_name} Last Name: {last_name}")
+
+# flatten a 2D list
+pairs = [[5, 10], [15, 20], [25, 30, 35, 40]]
+
+flat = []
+'''
+for pair in pairs:
+    for item in pair:
+        flat.append(item)
+
+print(flat)
+'''
+
+flat_list = [item for pair in pairs for item in pair]
+print(flat_list)
+# notice important sections:
+# for pair in pairs
+# for item in pair
+# retrieve pair first, then item in each pair
