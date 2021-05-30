@@ -232,3 +232,48 @@ print(flat_list)
 # for pair in pairs
 # for item in pair
 # retrieve pair first, then item in each pair
+
+# use a list to contain conditions to compare
+current_weather = 'rainy'
+if current_weather in ['rainy', 'snowy', 'stormy']:
+    print("Event cancelled")
+    event_cancelled = True
+
+# do-while loop equivalent in Python
+'''
+while True:
+    print("Do what you want")
+    # determine condition
+    # check condition
+    if condition == True:
+        break
+'''
+while True:
+    print('''
+    1. Press key 1 to play the game
+    2. Press key 2 to resume from where you left
+    3. Press key 3 to see high scores record
+    4. Press key 4 to quit the game''')
+    if input() == '4':
+        break
+
+
+# invoke function after current function finishes executing
+def done():
+    print("Done")
+
+
+# sleep() with time module
+import time
+
+
+def do_things(func):
+    print("Doing things...")
+    time.sleep(8)
+    func()
+
+
+# invoke enumerate() on lists
+# previously, pets = ['dog', 'dog', 'cat', 'bird', 'chicken', 'dog']
+for index, pet in enumerate(pets):
+    print(f"Index of the pet: {index} Type: {pet}")
