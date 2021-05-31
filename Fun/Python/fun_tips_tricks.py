@@ -63,6 +63,7 @@ print(id(data_dict))
 another_dict = data_dict
 print("Original data id: " + str(id(data_dict)))  # call str() method to concatenate
 print("Alias data id: " + str(id(another_dict)))
+
 another_dict["API_User"] = 25
 print("Modified alias data: " + another_dict.__str__())  # __str__() returns the string representation
 print("Modified alias data id: " + str(id(another_dict)))
@@ -74,7 +75,7 @@ def replace_list(data):
 
 
 def replace_list_content(data):
-    data[:] = ['new']
+    data[:] = ["new"]
 
 
 languages = ['C', 'C++', 'Java', 'Rust', 'Python']
@@ -270,10 +271,75 @@ import time
 def do_things(func):
     print("Doing things...")
     time.sleep(8)
-    func()
+    func()  # invoke callback function
 
 
 # invoke enumerate() on lists
 # previously, pets = ['dog', 'dog', 'cat', 'bird', 'chicken', 'dog']
 for index, pet in enumerate(pets):
     print(f"Index of the pet: {index} Type: {pet}")
+
+
+# updated on May 31, 2021
+# wrapping a primitive to change within function
+class Container:
+    def __init__(self, data):
+        self.data = data
+
+
+def calculate(input):
+    input.data **= 5
+
+
+container = Container(5)  # initialize a container of int 5
+calculate(container)  # 5 ** 5
+print(container.data)
+
+# compare identity with 'is'
+# compare whether two are the same objects, not values
+c1 = Container(5)
+c2 = Container(5)
+print(c1 == c2)  # True
+print(id(c1), id(c2))
+# print(id(c1) == id(c2))  # False
+print(c1 is c2)  # better approach; False
+
+
+# add a method dynamically
+def __eq__(self, other):
+    return self.data == other.data
+
+
+Container.__eq__ = __eq__
+
+print(Container.__eq__)
+
+# infinite number
+import math
+
+print(math.inf)
+inf = math.inf
+print(inf, inf - 1)
+
+
+# custom type iterator with iter
+class Node:
+    def __init__(self, data, next_node=None):
+        self.data = data
+        self.next = next_node
+
+
+class LinkedList:
+    def __init__(self, start):
+        self.start = start
+
+    def __iter__(self):
+        node = self.start
+        while node:
+            yield node
+            node = node.next
+
+
+linked_list = LinkedList(Node(5, Node(10, Node(15, Node(20)))))
+for node in linked_list:
+    print(node.data)
