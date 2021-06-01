@@ -57,6 +57,17 @@ class Namespace(object):
         else:
             raise Exception("Cannot instantiate a virtual Namespace again")
 
+    def __call__(self, *args, **kwargs):
+        """
+        Overriding the __call__ function
+        makes the instance callable.
+        """
+        # fetching the function to be invoked from the virtual namespace
+        # through the arguments.
+        fn = Namespace.get_instance().get(self.fn, *args)
+        if not fn:
+            raise Exception("No matching function found.")
+
     @staticmethod
     def get_instance():
         if Namespace.__instance is None:
@@ -106,18 +117,6 @@ def overload(fn) -> Function:
     and returns a callable object of type Function
     """
     return Namespace.get_instance().register(fn)
-
-
-def __call__(self, *args, **kwargs):
-    """
-    Overriding the __call__ function
-    makes the instance callable.
-    """
-    # fetching the function to be invoked from the virtual namespace
-    # through the arguments.
-    fn = Namespace.get_instance().get(self.fn, *args)
-    if not fn:
-        raise Exception("No matching function found.")
 
 
 @overload

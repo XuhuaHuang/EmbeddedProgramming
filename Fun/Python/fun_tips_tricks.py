@@ -5,6 +5,8 @@
 # Created on: May 27, 2021
 
 # in line multiple assignment
+from typing import List, Any, Union
+
 x, y = 1, 1
 origin = 0, 0
 
@@ -129,9 +131,9 @@ my_set = set(sorted_list)  # does not remove anything since no duplicated elemen
 # count number of elements with 'Counter' module
 from collections import Counter
 
-list = [10, 10, 10, 5, 5, 2, 9, 9, 9, 9, 9]
-print(Counter(list))  # automatically sorted with descending order of appeared times
-list_counter = Counter(list)
+random_int_list = [10, 10, 10, 5, 5, 2, 9, 9, 9, 9, 9]
+print(Counter(random_int_list))  # automatically sorted with descending order of appeared times
+list_counter = Counter(random_int_list)
 print(list_counter.most_common(1))  # returns a list of tuples
 
 # concatenate strings with .join() method
@@ -343,3 +345,16 @@ class LinkedList:
 linked_list = LinkedList(Node(5, Node(10, Node(15, Node(20)))))
 for node in linked_list:
     print(node.data)
+
+# combine two lists into a list of lists
+names = ['Xuhua', 'Lanfeng']
+score = [100, 150]
+
+combined_names_score = list(zip(names, score))
+print(combined_names_score)
+
+import pandas as pd
+
+data_dict = dict(combined_names_score)
+data_frame = pd.DataFrame(data_dict)
+print(data_frame)
