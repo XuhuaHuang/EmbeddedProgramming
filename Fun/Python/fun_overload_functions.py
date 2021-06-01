@@ -1,4 +1,4 @@
-# Topic: Tips and tricks when programming in Python
+# Topic: Overloading built-in methods
 # Author: Xuhua Huang
 #
 # Last updated: May  31, 2021
