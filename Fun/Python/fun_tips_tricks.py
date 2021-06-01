@@ -3,7 +3,6 @@
 #
 # Last updated: May  27, 2021
 # Created on: May 27, 2021
-#
 
 # in line multiple assignment
 x, y = 1, 1
@@ -199,7 +198,8 @@ admin_condition = [
     experience_in_years >= 20
 ]
 
-if any(admin_condition):
+if any(admin_condition):  # any => 'or' operator
+    # if all(admin_condition):  # all => 'and' operator
     print("You are now an admin")  # expecting admin output
 
 # .split() method
