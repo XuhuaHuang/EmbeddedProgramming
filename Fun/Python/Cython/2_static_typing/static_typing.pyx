@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 '''
 Pure Python code
 def f(x):
@@ -31,5 +33,16 @@ def integrate_f(double a, double b, int N):
 
 
 ''' Declare a C-style function '''
-cdef double f(double x) except? -2:
+cdef double f(double x) except ? -2:
   return x ** 2 - x
+
+
+''' Fibonacci series '''
+cpdef fib(int n):
+    ''' Print Fibonacci series up to n'''
+    a, b = 0, 1
+    while b < n:
+        print(b, end=" ")
+        a, b = b, a + b
+
+    print()
