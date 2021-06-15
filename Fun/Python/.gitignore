@@ -5,6 +5,10 @@
 
 .idea/
 
+# Cython related files
+*.pyd
+*.c
+
 # User-specific files
 *.rsuser
 *.suo
