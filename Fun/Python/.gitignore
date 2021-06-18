@@ -8,6 +8,8 @@
 # Cython related files
 *.pyd
 *.c
+*.project
+*.pydevproject
 
 # User-specific files
 *.rsuser
