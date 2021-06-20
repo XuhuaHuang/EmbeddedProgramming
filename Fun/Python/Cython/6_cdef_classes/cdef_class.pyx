@@ -1,11 +1,11 @@
 from libc.math cimport sin
 from sin_of_square cimport Function, SinOfSquareFn
+from numpy.polynomial.tests.test_classes import classes
 
 '''
 As expected, Cython supports pure Python class definitions
 Example is provided as listed:
 '''
-from numpy.polynomial.tests.test_classes import classes
 
 class MathFunction(object):
     def __init__(self, name, operator):
