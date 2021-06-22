@@ -1,5 +1,5 @@
 from libc.math cimport sin
-from sin_of_square cimport Function, SinOfSquareFn
+from cdef_class cimport Function, SinOfSquareFn
 from numpy.polynomial.tests.test_classes import classes
 
 '''
