@@ -34,6 +34,11 @@ cdef char* c_call_returning_c_string():
     strcpy(c_string, hello_world)
     return c_string
 
+'''
+C function call takes a pointer to a character array and
+a pointer to a Py_ssize_t and 
+manipulate them directly
+'''
 cdef void get_c_string(char** c_string_ptr, Py_ssize_t* length):
     c_string_ptr[0] = <char*> malloc((n + 1) * sizeof(char))
     if not c_string_ptr[0]:
