@@ -11,7 +11,6 @@ June 22, 2021
 
 from libc.stdlib cimport malloc
 from libc.string cimport strcpy, strlen
-from Cython.Includes.posix import strings
 
 # Python string prefixes:
 # b'byte' - byte strings
@@ -27,7 +26,7 @@ cdef Py_ssize_t n = strlen(hello_world)
 '''
 C function call with return type of character array
 '''
-cdef c_call_returning_c_string():
+cdef char* c_call_returning_c_string():
     cdef char* c_string = <char*>malloc((n + 1) * sizeof(char))
     if not c_string:
         raise MemoryError('Array Memory Allocation Failed')
@@ -37,8 +36,8 @@ cdef c_call_returning_c_string():
 
 cdef void get_c_string(char** c_string_ptr, Py_ssize_t* length):
     c_string_ptr[0] = <char*> malloc((n + 1) * sizeof(char))
-    if not c_string[0]:
+    if not c_string_ptr[0]:
         raise MemoryError('Array Memory Allocation Failed')
     
-    strcopy(c_string_ptr[0], hello_world)
+    strcpy(c_string_ptr[0], hello_world)
     length[0] = n
