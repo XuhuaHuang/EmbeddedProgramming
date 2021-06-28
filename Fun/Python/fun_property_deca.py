@@ -31,15 +31,21 @@ class Employee:
         self.last_name = None
         print('Done Deleting.')
 
+    def apply_raise(self, raise_index: int = wage_raise_index):
+        self.salary *= raise_index
+
 
 """ Test Cases for Employee class """
-
-
 def main():
     emp_xuhua = Employee('Xuhua', 'Huang', 60000)
+    ''' Test constructor '''
     print(emp_xuhua.first_name)  # Xuhua
     print(emp_xuhua.last_name)  # Huang
     print(emp_xuhua.fullname)  # Xuhua Huang
+
+    ''' Apply raise and verify '''
+    emp_xuhua.apply_raise()
+    print(emp_xuhua.salary)
 
     del emp_xuhua.fullname  # Delete name and set to None
 
