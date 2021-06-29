@@ -12,12 +12,10 @@ import json
 
 
 def main():
-    print("Hello, world")
-
-    '''
+    """
     retrieve response from stack overflow API website
     get data and sort by activity
-    '''
+    """
     response = requests.get('https://api.stackexchange.com//2.2/posts?order=desc&sort=activity&site=stackoverflow')
     print(response)  # print json file size, expecting 200
     print(response.json()['items'])  # call json() method to print data in the output terminal
