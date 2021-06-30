@@ -1,8 +1,14 @@
 # Topic: regular expression in Python
 # search for specific pattern in text
 #
+# finditer(): returns value and object
+# findall(): only return matched a list of matched string
+# match(): does not return iterable, can be printed out directly
+#          case sensitive, returns None when pattern not found
+# re.IGNORECASE flag, a.k.a re.I
+#
 # Author: Xuhua Huang
-# Last updated: Jun 30, 2021
+# Last updated: 1:22 PM Jun 30, 2021
 # Created on: Jun 30, 2021
 
 import re
@@ -33,6 +39,12 @@ Mr Smith
 Ms Davis
 Mrs. Robinson
 Mr. T
+'''
+
+email_addresses = '''
+xuhua.huang@university.edu
+xuhua.huang@gmail.com
+xuhua.huang@brainboxai.com
 '''
 
 def main():
@@ -110,6 +122,18 @@ def main():
     for match in matches_quantifier:
         print(match)
     print(f"Two match cases yield the same result: {matches_quantifier == matches}")
+
+    """
+    Exercise: look for the following email addresses
+    xuhua.huang@university.edu
+    xuhua.huang@gmail.com
+    xuhua.huang@brainboxai.com
+    """
+    email_pattern = re.compile(r'[a-zA-Z.]+@[a-zA-Z]+\.(com|edu)')
+    email_matches = email_pattern.finditer(email_addresses)
+    print("\nPrinting all email addresses end with \".com\" and \".edu\"")
+    for email_match in email_matches:
+        print(email_match)
 
 
 if __name__ == '__main__':
