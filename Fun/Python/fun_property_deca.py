@@ -6,6 +6,7 @@
 
 import datetime
 
+
 class Employee:
     wage_raise_index = 1.05
 
