@@ -7,7 +7,7 @@
 
 import math
 import typing
-from typing import NoReturn, Optional
+from typing import NoReturn, Optional, NewType
 
 """ I can finally use my favorite trailing return type in Python! """
 
@@ -20,8 +20,6 @@ def greet_user(name: str) -> str:
 Special typing primitives
 Can be used as types in annotations and do not support [] operator
 """
-
-
 def halt_program() -> NoReturn:
     raise SystemExit(0)
 
@@ -48,6 +46,19 @@ class Vector:
 def rescale_vec(vec: Vector, scalar: float = 1.00) -> None:
     vec.change_scalar(scalar)
     vec.apply_scalar()
+
+
+""" Creating new type aliases """
+UserId = NewType('UserId', int)
+
+# Fails at runtime and does not perform typecheck
+# can not inherit from built0in types
+class AdminUserId(UserId):
+    pass
+
+
+# create a new type based on a derived NewType:
+AdminUserId = NewType('AdminUserId', UserId)
 
 
 def main():
