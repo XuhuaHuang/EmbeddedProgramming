@@ -13,8 +13,6 @@ pytest will run all all files of the form of the following:
 "test_*.py" or "*_test.py" in the current directory
 following generally test discovery rules
 """
-
-
 def force_crash():
     raise SystemExit(1)
 
@@ -74,8 +72,6 @@ PS %Directory%> python -m pytest -q test_02_multiple_tests.py::test_force_crash
 PS %Directory%> python -m pytest -q test_02_multiple_tests.py::TestClass::test_one
 .                                                                                                                [100%]
 """
-
-
 @pytest.mark.custom
 def test_mark():
     print('This is a customized pytest mark to run')

@@ -9,8 +9,10 @@
 import pytest
 import unittest
 
+
 def simple_fn():
     return 3
+
 
 def test_simple_fn():
     assert simple_fn() == 4  # this will throw an AssertionError
@@ -22,6 +24,7 @@ def test_simple_fn():
 def test_assert_msg():
     assert simple_fn() == 3, "The assertion is true, the function returns value 3"
 
+
 """
 ================================================= test session starts =================================================
 platform win32 -- Python 3.9.6, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
@@ -32,8 +35,6 @@ test_03_assertion.py .                                                          
 
 ================================================== 1 passed in 0.06s ==================================================
 """
-
-
 # Assertion with expected exceptions
 def test_zerp_divisiob_err():
     with pytest.raises(ZeroDivisionError):
@@ -54,8 +55,8 @@ def test_recursion_depth():
 
 # Assertion with expected warnings
 # this test is run with the following command:
-# python -m pytest test_03_assertion.py::test_set_comparion
-def test_set_comparion():
+# python -m pytest test_03_assertion.py::test_set_comparison
+def test_set_comparison():
     assert set("1308") == set("1655")
 
 
