@@ -1,0 +1,2 @@
+To build extensions inside the same directory with setuptools, run the following command:
+python setup.py build_ext --inplace
