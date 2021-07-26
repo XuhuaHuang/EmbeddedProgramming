@@ -1,2 +1,0 @@
-Function called with arguments: [] at 2021-06-04 17:41:51.066753
-Function called with arguments: [] at 2021-06-04 17:41:59.801350
