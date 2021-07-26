@@ -1,13 +1,8 @@
 # Fun Directory  
 ## About  
-This directory contains code when self-learning concepts in various programming languages.
+This directory contains code when self-learning concepts in C++.  
+Code written in Java is also placed inside this directory temporarily.  
+Python and Rust code are migrated to independent repository.  
 
 ## Languages  
-*C++, Rust, Java, and Python*  
-
-## Message
-Code written in Rust is placed under *"Rust"* directory  
-Code written in Java is placed under *"Java"* directory  
-Code written in Pytho is placed under *"Python"* directory  
-  
-Xuhua Huang
+*C++, Java*
