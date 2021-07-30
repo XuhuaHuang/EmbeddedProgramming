@@ -4,9 +4,9 @@
 *
 * Contains:
 * default / overloaded constructors
-* funtion definitions
+* function definitions
 * 
-* Notice: ALL "cout" statements inside a function are appened
+* Notice: ALL "cout" statements inside a function are appended
 * after signature "[fn]" which stands for printing from function
 */
 
@@ -48,7 +48,7 @@ Account::Account(double initBalance)
 	else
 	{
 		cout << "\n[fn]Overloaded constructor \"Account::Account(double)\" is called with invalid initial balance." << endl;
-		cout << "[fn]Error message: Invalid. Current balance can not be set to a negative number. Plese try again." << endl;
+		cout << "[fn]Error message: Invalid. Current balance can not be set to a negative number. Please try again." << endl;
 		cout << "[fn]Current balance is automatically initialized to 0." << endl;
 		setBalance(0.0);
 	}
