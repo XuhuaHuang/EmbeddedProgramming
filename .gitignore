@@ -10,6 +10,11 @@
 *.userosscache
 *.sln.docstates
 
+# Visual Studio Project files
+*.vcxproj
+*.vcxproj.*
+*.sln
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 *.venv
