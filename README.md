@@ -10,8 +10,9 @@ Heritage College, Gatineau, Quebec, Canada
 
 ## Languages
 **C++, Java**  
+![An image for C++](./CPlusPlus_Logo.png "Blue C++ Logo")
 
 ## Message
 > Directory *"Fun"* contains all code when self learning other concepts in both C++ and Java.  
-  
+
 Code written in Java is placed under *"Fun/Java"* directory.  
