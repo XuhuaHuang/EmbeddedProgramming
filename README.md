@@ -10,7 +10,8 @@ Heritage College, Gatineau, Quebec, Canada
 
 ## Languages
 **C++, Java**  
-![An image for C++](./CPlusPlus_Logo.png =60x70 "Blue C++ Logo")
+  
+<img src="./CPlusPlus_Logo.png" alt="An image for C++" width="100"/>  
 
 ## Message
 > Directory *"Fun"* contains all code when self learning other concepts in both C++ and Java.  
