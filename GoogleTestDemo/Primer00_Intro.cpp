@@ -116,11 +116,11 @@ int* Queue::Dequeue() {
 		return nullptr;
 	}
 	else {
-		int* temp = &arr[front];
+		int* value = &arr[front];
 		std::cout << "Removing " << arr[front] << std::endl;
 		front = (front + 1) % capacity;
 		count--;
-		return temp;
+		return value;
 	}
 }
 
