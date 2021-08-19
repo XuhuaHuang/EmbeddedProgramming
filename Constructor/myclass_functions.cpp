@@ -1,5 +1,13 @@
+/*****************************************************************//**
+ * \file   myclass_functions.cpp
+ * \brief  contains function definitions
+ * 
+ * \author Xuhua Huang
+ * \date   March 2021
+ *********************************************************************/
+
 #include "myclass.h"
-// 1879700 Xuhua Huang
+
 using namespace std;
 
 // mytime class function
@@ -94,7 +102,6 @@ void mytime::setTime(int userHour, int userMinute) // overloaded function #1
 {
 	setHour(userHour);
 	setMinute(userMinute);
-	
 	setSecond(0); // to keep the variable from garbage variable
 	
 	return;
@@ -104,7 +111,6 @@ void mytime::setTime(int userHour, int userMinute) // overloaded function #1
 void mytime::setTime(int userHour) // overloaded function #2
 {
 	setHour(userHour);
-	
 	setMinute(0); // set default value 0 for testing
 	setSecond(0);
 	

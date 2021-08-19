@@ -1,18 +1,24 @@
+/*****************************************************************//**
+ * \file   myclassmain.cpp
+ * \brief  contains test cases for custom defined class
+ * 
+ * \author Xuhua Huang
+ * \date   March 2020
+ *********************************************************************/
+
 #include "myclass.h"
-// 1879700 Xuhua Huang
+
 using namespace std;
 
 int main (void)
 {
-	
 	int choice;
 	cout << "Which one is the case you want to test?" << endl;
 	cout << "\tEnter 1 for time.\n\tEnter 2 for rectangle.\n\tEnter 3 for point." << endl;
 	cin >> choice;
 	
-		if(choice ==1) // mytime main
+		if(choice ==1) // test case for 'mytime' class
 		{
-			
 			mytime userTime; // declaring an object
 		
 			int userHour;
@@ -33,7 +39,6 @@ int main (void)
 			userTime.printTime(); // this line should print the time user sets to
 			// asking the user to set section ends
 	
-	
 			// test cases and print function
 			userTime.setTime(12,34); // valid hour, minute; should call mytime::setTime(int , int)
 			userTime.printTime(); // 12:34:00
@@ -46,7 +51,6 @@ int main (void)
 
 			userTime.setTime(23); // valid hour; should call mytime::setTime(int userHour);
 			userTime.printTime(); // 23:00:00
-	
 	
 			// test cases of default and overloaded constructors
 			mytime time1;
@@ -61,17 +65,15 @@ int main (void)
 			mytime time4(12); // 12:00:00
 			time4.printTime();
 		}
-		
 		else if (choice == 2) // rectangle main
 		{
-			
 			rectangle object1;
 			cout << "A rectangle has been automatically created for you." << endl;
 			cout << "The length of the object is: " << object1.getlength() << endl; // prints 0
 			cout << "The width of the object is: " << object1.getwidth() << endl; // prints 0
 	
 			cout << "\nWould you like to initialize it yourself?" << endl;
-			cout << "Enter 1 fozr yes or anything else to quit." << endl;
+			cout << "Enter 1 for yes or anything else to quit." << endl;
 	
 			bool usercomfirm;
 			cin >> usercomfirm;
@@ -102,7 +104,6 @@ int main (void)
 			} // end else
 		
 		}
-		
 		else if (choice == 3) // point main
 		{
 			
@@ -110,12 +111,11 @@ int main (void)
 			cout << number1.getx() << endl;
 			cout << number1.gety() << endl;
 	
-			Point number2(10, 10); // calling the overlaoded constructor
+			Point number2(10, 10); // calling the overloaded constructor
 			cout << number2.getx() << endl;
 			cout << number2.gety() << endl;
 		}
-		
-		else // other
+		else // other inputs, considered as invalid
 			cout << "see ya. xD" << endl;
 
 	return 0;
