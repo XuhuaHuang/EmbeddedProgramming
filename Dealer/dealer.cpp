@@ -52,7 +52,7 @@ void Card::printCard() // print the card in format face of suit
 }
 
 // functions inside DeckofCard class are listed below:
-DeckofCard::DeckofCard() // default construtor for the DeckofCard class
+DeckofCard::DeckofCard() // default constructor for the DeckofCard class
 {
 	for (int suit = 0; suit < 4; suit++)
 	{
@@ -60,10 +60,6 @@ DeckofCard::DeckofCard() // default construtor for the DeckofCard class
 		{
 			Card newCard(face, suit);
 			deck.push_back(newCard); // vector<Card> deck "deck" is the name
-			/*
-			testOL.printCard();
-			cout << endl;
-			*/
 		}
 	}
 	setcurrentCard(0);
@@ -100,17 +96,14 @@ bool DeckofCard::moreCards()
 	
 	if (getcurrentCard() < 52)
 		ifMoreCard = true;
-	/*
-	else
-		ifMoreCard = false;
-	*/
+
 	return ifMoreCard;
 }
 
 void DeckofCard::printCards()
 {
 	vector<Card>::iterator itercard; // the content of the iterator is an object of type/class "Card"
-	// itercard is an iterator of "vector<Card> deck"
+	// 'itecard' is an iterator of "vector<Card> deck"
 
 	for (itercard = deck.begin(); itercard < deck.end(); itercard++)
 	{

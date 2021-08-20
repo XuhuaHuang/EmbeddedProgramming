@@ -11,13 +11,13 @@ int main(void)
 	* variable name: test1, test1v2, testOL
 	* line
 	* testing:
-	* 1) default & ovewrloaded construtor
+	* 1) default & overloaded constructor
 	* 2) set & get function
 	* 3) printCard function
 	* 4) allFaces & allSuits vectors
 	*/
 	Card part1test1;
-	cout << "Testing default construcor: \n\tFace:0\n\tSuit:0\n";
+	cout << "Testing default constructor: \n\tFace:0\n\tSuit:0\n";
 	cout << "The face is " << part1test1.getface() << endl << "The suit is " << part1test1.getsuit() << endl;
 	
 	part1test1.printCard();
@@ -55,7 +55,7 @@ int main(void)
 	DeckofCard part2test1;
 	part2test1.printCards();
 
-	cout << "\nShufflling...";
+	cout << "\nShuffling...";
 	part2test1.shuffle();
 	part2test1.printCards(); // verified shuffled
 
