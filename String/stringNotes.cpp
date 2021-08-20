@@ -1,13 +1,20 @@
+/*****************************************************************//**
+ * \file   stringNotes.cpp
+ * \brief  notes on strings in C++
+ * 
+ * \author Xuhua Huang
+ * \date   February 2021
+ *********************************************************************/
+
 #include <iostream>
 #include <string>
+
 using namespace std;
-// Xuhua Huang 1879700
 
 int main(void)
 {
-	
 	string theBird; // declare a variable of data type string
-	theBird = "Bluejay"; // initialize the string variable theBird
+	theBird = "Blue-jay"; // initialize the string variable theBird
 	cout << theBird << endl;
 	string action = "fly";
 	string sentence = theBird + " can " + action; // concatenate in string
@@ -24,7 +31,7 @@ int main(void)
 	string name1 = "Bob"; 
 	string name2 = "Alex";
 	
-	if (name1 < name2) // check alphabectical order
+	if (name1 < name2) // check alphabetical order
 		cout << "Bob is before Alex." << endl;
 	else
 		cout << "Alex is before Bob." << endl;
@@ -39,8 +46,8 @@ int main(void)
 	
 	size_t x = glue.find('i',0); // return the index of the character i, starting at position  k0
 	// find function only looks for one character and finds the first character encountered
-	// size_t is the string class equvalent of int
-	cout << "The charater \"i\" is found akt positon: " << x << endl;
+	// size_t is the string class equivalent of int
+	cout << "The character \"i\" is found at position: " << x << endl;
 	
 	
 	string hello = "hello";
@@ -59,7 +66,6 @@ int main(void)
 	{
 		cout << *iterstr;
 	}
-	
 	
 	return 0;
 }

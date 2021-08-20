@@ -1,13 +1,18 @@
+/*****************************************************************//**
+ * \file   stringNotes.cpp
+ * \brief  lab on strings in C++
+ *
+ * \author Xuhua Huang
+ * \date   February 2021
+ *********************************************************************/
+
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-// 1879700 Xuhua Huang
-
 int main (void)
 {
-	
 	// requirement 1
 	string userInput1;
 	cout << "Please enter your favourite idiom:" << endl;
@@ -19,7 +24,7 @@ int main (void)
 	cin.ignore() >> dogName;
 	
 	string dogBreed;
-	cout << "Do you mind telling ue its breed?" << endl;
+	cout << "Do you mind telling us its breed?" << endl;
 	cin.ignore() >> dogBreed;
 	
 	cout << "Great! " + dogName + " is of breed " + dogBreed << endl;
@@ -45,9 +50,7 @@ int main (void)
 	int strlength =  userInput2.length();
 	cout << "\nThe size of the word you just entered is: " << strlength << endl; // for testing purpose
 	
-	int halflength = strlength/2;
-	//cout << halflength << endl;
-	
+	int halflength = strlength/2;	
 	if(halflength%2 == 1)
 		userInput2.insert(halflength+1, 1, 'q');
 	else if(halflength%2 == 0)
@@ -66,7 +69,7 @@ int main (void)
 	string alpha = "abcdefghijklmnopqrstuvwxyz";
 	cout << "The original alphabetical string is: " << alpha << endl;
 	
-	string::iterator iteralpha; // degine an iterator object
+	string::iterator iteralpha; // define an iterator object
 	
 	for(int x = 0; x <= (int)alpha.length(); x++) // forcing it to of type int
 	{
@@ -117,7 +120,6 @@ int main (void)
 		else // fruit2 < fruit1
 			cout << fruit1 << " comes least alphabetically." << endl;
 	}
-	
 	
 	return 0;
 }
