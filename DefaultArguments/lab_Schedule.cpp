@@ -45,7 +45,7 @@ int main(void)
 	// test case 1
 	// pass setInfo() both courseName and studentID
 	Schedule fall2020;
-	fall2020.setInfo("Embeded Programming", 1879700);
+	fall2020.setInfo("Embedded Programming", 1879700);
 	fall2020.printSchedule();
 
 	// test case 2
