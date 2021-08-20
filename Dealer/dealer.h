@@ -38,7 +38,6 @@ public:
 
 	// print card function prototype 
 	void printCard();
-
 };
 
 class DeckofCard
@@ -71,5 +70,4 @@ private:
 public:
 	void addCard(Card cardToAdd);
 	void printHandCards(void);
-
 };

@@ -38,7 +38,6 @@ public:
 
 	// print card function prototype 
 	void printCard();
-
 };
 
 class DeckofCard
@@ -71,7 +70,6 @@ private:
 public:
 	void addCard(Card cardToAdd);
 	void printHandCards(void);
-
 };
 
 int main(void)
@@ -81,13 +79,13 @@ int main(void)
 	* variable name: test1, test1v2, testOL
 	* line
 	* testing:
-	* 1) default & ovewrloaded construtor
+	* 1) default & overloaded constructor
 	* 2) set & get function
 	* 3) printCard function
 	* 4) allFaces & allSuits vectors
 	*/
 	Card part1test1;
-	cout << "Testing default construcor: \n\tFace:0\n\tSuit:0\n";
+	cout << "Testing default constructor: \n\tFace:0\n\tSuit:0\n";
 	cout << "The face is " << part1test1.getface() << endl << "The suit is " << part1test1.getsuit() << endl;
 	
 	part1test1.printCard();
@@ -125,7 +123,7 @@ int main(void)
 	DeckofCard part2test1;
 	part2test1.printCards();
 
-	cout << "\nShufflling...";
+	cout << "\nShuffling...";
 	part2test1.shuffle();
 	part2test1.printCards(); // verified shuffled
 
@@ -218,7 +216,7 @@ void Card::printCard() // print the card in format face of suit
 }
 
 // functions inside DeckofCard class are listed below:
-DeckofCard::DeckofCard() // default construtor for the DeckofCard class
+DeckofCard::DeckofCard() // default constructor for the DeckofCard class
 {
 	for (int suit = 0; suit < 4; suit++)
 	{
@@ -226,10 +224,6 @@ DeckofCard::DeckofCard() // default construtor for the DeckofCard class
 		{
 			Card newCard(face, suit);
 			deck.push_back(newCard); // vector<Card> deck "deck" is the name
-			/*
-			testOL.printCard();
-			cout << endl;
-			*/
 		}
 	}
 	setcurrentCard(0);
@@ -266,17 +260,14 @@ bool DeckofCard::moreCards()
 	
 	if (getcurrentCard() < 52)
 		ifMoreCard = true;
-	/*
-	else
-		ifMoreCard = false;
-	*/
+
 	return ifMoreCard;
 }
 
 void DeckofCard::printCards()
 {
 	vector<Card>::iterator itercard; // the content of the iterator is an object of type/class "Card"
-	// itercard is an iterator of "vector<Card> deck"
+	// 'itercard' is an iterator of "vector<Card> deck"
 
 	for (itercard = deck.begin(); itercard < deck.end(); itercard++)
 	{
