@@ -19,7 +19,7 @@ private:
 public:
 
 	// set and functions
-	void setHour(int userHour); // definiton of set functions follow with validation
+	void setHour(int userHour); // definition of set functions follow with validation
 	int getHour() { return hour; }
 	
 	void setMinute(int userMinute);
