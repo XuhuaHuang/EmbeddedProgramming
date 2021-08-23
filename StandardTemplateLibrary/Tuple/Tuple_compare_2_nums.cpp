@@ -57,10 +57,10 @@ int main(void)
     * function argument: int, int
     * 
     * return type: tuple<int, int>
-    * tie() function groupes int min and max together to be a tuple
+    * tie() function groups int min and max together to be a tuple
     * to receive result of the function
     * 
-    * after variables in tuples are assgined value
+    * after variables in tuples are assigned value
     * variables can be accessed individually 
     */
 
