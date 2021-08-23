@@ -25,7 +25,7 @@ Custom sum(Custom num1, Custom num2) // when calling: sum<Custom>(num1, num2)
 template<class Custom, int N>
 Custom fixedMultiply(Custom val) // when calling: fixedMultiply<Custom, N>(val)
 {
-	cout << val << " is being multipled with " << N << endl;
+	cout << val << " is being multiplied with " << N << endl;
 	return val * N;
 }
 
