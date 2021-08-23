@@ -30,6 +30,8 @@ int main(void)
 		 << "Second element: " << get<1>(tuple1) << endl
 		 << "\n\"tuple1\" has "
 		 << std::tuple_size<decltype(tuple1)>::value << " elements: ";
+	
+	// retrieve the print the elements in the terminal
 	std::tuple_element<0, decltype(tuple1)>::type first = std::get<0>(tuple1);
 	std::tuple_element<1, decltype(tuple1)>::type second = std::get<1>(tuple1);
 	cout << first << " and " << second << endl;
