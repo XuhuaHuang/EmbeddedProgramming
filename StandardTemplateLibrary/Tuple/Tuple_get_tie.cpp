@@ -6,8 +6,8 @@
 using namespace std;
 
 // tuple<double, char, string> is the return type
-// getStudent is the name of the function with argument 'ID'
-tuple<double, char, string> getStudent(int ID)
+// getStudentByID is the name of the function with argument 'ID'
+tuple<double, char, string> getStudentByID(int ID)
 {
 	switch (ID)
 	{
@@ -28,10 +28,10 @@ tuple<double, char, string> getStudent(int ID)
 int main(void)
 {
 	// with 'auto'
-	auto student1 = getStudent(1);
+	auto student1 = getStudentByID(1);
 	// auto keyword
 	// get<index>(tuple_name)
-	// student1 is the returned tuple of function getStudent(1)
+	// student1 is the returned tuple of function getStudentByID(1)
 	// tuple<double, char, string> (tuple_name)
 	// index<0>	 <1>   <2>
 
@@ -42,7 +42,7 @@ int main(void)
 
 	// with tie() function
 	double gpa2; char grade2; string name2;
-	tie(gpa2, grade2, name2) = getStudent(2);
+	tie(gpa2, grade2, name2) = getStudentByID(2);
 	// case2: return make_tuple(2.9, 'C', "Milhouse Van Houten");
 	// gpa2 = 2.9	grade2 = C	name2 = Milhouse Van Houten
 	// tie() function groups existed variable together to accept
