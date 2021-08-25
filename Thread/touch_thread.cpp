@@ -2,14 +2,14 @@
  * \file   touch_thread.cpp
  * \brief  contains usage for std::thread constructor w/ overloading
  *		   thread id and some other public member function
- * 
+ *
  * \author Xuhua Huang
  * \date   February 2021
  *********************************************************************/
 
-#include <iostream>
-#include <thread>
-#include <chrono>
+#include<iostream>
+#include<thread>
+#include<chrono>
 
 // function prototype
 void pause_thread(int);
@@ -45,7 +45,7 @@ int main(void)
 	std::thread th(is_main_thread); // custom thread "th" overloaded constructed
 									// explicit thread (Fn&& fn, Args&&... args);
 	th.join(); // join custom thread
-	
+
 	return 0;
 }
 
