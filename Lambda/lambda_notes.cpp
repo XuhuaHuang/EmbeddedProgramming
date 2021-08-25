@@ -4,11 +4,11 @@
  *
  * []() mutable throw() -> int
  * [] - capture bracket: [=] capture by value, [&] capture by reference
- * () - parameters jsut like being passed to normal function
+ * () - parameters just like being passed to normal function
  *
  * OPTIONAL:
  * mutable - allow changes with copies, not originals with [=] only
- * throw() - throw expception
+ * throw() - throw exception
  * -> int - trailing return type // just like in Rust
  *
  * \author Xuhua Huang
@@ -45,7 +45,7 @@ int main(void)
 	vector<int> values = { 1, 2, 3, 4, 5 };
 
 	// lambda
-	// call fucntion ForEach(vector, void(*)()) with lambda expression
+	// call function ForEach(vector, void(*)()) with lambda expression
 	// lambda is essentially a throw-away function that's only used once
 	ForEach(values,
 		// lambda expression begins
@@ -71,7 +71,7 @@ int main(void)
 	
 	// lambda captures variable m by reference and n by value
 	// parameter list: int a = 4
-	// mutale grants access to modify variable n
+	// mutable keyword grants access to modify variable n
 	// -> trailing return type: -> void
 	[&m, n](int a) mutable -> void {
 		cout << "\nInside of lambda"
