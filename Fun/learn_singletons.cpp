@@ -45,6 +45,10 @@ class Random
 public:
 	Random(const Random& instance) = delete;
 
+	/* When using the static keyword, get through class as if they are namespaces
+	 * In this case, Random::getInstance()
+	 * see line 87
+	 */
 	static Random& getInstance() {
 		static Random s_Instance; // in static memory, application lifetime
 		return s_Instance;
