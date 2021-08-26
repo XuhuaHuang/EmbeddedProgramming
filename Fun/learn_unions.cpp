@@ -26,8 +26,8 @@ struct Vector4D
 		struct
 		{
 			/**
-			 * memory of x and y of type float is alligned with Vector2D v1
-			 * memory of z and w of type float is alligned with Vector2D v2
+			 * memory of x and y of type float is aligned with Vector2D v1
+			 * memory of z and w of type float is aligned with Vector2D v2
 			 */
 			Vector2D v1, v2;
 		};
@@ -42,7 +42,7 @@ void printVector2D(const Vector2D& vector)
 int main(void)
 {
 
-	/* Basic synctax
+	/* Basic syntax
 	union
 	{
 		float a;
@@ -51,7 +51,7 @@ int main(void)
 	*/
 
 	Vector4D vector = { 1.0f, 2.0f, 3.0f, 4.0f };
-	printVector2D(vector.v1); // retreiving member in the second anonymous struct
+	printVector2D(vector.v1); // retrieving member in the second anonymous struct
 	// 1.0 and 2.0
 	printVector2D(vector.v2);
 	// 3.0 and 4.0
@@ -62,7 +62,7 @@ int main(void)
 	vector.z = 16.0f;
 	printVector2D(vector.v1); // nothing changes here, prints 1.0 and 2.0
 	printVector2D(vector.v2); // 16.0 and 4.0
-	// memory address of float z is alligned with Vector2D v2.x [first element in v2]
+	// memory address of float z is aligned with Vector2D v2.x [first element in v2]
 
 	return 0;
 }

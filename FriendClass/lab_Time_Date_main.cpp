@@ -16,7 +16,7 @@ int main(void)
 	Time time; // create a Time object
 	Date date; // create a data object
 
-	// initialize diffeerent properties for object "time" and "date"
+	// initialize different properties for object "time" and "date"
 	time.setTime(14, 30, 30);
 	date.setDate(2020, 11, 23);
 
