@@ -31,7 +31,7 @@ int main(void)
 	
 	
 	// double vector
-	vector<double> dv; // a vector containning double using default constructor
+	vector<double> dv; // a vector containing double using default constructor
 	dv.push_back(1.2);
 	dv.push_back(3.4);
 	dv.push_back(5.6);
@@ -61,7 +61,7 @@ int main(void)
 	reverse(dv.begin(), dv.end()); // reverse function
 	printVector(dv);
 	
-	// "for_each" - calls function func and pass each element in vector 
+	// "for_each" - calls function func and pass each element in vector
 	for_each(dv.begin(),dv.end(),func);
 	
 	// counts the number of times the element shows up
