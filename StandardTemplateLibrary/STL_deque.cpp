@@ -11,10 +11,10 @@
 
 using namespace std;
 
-// creat a function to print double ended queue (deque)
-void showdq(deque <int> queueToPrint)
+// create a function to print double ended queue (deque)
+void showdq(deque<int>& queueToPrint)
 {
-    deque <int> ::iterator iterInt; // declare an iterator
+    deque<int>::iterator iterInt; // declare an iterator
 
     cout << "\n[fn]Printing double ended queue..." << endl;
     for (iterInt = queueToPrint.begin(); iterInt != queueToPrint.end(); iterInt++)
@@ -41,7 +41,7 @@ int main(void)
     cout << "\nAccessing the third element indexed 2: " << endl
          << "dequeue1.at(2): " << dequeue1.at(2) << endl // print third element
 
-         << "\nAccessing the first elemnent with front() member function" << endl
+         << "\nAccessing the first element with front() member function" << endl
          << "dequeue1.front(): " << dequeue1.front() << endl // print first element
  
          << "\nAccessing the last element with back() member function" << endl
