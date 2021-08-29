@@ -6,7 +6,7 @@
  * \date   December 2020
  *********************************************************************/
 
-#include "final.h"
+#include "CIRCUIT.h"
 
 using namespace std;
 
@@ -15,7 +15,7 @@ int main(void)
 	// Testing class 'COMPONENT'
 	// creating an object named 'component1'
 	COMPONENT component1; // testing default constructor
-	cout << "\nTestinng class \'COMPONENT\'" << endl
+	cout << "\nTesting class \'COMPONENT\'" << endl
 		 << "An object of class \'COMPONENT\' named \'component1\' has been created" << endl
 		 << "Default constructor and setValue function have been tested" << endl
 		 << "Calling \'printInfo\' function. Expecting value = 0.00" << endl;
@@ -31,7 +31,7 @@ int main(void)
 	// Testing class 'RESISTOR'
 	// creating an object named 'resistor1'
 	RESISTOR resistor1; // testing default constructor
-	cout << "\nTestinng class \'RESISTOR\'" << endl
+	cout << "\nTesting class \'RESISTOR\'" << endl
 		 << "An object of class \'RESISTOR\' named \'resistor1\' has been created" << endl
 		 << "Default constructor and setValue function have been tested" << endl
 		 << "Calling \'printInfo\' function. Expecting value = 0.00, powerRating = 0.00" << endl;
@@ -47,7 +47,7 @@ int main(void)
 	// Testing class 'INDUCTOR'
 	// crating a pointer to an INDUCTOR object
 	INDUCTOR* ptrIND = new INDUCTOR;
-	cout << "\nTestinng class \'INDUCTOR\'" << endl
+	cout << "\nTesting class \'INDUCTOR\'" << endl
 		 << "A pointer of class \'INDUCTOR\' named \'ptrIND\' has been created" << endl
 		 << "Expecting base and derived class constructor called" << endl
 		 << "Calling \'printInfo\' function. Expecting value = 0.00047 and reactance = 0.00" << endl;
@@ -67,16 +67,16 @@ int main(void)
 	ptrIND->printInfo();
 	//end of class 'INDUCTOR' test
 	
-	// Tesing class 'CIRCUIT'
+	// Testing class 'CIRCUIT'
 	CIRCUIT circuit1;
-	cout << "\nTestinng class \'CIRCUIT\'" << endl
-		 << "An object named \'circuit1\' has ben created" << endl
+	cout << "\nTesting class \'CIRCUIT\'" << endl
+		 << "An object named \'circuit1\' has been created" << endl
 		 << "Calling \'printInfo\' function" << endl
 		 << "Expecting resistor = 0.00, powerRating = 0.0" << endl
 		 << "inductance = 0.00047, reactance = 0.00" << endl;
 	circuit1.printInfo();
 
-	cout << "\nUpdating informatiuon for \'circuit1\'" << endl;
+	cout << "\nUpdating information for \'circuit1\'" << endl;
 	circuit1.setFrequency(20000); // update the circuit frequency
 	RESISTOR resistor3(220, 0.25); // creating a resistor object
 	circuit1.setResistor(resistor3); // setting the resistor for the circuit

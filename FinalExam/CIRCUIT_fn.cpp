@@ -7,7 +7,7 @@
  * \date   December 2020
  *********************************************************************/
 
-#include "final.h"
+#include "CIRCUIT.h"
 
 using namespace std;
 
@@ -52,7 +52,7 @@ RESISTOR::RESISTOR(double initValue, double initPowerRating) : COMPONENT(initVal
 	// expecting base class COMPONENT overloaded constructor called
 	cout << "\n[OLCONST]RESISTOR" << endl
 		 << "[OLCONST][RESISTOR]Expecting base class COMPONENT overloaded constructor called" << endl
-		 << "[OLCONST][RESISTOR]Invokiung mutator for private member \'powerRating\'." << endl;
+		 << "[OLCONST][RESISTOR]Invoking mutator for private member \'powerRating\'." << endl;
 	setPowerRating(initPowerRating);
 }
 
@@ -60,7 +60,7 @@ void RESISTOR::printInfo(void)
 {
 	cout << "\n[fn][RESISTOR]Invoking base class \'COMPONENT\' printInfo function." << endl;
 	COMPONENT::printInfo();
-	// apending unit 'Ohms' at the end
+	// appending unit 'Ohms' at the end
 	cout << " Ohms" << endl;
 	
 	cout << "[fn][RESISTOR]Private member \'powerRating\' = " << fixed 
@@ -93,7 +93,7 @@ void INDUCTOR::printInfo(void)
 {
 	cout << "\n[fn][INDUCTOR]Invoking base class \'COMPONENT\' printInfo function." << endl;
 	COMPONENT::printInfo();
-	// apending unit 'H' at the end
+	// appending unit 'H' at the end
 	cout << " H" << endl
 		 << "[fn][INDUCTOR]Private member \'reactance\' = " << getReactance() << " Ohms" << endl;
 }
