@@ -49,7 +49,7 @@ TEST_F(BankAccountTest, CanWithDrawMoney)
 	EXPECT_EQ(100.00, account->getBalance());
 }
 
-/* Creating test fixtures resuing struct with parameterization */
+/* Creating test fixtures reusing struct with parameterization */
 struct AccountState
 {
 	double initialBalance;
@@ -57,7 +57,7 @@ struct AccountState
 	double finalBalance;
 	bool withdrawSuccess;
 
-	// define an overloaded operator for user-friednly output
+	// define an overloaded operator for user-friendly output
 	friend std::ostream& operator<<(std::ostream& os, const AccountState& acctState)
 	{
 		return os
@@ -92,7 +92,8 @@ INSTANTIATE_TEST_CASE_P(
 	testing::Values(
 		AccountState{ 100, 50, 50, true },
 		AccountState{ 100, 200, 100, false }
-));
+	)
+);
 
 
 int main(int argc, char* argv[])

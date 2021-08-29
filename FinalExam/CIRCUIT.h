@@ -25,7 +25,7 @@ public:
 	
 	// set and get functions for private member 'value'
 	void setValue(double initValue) { value = initValue; } // mutator
-	double getValue() { return value; } // accessor
+	double getValue() { return value; } // accessors
 
 	// printInfo function
 	void printInfo(void);
