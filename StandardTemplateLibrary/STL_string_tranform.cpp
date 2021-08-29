@@ -1,7 +1,9 @@
 // C++ program to convert whole string to 
 // uppercase or lowercase using STL.
 
-#include<bits/stdc++.h> 
+#include <bits/stdc++.h> 
+#include <iostream>
+#include <string>
 
 using namespace std; 
   
