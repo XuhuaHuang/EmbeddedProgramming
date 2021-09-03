@@ -1,10 +1,10 @@
 /*****************************************************************//**
  * \file   interface.cpp
  * \brief  pure virtual function in C++
- *		     can not instantiate instances without implementing
- *		     pure virtual function in the base class
+ *		   can not instantiate instances without implementing
+ *		   pure virtual function in the base class
  *
- * \author Xhuhua Huang
+ * \author Xuhua Huang
  * \date   March 2021
  *********************************************************************/
 
@@ -24,7 +24,9 @@ public:
 };
 
 // function prototype
-void printClassName(Printable* obj);
+void printClassName(Printable* obj) {
+	cout << "Print class name: " << obj->getClassName() << endl;
+}
 
 class Entity : public Printable
 {
@@ -44,17 +46,12 @@ public:
 	// implement defined interface
 	string getClassName() override { return "User : public Entity"; }
 
-	// constructor wiht member intialization list
+	// constructor with member initialization list
 	User(string fn, string ln) : firstName(fn), lastName(ln) {}
-	
+
 	// get function
 	string getUserName() { return firstName + lastName; }
 };
-
-void printClassName(Printable* obj)
-{
-	cout << "Print class name: " << obj->getClassName() << endl;
-}
 
 int main(void)
 {
