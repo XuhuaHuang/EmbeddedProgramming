@@ -40,6 +40,19 @@ public:
 		const Date& birthday,
 		const Address& addr
 	);
+
+private:
+	std::string _name;
+	Date _birthday;
+	Address _address;
+};
+
+class Date {
+
+};
+
+class Address {
+
 };
 
 /** REMEMBER: derive class write factory functions
