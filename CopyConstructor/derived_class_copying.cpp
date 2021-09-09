@@ -1,8 +1,8 @@
 /*****************************************************************//**
  * \file   derived_class_copying.cpp
  * \brief  properly copying derived class objects by invoking:
- *		     base class copy constructor
- *		     base class copy assignment operator
+ *		   base class copy constructor
+ *		   base class copy assignment operator
  *
  * \author Xuhua Huang
  * \date   March 2021
@@ -12,11 +12,13 @@
 #include <string>
 
  // make a log entry to keep track of function call
-void logCall(const std::string& functionName)
-{
-	// make log entry
-	std::cout << "\nLog entry invoked on function called: "
-		<< functionName << std::endl;
+namespace util {
+	static void logCall(const std::string& functionName)
+	{
+		// make log entry
+		std::cout << "\nLog entry invoked on function called: "
+			<< functionName << std::endl;
+	}
 }
 
 class Date
@@ -81,12 +83,12 @@ Customer::Customer(const Customer& rhs)
 	ID(rhs.ID),
 	lastTransaction(rhs.lastTransaction)  // added for copy constructor to behave as required
 {
-	logCall("Customer copy constructor");
+	util::logCall("Customer copy constructor");
 }
 
 Customer& Customer::operator=(const Customer& rhs)
 {
-	logCall("Customer copy assignment operator");
+	util::logCall("Customer copy assignment operator");
 	this->name = rhs.name;
 	this->ID = rhs.ID;
 	this->lastTransaction = rhs.lastTransaction;
@@ -121,12 +123,12 @@ priorityCustomer::priorityCustomer(const priorityCustomer& rhs)
 	: Customer(rhs),
 	priority(rhs.priority)
 {
-	logCall("PriorityCustomer copy constructor");
+	util::logCall("PriorityCustomer copy constructor");
 }
 
 priorityCustomer& priorityCustomer::operator= (const priorityCustomer& rhs)
 {
-	logCall("PriorityCustomer copy assignment operator");
+	util::logCall("PriorityCustomer copy assignment operator");
 
 	// invoke base class copy assignment operator
 	Customer::operator=(rhs);
