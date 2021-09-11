@@ -39,7 +39,9 @@ public:
 		const std::string& name,
 		const Date& birthday,
 		const Address& addr
-	);
+	) {
+		if (name) Person::_name = name;
+	}
 
 private:
 	std::string _name;
