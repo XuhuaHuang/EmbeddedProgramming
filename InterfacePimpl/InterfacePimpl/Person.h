@@ -39,11 +39,16 @@ public:
 		const std::string& name,
 		const Date& birthday,
 		const Address& addr
-	) {
-		if (name) Person::_name = name;
-	}
+	);
 
 private:
+	/**
+	 * Private constructor and copy constructor.
+	 */
+	Person() {}
+	Person(const Person&) {}
+
+	/* Data attributes for Person */
 	std::string _name;
 	Date _birthday;
 	Address _address;
