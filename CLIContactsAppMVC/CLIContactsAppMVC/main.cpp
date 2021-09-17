@@ -1,14 +1,12 @@
 /*****************************************************************//**
  * \file   main.cpp
  * \brief  Scratch program using refactoring approach.
- * 
- * TODO: write overloaded cin(>>) and cout(<<) operator
- * and test Person class
  *
  * \author Xuhua Huang
  * \date   September 2021
  *********************************************************************/
 
+#include <stdlib.h>
 #include <iostream>
 #include <string>
 using namespace std;
@@ -30,11 +28,11 @@ class Person
 public:
 	/* Public default and overloaded constructor. */
 	/* Default constructor */
-	Person() : _name(""), _sex(Sex::female), _tell(""), _email(""), _addr("") {
+	explicit Person() : _name(""), _sex(Sex::female), _tell(""), _email(""), _addr("") {
 		DEBUG("Default constructor for class Person");
 	}
 	/* Overloaded constructor */
-	Person(
+	explicit Person(
 		const string name, const int sex,
 		const string tell, const string email, const string addr = "")
 	{	
@@ -90,6 +88,10 @@ public:
 	string email() const { return _email; }
 	string addr() const { return _addr; }
 
+	/* Add support for use case like "std::cout << person;" */
+	friend istream& operator>> (istream& input, Person& argPerson);
+	friend ostream& operator<< (ostream&, const Person&);
+	
 private:
 	Person(const Person&) = delete;
 
@@ -101,24 +103,91 @@ private:
 	string _addr;
 };
 
+/* UI namespace contains all required function for View. */
+namespace UI {
+
+	namespace interact {
+		/* Print instruction in terminal and store answer in reference variable. */
+		void input(const string instruction, string& answer) {
+			if (instruction != "\n") {
+				cout << instruction;
+				std::getline(std::cin, answer);
+			}
+			else
+				DEBUG("Error occurred while asking for input! Invalid instruction.");
+		}
+	}
+
+	namespace display {
+
+		void printAsterisks(const int numToPrint = 43, const string arg = "") {
+			for (int i = 0; i < numToPrint; ++i) {
+				cout << "*";
+			}
+			cout << "\n";
+		}
+
+		void printInstructions(const string arg = "") {
+			printAsterisks();
+			cout << "*** Press 0 to print all saved contacts ***" << endl
+				<< "*** Press 1 to add a new contact to App ***" << endl
+				<< "*** Press 2 to look up saved individual ***" << endl
+				<< "*** Press 3 to delete a contact by name ***" << endl
+				<< "*** Press 4 to remove all saved contact ***" << endl;
+			printAsterisks();
+		}
+
+		void clearScreen() {
+			system("CLS");
+		}
+	}
+}
+
+istream& operator>> (istream& input, Person& argPerson)
+{
+	string name, sex, tell, email, address;
+
+	UI::interact::input("Name: ", name);
+	UI::interact::input("Sex: ", sex);
+	UI::interact::input("Tell: ", tell);
+	UI::interact::input("Email: ", email);
+	UI::interact::input("Address: ", address);
+
+	/* Call mutators to write to object. */
+	argPerson.setName(name);
+
+	if (sex == "Male" || sex == "male" || sex == "1")
+		argPerson.setSex(Sex::male);
+	else if (sex == "Female" || sex == "female" || sex == "0")
+		argPerson.setSex(Sex::female);
+
+	argPerson.setTell(tell);
+	argPerson.setEmail(email);
+	argPerson.setAddr(address);
+
+	return input;
+}
+
+ostream& operator<< (ostream& output, const Person& argPerson)
+{
+	output << "\nPerson: " << argPerson.name() << ", "
+		<< argPerson.sex() << endl
+		<< "Tell: " << argPerson.tell() << endl
+		<< "Email: " << argPerson.email() << endl
+		<< "Address: " << argPerson.addr() << endl;
+
+	return output;
+}
+
 int main(int argc, char* argv)
 {
 	Person demoPersonToAdd;
+	cin >> demoPersonToAdd;
+	cout << demoPersonToAdd;
+
+	UI::display::printAsterisks();
+	UI::display::printInstructions();
 	
-	demoPersonToAdd.setName("Xuhua Huang");
-	demoPersonToAdd.setSex(Sex::male);
-	demoPersonToAdd.setTell("+1(514)-952-1655");
-	demoPersonToAdd.setEmail("xuhuahuang0412@gmail.com");
-	demoPersonToAdd.setAddr("1460 Boul Provencher");
-
-	DEBUG(demoPersonToAdd.name());
-	DEBUG(demoPersonToAdd.sex());
-	DEBUG(demoPersonToAdd.tell());
-	DEBUG(demoPersonToAdd.email());
-	DEBUG(demoPersonToAdd.addr());
-
-	cout << "Hello World!" << endl;
-
 	system("pause");
 	return 0;
 }
