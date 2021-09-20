@@ -1,6 +1,5 @@
 # Introduction
 
----
 
 ## 2.1 Java Virtual Machine
 * All Java code written runs on JVM (core of the language)
@@ -20,7 +19,6 @@
 5. Note: `%JAVA_HOME%` is macro is replaced with the defined path in step 3
    Equivalent: `C:\Program Files\Java\jdk-9.0.4\bin`
 
----
 
 ## 3.1 Hello World
 1. Write source code in a source code: *.java files
@@ -55,7 +53,6 @@ $ java HelloWorld
 * For class naming, use chemo casing with capital letters: `MyClass`
 * For variable and method naming: `myVar` and `myMethod`
 
----
 
 ## 4.1 Constant Variables
 * Definition: variables that are not going to change while executing
@@ -93,7 +90,6 @@ public class DemoConst {
 }
 ```
 
----
 
 ## 5.1 Primitive Data Types
 * byte, short, int, long
@@ -107,5 +103,3 @@ public class DemoConst {
   float(4 bits) has a wider range than long(8 bits)
 * Float defaults to double; use a trailing `f` to force it to be float
 * Integer defaults to int; use a trailing `l` to force it to be long
-
----
