@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
+#include <array>
+
 using namespace std;
 
 #ifndef DEBUG
@@ -16,6 +18,10 @@ using namespace std;
 	#if DEBUG
 		#define DEBUG(output) std::cout << output << std::endl;
 	#endif
+#endif
+
+#ifndef _MAXSIZE
+#define _MAXSIZE 20
 #endif
 
 enum Sex {
@@ -179,6 +185,35 @@ ostream& operator<< (ostream& output, const Person& argPerson)
 	return output;
 }
 
+
+/* Define a Model class to contain data for Contacts Manager. */
+class Model
+{
+public:
+	
+private:
+	std::array<Person, _MAXSIZE> ContactsData;
+};
+
+
+/* Define a Controller class to control the flow of the program.
+ * Need o provide the following functionality:
+ * 1) insert
+ * 2) look for 
+ *		i. output
+ *		ii. delete
+ *		iii. modify and save
+ */
+class Controller
+{
+public:
+
+private:
+
+};
+
+
+/* Main function; Debug mode. */
 int main(int argc, char* argv)
 {
 	Person demoPersonToAdd;
