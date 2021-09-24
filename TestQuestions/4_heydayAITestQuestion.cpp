@@ -17,7 +17,12 @@
 
   /* Using forward declaration. */
   /* Do NOT need to recompile as long as class name doesn't change. */
-class Resource;
+class Resource {
+public:
+	/* Implementation of Resource class. */
+	const bool infoAvailable(const std::string) {}
+	const bool lookUpID(const std::string&) {}
+};
 
 /* Structure to contain user details. */
 struct UserInfo {
@@ -40,8 +45,8 @@ private:
 
 /* Function to look up user information by userID. */
 static UserInfo getUserInfobyID(const std::string& userID,
-	const Resource& idealResource,
-	const Resource& alterResource) {
+	Resource& idealResource,
+	Resource& alterResource) {
 
 	/* Suppose Resource::lookUpID returns a handler object to the internal info. */
 	/* Assuming Resource class do not throw exceptions. */
