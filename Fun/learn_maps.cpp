@@ -11,8 +11,40 @@
 #include <stdlib.h>
 #include <iostream>
 #include <map>
+#include <algorithm>
 
 using namespace std;
+
+map<string, int> employees = {
+	{"John", 3},
+	{"Jill", 4},
+	{"Rick", 5},
+	{"Elaine", 6}
+};
+
+map<string, char> template_demo = {
+	{"Apple", 'A'},
+	{"Beta", 'B'},
+	{"Cat", 'C'},
+	{"Dog", 'D'}
+};
+
+void print(const pair<string, int>& employee)
+{
+	if (employee.second < 5)
+		cout << employee.first << endl;
+}
+
+/* Provide template function to print any map. */
+namespace Util {
+	template<typename T, typename U>
+	void printMap(map<T, U>& mp)
+	{
+		// `typename` is essential in the following for loop
+		for (typename std::map<T, U>::iterator itr = mp.begin(); itr != mp.end(); ++itr)
+			std::cout << "Key: " << itr->first << ", value: " << itr->second << std::endl;
+	}
+}
 
 int main(void)
 {
@@ -70,6 +102,14 @@ int main(void)
 	{
 		cout << "Character: \"" << itr->first << "\", Occupancy: " << itr->second << endl;
 	}
+
+	/* Testing external map and non-template print function. */
+	for_each(employees.begin(), employees.end(), print);
+	// print is passed a call-back function
+
+	/* Test template function to print map. */
+	Util::printMap(employees);
+	Util::printMap(template_demo);
 
 	system("pause");
 	return 0;
