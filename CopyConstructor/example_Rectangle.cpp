@@ -20,17 +20,17 @@ private:
 public:
 
 	// set and get functions
-	void setWidth(int userWidth) { width = userWidth; }
+	void setWidth(const int userWidth) { width = userWidth; }
 	int getWidth(void) { return width; }
 
-	void setHeight(int userHeight) { height = userHeight; }
+	void setHeight(const int userHeight) { height = userHeight; }
 	int getHeight(void) { return height; }
 
 	// other functions
 	int area() { return (width * height); }
 
 	// overloaded constructor
-	Rectangle(int initWidth, int initHeight) : width(initWidth), height(initHeight) {}
+	Rectangle(const int initWidth, const int initHeight) : width(initWidth), height(initHeight) {}
 	// copy constructor
 	Rectangle(const Rectangle& rectangle);
 };
