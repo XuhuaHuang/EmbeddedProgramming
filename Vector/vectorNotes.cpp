@@ -28,7 +28,7 @@ namespace Util {
 
 		/* Template to print a std::vector with O(n). */
 		template<typename T>
-		void print_vec(const std::vector<T>& Vec) {
+		static void print_vec(const std::vector<T>& Vec) {
 			/* Loop through the vector with range-based for loop. */
 			for (const T& t : Vec)
 				std::cout << t << std::endl;
