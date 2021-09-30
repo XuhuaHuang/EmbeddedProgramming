@@ -1,6 +1,10 @@
 /*****************************************************************//**
  * \file   smart_pointers.cpp
  * \brief  contains notes on smart pointers in C++
+ * Highlight member function in <memory>:
+ * 1) make_unique<T>
+ * 2) make_shared
+ * 3) weak_ptr
  * 
  * \author Xuhua Huang
  * \date   May 2021
@@ -29,7 +33,7 @@ int main(void)
 {
 	/**
 	 * Create a new scope and verify the output in the terminal.
-	 * Expecting constructor, destructor get called sequencially.
+	 * Expecting constructor, destructor get called sequentially.
 	 * \return 
 	 */
 	{ 
@@ -41,6 +45,8 @@ int main(void)
 
 	// share_ptr uses reference count approach to determine when to delete the pointer
 	std::shared_ptr<Entity> sharedEntity = std::make_shared<Entity>();
-	std::weak_ptr<Entity> weakEntity = sharedEntity; // does not increase refernce count
+	std::weak_ptr<Entity> weakEntity = sharedEntity; // does not increase reference count
+
 	std::cin.get();
+	return 0;
 }
