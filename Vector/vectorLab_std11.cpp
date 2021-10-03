@@ -39,9 +39,9 @@ void palindrome(vector<T> vectorT)
 	reverse(vectorTCopy.begin(), vectorTCopy.end()); // reverse copied vector
 
 	if (vectorTCopy == vectorT) // compare
-		cout << "[fn]This vector is a Palindrone." << endl;
+		cout << "[fn]This vector is a Palindrome." << endl;
 	else
-		cout << "[fn]This vector is not a Palindrone." << endl;
+		cout << "[fn]This vector is not a Palindrome." << endl;
 	
 	return;
 }
