@@ -28,9 +28,9 @@ namespace Util {
 
 		/* Template to print a std::vector with O(n). */
 		template<typename T>
-		static void print_vec(const std::vector<T>& Vec) {
+		static void print_vec(const std::vector<T>& arg_vec) {
 			/* Loop through the vector with range-based for loop. */
-			for (const T& t : Vec)
+			for (const T& t : arg_vec)
 				std::cout << t << std::endl;
 
 			return; // add empty return statement for consistency.
@@ -113,7 +113,7 @@ void printVector(vector<double> dv)
 	 * due the nature of an iterator.
 	 */
 	vector<double>::iterator iterdouble;
-	for(iterdouble = dv.begin();iterdouble < dv.end(); iterdouble++)
+	for(iterdouble = dv.begin();iterdouble < dv.end(); ++iterdouble)
 	{
 		cout << *iterdouble << endl;
 	}
