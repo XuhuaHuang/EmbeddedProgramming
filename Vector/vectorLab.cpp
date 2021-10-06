@@ -53,7 +53,7 @@ int main (void)
 	/*
 	cout << "Sorting..." << endl;
 	sort(v1.begin(), v1.end()); // sort function
-	printIntVector(v1); // print sorted accedending vector
+	printIntVector(v1); // print sorted acceding vector
 	
 	cout << "Reversing..." << endl;
 	reverse(v1.begin(), v1.end()); // reverse function
@@ -71,7 +71,7 @@ int main (void)
 	vA.push_back(2);
 	vA.push_back(7);
 	vA.push_back(4);
-	vA.push_back(1); // writting all elements into the vector
+	vA.push_back(1); // writing all elements into the vector
 	*/
 	cout << "\nSorting..." << endl;
 	sort(vA.begin(), vA.end());
@@ -90,7 +90,7 @@ int main (void)
 	vB.push_back('S');
 	vB.push_back('K');
 	vB.push_back('A');
-	vB.push_back('W'); // writting all characters to the char vector
+	vB.push_back('W'); // writing all characters to the char vector
 	*/
 	
 	cout << "\nSorting..." << endl;
@@ -214,9 +214,9 @@ void palindrome(vector<int> vint)
 	reverse( vintCopy.begin(), vintCopy.end() );
 	
 	if(vintCopy == vint)
-		cout << "\nThis integer vector is a Palindrone." << endl;
+		cout << "\nThis integer vector is a Palindrome." << endl;
 	else
-		cout << "\nThis integer vector is not a Palindrone." << endl;
+		cout << "\nThis integer vector is not a Palindrome." << endl;
 	return;
 }
 
@@ -228,9 +228,9 @@ void palindrome(vector<string> vstring)
 	cout << vstringCopy.at(0) << endl; // test
 	
 	if(vstringCopy == vstring)
-		cout << "\nThis string vector is a Palindrone." << endl;
+		cout << "\nThis string vector is a Palindrome." << endl;
 	else
-		cout << "\nThis string vector is not a Palindrone." << endl;
+		cout << "\nThis string vector is not a Palindrome." << endl;
 	return;
 }
 
@@ -240,9 +240,9 @@ void palindrome(vector<char> vchar)
 	reverse( vcharCopy.begin(), vcharCopy.end() );
 	
 	if(vcharCopy == vchar)
-		cout << "\nThis string vector is a Palindrone." << endl;
+		cout << "\nThis string vector is a Palindrome." << endl;
 	else
-		cout << "\nThis string vector is not a Palindrone." << endl;
+		cout << "\nThis string vector is not a Palindrome." << endl;
 	
 	return;
 }
