@@ -59,3 +59,8 @@ Similarly:
 
 ---
 
+**Conversion between `int` and `std::string`**  
+`std::to_string()`: converts number to std::string. [std::to_string()](https://en.cppreference.com/w/cpp/string/basic_string/to_string)  
+`std::stoi()`: converts std::string to an integer. [std::stoi()](https://www.cplusplus.com/reference/string/stoi/)
+
+---
