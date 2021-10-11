@@ -64,3 +64,11 @@ Similarly:
 `std::stoi()`: converts std::string to an integer. [std::stoi()](https://www.cplusplus.com/reference/string/stoi/)
 
 ---
+
+**Function `std::getline()` for User Input**  
+Use case:  
+`std::getline(std::cin, user_name);`  
+Calling prototype:  
+`istream& getline (istream&  is, string& str);`
+
+---
