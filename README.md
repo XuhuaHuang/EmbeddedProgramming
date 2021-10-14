@@ -20,6 +20,8 @@ $ cd ./StandardTemplateLibrary/Tuple
 $ g++ -o get_tie.exe Tuple_get_tie.cpp -std=c++11
 ```
 
+---
+
 #### More About the Repository
 > 1. Directory *"Fun"* contains all code when self learning other concepts in both C++ and Java.  
 > 2. Directory *"Notes"* contains code/notes and a `README.md` file, learning `std::maps`, `std::move` etc.  
