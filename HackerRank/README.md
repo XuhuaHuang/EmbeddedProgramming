@@ -72,3 +72,13 @@ Calling prototype:
 `istream& getline (istream&  is, string& str);`
 
 ---
+
+**Access Individual Character in a `std::string` with `.at()` Method**  
+Use case:  
+`char elem = demo_str.at(0);`  
+Calling prototype:  
+`char& at (size_t pos);`  
+`const char& at (size_t pos) const;`  
+It is also approachable using `std::string::operator[]`.
+
+---
