@@ -3,7 +3,7 @@
  * \brief  The order of the elements in the map does NOT matter
  * Constant time complexity when accessing value
  * Map is a collection data structure of key-value pairs (JSON)
- * 
+ * TODO: std::unordered_map
  * \author Xuhua Huang
  * \date   September 2021
  *********************************************************************/
@@ -38,7 +38,7 @@ void print(const pair<string, int>& employee)
 /* Provide template function to print any map. */
 namespace Util {
 	template<typename T, typename U>
-	void printMap(map<T, U>& mp)
+	void printMap(map<T, U>& const mp)
 	{
 		// `typename` is essential in the following for loop
 		for (typename std::map<T, U>::iterator itr = mp.begin(); itr != mp.end(); ++itr)

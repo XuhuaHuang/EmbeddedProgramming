@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   VirtualFunctions.cpp
- * \brief  Test on HackerRank platform.
+ * \brief  Test question on HackerRank platform.
  * https://www.hackerrank.com/challenges/virtual-functions/problem
  * Passes all test cases and the code is submitted.
  * 
