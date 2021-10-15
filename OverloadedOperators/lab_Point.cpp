@@ -84,7 +84,7 @@ Point Point::operator*(Point pt)
 bool Point::operator==(Point pt)
 {
 	bool equal = false;
-	// short circuit comparsion
+	// short circuit comparison
 	if (this->getX() == pt.getX() && this->getY() == pt.getY())
 		equal = true;
 
@@ -122,7 +122,7 @@ int main(void)
 	// test case 3 ==
 	cout << "\nTest case 3: overloaded operator \"==\"" << endl
 		 << "\"point5\" is being compared to a test point" << endl
-		 << "change the coordinate fo the test point if need to" << endl;
+		 << "change the coordinate for the test point if need to" << endl;
 	
 	Point testPoint(1, 1);
 	cout << "\nPrinting \"testPoint\": " << testPoint << endl;
@@ -138,7 +138,7 @@ int main(void)
 	point5 = point3 * point4;
 	
 	cout << "\nTest case 4: overloaded operator \"*\"" << endl
-		 << "\"point3\" is being multipled with \"point4\"" << endl
+		 << "\"point3\" is being multiplied with \"point4\"" << endl
 		 << "Result is stored in \"point5\"" << endl
 		 << "\nPrinting \"point5\": " << point5 << endl;
 
