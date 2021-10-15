@@ -17,7 +17,7 @@ int main() {
 	std::string str;
 	//std::cin >> str;
 	str = "1,23,456,789";
-	std::vector<int> integers = Util::parse::parse_str<int>(str);
+	std::vector<int> integers = util::parse::parse_str<int>(str);
 	for (int i = 0; i < integers.size(); i++) {
 		std::cout << integers[i] << "\n";
 	}
