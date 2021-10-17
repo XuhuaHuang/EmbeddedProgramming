@@ -27,7 +27,7 @@ public:
 	mytime(int, int, int); // overloaded
 	
 	// set functions
-	void setHour(int userHour); // definiton of set functions follow with validation
+	void setHour(int userHour); // definition of set functions follow with validation
 	void setMinute(int userMinute);
 	void setSecond(int userSecond);
 
@@ -51,7 +51,7 @@ public:
 	mydate(int, int, int );
 
 	// set functions:
-	void setMonth(int userMonth); // definiton of set functions follow with validation
+	void setMonth(int userMonth); // definition of set functions follow with validation
 	void setDay(int userDay);
 	void setYear(int userYear);
 

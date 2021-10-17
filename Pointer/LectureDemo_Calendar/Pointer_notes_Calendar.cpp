@@ -9,7 +9,7 @@
 *	- destructor
 *	- print
 * 
-* Notice: ALL "cout" statements inside a function are appened
+* Notice: ALL "cout" statements inside a function are appended
 * after signature "[fn]" which stands for printing from function
 * [DECONST] printed from default constructor
 * [OLCONST] printed from overloaded constructor
