@@ -7,7 +7,7 @@
 * mytime
 * mydate
 * 
-* Notice: ALL "cout" statements inside a function are appened
+* Notice: ALL "cout" statements inside a function are appended
 * after signature "[fn]" which stands for printing from function
 */
 
@@ -16,7 +16,7 @@
 
 using namespace std;
 
-// mytime class definitons
+// mytime class definitions
 mytime::mytime() // default constructor
 {
 	setHour(0);
