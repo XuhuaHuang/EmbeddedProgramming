@@ -3,7 +3,7 @@
  *
  * Xuhua Huang
  * October 2021
- * 
+ *
  * gcc -I "C:\GNUstep\GNUstep\System\Library\Headers"\
  * -L "C:\GNUstep\GNUstep\System\Library\Libraries"\
  * -o person ClassDemo_Person.m -lobjc \
@@ -13,12 +13,16 @@
 #import <Foundation/Foundation.h>
 
 /* Person Class Declaration */
-@interface Person : NSObject
-{
+@interface Person : NSObject {
+@private
+    NSString* _name;
     int _age;
 } // end protected member attribute wrapper
+// by default, the access modifier is `protected`
 
 /* Prototype of member functions. */
+- (void) setName: (NSString*) name;
+- (NSString*) name;
 - (void) setAge:(int) age;
 - (int) age;
 - (void) print;
@@ -27,6 +31,14 @@
 
 /* Person Class Implementation */
 @implementation Person
+
+- (void) setName: (NSString*) name {
+    self->_name = name;
+}
+
+- (NSString*) name {
+    return self->_name;
+}
 
 - (void) setAge: (int) age {
     self->_age = age;
@@ -37,7 +49,7 @@
 }
 
 - (void) print {
-    NSLog(@"This person is of age %d", self.age);
+    NSLog(@"%s is of age %d", self.name, self.age);
     // self.age syntax equates to calling the getter for the object
     // in this case, self->age()
 }
@@ -49,6 +61,7 @@ int main(int argc, const char* argv[])
     NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
 
     Person* p = [[Person alloc] init];
+    [p setName: (NSString*) "Xuhua Huang"];
     [p setAge: 20]; // equates to: p->setAge(20) in C++.
     [p print];      // equates to: p->print() in C++.
 
