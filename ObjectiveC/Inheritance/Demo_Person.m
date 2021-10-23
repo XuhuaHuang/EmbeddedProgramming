@@ -2,16 +2,20 @@
 
 /* Class Person Declaration */
 @interface Person : NSObject
-{
-    NSString* _name;
-    int _age;
-}
+// {
+//     NSString* _name;
+//     int _age;
+// }
 /* Atomic Member Data */
 @property NSString* _name;
 @property int _age;
 
+// @synthesize name = _name;
+// @synthesize age = _age;
+
 - (void) print;
 @end
+
 // the @property decorator equates to the following:
 // {
 // @private int _age;
@@ -20,15 +24,15 @@
 // - (void) setAge: (int) age;
 // - (int) age;
 
-/* Implementation of Property */
+/* Implementation of Person */
 /* Equivalence of individual get and set member function */
 @implementation Person
 
-@synthesize _age = age;
-@synthesize _name = name;
+@synthesize name = _name;
+@synthesize age = _age;
 
 - (void) print {
-    NSLog(@"Person class, %s, %d years old.\n", self.name, self.age);
+    NSLog(@"Person class, %s, %d years old.\n", self->_name, self->_age);
     return;
 }
 @end // implementation Person
@@ -43,13 +47,16 @@
 @property int _cur_id;
 @property int _publications;
 
+@synthesize cur_id = _cur_id;
+@synthesize publications = _publications;
+
 - (void) print;
 @end
 
 @implementation Professor
 
-@synthesize _cur_id = cur_id;
-@synthesize _publications = publications;
+// @synthesize cur_id = _cur_id;
+// @synthesize publications = _publications;
 
 - (void) print {
     [super print];
