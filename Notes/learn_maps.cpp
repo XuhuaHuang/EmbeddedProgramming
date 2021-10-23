@@ -89,7 +89,7 @@ int main(void)
 	{
 		char elem = test[i];
 
-		// map.find(0 returns an iterator
+		// map.find() returns an iterator
 		// returns map.end() if not found
 		if (charFreq.find(elem) == charFreq.end())
 		{
