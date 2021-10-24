@@ -10,9 +10,9 @@ Teacher in Electronics and Information Technology program
 Heritage College, Gatineau, Quebec, Canada  
 
 #### Languages
-**C++, Java, Objective-C**  
+**C/C++, Java, Objective-C**  
 
-<img src="./CPlusPlus_Logo.png" alt="An image for C++" width="100"/> <img src="./Mingw_Logo.png" alt="An image for Java" width="110"/> <img src="./Objective_C_Logo.png" alt="An image for Objective-C" width="120"/>
+<img src="./C_Logo.png" alt="An image for C Language" width="130"/><img src="./CPlusPlus_Logo.png" alt="An image for C++" width="100"/>  <img src="./Mingw_Logo.png" alt="An image for Java" width="110"/>
 
 ```Bash
 $ g++ --version
