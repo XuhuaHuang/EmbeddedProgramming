@@ -12,7 +12,7 @@ Heritage College, Gatineau, Quebec, Canada
 #### Languages
 **C/C++, Java, Objective-C**  
 
-<img src="./C_Logo.png" alt="An image for C Language" width="115"/><img src="./CPlusPlus_Logo.png" alt="An image for C++" width="100"/>  <img src="./Mingw_Logo.png" alt="An image for Java" width="110"/>
+<img src="./C_Logo.png" alt="An image for C Language" width="120"/><img src="./CPlusPlus_Logo.png" alt="An image for C++" width="100"/>  <img src="./Mingw_Logo.png" alt="An image for Java" width="110"/>
 
 ```Bash
 $ g++ --version
