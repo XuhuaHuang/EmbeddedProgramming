@@ -1,4 +1,4 @@
-### Directory `EmbeddedProgramming/Objective C`
+### Directory `EmbeddedProgramming/ObjectiveC`
 
 ---
 
@@ -34,10 +34,14 @@ $ gcc -I "C:\GNUstep\GNUstep\System\Library\Headers" -L "C:\GNUstep\GNUstep\Syst
 $ ./hello
 ```
 
-#### GNUstep Foder Location
+#### GNUstep Folder Location
 `<Foundation/Foundation.h>` : `C:\GNUstep\GNUstep\System\Library\Headers\Foundation`  
 Libraries: `C:\GNUstep\GNUstep\System\Library\Libraries`
 
 #### Online Objective-C Compiler
 [Obj-C link]: (https://www.tutorialspoint.com/compile_objective-c_online.php)
 [Online Objective-C Compiler][Obj-C link]
+
+---
+
+#### Notes
