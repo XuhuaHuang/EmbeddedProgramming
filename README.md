@@ -12,12 +12,25 @@ Heritage College, Gatineau, Quebec, Canada
 #### Languages
 **C/C++, Java, Objective-C**  
 
-<img src="./C_Logo.png" alt="An image for C Language" width="100"/><img src="./CPlusPlus_Logo.png" alt="An image for C++" width="100"/>  <img src="./Mingw_Logo.png" alt="An image for Java" width="110"/>
+<img src="./C_Logo.png" alt="An image for C Language" width="100"/><img src="./CPlusPlus_Logo.png" alt="An image for C++" width="100"/>  <img src="./Mingw_Logo.png" alt="An image for Java" width="110"/>  
+
+**Example to Compile a File Named `Tuple_get_tie.cpp`**  
 
 ```Bash
 $ g++ --version
 $ cd ./StandardTemplateLibrary/Tuple
 $ g++ -o get_tie.exe Tuple_get_tie.cpp -std=c++11
+```
+
+**To Update MinGW on Windows**  
+Run a `PowerShell` session with administrator privilege and run:
+
+```Bash
+$ mingw-get update
+$ mingw-get upgrade
+$ # Verify the version of installed gcc and g++
+$ gcc --version
+$ g++ --version
 ```
 
 ---
