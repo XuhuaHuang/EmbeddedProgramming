@@ -13,7 +13,7 @@
 #include <string>
 
 #include "Util/print_vec.h"
-using namespace Util::vector;
+using namespace util::vector;
 
 #ifndef DEBUG
 #define DEBUG(str) std::cout << str << std::endl;
