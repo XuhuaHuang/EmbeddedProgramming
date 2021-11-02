@@ -1,6 +1,6 @@
 /*****************************************************************//**
- * \file   stringCharArray.c
- * \brief  Lab 6 notes on C-Style strings (char array)
+ * \file   stringLab.c
+ * \brief  Lab 6 on C-Style strings (character array)
  *
  * \author Xuhua Huang
  * \date   February 2021
