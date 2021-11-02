@@ -75,7 +75,7 @@ int main(void)
 	if (rtnValue > 0)
 	{
 		// Swap Strings
-	// The function strcpy() - string copy - will overwrite the first string with the second string
+		// The function strcpy() - string copy - will overwrite the first string with the second string
 		strcpy_s(newStr, sizeof(newStr), str2); // newStr is overwritten by str2
 		strcpy_s(str2, sizeof(str2), str1);		// str2 is overwritten by str1
 		strcpy_s(str1, sizeof(str1), newStr);	// str1 is overwritten by newStr 
@@ -117,9 +117,9 @@ int main(void)
 	return 0;
 }
 
+// function to print a charater array
+// takes a character array and the size
 void printStr(char str[], int numCharacters)
-// this function receives the entire array, as well as an integer
-
 {
 	puts("In function printStr\n");
 	//sizeof is incorrect in the function - size of array is lost when it is passed to function
