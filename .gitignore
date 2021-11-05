@@ -5,6 +5,7 @@
 
 .idea/
 .vscode/
+*.o
 
 # User-specific files
 *.rsuser
