@@ -16,10 +16,8 @@ struct Arg
 
 int main(void)
 {
-	Arg g1{ 5 };
-	// expecting int& getArg() &
-	std::cout << g1.getArg() << std::endl;
-	// expecting int getArg() &&
-	std::cout << std::move(g1).getArg() << std::endl;
+	Arg g1{ 5 };							 /* instanciation with innitializer_list */
+	std::cout << g1.getArg() << std::endl;				/* expecting int& getArg() & */
+	std::cout << std::move(g1).getArg() << std::endl;	/* expecting int getArg() && */
 	return 0;
 }
