@@ -44,7 +44,7 @@ $ g++ --version
 Functionality provided by separate module. A namespace `Util` is created to better manage the functions.   
 Contains template (generic) function in a C-style header file, providing the following functionality:  
 1. `is_instance_of.h`: to quickly identify whether an object if of a specified type; like `isinstance()` in Python.  
-2. `parse_str.h`: to easily split a comma-separated `std::string`.
+2. `parse.h`: to easily split a comma-separated `std::string`.
 3. `print_list.h`: template function to print a `std::list<>` to the console; accepts a generic type of `std::list`.
 4. `print_vec.h`: template function to print a `std::vector<>` to the console; accepts a generic type of `std::vector`.
 
