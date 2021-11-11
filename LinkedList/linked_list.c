@@ -50,8 +50,9 @@ int main(void) {
 
 void print_node_mem(node_t* _head) {
     node_t* temp = _head;
+    /* When the pointer has not reached the end of the linked list. */
     while (temp != NULL) {
-        printf("%p - ", &temp->next);
+        printf("%p -> ", &temp->next);
         temp = temp->next;
     }
     printf("\n");
@@ -62,7 +63,7 @@ void print_linked_list(node_t* _head) {
     node_t* temp = _head;
     /* When the pointer has not reached the end of the linked list. */
     while (temp != NULL) {
-        printf("%d - ", temp->value);
+        printf("%d -> ", temp->value);
         temp = temp->next;
     }
     printf("\n");
