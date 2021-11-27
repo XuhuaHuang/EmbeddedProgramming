@@ -48,8 +48,9 @@ int main(void)
 
 	/* Test functions in the ../Util headers. */
 	std::cout << "Testing Util functions: " << std::endl;
-	if (Util::type::is_instance_of<std::vector<std::string>>(str_vec))
-		Util::vector::print_vec(str_vec);
+	if (util::type::is_instance_of<std::vector<std::string>>(str_vec)) {
+		util::vector::print_vec(str_vec);
+	}		
 
 	system("pause");
 	return 0;
