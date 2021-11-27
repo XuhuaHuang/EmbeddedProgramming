@@ -3,10 +3,10 @@ This is a repository created dedicated to embedded programming in Linux environm
 Each topic is placed in individual folder. Folder named `Dealer` contains source code for mid-term card-game project.  
 Please use code responsively.
 
-#### Special Thanks
+#### **Special Thanks**
 **Prof. Charmaine Jirgens**  
 My mentor to the programming world  
-Teacher in Electronics and Information Technology program  
+Professor in Electronics and Information Technology program  
 Heritage College, Gatineau, Quebec, Canada  
 
 #### Languages
@@ -26,6 +26,7 @@ $ g++ -o get_tie.exe Tuple_get_tie.cpp -std=c++11
 Run a `PowerShell` session with administrator privilege and run:
 
 ```Bash
+$ # Get the latest version of mingw
 $ mingw-get update
 $ mingw-get upgrade
 $ # Verify the version of installed gcc and g++
@@ -35,24 +36,35 @@ $ g++ --version
 
 ---
 
-#### More About the Repository
-> 1. Directory *"Fun"* contains all code when self learning other concepts in both C++ and Java.  
-> 2. Directory *"Notes"* contains code/notes and a `README.md` file, learning `std::maps`, `std::move` etc.  
-> 3. Code written in Java is placed under *"Fun/Java"* directory.  
+#### Directory `.\Fun` and `.\Fun\Java`
+Contains all code when self learning other concepts in both C++ and Java.
 
-##### Directory `.\Util`
-Functionality provided by separate module. A namespace `Util` is created to better manage the functions.   
+#### Directory `.\Notes`
+Contains code/notes and a `README.md` file, learning `std::maps`, `std::move` etc.  
+
+#### Directory `.\Util`
+Functionality provided by separate module. A namespace `util` is created to better manage the functions.   
+```C++
+namespace util {
+    namespace type {}
+    namespace parse {}
+    namespace list {}
+    namespace vector {}
+}
+```
 Contains template (generic) function in a C-style header file, providing the following functionality:  
-1. `is_instance_of.h`: to quickly identify whether an object if of a specified type; like `isinstance()` in Python.  
-2. `parse.h`: to easily split a comma-separated `std::string`.
-3. `print_list.h`: template function to print a `std::list<>` to the console; accepts a generic type of `std::list`.
-4. `print_vec.h`: template function to print a `std::vector<>` to the console; accepts a generic type of `std::vector`.
+* `is_instance_of.h`: to quickly identify whether an object if of a specified type; like `isinstance()` in Python.  
+* `is_same_type_of.hpp`: to quickly identify whether two objects are the same type using `typeid().hash_code()` and `typeid().name()`.  
+* `log.h`: function-style definition `LOG(...)` using macro in C.
+* `parse.h`: to easily split a comma-separated `std::string`.
+* `print_list.h`: template function to print a `std::list<>` to the console; accepts a generic type of `std::list`.
+* `print_vec.h`: template function to print a `std::vector<>` to the console; accepts a generic type of `std::vector`.
 
-##### Directory `.\HackerRank`
+#### Directory `.\HackerRank`
 Contains solutions to some of the basic problem solving coding questions. Provided file name most likely describes the content.  
 The `README.md` has more handy notes when encountering those problems.  
 [Click to see my hackerRank profile](https://www.hackerrank.com/XuhuaHuang?hr_r=1)
 
-##### Directory `.\ObjectiveC`
+#### Directory `.\ObjectiveC`
 Popular concepts in Objective-C.  
 Compiled in Windows using `GNUstep Core` and provided GNUstep developer tools.
