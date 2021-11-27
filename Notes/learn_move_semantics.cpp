@@ -55,6 +55,7 @@ public:
 	static int n_mvtr; // number of times move constructor called
 	static int n_dstr; // number of times destructor called
 // private:
+	/* Memeber attribute - integer pointer. */
 	int* ptr;
 };
 
