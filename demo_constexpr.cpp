@@ -39,6 +39,7 @@ constexpr int get_const(void) {
  * @param const int arg (to be used in switch statement) 
  */
 void demo_constexpr(const int arg) {
+    /* The arr[get_const()] syntax won't work without constexpr keyword. */
     int arr[get_const()] = { 0 };
     /* sizeof(arr)/sizeof(arr[0]) gives the right count of elements. */
     for (int i = 0; i < sizeof(arr)/sizeof(arr[0]); ++i) {
@@ -47,7 +48,8 @@ void demo_constexpr(const int arg) {
     printf("\n");
     
     enum { e1 = get_const(), e2 };
-    printf("enum::e1 = %d, e2 = %d\n", e1, e2);
+    /* e2 is automatically given the value of 2. */
+    printf("enum::e1 = %d, enum::e2 = %d\n", e1, e2);
 
     switch (arg) {
         case get_const():
@@ -57,6 +59,8 @@ void demo_constexpr(const int arg) {
             printf("Other cases; constexpr int get_const() not invoked.\n");
             break;
     }
+
+    /* Add empty return statement for consistency. */
     return;
 }
 
