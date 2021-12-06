@@ -10,13 +10,17 @@
 #include <string.h>
 #include <stdlib.h>
 
-void clear(void); //function prototype for clear function
+/**
+ * @brief Function prototype for clear function.
+ * Empty the input buffer.
+ */
+void clear(void);
 
 int main(void)
 {
 	// Q1 first name, last name and concatenate to full name using scanf_s and strcat_s
 	char strFirstName[20] = { " " }; // declaring three empty strings for further usage
-	char strLastName[20] = { " " }; // it looks like I have to give this char array a size, or it will simply crash. Is it true?
+	char strLastName[20] = { " " };  // it looks like I have to give this char array a size, or it will simply crash. Is it true?
 	char strFullName[40] = { " " };
 
 	printf("Please enter your first name.\n");
@@ -58,7 +62,7 @@ int main(void)
 	// Q3 prints the length of the string strFullName
 	int length = strlen(strFullNamev2) - 1;
 	printf("\nThe length of your full name is %d(including spaces).\n", length);
-	//QUESTION: How come there is always an extra space before my first name??? I have to go with -1 because of this
+	// QUESTION: How come there is always an extra space before my first name??? I have to go with -1 because of this
 	// reply: it is counting the space between first name and last name
 
 	// Q4 get a string from the user and convert it to all capital letters
@@ -86,11 +90,11 @@ int main(void)
 	if (rtnValue == 0) // i didn't forget double equal this time
 		printf("You win!\n");
 	else
-		printf("You entered the wrong answer ;(");
+		printf("You entered the wrong answer;");
 	//what does this line do?? strcmp(userInputStr, sizeof(userInputStr), strFixed); it did not give me an error
 
 	// Q6 Have the user enter a string of numbers (store the input into a character array)
-	//Write a program that converts the string into an integer (Use atoi() ). Print the string and the integer.  
+	// Write a program that converts the string into an integer (Use atoi() ). Print the string and the integer.  
 
 	char strToInt[999] = { " " };
 	printf("Please enter the string that you like to convert to an integer.\n");
@@ -126,7 +130,7 @@ int main(void)
 	*/
 
 	// Q8 Write a program that asks the user to enter a string (use puts/gets).
-	//Use a switch statement to identify a vowel and count the number of A, E, I , O and U letters that were entered.  It should not be case sensitive.
+	// Use a switch statement to identify a vowel and count the number of A, E, I , O and U letters that were entered.  It should not be case sensitive.
 	int conf = 0;
 	do
 	{
@@ -274,7 +278,11 @@ int main(void)
 	return 0;
 }
 
-void clear(void) //clear function that receives nothing and returns nothing
+/**
+ * @brief Define function to empty the input buffer.
+ * receives nothing and returns nothing
+ */
+void clear(void)
 {
 	while (getchar() != '\n');
 }
