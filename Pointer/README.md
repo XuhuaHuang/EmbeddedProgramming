@@ -91,7 +91,54 @@ In C, there are 3 basic steps for dynamic memory allocation:
 - Use `free()` function to release the memory. For example:
 ```C++
 int* pi = (int*)malloc(sizeof(int)); /* Using explicit convertion syntax (int*) for the rvalue. */
+/* When allocating specific number of bytes for built-in data type,
+ * try using the sizeof() function.
+ */
 *pi = 5; /* De-reference the pointer and assign a value to it. */
 printf("Address: %p, Content: %d", &pi, *pi);
 free(pi);
+```
+
+### Static and Global Pointers and `malloc`
+Functions are not allowed when initializing static or global variables.
+```C++
+// global namespace
+// the following line gives an compile-time error.
+// static int* pi = malloc(sizeof(int));
+// use this instead:
+static int* pi;
+pi = malloc(sizeof(int));
+// from the compiler's view, `=` operator in the initialization phase is different
+// than the one used for assignment
+```
+
+### Function `calloc`
+This function will clear the memory while allocating. All slots will be set to hold the value of a binary 0 (false).  
+`void* calloc(size_t numElements, size_t elementSize);`  
+- The total amount of memory allocated will have the size of (numElments * elementSize), as the parameters suggest.  
+- It returns the pointer pointing to the first element of allocated memory. This function was originally used to help allocate memory for arrays.
+- Returns `NULL` if allocation failed; `errno` will be set to `ENOMEM` on `POSIX`.
+- Use `malloc` and `memset` for the same effect:
+  ```C++
+  int* pi = (int*)malloc(sizeof(int));
+  memset(pi, 0, 5*sizeof(int));
+  ```
+- Note that `calloc` may take longer to execute than `malloc` does.
+
+### Funtion `realloc`
+Funtion to reallocate memory to offer support like variadic-length array.  
+`void* realloc(void* ptr, size_t size);`
+- Note the `size` argument should be different than the size of original `ptr`.
+- Returns the pointer pointing to the re-allocated memory.
+- If the pointer is not `NULL`, and the `size` argument is 0, the pointer will be freed.
+- Returns `NULL` if allocation failed and `ptr` stays unchanged; `errno` will be set to `ENOMEM` on `POSIX`.
+```C++
+char* hexa;
+char* hexaCopy;
+hexa = (char*)malloc(16);
+strcpy(hexa, "0123456789AB");
+hexaCopy = (char*)realloc(hexa, 64); /* Allocating more memory. */
+// Use explicit conversion to avoid possible compiler complaints.
+printf("hexa value: %p [%s]\n.", hexa, hexa);
+printf("hexaCopy value: %p [%s]\n.", hexaCopy, hexaCopy);
 ```
