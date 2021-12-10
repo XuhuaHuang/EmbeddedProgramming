@@ -36,6 +36,9 @@ $ g++ --version
 
 ---
 
+#### Files prefixed with `demo_` under root
+
+
 #### Directory `.\Fun` and `.\Fun\Java`
 Contains all code when self learning other concepts in both C++ and Java.
 
