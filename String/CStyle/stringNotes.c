@@ -1,5 +1,21 @@
+/**
+ * @file stringNotes.c
+ * @author Xuhua Huang (xuhuahuang0412@gmail.com)
+ * @brief 
+ * 
+ * Command to compile and run on Windows:
+ * gcc -o CStringNotes.exe .\stringNotes.c
+ * ./CStringNotes
+ *
+ * @version 1.1
+ * @date 2021-02
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include <stdio.h>
-#include <string.h>  // Include file to be able to use string functions
+#include <string.h>  /* C-style string functions */
 
 void clear(void);
 void printStr(char str[], int numCharacters);
@@ -16,20 +32,20 @@ int main(void)
 	
 	
 	// IMPORTANT!! When using scanf with strings, you must include the size of the array (sizeof(name)) )
-	printf("Enter your name\n"); 
+	printf("Enter your name: "); 
 	scanf_s("%s", &name, sizeof(name)); // it might mean there is enough room for this input to go in
 	clear(); // clear the input stream
-		// calling the function without feeding any inputs nor receiving any feedbacks
+	// calling the function without feeding any inputs nor receiving any feedbacks
 	
 	// The function puts is like printf except for strings only
-	puts("Enter a noun"); // like printf
+	puts("Enter a noun: "); // like printf
 	
 	// The function gets is like scanf except for strings only
 	gets_s(str1, sizeof(str1)); // scanf
 	//when using a gets_s, you do NOT need to put that & thing, and you don't have to clear
 	puts(str1); // print the entire string
 	
-	puts("Enter another noun");
+	puts("Enter another noun: ");
 	gets_s(str2, sizeof(str2)); //new line to learn
 	puts(str2);
 
@@ -65,7 +81,7 @@ int main(void)
 		strcat_s(str1, sizeof(str1), "s");
 	}
 	// Alphabetize using strcmp()
-	//return value	indicates
+	// return value	and indication:
 	//	<0	the first character that does not match has a lower value (alphabetically) in str1 than in str2
 	//	==0	the contents of both strings are equal
 	//	>0	the first character that does not match has a greater value (alphabetically)in str1 than in str2
@@ -102,12 +118,11 @@ int main(void)
 	//new line to learn
 	puts(newStr); 
 		
-	//function atoi() - convert string array to a number (integer) since math cannot be performed on numbers that are characters
-	char numstr[] = { "5123" };
+	// function atoi() - convert string array to a number (integer) since math cannot be performed on numbers that are characters
+	char numstr[5] = { '5', '1', '2', '3' };
 	int number = atoi(numstr);
 	//printf("number as string %d\n", atoi(numstr));
 	printf("%d\n", number);
-	// what would be the most useful condition of this feature???
 
 	// convert integer to string using sprintf
 	int num = 20;
