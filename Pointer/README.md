@@ -142,3 +142,20 @@ hexaCopy = (char*)realloc(hexa, 64); /* Allocating more memory. */
 printf("hexa value: %p [%s]\n.", hexa, hexa);
 printf("hexaCopy value: %p [%s]\n.", hexaCopy, hexaCopy);
 ```
+
+### RAII - Resourece Acquisition is Initialization
+A technology invented by Bjarne Stroustrup, to allocate and release memory in C++ program, regardless the program throws an exception or not.  
+`GNU Core` uses the `RAII_VARIABLE` macro to implement this feature. See below for the function-like macro definition.
+```C++
+#define RAII_VARIABLE(vartype, varname, initval, dtor) \
+  void _dtor_ ## varname (vartype * v) { dtor(*v) };   \
+  vartype varname __attribute__((cleanup(_dtor ## varname))) = (initval)
+```
+See below for a small demonstration; the following code declare a variable of type `char*`, and allocated 4 bytes of memory. When the variable `name` goes out of scope, the `free()` function will be called as the destructor.
+```C++
+void raiiExample(void) {
+  RAII_VARIABLE(char*, name, (char*)malloc(32), free);
+  strcpy(name, "RAII example demonstration");
+  printf("%s\n", name); /* RAII example demonstration */
+}
+```
