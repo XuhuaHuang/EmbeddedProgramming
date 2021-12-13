@@ -91,7 +91,7 @@ int main(void)
 	if (rtnValue > 0)
 	{
 		// Swap Strings
-		// The function strcpy() - string copy - will overwrite the first string with the second string
+		// The function strcpy_s() - string copy (safe) - will overwrite the first string with the second string
 		strcpy_s(newStr, sizeof(newStr), str2); // newStr is overwritten by str2
 		strcpy_s(str2, sizeof(str2), str1);		// str2 is overwritten by str1
 		strcpy_s(str1, sizeof(str1), newStr);	// str1 is overwritten by newStr 
@@ -100,6 +100,7 @@ int main(void)
 	{
 		// Combine into one string
 		// very likely the new string requires a new sixe as well
+		// function strcat_s() - string concatenate (safe) - append string to the original
 		strcpy_s(newStr, sizeof(newStr), str1); // newStr is overwritten by str1
 		strcat_s(newStr, sizeof(newStr), " ");	// space " " is added to the end of newStr 
 		strcat_s(newStr, sizeof(newStr), str2);	// str2 is added to the end of newStr
