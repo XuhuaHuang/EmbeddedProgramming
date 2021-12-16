@@ -54,7 +54,7 @@ printf("%d\n", *pi);  /* 7 */
 ---
 
 ## Double Pointers
-The term "double pointers" refer to pointers that point to a pointer variable; it is most comonly seen as `char** argv (argument vector)` in C/C++. See below for an example.
+The term "double pointers" refer to pointers that point to a pointer variable; it is most comonly seen as `char** argv (argument vector)` as parameters for the main function in C/C++. See below for an example.
 ```C++
 /* Declare a charater array to store all the books' name. */
 char* books[] = {
@@ -80,6 +80,32 @@ englishBooks[3] = &books[6]; // char** englishBooks has been populated with cont
 
 /* Print elements and verify. */
 printf("%s\n", *englishBooks[1]); // "Wuthering Heights"
+```
+
+### Double-pointer Parameters in Functions
+When a pointer is parsed to functions, the value gets parsed, instead of the address. If the original pointer needs to be modified in the function, not the duplicated one, we need to parse a pointer to a pointer.  
+The following function uses the first parameter of the function to store allocated memory. In this particular function, memory will be allocated, then initialized.
+```C++
+void allocateArray(int** arr, const int size, int initValue) {
+  /**
+   * Modify the content of the original pointer 
+   * by de-referencing the double pointer, which gives the original int*. 
+   */
+  *arr = (int*)malloc(size * sizeof(int));
+  // check whether the allocation was successful
+  if (*arr != NULL) {
+    // iterate through the array and assign initial value
+    for(int i = 0; i < size; ++i) {
+      *(*arr+i) = initValue;
+    }
+  }
+}
+
+int main(void) {
+  int* vector = NULL;
+  allocateArray(&vector, 5, 45);
+  /* &vector gives the function the address of the pointer. */
+}
 ```
 
 ---
