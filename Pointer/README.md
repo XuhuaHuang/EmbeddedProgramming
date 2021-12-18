@@ -15,7 +15,7 @@ typedef unsigned int size_t
 * `ptrdiff_t`: mathematic operation on pointers.
 * `intptr` and `uintptr_t`: to store the address of a pointer.
 
-## Pointer to an Unsigned Integer: `uintptr_t`
+## Pointer to an Unsigned Integer with `uintptr_t`
 ```C++
 int num;
 // uintptr_t *pu = &num;
@@ -125,7 +125,7 @@ printf("Address: %p, Content: %d", &pi, *pi);
 free(pi);
 ```
 
-### Static and Global Pointers and `malloc`
+### Static and Global Pointers and `malloc()`
 Functions are not allowed when initializing static or global variables.
 ```C++
 // global namespace
@@ -138,7 +138,7 @@ pi = malloc(sizeof(int));
 // than the one used for assignment
 ```
 
-### Function `calloc`
+### Function `calloc()`
 This function will clear the memory while allocating. All slots will be set to hold the value of a binary 0 (false).  
 `void* calloc(size_t numElements, size_t elementSize);`  
 - The total amount of memory allocated will have the size of (numElments * elementSize), as the parameters suggest.  
@@ -151,7 +151,7 @@ This function will clear the memory while allocating. All slots will be set to h
   ```
 - Note that `calloc` may take longer to execute than `malloc` does.
 
-### Funtion `realloc`
+### Funtion `realloc()`
 Funtion to reallocate memory to offer support like variadic-length array.  
 `void* realloc(void* ptr, size_t size);`
 - Note the `size` argument should be different than the size of original `ptr`.
@@ -184,4 +184,8 @@ void raiiExample(void) {
   strcpy(name, "RAII example demonstration");
   printf("%s\n", name); /* RAII example demonstration */
 }
-```
+
+### Safer `free()` Function Implementation
+See director `..\Util\safe_free.hpp` for definition and demonstration.  
+For short, set the pointer to `NULL` after invoking the `free()` function on such pointer.
+
