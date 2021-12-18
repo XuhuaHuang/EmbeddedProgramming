@@ -184,8 +184,12 @@ void raiiExample(void) {
   strcpy(name, "RAII example demonstration");
   printf("%s\n", name); /* RAII example demonstration */
 }
+```
 
 ### Safer `free()` Function Implementation
 See director `..\Util\safe_free.hpp` for definition and demonstration.  
 For short, set the pointer to `NULL` after invoking the `free()` function on such pointer.
 
+---
+
+## Function Pointer
