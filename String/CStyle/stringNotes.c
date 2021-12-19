@@ -1,7 +1,7 @@
 /**
  * @file stringNotes.c
  * @author Xuhua Huang (xuhuahuang0412@gmail.com)
- * @brief 
+ * @brief Notes on C-style strings with the string.h
  * 
  * Command to compile and run on Windows:
  * gcc -o CStringNotes.exe .\stringNotes.c
@@ -17,15 +17,16 @@
 #include <stdio.h>
 #include <string.h>  /* C-style string functions */
 
+/* Function prototype - using forward declaration */
 void clear(void);
-void printStr(char str[], int numCharacters);
+void printStr(char, int);
 
 int main(void)
 {
-	char name[20] = { "" }; // empty string
-	char str1[20] = { "" }; // this looks more like an array to me
-	char str2[20] = { "" }; // this is an array of 20 characters elements named str2
-	char newStr[50] = { "" };
+	char name[20] = { "" }; 	// empty string
+	char str1[20] = { "" }; 	// this looks more like an array to me
+	char str2[20] = { "" }; 	// this is an array of 20 characters elements named str2
+	char newStr[50] = { "" }; 	// temporary array for swapping demo
 
 	// function sizeof() determines the size of the array
 	printf("sizeof name = %d\n", sizeof(name));
@@ -38,15 +39,15 @@ int main(void)
 	// calling the function without feeding any inputs nor receiving any feedbacks
 	
 	// The function puts is like printf except for strings only
-	puts("Enter a noun: "); // like printf
+	puts("Enter a noun: "); // like printf - put string (to the console)
 	
 	// The function gets is like scanf except for strings only
-	gets_s(str1, sizeof(str1)); // scanf
+	gets_s(str1, sizeof(str1)); // scanf - get string (safe)
 	//when using a gets_s, you do NOT need to put that & thing, and you don't have to clear
 	puts(str1); // print the entire string
 	
 	puts("Enter another noun: ");
-	gets_s(str2, sizeof(str2)); //new line to learn
+	gets_s(str2, sizeof(str2)); // scanf_s - get string (safe)
 	puts(str2);
 
 	// string length function will determine that actual number of characters in the string 
@@ -56,6 +57,7 @@ int main(void)
 	// Convert string to lowercase one character at a time using the tolower() function
 	for (int i = 0; i < strlen(str1); i++)
 	{
+		// convert and replace
 		// one character at a time
 		str1[i] = tolower(str1[i]); 
 	}
@@ -99,7 +101,7 @@ int main(void)
 	else // correct order
 	{
 		// Combine into one string
-		// very likely the new string requires a new sixe as well
+		// very likely the new string requires a new size as well
 		// function strcat_s() - string concatenate (safe) - append string to the original
 		strcpy_s(newStr, sizeof(newStr), str1); // newStr is overwritten by str1
 		strcat_s(newStr, sizeof(newStr), " ");	// space " " is added to the end of newStr 
@@ -116,7 +118,6 @@ int main(void)
 	// OR Using sprintf to combine into one string - overwrite newStr with formatted print ("str1 str2") 
 	// sprintf prints to a string instead of the console (like printing to pdf instead of the printer)
 	sprintf_s(newStr, sizeof(newStr), "%s %s", str1, str2);
-	//new line to learn
 	puts(newStr); 
 		
 	// function atoi() - convert string array to a number (integer) since math cannot be performed on numbers that are characters
@@ -137,7 +138,7 @@ int main(void)
 // takes a character array and the size
 void printStr(char str[], int numCharacters)
 {
-	puts("In function printStr\n");
+	puts("In function printStr(char, int).\n");
 	//sizeof is incorrect in the function - size of array is lost when it is passed to function
 	//printf("sizeof str = %d\n", sizeof(str)); - this does not work since sizeof(str) will return 0
 	printf("sizeof str = %d\n", numCharacters);
