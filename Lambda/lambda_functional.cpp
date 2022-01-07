@@ -55,12 +55,12 @@ int main(void)
 	// printVector(values); // uncomment this line to see the content of the vector
 
 	/* create a lambda */
-	auto lambda = [&](int value) {
+	auto print_int_val = [&](int value) {
 		std::cout << "Printing with lambda: " << value << std::endl;
 	};
 
 	/* call ForEach and pass lambda as a function pointer */
-	ForEach(values, lambda);
+	ForEach(values, print_int_val);
 
 	/* std::find_if() */
 	auto iter = std::find_if(values.begin(), values.end(),
