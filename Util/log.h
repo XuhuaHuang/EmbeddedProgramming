@@ -10,7 +10,9 @@
 #ifndef LOG_H
 #define LOG_H
 
+#ifndef _STDIO_H
 #include <stdio.h>
+#else
 
 /* Global Macro Definition */
 #define LOG(...) {\
