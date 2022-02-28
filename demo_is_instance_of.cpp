@@ -1,6 +1,10 @@
 /*****************************************************************//**
  * \file   demo_is_instance_of.cpp
- * \brief  
+ * \brief  Demonstration of library code in ".\util\is_instance.h"
+ * 
+ * Command used to compile:
+ * $ g++ -o is_instance.exe .\demo_is_instance.cpp -std=c++11
+ * $ .\is_instance.exe
  * 
  * \author Xuhua Huang
  * \date   October 2021
@@ -18,28 +22,28 @@ int main(void)
 {
     Child* c;
 
-    /* Check c is an instance of Child. */
+    /* Check c is an instance of class Child. */
     if (util::type::is_instance_of<Child>(c)) {
-        std::cout << "c is instance of Child class" << std::endl;
+        std::cout << "Object c is instance of Child class" << std::endl;
     }
     else {
-        std::cout << "c is not instance of Child class" << std::endl;
+        std::cout << "Object c is not instance of Child class" << std::endl;
     }
 
-    /* Check c is an instance of Parent. */
+    /* Check c is an instance of class Parent. */
     if (util::type::is_instance_of<Parent>(c)) {
-        std::cout << "c is instance of Parent class" << std::endl;
+        std::cout << "Object c is instance of Parent class" << std::endl;
     }
     else {
-        std::cout << "c is not instance of Parent class" << std::endl;
+        std::cout << "Object c is not instance of Parent class" << std::endl;
     }
 
-    /* Check c is an instance of AnotherClass. */
+    /* Check c is an instance of class AnotherClass. */
     if (util::type::is_instance_of<AnotherClass>(c)) {
-        std::cout << "c is instance of AnotherClass class" << std::endl;
+        std::cout << "Object c is instance of AnotherClass class" << std::endl;
     }
     else {
-        std::cout << "c is not instance of AnotherClass class" << std::endl;
+        std::cout << "Object c is not instance of AnotherClass class" << std::endl;
     }
 
 	system("pause");
