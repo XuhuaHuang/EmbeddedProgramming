@@ -15,10 +15,10 @@
 #else
 
 /* Global Macro Definition */
-#define LOG(...) {\
-    fprintf(stderr, "%s: Line %d:\t", __FILE__, __LINE__);\
-    fprintf(stderr, __VA_ARGS__);\
-    fprintf(stderr, "\n");\
+#define LOG(...) {                                          \
+    fprintf(stderr, "%s: Line %d:\t", __FILE__, __LINE__);  \
+    fprintf(stderr, __VA_ARGS__);                           \
+    fprintf(stderr, "\n");                                  \
 }
 
 #endif
