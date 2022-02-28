@@ -1,7 +1,11 @@
 /*****************************************************************//**
  * \file   demo_is_multiple_of.cpp
  * \brief  Asked question in test for the company Kinaxis.
- *
+ * 
+ * Command used to compile:
+ * $ g++ -o demo_is_multiple.exe .\demo_is_multiple_of.cpp -std=c++11
+ * $ .\demo_is_multiple.exe
+ * 
  * \author Xuhua Huang
  * \date   October 2021
  *********************************************************************/
@@ -13,6 +17,8 @@
 #include <string>
 
 #include "Util/print_vec.h"
+#include "Util/log.h"
+
 using namespace util::vector;
 
 #ifndef DEBUG
@@ -34,6 +40,7 @@ int main(int argc, char** argv)
 {
 	std::vector<int> input = { 30, 60, 90, 120 };
 	print_vec(input);
+	// equivalence of: util::vector::print_vec(input);
 
 	int count = 0;
 	std::vector<int> result;
