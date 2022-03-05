@@ -33,7 +33,7 @@ constexpr int get_const(void) {
 
 /**
  * @brief use cases of constexpr int get_const() function.
- * array indes, switch statement and anonymous enum.
+ * array index, switch statement and anonymous enumeration.
  * Without the `constexpr` keyword in front of the get_const() signature,
  * this function will not compile.
  * @param const int arg (to be used in switch statement) 
@@ -45,7 +45,7 @@ void demo_constexpr(const int arg) {
     for (int i = 0; i < sizeof(arr)/sizeof(arr[0]); ++i) {
         printf("%d, ", arr[i]);
     }
-    printf("\n");
+    printf("End demonstrating arr[getconst()] syntax.\n");
     
     enum { e1 = get_const(), e2 };
     /* e2 is automatically given the value of 2. */
