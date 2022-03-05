@@ -27,7 +27,7 @@
  * Evaluation of function get_const() happens at compile-time
  * @return constexpr int 
  */
-constexpr int get_const(void) {
+inline constexpr int get_const(void) {
     return 1;
 }
 
@@ -52,6 +52,7 @@ void demo_constexpr(const int arg) {
     printf("enum::e1 = %d, enum::e2 = %d\n", e1, e2);
 
     switch (arg) {
+        /* Case with compile-time constants. */
         case get_const():
             printf("demo_constexpr(1); `case get_const()` invoked.\n");
             break;
