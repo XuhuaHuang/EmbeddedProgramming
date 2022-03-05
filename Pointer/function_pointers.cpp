@@ -1,7 +1,10 @@
 /*****************************************************************//**
  * \file   function_pointers.cpp
  * \brief  contains notes and examples on function pointers
- *
+ * 
+ * Call functions at lower expenses; change the function pointer object
+ * to a new function, instead of inserting a new stack frame
+ * 
  * \author Xuhua Huang
  * \date   June 2021
  *********************************************************************/
@@ -12,7 +15,7 @@
 
 void greetUser(std::string userName)
 {
-	std::cout << "Hello, " << userName << std::endl;
+	std::cout << "Hello, " << userName << "\n";
 }
 
 
@@ -24,6 +27,7 @@ void ForEach(const std::vector<int>& contents, void (*fn)(int))
 	 * 
 	 * \param contents: a constant reference to a vector of type int
 	 * \param fn: a function pointer of return type void and parameter list int
+	 * 		  In modern C++, this function pointer is usually replaced by lambda
 	 */
 	for (int content : contents)
 		fn(content);
@@ -59,7 +63,7 @@ int main(void)
 
 	/**
 	 * invoke function through function pointer
-	 * parse arguments as if onvoking it normally
+	 * parse arguments as if invoking it normally
 	 */
 	greetUserFnPtr("Lanfeng Jin");
 
