@@ -30,11 +30,11 @@ Note: try to avoid converting pointer to integer; if the pointer is 64-bit, and 
 - `*` operator: to declare, dereference a pointer.
 - `->` operator: to access to segment the pointer refers to.
 - `+` and `-` operator: plus and minus.
-- `==`, `!=`, `>`, ... etc. operator: comparsion.
+- `==`, `!=`, `>`, ... etc. operator: comparison.
 
 ### Add an Integer to a Pointer
 Adding an integer to a pointer is equivalent to move to a memory address with that exact logical memory address.  
-In the example below, self-increment the pointer is equivalent to adding the numeric vaue of the length of an integer (4-bit) to the logical memory address.
+In the example below, self-increment the pointer is equivalent to adding the numeric value of the length of an integer (4-bit) to the logical memory address.
 ```C++
 int vector[] = { 28, 41, 7 };
 int *pi = vector;
@@ -56,7 +56,7 @@ printf("%d\n", *pi);  /* 7 */
 ## Double Pointers
 The term "double pointers" refer to pointers that point to a pointer variable; it is most comonly seen as `char** argv (argument vector)` as parameters for the main function in C/C++. See below for an example.
 ```C++
-/* Declare a charater array to store all the books' name. */
+/* Declare a character array to store all the books' name. */
 char* books[] = {
   "A Tale of Two Cities",
   "Wuthering Heights", "Famous Last Words",
@@ -71,7 +71,7 @@ char** englishBooks[4];
 /* Access the elements with [] operator, then refer to the address of them. */
 bestBooks[0] = &books[0];
 bestBooks[1] = &books[3];
-bestbooks[2] = &books[5]; // char** bestBooks has been populated with contents.
+bestBooks[2] = &books[5]; // char** bestBooks has been populated with contents.
 
 englishBooks[0] = &books[0];
 englishBooks[1] = &books[1];
@@ -151,8 +151,8 @@ This function will clear the memory while allocating. All slots will be set to h
   ```
 - Note that `calloc` may take longer to execute than `malloc` does.
 
-### Funtion `realloc()`
-Funtion to reallocate memory to offer support like variadic-length array.  
+### Function `realloc()`
+Function to reallocate memory to offer support like variadic-length array.  
 `void* realloc(void* ptr, size_t size);`
 - Note the `size` argument should be different than the size of original `ptr`.
 - Returns the pointer pointing to the re-allocated memory.
@@ -169,7 +169,7 @@ printf("hexa value: %p [%s]\n.", hexa, hexa);
 printf("hexaCopy value: %p [%s]\n.", hexaCopy, hexaCopy);
 ```
 
-### RAII - Resourece Acquisition is Initialization
+### RAII - Resource Acquisition is Initialization
 A technology invented by Bjarne Stroustrup, to allocate and release memory in C++ program, regardless the program throws an exception or not.  
 `GNU Core` uses the `RAII_VARIABLE` macro to implement this feature. See below for the function-like macro definition.
 ```C++
