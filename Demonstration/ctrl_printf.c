@@ -7,9 +7,9 @@
  * Command used to compile:
  * $ gcc -o ctrlPrint.exe .\ctrl_printf.c
  * $ .\ctrlPrint.exe
- * 
+ *
  * @copyright Copyright (c) 2021
- * 
+ *
  */
 
 #include <stdio.h>
@@ -20,7 +20,7 @@ int main(void) {
     unsigned width;
     int number = 256;
     /* ask user for field width. */
-    printf("Please enter fileld width: ");
+    printf("Please enter field width: ");
     scanf("%d", &width);
     printf("The number is: %*d", width, number);
 
