@@ -5,6 +5,7 @@
 
 .idea/
 .vscode/
+*.code-workspace
 *.o
 
 # User-specific files
