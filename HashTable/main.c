@@ -119,7 +119,6 @@ bool insert_to_table(const CPerson* const ptr) {
             return true;
         }
     }
-    
     return false;
 }
 

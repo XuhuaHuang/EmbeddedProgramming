@@ -4,11 +4,11 @@
  * move constructor (rvalue reference)
  * Compiler g++ optimizes the behaviour of the program
  * by bypassing all the copying and moving
- * 
+ *
  * To compile on Windows:
  * $ g++ -o move.exe .\learn_move_semantics.cpp -std=c++11
  * $ .\move.exe
- * 
+ *
  * \author Xuhua Huang
  * \date   October 2021
  *********************************************************************/
@@ -55,7 +55,7 @@ public:
 	static int n_mvtr; // number of times move constructor called
 	static int n_dstr; // number of times destructor called
 // private:
-	/* Memeber attribute - integer pointer. */
+	/* Member attribute - integer pointer. */
 	int* ptr;
 };
 
