@@ -2,7 +2,11 @@
  * \file   demo_parse_str.cpp
  * \brief  Demonstration of function to parse a comma-separated string
  * into integers and store them in a std::vector<int>.
- *
+ * 
+ * To compile and run this file on Windows:
+ * $ g++ -o demo_parse_str.exe .\demo_parse_str.cpp -std=c++11
+ * $ .\demo_parse_str.exe
+ * 
  * \author Xuhua Huang
  * \date   October 2021
  *********************************************************************/
