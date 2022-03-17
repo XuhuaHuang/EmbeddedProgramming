@@ -70,6 +70,10 @@ The `README.md` has more handy notes when encountering those problems.
 Popular concepts in Objective-C.
 Compiled in Windows using `GNUstep Core` and provided GNUstep developer tools.
 
+#### Directory `.\Projects`
+Contains projects carried along the coursework and includes some personal project as well.
+For example, building a terminal progress bar for visual effects and working with `OpenGL` library in `C++`.
+
 ---
 
 ### **Quick Algorithm Lookup Table**
