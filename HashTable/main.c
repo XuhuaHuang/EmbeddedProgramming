@@ -3,16 +3,16 @@
  * @author Xuhua Huang (xuhuahuang0412@gmail.com)
  * @brief Understanding and implementing a hash table in C.
  * Constant operation time of O(1) with Open Addressing and External Chamber.
- * 
+ *
  * To run the file on Windows with MinGW:
  * $ mingw32-make all
  * $./hashtable
- * 
+ *
  * @version 0.1
  * @date 2022-02-03
- * 
+ *
  * @copyright Copyright (c) 2021
- * 
+ *
  */
 
 #include <stdio.h>
@@ -20,6 +20,8 @@
 #include <string.h>
 #include <stdint.h>
 #include <stdbool.h>
+
+
 
 #ifndef MAX_NAME
 #define MAX_NAME 256
@@ -36,7 +38,7 @@
 
 /**
  * @brief Define a C-style struct
- * and name it `CPerson` 
+ * and name it `CPerson`
  */
 typedef struct CPerson {
     char name[MAX_NAME];
@@ -45,7 +47,7 @@ typedef struct CPerson {
 
 /**
  * @brief Create hash function.
- * @return unsigned int 
+ * @return unsigned int
  */
 unsigned int hash(const char* const name) {                 /* constant pointer object and constant content */
     int length = strnlen(name, MAX_NAME);
@@ -101,7 +103,7 @@ void print_table() {
 
 /**
  * @brief Define a function to insert a person in the table.
- * 
+ *
  * @param ptr (constant address, constant content)
  * @return bool -> either the operation was successful or not
  */
@@ -124,9 +126,9 @@ bool insert_to_table(const CPerson* const ptr) {
 
 /**
  * @brief Define a function to look up a person by name in the table.
- * 
+ *
  * @param name (constant address, constant content)
- * @return CPerson* 
+ * @return CPerson*
  */
 CPerson* hash_table_lookup(const char* const name) {
     int index = hash(name);
@@ -147,9 +149,9 @@ CPerson* hash_table_lookup(const char* const name) {
 
 /**
  * @brief Delete a person from the table by its looking up the name.
- * 
- * @param constant string name 
- * @return CPerson* 
+ *
+ * @param constant string name
+ * @return CPerson*
  */
 CPerson* del_from_table(const char* const name) {
     int index = hash(name);
@@ -157,7 +159,7 @@ CPerson* del_from_table(const char* const name) {
         int try_to_locate = (i + index) % TABLE_SIZE;       /* best case: result is found when i=0. */
         if (hash_table[try_to_locate] == NULL) {            /* indexed slot is empty. */
             return NULL;
-        } 
+        }
         if (hash_table[try_to_locate] == DELETED_NODE) {    /* indexed slot has been deleted. */
             continue;
         }
@@ -175,7 +177,7 @@ int main(void) {
     /* create and initialize a hash table. */
     init_hash_table();
     print_table();  /* expecting empty hash table. */
-    
+
     /* create multiple CPerson object with list initialization. */
     CPerson jacob = { .name="Jacob", .age=40 };
     CPerson andy = { .name="Andy", .age=20 };
