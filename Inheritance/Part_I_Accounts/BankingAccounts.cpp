@@ -8,7 +8,7 @@
  * @note ALL "std::cout" statements inside a function are appended
  * after signature "[fn]" which stands for printing from function
  * 
- * @version 0.1
+ * @version 1.0
  * @date November 2020
  * 
  * @copyright Copyright (c) 2022
