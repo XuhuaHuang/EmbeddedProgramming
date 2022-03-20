@@ -16,7 +16,7 @@
  */
 
 // built-in library:
-#ifndef _IOSTREAM_
+#ifndef _GLIBCXX_IOSTREAM
 #include <iostream>
 #endif
 
