@@ -14,6 +14,9 @@ Heritage College, Gatineau, Quebec, Canada
 
 <img src=".logo/C_Logo.png" alt="An image for C Language" width="100"/><img src=".logo/CPlusPlus_Logo.png" alt="An image for C++" width="100"/>  <img src=".logo/Mingw_Logo.png" alt="An image for Java" width="110"/>
 
+---
+
+#### **Getting Started**
 **Example to Compile a File Named `Tuple_get_tie.cpp`**
 
 ```Bash
@@ -22,7 +25,7 @@ $ cd ./StandardTemplateLibrary/Tuple
 $ g++ -o get_tie.exe Tuple_get_tie.cpp -std=c++11
 ```
 
-**To Update MinGW on Windows**
+**To Update MinGW on Windows**  
 Run a `PowerShell` session with administrator privilege and run:
 
 ```Bash
