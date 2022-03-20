@@ -4,9 +4,6 @@
 This directory contains code when self-learning concepts in C++.  
 Python and Rust code are migrated to independent repository.  
 
-## Languages  
-*C++, Java*
-
 ---
 
 ## Handy Notes - C++ Concepts and Best Practices

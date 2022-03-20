@@ -14,7 +14,7 @@ int main (void)
 	bool life_is_good = true;
 	cout << boolalpha << life_is_good << endl;
 	if (life_is_good) // brackets evaluate the condition and feedback either true or false
-		cout << "This is Ture." << endl;
+		cout << "This is True." << endl;
 	
 	
 	//float and double
@@ -26,7 +26,7 @@ int main (void)
 	// std::fixed gets rid of scientific notation
 	
 	cout << LDBL_DIG << endl; 
-	// this line is evaluating up to how many digits we can trust on these vaariables
+	// this line is evaluating up to how many digits we can trust on these variables
 	// 6 for float, 15 for double, 18 for long double
 	
 	// string
@@ -34,14 +34,14 @@ int main (void)
 	cout << greeting.find_first_of("aeiou") << endl; // string member modifier or methods
 	/*	if not found, npos == -1
 		however, it's an unsigned integer 
-		negative value makes it go 1 lower to a trenmandously big
+		negative value makes it go 1 lower to a tremendously big
 	*/
 	if (greeting.find_first_of("!") == -1) 
 		cout << "NOT FOUND!" << endl;
 	
 	if (greeting.compare("What's up?") == 0)
 		cout << "EQUALS!" << endl;
-	// compare funtion returns a bool 0 to indicate found
+	// compare function returns a bool 0 to indicate found
 
 	// hex and octal int
 	int x = 0x30; // 0x indicates this is a hex int

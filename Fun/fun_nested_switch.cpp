@@ -29,7 +29,7 @@ int main(void)
 			x++;
 		}
 	}
-	case 2: // nobreak on previous case, executed
+	case 2: // no break on previous case, executed
 		x++;
 		y++;
 

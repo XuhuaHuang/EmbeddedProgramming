@@ -18,7 +18,7 @@ int main(void)
 	*/
   
 	// nested conditional operation
-	cout << "\nNested conditionl operation" << endl;
+	cout << "\nNested conditional operation" << endl;
 	int signX = determineSign(x);
 	cout << signX << endl;
 	

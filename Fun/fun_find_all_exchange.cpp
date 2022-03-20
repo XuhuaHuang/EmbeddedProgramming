@@ -13,7 +13,7 @@
  * 1) Easy to understand algorithm
  * 2) Usually used to determine "how many combinations, if there's a solution" type of problem
  * 
- * BUT -  relys on heavy loaded calculation
+ * BUT -  relies on heavy loaded calculation
  */
 
 #include <iostream>
