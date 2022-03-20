@@ -76,7 +76,7 @@ int main(void)
 	* sign: determine the sign of each fraction in this series
 	*/
 	int numFraction = 0;
-	cout << "Generating a Taylor Seiries of customized number of fractions" << endl
+	cout << "Generating a Taylor Series of customized number of fractions" << endl
 		 << "Please enter the number of the fraction numbers in the taylor series: ";
 
 	cin >> numFraction;	 // index of denominator
@@ -126,14 +126,14 @@ int main(void)
 	* Last updated: Nov 06, 2020
 	* Created on: Nov 06, 2020
 	* 
-	* Method: Enumerate and loop through all possibilities untill find solution
+	* Method: Enumerate and loop through all possibilities until find solution
 	*		  Sequential enumeration
 	* 
 	* Advantages: 
 	* 1) Easy to understand algorithm
 	* 2) Usually used to determine "how many combinations, if there's a solution" type of problem
 	* 
-	* BUT -  relys on heavy loaded calculation
+	* BUT -  relies on heavy loaded calculation
 	*/
 	double total = 0;
 	double payed = 0;
