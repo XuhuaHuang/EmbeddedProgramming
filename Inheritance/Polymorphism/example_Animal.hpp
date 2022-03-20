@@ -1,13 +1,14 @@
+#ifndef _GLIBCXX_IOSTREAM
 #include <iostream>
+#endif
 
-using namespace std;
-
+// Base class
 class Animal
 {
 public:
     void animalSound()
     {
-        cout << "The animal makes a sound." << endl;
+        std::cout << "The animal makes a sound." << "\n";
     }
 };
 
@@ -17,7 +18,7 @@ class Pig : public Animal // inheritting from base class 'Animal'
 public:
     void animalSound()
     {
-        cout << "The pig says: wee wee." << endl;
+        std::cout << "The pig says: wee wee." << "\n";
     }
 };
 
@@ -27,6 +28,6 @@ class Dog : public Animal // inheritting from base class 'Animal'
 public:
     void animalSound()
     {
-        cout << "The dog says: bow wow." << endl;
+        std::cout << "The dog says: bow wow." << "\n";
     }
 };

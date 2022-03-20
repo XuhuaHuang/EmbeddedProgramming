@@ -11,9 +11,7 @@
 
 #include <iostream>
 #include <string>
-#include "Inheritance_polymorphism.h"
-
-using namespace std;
+#include "example_Animal.hpp"
 
 int main(void) 
 {
@@ -21,14 +19,14 @@ int main(void)
     Pig myPig;
     Dog myDog;
 
-    cout << "Sound from class \"Animal\":";
+    std::cout << "Sound from class \"Animal\":";
     myAnimal.animalSound();
 
-    cout << "Sound from class \"Pig\":";
-    myPig.animalSound(); // animalSoung() function in class Pig has a higher priority than base class
+    std::cout << "Sound from class \"Pig\":";
+    myPig.animalSound(); // animalSound() function in class Pig has a higher priority than base class
     
-    cout << "Sound from class \"Dog\": ";
-    myDog.animalSound(); // animalSoung() function in class Dog has a higher priority than base class
+    std::cout << "Sound from class \"Dog\": ";
+    myDog.animalSound(); // animalSound() function in class Dog has a higher priority than base class
     
     return 0;
 }
