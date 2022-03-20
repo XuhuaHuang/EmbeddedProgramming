@@ -1,9 +1,11 @@
-all:inheritance.o Inheritance_lab_main.o
-	g++ inheritance.o Inheritance_lab_main.o -o exec
-inheritance.o:Inheritance_lab_functions.cpp Inheritance_lab_header.h
-	g++ -c Inheritance_lab_functions.cpp
-inheritancemain.o:Inheritance_lab_main.cpp Inheritance_lab_header.h
-	g++ -c Inheritance_lab_main.cpp
+.banking: all clean
+all: banking
+banking: accounts.o main.o
+	g++ accounts.o main.o -o banking
+accounts.o: BankingAccounts.cpp BankingAccounts.hpp
+	g++ -c BankingAccounts.cpp -o accounts.o
+main.o: main.cpp
+	g++ -c main.cpp -std=c++98 -o main.o
 clean:
 	rm -rf *.o
-	rm exec
+	rm banking
