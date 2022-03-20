@@ -5,7 +5,7 @@ circuit: circuit.o main.o
 circuit.o: circuit.cpp circuit.hpp
 	g++ -c circuit.cpp -o circuit.o
 main.o: main.cpp
-	g++ -c main.cpp -std=c++11
+	g++ -c main.cpp -std=c++11 -o main.o
 clean:
 	rm -f *.o
 	rm circuit
