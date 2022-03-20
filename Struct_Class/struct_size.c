@@ -1,7 +1,7 @@
 /**
  * @file struct_size.c
  * @author Xuhua Huang (xuhuahuang0412@gmail.com)
- * @brief Exploring the size of a cutomized struct in C.
+ * @brief Exploring the size of a customized struct in C.
  * 
  * Command to compile and run on Windows:
  * $ gcc -o structSize.exe .\struct_size.c
@@ -33,7 +33,7 @@ typedef struct {                /* Memory allocation example */
 } person_t;
 
 int main(void) {
-    printf("The size of the defined struct person_t is %lu bytes.\n", sizeof(person_t));
+    printf("The size of the defined struct person_t is %llu bytes.\n", sizeof(person_t));
     /* Expecting 66 bytes; but the compiler adds extra padding to make the code run faster. */
 
     /* Print the address of the attributes with %p format specifier. */
