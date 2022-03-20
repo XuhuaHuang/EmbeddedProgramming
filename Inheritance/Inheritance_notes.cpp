@@ -1,19 +1,23 @@
-/*
-* 1879700 Xuhua Huang
-* lab 7 Inheritance Notes
-* mechanism to enhance existing working class
-* define new classes that are extensions of extensions of existing class
-* 
-* Contains:
-* Base Class 'Pet'
-* Derived Class 'Dog'
-* Derived Class 'Cat'
-* 
-* default / overloaded constructors
-* funtion definitions
-* 
-* main function
-*/
+/**
+ * @file Inheritance_notes.cpp
+ * @author 1879700 Xuhua Huang
+ * @brief lab 7 Inheritance Notes
+ * mechanism to enhance existing working class
+ * define new classes that are extensions of extensions of existing class
+ * 
+ * Contains:
+ * Base Class 'Pet'
+ * Derived Class 'Dog'
+ * Derived Class 'Cat'
+ * default / overloaded constructors
+ * function definitions
+ *
+ * @version 0.1
+ * @date 2022-03-20
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 
 #include <iostream>
 #include <cmath>
@@ -32,14 +36,13 @@ public:
 	Pet();
 	Pet(int newage, string newname);
 
-
 	// set function:
 	void setName(string newname) { name = newname; }
 	void setAge(int newage) { age = newage; }
 
 	// get function:
-	string getName() { return name; }
-	int getAge() { return age; }
+	string getName() const { return name; }
+	int getAge() const { return age; }
 
 };
 
@@ -49,14 +52,13 @@ private:
 	string breed;
 
 public:
-	// dafault and overloaded constructor
+	// default and overloaded constructor
 	Dog();
 	Dog(string newbreed, int newage, string newname); // : Pet(newage, newname) { setbreed(newbreed); setAge(getAge() * 7); }
 
 	// get and set function for new element string breed:
-	void setBreed(string newbreed) { breed = newbreed; }
-	string getBreed() { return breed; }
-
+	void setBreed(const string newbreed) { breed = newbreed; }
+	string getBreed() const { return breed; }
 };
 
 class Cat : public Pet
@@ -70,9 +72,8 @@ public:
 	Cat(int newnumLives, int newage, string newname); // : Pet(newage, newname)
 
 	// get and set functions for new element int numLives:
-	void setnumLives(int newNumLives) { numLives = newNumLives; }
-	int getnumLives(void) { return numLives; }
-
+	void setnumLives(const int newNumLives) { numLives = newNumLives; }
+	int getnumLives(void) const { return numLives; }
 };
 
 int main(void)
