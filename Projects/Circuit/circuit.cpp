@@ -9,7 +9,6 @@
  *********************************************************************/
 
 #include "circuit.hpp"
-#include <iostream>
 
 /*************************************
 	COMPONENT CLASS CONSTRUCTORS

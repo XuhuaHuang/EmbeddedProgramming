@@ -11,6 +11,10 @@
 #ifndef CIRCUIT_HPP
 #define CIRCUIT_HPP
 
+#ifndef _GLIBCXX_IOSTREAM
+#include <iostream>
+#endif
+
 #ifndef PI
 #define PI 3.14159265359
 #endif
