@@ -6,7 +6,7 @@ Please use code responsively.
 #### **Special Thanks**
 **Prof. Charmaine Jirgens**
 My mentor to the programming world
-Professor in Electronics and Information Technology program
+Professor, Electronics Engineering and Information Technology
 Heritage College, Gatineau, Quebec, Canada
 
 #### Languages
@@ -66,7 +66,7 @@ Contains template (generic) function in a C-style header file, providing the fol
 
 #### Directory `.\HackerRank`
 Contains solutions to some of the basic problem solving coding questions. Provided file name most likely describes the content.
-The `README.md` has more handy notes when encountering those problems.
+The `README.md` has more handy notes when encountering those problems.  
 [Click to see my hackerRank profile](https://www.hackerrank.com/XuhuaHuang?hr_r=1)
 
 #### Directory `.\ObjectiveC`
