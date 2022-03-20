@@ -8,7 +8,7 @@
  * Derived Class 'SavingsAccount'
  * Derived Class 'CheckingAccount'
  * 
- * @version 0.1
+ * @version 1.0
  * @date November 2020
  * 
  * @copyright Copyright (c) 2022
