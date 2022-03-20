@@ -14,7 +14,7 @@ int main(void)
 		Sleep(500);
 	}
 	
-	cout << " "; // an extra space to accomdate with the following for loop
+	cout << " "; // an extra space to accommodate with the following for loop
 	Sleep(1500);
 
 	for (int iter2 = 0; iter2 < greeting.length() ; iter2++)
