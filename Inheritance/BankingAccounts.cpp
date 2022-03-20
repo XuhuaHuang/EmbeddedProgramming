@@ -16,15 +16,16 @@
  */
 
 // built-in library:
+#ifndef _IOSTREAM_
 #include <iostream>
+#endif
+
+#ifndef _INC_MATH
 #include <math.h>
-#include <string>
-#include <Windows.h>
+#endif
 
 // customized class:
-#include "Inheritance_lab_header.h"
-
-using namespace std;
+#include "BankingAccounts.hpp"
 
 // Base class 'Account' function definitions:
 Account::Account() // default constructor for base class 'Account'

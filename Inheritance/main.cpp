@@ -22,7 +22,7 @@
 #include <Windows.h> // for changing colours 
 
 // customized class:
-#include "Inheritance_lab_header.h"
+#include "BankingAccounts.hpp"
 
 using namespace std;
 
