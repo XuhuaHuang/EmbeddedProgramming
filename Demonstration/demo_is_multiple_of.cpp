@@ -16,8 +16,8 @@
 #include <vector>
 #include <string>
 
-#include "Util/print_vec.h"
-#include "Util/log.h"
+#include "../Util/print_vec.h"
+#include "../Util/log.h"
 
 using namespace util::vector;
 

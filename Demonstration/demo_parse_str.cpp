@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <vector>
 #include <sstream>
-#include "Util/parse.h"
+#include "../Util/parse.h"
 
 int main() {
 
