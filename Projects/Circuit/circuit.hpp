@@ -1,19 +1,22 @@
 /*****************************************************************//**
- * \file   CIRCUIT.h
- * \brief  Contains class declaration for class COMPONENT, RESISTOR
- *												INDUCTOR, and CIRCUIT
+ * \file   circuit.hpp
+ * \brief  Contains class declaration for class 
+ * COMPONENT, RESISTOR
+ * INDUCTOR, and CIRCUIT
  * 
  * \author Xuhua Huang
  * \date   December 2020
  *********************************************************************/
 
-#include <iostream>
-#include <string>
+#ifndef CIRCUIT_HPP
+#define CIRCUIT_HPP
 
-using namespace std;
+#ifndef PI
+#define PI 3.14159265359
+#endif
 
 /*******************************
-	 COMPONENT CLASS DEFINITION
+	COMPONENT CLASS DEFINITION
 *******************************/
 class COMPONENT
 {
@@ -35,7 +38,7 @@ private:
 };
 
 /*********************************
-	 RESISTOR CLASS DEFINITION
+	RESISTOR CLASS DEFINITION
 *********************************/
 // derived class RESISTOR from base class COMPONENT
 class RESISTOR : public COMPONENT
@@ -58,7 +61,7 @@ private:
 };
 
 /*********************************
-    INDUCTOR CLASS DEFINITION
+	INDUCTOR CLASS DEFINITION
 *********************************/
 // derived class INDUCTOR from base class COMPONENT
 class INDUCTOR : public COMPONENT
@@ -80,7 +83,7 @@ private:
 };
 
 /*********************************
-    CIRCUIT CLASS DEFINITION
+	CIRCUIT CLASS DEFINITION
 *********************************/
 class CIRCUIT
 {
@@ -88,7 +91,7 @@ public:
 	
 	// constructor and destructor
 	CIRCUIT();
-	~CIRCUIT();
+	virtual ~CIRCUIT();
 	
 	// set and get functions for private member frequency
 	void setFrequency(double initFrequency) { frequency = initFrequency; }
@@ -110,3 +113,5 @@ private:
 	RESISTOR resistor;  // object gets created automatically
 	INDUCTOR* inductor; // object does not get created automatically
 };
+
+#endif
