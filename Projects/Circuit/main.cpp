@@ -10,14 +10,15 @@
  * \date   December 2020
  *********************************************************************/
 
+#include <windows.h>
 #include "circuit.hpp"
-#include <iostream>
 
 int main(void)
 {
 	// Testing class 'COMPONENT'
 	// creating an object named 'component1'
 	COMPONENT component1; // testing default constructor
+	std::cout << "\033[1;32m"; // change colour to green
 	std::cout << "\nTesting class \'COMPONENT\'" << "\n"
 		 << "An object of class \'COMPONENT\' named \'component1\' has been created" << "\n"
 		 << "Default constructor and setValue function have been tested" << "\n"
@@ -34,6 +35,7 @@ int main(void)
 	// Testing class 'RESISTOR'
 	// creating an object named 'resistor1'
 	RESISTOR resistor1; // testing default constructor
+	std::cout << "\033[1;36m"; // change colour to cyan
 	std::cout << "\nTesting class \'RESISTOR\'" << "\n"
 		 << "An object of class \'RESISTOR\' named \'resistor1\' has been created" << "\n"
 		 << "Default constructor and setValue function have been tested" << "\n"
@@ -50,6 +52,7 @@ int main(void)
 	// Testing class 'INDUCTOR'
 	// crating a pointer to an INDUCTOR object
 	INDUCTOR* ptrIND = new INDUCTOR;
+	std::cout << "\033[1;34m"; // change colour to blue
 	std::cout << "\nTesting class \'INDUCTOR\'" << "\n"
 		 << "A pointer of class \'INDUCTOR\' named \'ptrIND\' has been created" << "\n"
 		 << "Expecting base and derived class constructor called" << "\n"
@@ -72,6 +75,7 @@ int main(void)
 	
 	// Testing class 'CIRCUIT'
 	CIRCUIT circuit1;
+	std::cout << "\033[33m"; // change colour to yellow
 	std::cout << "\nTesting class \'CIRCUIT\'" << "\n"
 		 << "An object named \'circuit1\' has been created" << "\n"
 		 << "Calling \'printInfo\' function" << "\n"
