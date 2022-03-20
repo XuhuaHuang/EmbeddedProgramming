@@ -51,7 +51,7 @@ const char* world() noexcept(__USR_NO_EXCEPT__) {
 typedef struct TestStruct {
 public:
     TestStruct() : name(__func__) {}
-    const char* getName(void) { return name; }
+    const char* getName(void) { return this->name; }
 private:
     const char* name;
 } TestStruct;
@@ -60,7 +60,7 @@ int main(void)
 {
     /* Test __func__ predefined macro */
     std::cout << hello() << "\n" 
-        <<world() << std::endl;
+        << world() << std::endl;
     LOG("Function call hello() returns: %s", hello());
     LOG("Function call world() returns: %s", world());
 
