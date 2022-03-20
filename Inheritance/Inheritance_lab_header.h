@@ -1,12 +1,19 @@
-/*
-* 1879700 Xuhua Huang
-* Inheritance Lab Header File
-* 
-* Contains declaration of:
-* Base Class 'Account'
-* Derived Class 'SavingsAccount'
-* Derived Class 'CheckingAccount'				  
-*/
+/**
+ * @file Inheritance_lab_header.hpp
+ * @author 1879700 Xuhua Huang
+ * @brief Inheritance Lab Header File
+ * 
+ * Contains declaration of:
+ * Base Class 'Account'
+ * Derived Class 'SavingsAccount'
+ * Derived Class 'CheckingAccount'
+ * 
+ * @version 0.1
+ * @date November 2020
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 
 // Base class 'Account'
 class Account
@@ -15,7 +22,6 @@ private:
 	double balance;
 
 public:
-
 	// default and overloaded constructor:
 	Account();
 	Account(double initBalance);
@@ -36,7 +42,6 @@ private:
 	double interestRate;
 
 public:
-
 	// default and overloaded constructor:
 	SavingsAccount();
 	SavingsAccount(double initBalance, double interest);
@@ -56,7 +61,6 @@ private:
 	double fee;
 
 public:
-
 	// default and overloaded constructor:
 	CheckingAccount();
 	CheckingAccount(double initBalance, double initFee);

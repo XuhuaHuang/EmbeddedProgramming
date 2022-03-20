@@ -1,31 +1,28 @@
-/*
-* 1879700 Xuhua Huang
-* Inheritance Lab Function File
-*
-* Contains:
-* default / overloaded constructors
-* function definitions
-* 
-* Notice: ALL "cout" statements inside a function are appended
-* after signature "[fn]" which stands for printing from function
-*/
+/**
+ * @file Inheritance_lab_functions.cpp
+ * @author 1879700 Xuhua Huang
+ * @brief Inheritance Lab Function File
+ * default / overloaded constructors
+ * function definitions
+ * 
+ * @note ALL "std::cout" statements inside a function are appended
+ * after signature "[fn]" which stands for printing from function
+ * 
+ * @version 0.1
+ * @date November 2020
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 
 // built-in library:
 #include <iostream>
 #include <math.h>
 #include <string>
 #include <Windows.h>
-//#include <iomanip>
-//#include <float.h>
 
 // customized class:
 #include "Inheritance_lab_header.h"
-
-/*
-* #include "Account.h" // Base 'Class Account'
-* #include "SavingsAccount.h" // Derived Class 'SavingAccount'
-* #include "CheckingAccount.h" // Derived Class 'CheckingAccount'
-*/
 
 using namespace std;
 
@@ -37,19 +34,19 @@ Account::Account() // default constructor for base class 'Account'
 
 Account::Account(double initBalance)
 {
-	cout.precision(2);
+	std::cout.precision(2);
 
 	if (initBalance >= 0.0)
 	{
 		setBalance(initBalance); // set the balance only if it is greater than 0
-		cout << "\n[fn]Overloaded constructor \"Account::Account(double)\" is called with valid initial balance." << endl;
-		cout << "[fn]Your initial balance is set to: $ " << fixed << getBalance() << endl;
+		std::cout << "\n[fn]Overloaded constructor \"Account::Account(double)\" is called with valid initial balance." << "\n";
+		std::cout << "[fn]Your initial balance is set to: $ " << std::fixed << getBalance() << "\n";
 	}
 	else
 	{
-		cout << "\n[fn]Overloaded constructor \"Account::Account(double)\" is called with invalid initial balance." << endl;
-		cout << "[fn]Error message: Invalid. Current balance can not be set to a negative number. Please try again." << endl;
-		cout << "[fn]Current balance is automatically initialized to 0." << endl;
+		std::cout << "\n[fn]Overloaded constructor \"Account::Account(double)\" is called with invalid initial balance." << "\n";
+		std::cout << "[fn]Error message: Invalid. Current balance can not be set to a negative number. Please try again." << "\n";
+		std::cout << "[fn]Current balance is automatically initialized to 0." << "\n";
 		setBalance(0.0);
 	}
 
@@ -57,35 +54,35 @@ Account::Account(double initBalance)
 
 void Account::credit(double deposit)
 {
-	cout.precision(2);
+	std::cout.precision(2);
 
 	setBalance(getBalance() + deposit); // add deposit to current balance
-	cout << "\n[fn]This line indicates function \"Account::credit(double)\" is called:" << endl;
-	cout << "[fn]Deposited. Your latest account balance is: $ " << fixed << getBalance() << endl;
-	cout << "[fn]Function \"Account::credit(double)\" ends executing on this line." << endl;
+	std::cout << "\n[fn]This line indicates function \"Account::credit(double)\" is called:" << "\n";
+	std::cout << "[fn]Deposited. Your latest account balance is: $ " << std::fixed << getBalance() << "\n";
+	std::cout << "[fn]Function \"Account::credit(double)\" ends executing on this line." << "\n";
 
 	return;
 }
 
 bool Account::debit(double withdraw)
 {
-	cout << "\n[fn]This line indicates function \"Account::debit(double)\" is called." << endl;
+	std::cout << "\n[fn]This line indicates function \"Account::debit(double)\" is called." << "\n";
 
 	bool withdrawSuccess = false; // set the default value to false
 
 	if (getBalance() - withdraw > 0.0)
 	{
-		cout << "[fn]Withdraw successfully, account balance is recalculated." << endl;
+		std::cout << "[fn]Withdraw successfully, account balance is recalculated." << "\n";
 		setBalance(getBalance() - withdraw);
 		withdrawSuccess = true;
 	}
 	else
 	{
-		cout << "\n[fn]Error! Debit amount exceeded account balance." << endl;
-		cout << "[fn]Account balance remains unchanged." << endl;
+		std::cout << "\n[fn]Error! Debit amount exceeded account balance." << "\n";
+		std::cout << "[fn]Account balance remains unchanged." << "\n";
 	}
 
-	cout << "[fn]Function \"Account::debit(double)\" ends executing on this line." << endl;
+	std::cout << "[fn]Function \"Account::debit(double)\" ends executing on this line." << "\n";
 
 	return withdrawSuccess;
 }
@@ -100,9 +97,9 @@ SavingsAccount::SavingsAccount()
 
 SavingsAccount::SavingsAccount(double initBalance, double interest) : Account(initBalance)
 {
-	cout << "\n[fn]Overloaded constructor \"SavingsAccount::SavingsAccount(double, double)\" is called with valid initial balance." << endl;
-	cout << "[fn]Your initial balance is set to: $ " << fixed << getBalance() << endl;
-	cout << "[fn]Your initial interest rate is set to: " << fixed << getInterestRate() << endl;
+	std::cout << "\n[fn]Overloaded constructor \"SavingsAccount::SavingsAccount(double, double)\" is called with valid initial balance." << "\n";
+	std::cout << "[fn]Your initial balance is set to: $ " << std::fixed << getBalance() << "\n";
+	std::cout << "[fn]Your initial interest rate is set to: " << std::fixed << getInterestRate() << "\n";
 	
 	setInterestRate(interest);
 }
@@ -126,43 +123,42 @@ CheckingAccount::CheckingAccount(double initBalance, double initFee) : Account(i
 {
 	setFee(initFee);
 	
-	cout << "\n[fn]Overloaded constructor \"CheckingAccount::CheckingAccount(double, double)\" is called with valid initial balance." << endl;
-	cout << "[fn]Your initial balance is set to: $ " << fixed << getBalance() << endl;
-	cout << "[fn]Your fee for each transaction is: " << fixed << getFee() << endl;
+	std::cout << "\n[fn]Overloaded constructor \"CheckingAccount::CheckingAccount(double, double)\" is called with valid initial balance." << "\n";
+	std::cout << "[fn]Your initial balance is set to: $ " << std::fixed << getBalance() << "\n";
+	std::cout << "[fn]Your fee for each transaction is: " << std::fixed << getFee() << "\n";
 }
 
 void CheckingAccount::credit(double deposit)
 {
+	/**
+	 * @brief invoke Account class member function with updated argument (fee subtracted)
+	 * Account::credit(deposit);
+	 * setBalance(getBalance() - getFee());
+	 */
 	Account::credit(deposit - getFee());
-
-	/*
-	* invoke Account class member function with updated argument (fee subtracted)
-	* Account::credit(deposit);
-	* setBalance(getBalance() - getFee());
-	*/
 
 	return;
 }
 
 void CheckingAccount::debit(double withdraw)
 {
-	cout.precision(2);
+	std::cout.precision(2);
 
-	cout << "\n[fn]This line indicates function \"CheckingAccount::debit(double)\" is called." << endl;
+	std::cout << "\n[fn]This line indicates function \"CheckingAccount::debit(double)\" is called." << "\n";
 
 	bool withdrawFeeStatus = Account::debit(withdraw);
 	if (withdrawFeeStatus)
 	{
 		setBalance(getBalance() - getFee()); // only deduct the fee applied
-		cout << "[fn]Withdrawing fee deducted. Your new balance is: $ " << fixed << getBalance() << endl;
+		std::cout << "[fn]Withdrawing fee deducted. Your new balance is: $ " << std::fixed << getBalance() << "\n";
 	}
 	else
 	{
-		cout << "[fn]Error! Debit amount exceeded account balance." << endl;
-		cout << "[fn]Account balance remains unchanged. Withdraw fee not deducted." << endl;
+		std::cout << "[fn]Error! Debit amount exceeded account balance." << "\n";
+		std::cout << "[fn]Account balance remains unchanged. Withdraw fee not deducted." << "\n";
 	}
 
-	cout << "[fn]Function \"CheckingAccount::debit(double)\" ends executing on this line." << endl;
+	std::cout << "[fn]Function \"CheckingAccount::debit(double)\" ends executing on this line." << "\n";
 
 	return;
 }
