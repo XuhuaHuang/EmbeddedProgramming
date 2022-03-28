@@ -1,4 +1,8 @@
 ### **EmbeddedProgramming**
+[Wakatime Logo Link]: https://wakatime.com/badge/github/XuhuaHuang/EmbeddedProgramming.svg
+[Wakatime Info Link]: https://wakatime.com/badge/github/XuhuaHuang/EmbeddedProgramming?style=flat
+[![wakatime][Wakatime Logo Link]][Wakatime Info Link]  
+
 This is a repository created dedicated to embedded programming in Linux environment.
 Each topic is placed in individual folder. Projects are placed under each descriptively-named folders.
 Please use code responsively.
