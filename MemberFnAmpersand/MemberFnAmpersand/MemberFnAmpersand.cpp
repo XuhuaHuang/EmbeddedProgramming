@@ -3,6 +3,7 @@
 struct Arg
 {
 	int i = 1;
+	Arg(int _i) : i {_i} {}
 	int getArg()&& {
 		std::cout << "In member function int getArg() &&" << std::endl;
 		return i;
