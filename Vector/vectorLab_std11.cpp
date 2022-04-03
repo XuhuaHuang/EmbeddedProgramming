@@ -22,7 +22,7 @@ void printVector(vector<T> argVector)
 {
 	cout << "\n[fn]The content of this vector is listed: " << endl;
 
-	typename vector<T>::iterator iter; // keyword 'typename' is required for iterator
+	typename vector<T>::const_iterator iter; // keyword 'typename' is required for iterator
 	for (iter = argVector.begin(); iter < argVector.end(); iter++)
 		cout << *iter << endl; // dereference the iterator to print content
 	
