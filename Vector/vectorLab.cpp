@@ -178,7 +178,7 @@ int main (void)
 
 void printIntVector(vector<int> intv)
 {
-	vector<int>::iterator iterint;
+	vector<int>::const_iterator iterint;
 	cout << "The content of this integer vector is listed: " << endl;
 	
 	for(iterint = intv.begin(); iterint < intv.end(); iterint++)
@@ -191,7 +191,7 @@ void printIntVector(vector<int> intv)
 
 void printCharVector(vector<char> charv)
 {
-	vector<char>::iterator iterchar;
+	vector<char>::const_iterator iterchar;
 	cout << "The content of this character vector is listed: " << endl;
 	
 	for(iterchar = charv.begin(); iterchar < charv.end(); iterchar++)
@@ -223,9 +223,9 @@ void palindrome(vector<int> vint)
 void palindrome(vector<string> vstring)
 {
 	vector<string> vstringCopy = vstring; // copy to a new vector for comparison
-	cout << vstringCopy.at(0) << endl; // test
+	// cout << vstringCopy.at(0) << endl; // test
 	reverse( vstringCopy.begin(), vstringCopy.end() );
-	cout << vstringCopy.at(0) << endl; // test
+	// cout << vstringCopy.at(0) << endl; // test
 	
 	if(vstringCopy == vstring)
 		cout << "\nThis string vector is a Palindrome." << endl;
