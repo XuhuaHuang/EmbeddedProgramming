@@ -128,13 +128,13 @@ int main(void)
 		 << "The times element \"S\" is: " << count(vB.begin(), vB.end(), 'S') << endl
 		 << "The times element \"W\" is: " << count(vB.begin(), vB.end(), 'W') << endl;
 
-	// max_elementin both vectors:
+	// max_element in both vectors:
 	// function "max_element()" returns an address
 	cout << "\nConsulting the biggest element in both vectors..." << endl
 		 << "The max element is vector A is: " << *max_element(vA.begin(), vA.end()) << endl // print 7
 		 << "The max element is vector B is: " << *max_element(vB.begin(), vB.end()) << endl; // print 'W'
 
-	// min_elementin both vectors:
+	// min_element in both vectors:
 	// function "min_element()" returns an address
 	cout << "\nConsulting the smallest element in both vectors..." << endl
 		 << "The min element is vector A is: " << *min_element(vA.begin(), vA.end()) << endl  // print 1
