@@ -26,7 +26,10 @@ int camelcase(const std::string s) {
     int word_count = 1;
 
     for (int i = 0; i < s.size(); ++i) {
-        if (isupper(s.at(i))) { // equivalent to: isupper(s[i])
+        if (isupper(s.at(i))) {
+            // equivalent to: isupper(s[i])
+            // check if the letter is upper case
+            // if it is, we consider as the start of a word
             word_count++;
         }
     }
@@ -41,7 +44,7 @@ int main()
 
     int result = camelcase(s);
 
-    std::cout << result << "\n";
+    std::cout << "Camel casing count: " << result << "\n";
 
     return 0;
 }
