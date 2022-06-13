@@ -2,7 +2,7 @@
 
 [Profile](https://www.hackerrank.com/XuhuaHuang?hr_r=1)
 
-#### C++ Notes Section
+#### **C++ Notes Section**
 
 ---
 

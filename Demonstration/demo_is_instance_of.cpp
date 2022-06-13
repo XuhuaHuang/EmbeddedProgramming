@@ -14,7 +14,6 @@
 #include <stdlib.h>
 #include "../Util/is_instance_of.h"
 
-
 class Parent {};
 class Child : Parent {};
 class AnotherClass {};

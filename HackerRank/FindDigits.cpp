@@ -88,14 +88,17 @@ std::string ltrim(const std::string& str) {
 
     s.erase(
         s.begin(),
-        find_if(s.begin(), s.end(), std::not1(std::ptr_fun<int, int>(isspace)))
+        find_if(
+            s.begin(), s.end(), // specify an iterator-based range to search
+            std::not1(std::ptr_fun<int, int> (isspace)) // lambda parsed to determine
+        )
     );
 
     return s;
 }
 
 std::string rtrim(const std::string& str) {
-    std::string s(str);
+    std::string s{ str };
 
     s.erase(
         std::find_if(s.rbegin(), s.rend(), std::not1(std::ptr_fun<int, int>(isspace))).base(),
