@@ -5,8 +5,8 @@
 [![wakatime][Wakatime Logo Link]][Wakatime Info Link]  
 `std::code_blooded<std::imposter_syndrome>`
 
-This is a repository created dedicated to embedded programming in Linux environment.
-Each topic is placed in individual folder. Projects are placed under each descriptively-named folders.
+This is a repository created dedicated to embedded programming in Linux environment. <br>
+Each topic is placed in individual folder. Projects are placed under each descriptively-named folders. <br>
 Please use code responsively.
 
 #### **Special Thanks**
@@ -18,9 +18,7 @@ Heritage College, Gatineau, Quebec, Canada
 #### Languages
 **C/C++, Java, Objective-C**
 
-<img src=".logo/C_Logo.png" alt="An image for C Language" width="100"/>
-<img src=".logo/CPlusPlus_Logo.png" alt="An image for C++" width="100"/>
-<img src=".logo/Mingw_Logo.png" alt="An image for Java" width="110"/>
+<img src=".logo/C_Logo.png" alt="An image for C Language" width="100"/><img src=".logo/CPlusPlus_Logo.png" alt="An image for C++" width="100"/>   <img src=".logo/Mingw_Logo.png" alt="An image for Java" width="110"/>
 
 <br>
 
