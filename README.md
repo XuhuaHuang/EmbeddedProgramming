@@ -10,15 +10,31 @@ Each topic is placed in individual folder. Projects are placed under each descri
 Please use code responsively.
 
 #### **Special Thanks**
-**Prof. Charmaine Jirgens**
-My mentor to the programming world
-Professor, Electronics Engineering and Information Technology
+**Prof. Charmaine Jirgens** <br>
+My mentor to the programming world <br>
+Professor, Electronics Engineering and Information Technology <br>
 Heritage College, Gatineau, Quebec, Canada
 
 #### Languages
 **C/C++, Java, Objective-C**
 
-<img src=".logo/C_Logo.png" alt="An image for C Language" width="100"/><img src=".logo/CPlusPlus_Logo.png" alt="An image for C++" width="100"/>  <img src=".logo/Mingw_Logo.png" alt="An image for Java" width="110"/>
+<img src=".logo/C_Logo.png" alt="An image for C Language" width="100"/>
+<img src=".logo/CPlusPlus_Logo.png" alt="An image for C++" width="100"/>
+<img src=".logo/Mingw_Logo.png" alt="An image for Java" width="110"/>
+
+<br>
+
+```C++
+class employee {
+private:
+    std::string name_;
+public:
+    void set_name(const std::string& name) { name_ = name; }
+    void set_name(const std::string&& name) noexcept {
+        name_ = std::move(name);
+    }
+};
+```
 
 ---
 
