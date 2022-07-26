@@ -2,8 +2,11 @@
 <!-- Link Definitions for Wakatime -->
 [Wakatime Logo Link]: https://wakatime.com/badge/github/XuhuaHuang/EmbeddedProgramming.svg
 [Wakatime Info Link]: https://wakatime.com/badge/github/XuhuaHuang/EmbeddedProgramming?style=flat
-[![wakatime][Wakatime Logo Link]][Wakatime Info Link]  
-`std::code_blooded<std::imposter_syndrome>`
+
+[![wakatime][Wakatime Logo Link]][Wakatime Info Link]
+[![Github All Releases](https://img.shields.io/github/downloads/XuhuaHuang/EmbeddedProgramming/total.svg)]()
+
+`std::code_blooded<std::imposter_syndrome>`<br>
 
 This is a repository created dedicated to embedded programming in Linux environment. <br>
 Each topic is placed in individual folder. Projects are placed under each descriptively-named folders. <br>
