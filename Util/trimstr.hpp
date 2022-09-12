@@ -27,6 +27,6 @@ inline constexpr auto trim_spaces = trim_front | trim_back;
 
 std::string trim_str(const std::string& str) {
     // std::rangesnext::to in C++23 proporsal
-    // htat converts ranges to a containter
+    // that converts ranges to a containter
     return str | trim_spaces | std::rangesnext::to<std::string>;
 }
