@@ -11,7 +11,7 @@ import <iostream>;
 import <vector>;
 import <sstream>;
 
-export std::vector<int> parst_str(const std::string str) {
+export std::vector<int> parse_str(const std::string str) {
     std::vector<int> result;
 
     if (str.length() < 8E5) {
