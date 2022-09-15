@@ -5,6 +5,8 @@
  * Setting the pointer to NULL after calling free() is a good idea.
  * The free() function does not check whether nor set the pointer to NULL.
  * 
+ * $ g++ safe_free.hpp -std=c++2a
+ * 
  * @version 0.9
  * @date 2021-12-17
  * 
