@@ -1,7 +1,7 @@
-# Fun Directory  
+# `Misc` Directory  
 
 ## About  
-This directory contains code when self-learning concepts in C++.  
+This directory contains miscellaneous code when self-learning concepts in C++.  
 Python and Rust code are migrated to independent repository.  
 
 ---
