@@ -18,58 +18,58 @@ void copyCharArray(char*, const char*);
 class Employee
 {
 private:
-	string name;
-	string idNumber;
-	string department;
-	string position;
-	int yearsWorked;
-	bool message = false;
+    string name;
+    string idNumber;
+    string department;
+    string position;
+    int yearsWorked;
+    bool message = false;
 
 public:
-	Employee(string n, string idNum, string depart, string pos, int yrsWrkd)
-		: name(n),
-		idNumber(idNum),
-		department(depart),
-		position(pos),
-		yearsWorked(yrsWrkd) {}
+    Employee(string n, string idNum, string depart, string pos, int yrsWrkd)
+        : name(n),
+        idNumber(idNum),
+        department(depart),
+        position(pos),
+        yearsWorked(yrsWrkd) {}
 
-	Employee(string n, string idNum)
-		: name(n),
-		idNumber(idNum),
-		department(""),
-		position(""),
-		yearsWorked(0) {}
+    Employee(string n, string idNum)
+        : name(n),
+        idNumber(idNum),
+        department(""),
+        position(""),
+        yearsWorked(0) {}
 
-	Employee()
-		: name(""),
-		idNumber(""),
-		department(""),
-		position(""),
-		yearsWorked(0) {}
+    Employee()
+        : name(""),
+        idNumber(""),
+        department(""),
+        position(""),
+        yearsWorked(0) {}
 
-	void setName(string n) { name = n; }
-	void setIdnumber(string idNum) { idNumber = idNum; }
-	void setDepartment(string depart) { department = depart; }
-	void setPos(string pos) { position = pos; }
+    void setName(string n) { name = n; }
+    void setIdnumber(string idNum) { idNumber = idNum; }
+    void setDepartment(string depart) { department = depart; }
+    void setPos(string pos) { position = pos; }
 
-	void setYEARS(int yrsWrkd) {
-		if (yrsWrkd < 0)
-			cout << "Attempt to set yearsWorked for " << name << " was invalid. It was set to 0" << endl;
-		else
-			yearsWorked = yrsWrkd;
-	}
+    void setYEARS(int yrsWrkd) {
+        if (yrsWrkd < 0)
+            cout << "Attempt to set yearsWorked for " << name << " was invalid. It was set to 0" << endl;
+        else
+            yearsWorked = yrsWrkd;
+    }
 
-	string const getName() { return name; }
-	string const getID() { return idNumber; }
-	string const getDPT() { return department; }
-	string const getPOS() { return position; }
-	int const getYEARS() { return yearsWorked; }
+    string const getName() { return name; }
+    string const getID() { return idNumber; }
+    string const getDPT() { return department; }
+    string const getPOS() { return position; }
+    int const getYEARS() { return yearsWorked; }
 
-	string getName() const { return name; }
-	string getID() const { return idNumber; }
-	string getDPT() const { return department; }
-	string getPOS() const { return position; }
-	int getYEARS() const { return yearsWorked; }
+    string getName() const { return name; }
+    string getID() const { return idNumber; }
+    string getDPT() const { return department; }
+    string getPOS() const { return position; }
+    int getYEARS() const { return yearsWorked; }
 };
 
 string findPosition(list<Employee>, const string&);
@@ -155,47 +155,47 @@ int main(void)
 		 << "ex. string getName() const {/* code block */}" << endl;
 	printEmployeeInFormat(emp[0]);
 
-	return 0;
+    return 0;
 }
 
 void copyCharArray(char* destinationArr, const char* sourceArr)
 {
-	int a;
-	for (a = 0; a <= (sizeof(sourceArr) / sizeof(sourceArr[0])); a++)
-		*destinationArr++ = *sourceArr++;
+    int a;
+    for (a = 0; a <= (sizeof(sourceArr) / sizeof(sourceArr[0])); a++)
+        *destinationArr++ = *sourceArr++;
 }
 
 string findPosition(list<Employee> emps, const string& name)
 {
-	for (list<Employee>::iterator i = emps.begin();
-		i != emps.end();
-		i++)
-	{
-		if (i->getName() == name)
-		{
-			return i->getPOS();
-		}
-	}
-	return "";
+    for (list<Employee>::iterator i = emps.begin();
+        i != emps.end();
+        i++)
+    {
+        if (i->getName() == name)
+        {
+            return i->getPOS();
+        }
+    }
+    return "";
 }
 
 void printEmployeeInFormat(const Employee& emp)
 {
-	cout << setw(16) << left << "Name";
-	cout << setw(16) << "ID Number";
-	cout << setw(16) << "Department";
-	cout << setw(16) << "Position";
-	cout << setw(16) << "Years Worked" << endl;
+    cout << setw(16) << left << "Name";
+    cout << setw(16) << "ID Number";
+    cout << setw(16) << "Department";
+    cout << setw(16) << "Position";
+    cout << setw(16) << "Years Worked" << endl;
 
-	cout << setw(16) << left << "----";
-	cout << setw(16) << "---------";
-	cout << setw(16) << "----------";
-	cout << setw(16) << "--------";
-	cout << setw(16) << "------------" << endl;
+    cout << setw(16) << left << "----";
+    cout << setw(16) << "---------";
+    cout << setw(16) << "----------";
+    cout << setw(16) << "--------";
+    cout << setw(16) << "------------" << endl;
 
-	cout << fixed << setw(16) << left << emp.getName()
-		 << setw(16) << emp.getID()
-		 << setw(16) << emp.getDPT()
-		 << setw(16) << emp.getPOS()
-		 << setw(5) << right << emp.getYEARS() << endl;
+    cout << fixed << setw(16) << left << emp.getName()
+         << setw(16) << emp.getID()
+         << setw(16) << emp.getDPT()
+         << setw(16) << emp.getPOS()
+         << setw(5) << right << emp.getYEARS() << endl;
 }
