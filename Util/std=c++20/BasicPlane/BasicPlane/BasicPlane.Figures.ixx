@@ -8,4 +8,7 @@
 
 // the export module keywords mark this file as a primary module interface unit
 export module BasicPlane.Figures;
-// TODO: Create a module partition file: BasicPlane.Figures:Point
+
+// bring in the partition, then export it to the consumer of this module
+export import :Point;
+export import :Rectangle;
