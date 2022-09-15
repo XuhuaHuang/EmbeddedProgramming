@@ -1,7 +1,7 @@
 ### **EmbeddedProgramming**
 <!-- Link Definitions for Wakatime -->
-[Wakatime Logo Link]: https://wakatime.com/badge/github/XuhuaHuang/EmbeddedProgramming.svg
-[Wakatime Info Link]: https://wakatime.com/badge/github/XuhuaHuang/EmbeddedProgramming?style=flat
+[Wakatime Logo Link]: https://wakatime.com/badge/user/f89598ea-6723-481b-a51b-6323e54a3c5c/project/0645c716-822f-4ba1-a897-04cf5a3fbbfb.svg
+[Wakatime Info Link]: https://wakatime.com/badge/user/f89598ea-6723-481b-a51b-6323e54a3c5c/project/0645c716-822f-4ba1-a897-04cf5a3fbbfb?style=flat
 
 [![wakatime][Wakatime Logo Link]][Wakatime Info Link]
 [![Github All Releases](https://img.shields.io/github/downloads/XuhuaHuang/EmbeddedProgramming/total.svg)]()
