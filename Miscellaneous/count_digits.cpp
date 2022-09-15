@@ -3,7 +3,7 @@
  * \brief  contains function definition and calling
  *		   to count the number of digits in an integer
  * 
- * \author Xuhua HUANG
+ * \author Xuhua Huang
  * \date   February 2021
  *********************************************************************/
 
