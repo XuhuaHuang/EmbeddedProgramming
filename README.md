@@ -19,11 +19,9 @@ Professor, Electronics Engineering and Information Technology <br>
 Heritage College, Gatineau, Quebec, Canada
 
 #### Languages
-**C/C++, Java, Objective-C**
+**C/C++, Objective-C/C++**
 
 <img src=".logo/C_Logo.png" alt="An image for C Language" width="100"/><img src=".logo/CPlusPlus_Logo.png" alt="An image for C++" width="100"/>   <img src=".logo/Mingw_Logo.png" alt="An image for Java" width="110"/>
-
-<br>
 
 ```C++
 class employee {
@@ -36,8 +34,6 @@ public:
     }
 };
 ```
-
----
 
 #### **Getting Started**
 **Example to Compile a File Named `Tuple_get_tie.cpp`**
@@ -63,8 +59,6 @@ $ g++ --version
 ---
 
 ### **Repository Directories**
-#### Directory `.\Fun` and `.\Fun\Java`
-Contains all code when self learning other concepts in both C++ and Java.
 
 #### Directory `.\Notes`
 Contains code/notes and a `README.md` file, learning `std::maps`, `std::move` etc.
