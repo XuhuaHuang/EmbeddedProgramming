@@ -2,8 +2,8 @@
  * \file   move_assignment.cpp
  * \brief  std::move use case demonstration and Move Assignment Operator
  * 
- * g++ -c move.cpp -o move.exe -std=c++20
- * ./move
+ * g++ -c move_assignment.cpp -o move_assignment.exe -std=c++2a
+ * ./move_assignment
  * 
  * \author Xuhua Huang
  * \date   April 2022
@@ -18,14 +18,22 @@ public:
     Entity(const std::string& name) : m_Name(name) {}
     Entity(std::string&& name) : m_Name(std::move(name)) {}
 
+    Entity(const Entity&) = default;
+    Entity(Entity&&) noexcept = default;
+    Entity& operator=(const Entity&) noexcept = default;
+    Entity& operator=(Entity&&) noexcept = default;
+    virtual ~Entity() = default;
+
     void PrintName() {
-      std::cout << "Entity::PrintName(): m_Name = " << this->m_Name << "\n";
+        std::cout << "Entity::PrintName(): m_Name = " << this->m_Name << "\n";
     }
+
 private:
     std::string m_Name;
 };
 
-int main() {
+int main(void)
+{
     Entity entity{ "Xuhua Huang" };
     entity.PrintName();
 
