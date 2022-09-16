@@ -13,8 +13,7 @@
  * \date   October 2021
  *********************************************************************/
 
-#include <iostream> // std::cout
-#include <stdlib.h> // system()
+#include <iostream>
 
 /**
  * Class HasPtrMem Definition.
@@ -79,6 +78,6 @@ int main(void)
     std::cout << "Resource from " << __func__ << ": "
         << _HEX << h.ptr << "\n";
 
-    system("pause");
+    std::cin.get();
     return 0;
 }
