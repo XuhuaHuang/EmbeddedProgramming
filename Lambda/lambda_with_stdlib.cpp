@@ -55,8 +55,8 @@ int main(void) {
         vec_people.begin(),
         vec_people.end(), // the range of elements to sort
         [](const Person& p1, const Person& p2) {
-            return p1.lastname() < p2.lastname() ||
-                (p1.lastname() == p2.lastname() && p1.firstname() < p2.firstname());
+            return p1.lastname() < p2.lastname()
+                || (p1.lastname() == p2.lastname() && p1.firstname() < p2.firstname());
         }
     );
 
