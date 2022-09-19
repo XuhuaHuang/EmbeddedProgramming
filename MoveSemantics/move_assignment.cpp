@@ -28,6 +28,9 @@ public:
         std::cout << "Entity::PrintName(): m_Name = " << this->m_Name << "\n";
     }
 
+    std::string name(void) const { return this->m_Name; }
+    void name(const std::string& name) { m_Name = name; }
+
 private:
     std::string m_Name;
 };
