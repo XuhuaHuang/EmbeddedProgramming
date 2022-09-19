@@ -15,27 +15,30 @@
 #include <stdlib.h>
 #include <vector>
 #include <sstream>
+
+// Customized utility library
 #include "../Util/parse.h"
+#include "../Util/print_vec.hpp"
 
 int main() {
 
-	/* Split a comma-separated string to an array of integers. */
-	std::string str;
-	// std::cin >> str;
-	str = "1,23,456,789";						// demo with a comma as delimiter
-	std::string cell_phone = "541-952-1655";	// demo with a dash as delimiter
-	std::vector<int> integers = util::parse::parse_str<int>(cell_phone, '-');
-	for (int i = 0; i < integers.size(); i++) {
-		std::cout << integers[i] << "\n";
-	}
+    /* Split a comma-separated string to an array of integers. */
+    std::string str;
+    // std::cin >> str;
 
-	/* Split a comma-separated string to an array of characters. */
-	const std::string name = "Huang,Xuhua";
-	std::vector<char> spell_name = util::parse::parse_str<char>(name);
-	for (int j = 0; j < spell_name.size(); ++j) {
-		std::cout << spell_name[j] << "\n";
-	}
+    str = "1,23,456,789";                       // demo with a comma as delimiter
+    std::vector<int> integers = util::parse::parse_str<int>(str);
+    util::vector::print_vec<int>(integers);
 
-	system("pause");
-	return 0;
+    std::string cell_phone = "541-952-1655";    // demo with a dash as delimiter
+    std::vector<int> cell_to_ints = util::parse::parse_str<int>(cell_phone, '-');
+    util::vector::print_vec<int>(cell_to_ints);
+
+    /* Split a comma-separated string to an array of characters. */
+    const std::string name = "Huang,Xuhua";
+    std::vector<std::string> spell_name = util::parse::parse_str<std::string>(name);
+    util::vector::print_vec<std::string>(spell_name);
+
+    system("pause");
+    return 0;
 }
