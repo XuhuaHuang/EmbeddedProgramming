@@ -24,18 +24,18 @@
 using namespace std;
 
 namespace Util {
-	namespace vector {
+    namespace vector {
 
-		/* Template to print a std::vector with O(n). */
-		template<typename T>
-		static void print_vec(const std::vector<T>& arg_vec) {
-			/* Loop through the vector with range-based for loop. */
-			for (const T& t : arg_vec)
-				std::cout << t << std::endl;
+        /* Template to print a std::vector with O(n). */
+        template<typename T>
+        static void print_vec(const std::vector<T>& arg_vec) {
+            /* Loop through the vector with range-based for loop. */
+            for (const T& t : arg_vec)
+                std::cout << t << std::endl;
 
-			return; // add empty return statement for consistency.
-		}
-	}
+            return; // add empty return statement for consistency.
+        }
+    }
 }
 
 void printVector(vector<double> dv);
@@ -43,89 +43,89 @@ void func(double value);
 
 int main(void)
 {
-	/* Using template constructor */
-	vector<int> v1(6,0); // create an array of 6 elements and initialize them to zero
-	cout << v1.at(0) << endl; // display zero from position indexed 0
-	
-	v1.push_back(9); // adds one element and sets it to 9
-	cout << v1.size() << endl;
-	
-	v1.resize(10,0); // add three more zeros to the vector
-	
-	v1.at(8) = 7;
-	cout << v1.at(8) << endl;
-	
-	
-	// int vector iterator
-	vector<int>::iterator iterint;
-	for(iterint = v1.begin();iterint < v1.end();iterint++)
-	{
-		cout << *iterint << endl;
-	}
-	
-	
-	// double vector
-	vector<double> dv; // a vector containing double using default constructor
-	dv.push_back(1.2);
-	dv.push_back(3.4);
-	dv.push_back(5.6);
-	dv.push_back(7.8);
-	dv.push_back(9.9);
-	
-	vector<double>::iterator iterdouble;
-	for(iterdouble = dv.begin();iterdouble < dv.end(); iterdouble++)
-	{
-		cout << *iterdouble << endl;
-	}
-	
-	/*
-	dv.clear(); // wipes the entire array
-	vector<double>::iterator iterdouble2;
-	for(iterdouble2 = dv.begin();iterdouble2 < dv.end(); iterdouble2++)
-	{
-		cout << *iterdouble << endl;
-	}
-	*/
-	
-	
-	// ALGORITHMS
-	sort(dv.begin(), dv.end()); // sort function
-	printVector(dv);
-	
-	reverse(dv.begin(), dv.end()); // reverse function
-	printVector(dv);
-	
-	// "for_each" - calls function func and pass each element in vector
-	for_each(dv.begin(),dv.end(),func);
-	
-	// counts the number of times the element shows up
-	int c = count(dv.begin(), dv.end(), 9.9);
-	cout << c << endl;
-	
-	system("pause");
-	return 0;
+    /* Using template constructor */
+    vector<int> v1(6,0); // create an array of 6 elements and initialize them to zero
+    cout << v1.at(0) << endl; // display zero from position indexed 0
+    
+    v1.push_back(9); // adds one element and sets it to 9
+    cout << v1.size() << endl;
+    
+    v1.resize(10,0); // add three more zeros to the vector
+    
+    v1.at(8) = 7;
+    cout << v1.at(8) << endl;
+    
+    
+    // int vector iterator
+    vector<int>::iterator iterint;
+    for(iterint = v1.begin();iterint < v1.end();iterint++)
+    {
+        cout << *iterint << endl;
+    }
+    
+    
+    // double vector
+    vector<double> dv; // a vector containing double using default constructor
+    dv.push_back(1.2);
+    dv.push_back(3.4);
+    dv.push_back(5.6);
+    dv.push_back(7.8);
+    dv.push_back(9.9);
+    
+    vector<double>::iterator iterdouble;
+    for(iterdouble = dv.begin();iterdouble < dv.end(); iterdouble++)
+    {
+        cout << *iterdouble << endl;
+    }
+    
+    /*
+    dv.clear(); // wipes the entire array
+    vector<double>::iterator iterdouble2;
+    for(iterdouble2 = dv.begin();iterdouble2 < dv.end(); iterdouble2++)
+    {
+        cout << *iterdouble << endl;
+    }
+    */
+    
+    
+    // ALGORITHMS
+    sort(dv.begin(), dv.end()); // sort function
+    printVector(dv);
+    
+    reverse(dv.begin(), dv.end()); // reverse function
+    printVector(dv);
+    
+    // "for_each" - calls function func and pass each element in vector
+    for_each(dv.begin(),dv.end(),func);
+    
+    // counts the number of times the element shows up
+    int c = count(dv.begin(), dv.end(), 9.9);
+    cout << c << endl;
+    
+    system("pause");
+    return 0;
 }
 
 
 void printVector(vector<double> dv)
 {
-	/* Constant references could not be used here
-	 * due the nature of an iterator.
-	 */
-	vector<double>::iterator iterdouble;
-	for(iterdouble = dv.begin();iterdouble < dv.end(); ++iterdouble)
-	{
-		cout << *iterdouble << endl;
-	}
+    /* Constant references could not be used here
+     * due the nature of an iterator.
+     */
+    vector<double>::iterator iterdouble;
+    for(iterdouble = dv.begin();iterdouble < dv.end(); ++iterdouble)
+    {
+        cout << *iterdouble << endl;
+    }
 
-	return;
+    return;
 }
 
 
 void func(double value)
 {
-	cout << "Inside  function func(): ";
-	cout << value << endl;
+    cout << "Inside  function func(): ";
+    cout << value << endl;
 
-	return;
+    return;
 }

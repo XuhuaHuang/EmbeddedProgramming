@@ -18,50 +18,50 @@ using namespace std;
 class Printable
 {
 public:
-	// create an interface that every derived class has to implement
-	// pure virtual function
-	virtual string getClassName() = 0;
+    // create an interface that every derived class has to implement
+    // pure virtual function
+    virtual string getClassName() = 0;
 };
 
 // function prototype
 void printClassName(Printable* obj) {
-	cout << "Print class name: " << obj->getClassName() << endl;
+    cout << "Print class name: " << obj->getClassName() << endl;
 }
 
 class Entity : public Printable
 {
 private:
-	string className;
+    string className;
 public:
-	// implement defined interface
-	string getClassName() override { return "Entity : public Printable"; }
+    // implement defined interface
+    string getClassName() override { return "Entity : public Printable"; }
 };
 
 class User : public Entity
 {
 private:
-	string firstName;
-	string lastName;
+    string firstName;
+    string lastName;
 public:
-	// implement defined interface
-	string getClassName() override { return "User : public Entity"; }
+    // implement defined interface
+    string getClassName() override { return "User : public Entity"; }
 
-	// constructor with member initialization list
-	User(string fn, string ln) : firstName(fn), lastName(ln) {}
+    // constructor with member initialization list
+    User(string fn, string ln) : firstName(fn), lastName(ln) {}
 
-	// get function
-	string getUserName() { return firstName + lastName; }
+    // get function
+    string getUserName() { return firstName + lastName; }
 };
 
 int main(void)
 {
-	Entity* e = new Entity();
-	printClassName(e);
+    Entity* e = new Entity();
+    printClassName(e);
 
-	User* u = new User("Xuhua", "Huang");
-	printClassName(u);
+    User* u = new User("Xuhua", "Huang");
+    printClassName(u);
 
-	delete e;
-	delete u;
-	return 0;
+    delete e;
+    delete u;
+    return 0;
 }
