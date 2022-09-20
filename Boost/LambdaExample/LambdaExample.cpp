@@ -10,7 +10,7 @@
  * Reference: https://www.boost.org/doc/libs/1_80_0/more/getting_started/windows.html
  * 
  * To compile this file with g++ in PowerShell or bash:
- * $ g++ -o lambda_example.exe -IC:\\boost\\boost_1_80_0 .\LambdaExample.cpp -E -std=c++17
+ * $ g++ -o lambda_example.exe -IC:\\boost\\boost_1_80_0 .\LambdaExample.cpp -std=c++17
  * $ echo 1 2 3 | .\lambda_example.exe
  * 
  * \author Xuhua Huang
