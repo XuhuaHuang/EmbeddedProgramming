@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   print_list.h
+ * \file   print_list.hpp
  * \brief  Template function to print std::list of any types.
  *
  * \author Xuhua Huang
@@ -13,11 +13,11 @@
 #include <list>
 
 #ifndef DEBUG
-#define DEBUG(arg_str) std::cout << arg_str << std::endl;
+#define DEBUG(arg_str) std::cout << arg_str << "\n";
 #endif
 
 namespace util {
-	namespace list {
+    namespace list {
 
         /* Template to print a std::list with O(n). */
         /* For sanity, using constant reference instead of iterators. */
@@ -34,7 +34,7 @@ namespace util {
             return;
         }
 
-	} // end Util::list
+    } // end Util::list
 } // end Util
 
 
