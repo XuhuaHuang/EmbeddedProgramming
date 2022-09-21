@@ -10,14 +10,14 @@
 #include <iostream>
 #include <thread>
 
- /**
-  * std::thread threadObj(<CALLBACK>);
-  *
-  * std::thread accepts the following:
-  * 1) function pointer
-  * 2) function objects
-  * 3) lambda functions
-  */
+/**
+* std::thread threadObj(<CALLBACK>);
+*
+* std::thread accepts the following:
+* 1) function pointer
+* 2) function objects
+* 3) lambda functions
+*/
 
 void threadFn()
 {
