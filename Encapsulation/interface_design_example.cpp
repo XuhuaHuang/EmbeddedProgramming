@@ -1,7 +1,7 @@
 /*****************************************************************//**
  * \file   interface_design_example.cpp
  * \brief  first hands-on experience with API design with
- *		   the goal "easy to use, hard to break" 
+ *         the goal "easy to use, hard to break" 
  * 
  * \author Xuhua Huang
  * \date   March 2021
@@ -14,7 +14,6 @@
 /* ../master/Inheritance/MultipleInheritance/example_Time_Date.cpp */
 
 using std::cout;
-using std::endl;
 using std::string;
 
 /* define structures offer explicit conversion constructor */
@@ -70,7 +69,9 @@ struct Day
     explicit Day() { _day = 0; }
     explicit Day(int d) {
         if (d > 0 && d <= 31)
+        {
             _day = d;
+        }
     }
 private:
     int _day;
@@ -117,10 +118,10 @@ Date::Date(const Month& m, const Day& d, const Year& y)
 
 void Date::printDate()
 {
-    cout << "[fn][Date::printDate()" << endl
-            << this->month.getMonth() << " "
-            << this->day.getDay() << ", " 
-            << this->year.getYear() << endl;
+    cout << "[fn][Date::printDate()" << "\n"
+        << this->month.getMonth() << " "
+        << this->day.getDay() << ", "
+        << this->year.getYear() << "\n";
 }
 
 int main(void)
