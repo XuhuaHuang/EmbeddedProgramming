@@ -18,7 +18,7 @@ class Printable
 public:
     // create an interface that every derived class has to implement
     // pure virtual function
-    virtual std::string getClassName() = 0;
+    inline virtual std::string getClassName() = 0;
 };
 
 // function prototype
