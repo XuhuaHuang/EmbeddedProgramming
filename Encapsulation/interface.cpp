@@ -22,7 +22,7 @@ public:
 };
 
 // function prototype
-constexpr inline void printClassName(Printable* obj) {
+inline void printClassName(Printable* const obj) {
     std::cout << "Print class name: " << obj->getClassName() << "\n";
 }
 
