@@ -42,7 +42,7 @@ namespace util {
         /* Read digits from an integer and store in an array. */
         static const std::vector<int> num_to_digits(int number) {
             std::vector<int> digits;
-            
+
             if (number == 0) {
                 digits.push_back(0);
             }
