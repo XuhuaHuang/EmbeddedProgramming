@@ -12,11 +12,11 @@
 
 #include <iostream>
 #include <stdlib.h>
-#include "../Util/is_instance_of.h"
+#include "../Util/is_instance_of.hpp"
 
 class Parent {};
 class Child : Parent {};
-class AnotherClass {};
+class Unrelated {};
 
 int main(void)
 {
@@ -39,13 +39,13 @@ int main(void)
     }
 
     /* Check c is an instance of class AnotherClass. */
-    if (util::type::is_instance_of<AnotherClass>(c)) {
+    if (util::type::is_instance_of<Unrelated>(c)) {
         std::cout << "Object c is instance of AnotherClass class" << std::endl;
     }
     else {
         std::cout << "Object c is not instance of AnotherClass class" << std::endl;
     }
 
-	system("pause");
-	return 0;
+    system("pause");
+    return 0;
 }
