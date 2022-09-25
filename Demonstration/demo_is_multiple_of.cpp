@@ -16,10 +16,8 @@
 #include <vector>
 #include <string>
 
-#include "../Util/print_vec.h"
+#include "../Util/print_vec.hpp"
 #include "../Util/log.h"
-
-using namespace util::vector;
 
 #ifndef DEBUG
 #define DEBUG(str) std::cout << str << std::endl;
@@ -33,36 +31,38 @@ using namespace util::vector;
  */
 
 bool is_multiple_of_60(const int num) {
-	return num%60 == 0;
+    return num%60 == 0;
 }
 
 int main(int argc, char** argv)
 {
-	std::vector<int> input = { 30, 60, 90, 120 };
-	print_vec(input);
-	// equivalence of: util::vector::print_vec(input);
+    using namespace util::vector;
 
-	int count = 0;
-	std::vector<int> result;
+    std::vector<int> input = { 30, 60, 90, 120 };
+    print_vec(input);
+    // equivalence of: util::vector::print_vec(input);
 
-	for (int i = 0; i < 4; ++i) {
-		if (is_multiple_of_60(input[i])) {
-			count++;
-			result.push_back(input[i]);
-		}
-		else {
-			for (int j = 1; j <= input.size(); ++j) {
-				if (is_multiple_of_60(input[i] + input[j]) == true) {
-					count++;
-					result.push_back(input[i] + input[j]);
-				}
-			}
-		}
-	}
+    int count = 0;
+    std::vector<int> result;
 
-	printf_s("Count: %d\n", count);
-	print_vec(result);
+    for (int i = 0; i < 4; ++i) {
+        if (is_multiple_of_60(input[i])) {
+            count++;
+            result.push_back(input[i]);
+        }
+        else {
+            for (int j = 1; j <= input.size(); ++j) {
+                if (is_multiple_of_60(input[i] + input[j]) == true) {
+                    count++;
+                    result.push_back(input[i] + input[j]);
+                }
+            }
+        }
+    }
 
-	system("pause");
-	return 0;
+    printf_s("Count: %d\n", count);
+    print_vec(result);
+
+    system("pause");
+    return 0;
 }
