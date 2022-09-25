@@ -20,32 +20,32 @@ static bool s_finished = false;
 
 void doWork()
 {
-	using namespace std::literals::chrono_literals;
+    using namespace std::literals::chrono_literals;
 
-	std::cout << "Started thread id = " << std::this_thread::get_id() << std::endl;
+    std::cout << "Started thread id = " << std::this_thread::get_id() << std::endl;
 
-	while (!s_finished)
-	{
-		std::cout << "Working on something..." << std::endl;
-		std::this_thread::sleep_for(1s);
-		// std::this_thread refers to the current running thread
-	}
-	std::cout << "Done working" << std::endl;
+    while (!s_finished)
+    {
+        std::cout << "Working on something..." << std::endl;
+        std::this_thread::sleep_for(1s);
+        // std::this_thread refers to the current running thread
+    }
+    std::cout << "Done working" << std::endl;
 }
 
 int main(void)
 {
-	std::thread worker(doWork); // immediately start the thread
+    std::thread worker(doWork); // immediately start the thread
 
-	std::cin.get(); // wait for the user to press Enter
-	s_finished = true;
+    std::cin.get(); // wait for the user to press Enter
+    s_finished = true;
 
-	worker.join(); // wait for the thread to finish executing
-	// continue on main thread
-	std::cout << "finished" << std::endl;
+    worker.join(); // wait for the thread to finish executing
+    // continue on main thread
+    std::cout << "finished" << std::endl;
 
-	std::cout << "Started thread id = " << std::this_thread::get_id() << std::endl;
+    std::cout << "Started thread id = " << std::this_thread::get_id() << std::endl;
 
-	system("pause");
-	return 0;
+    system("pause");
+    return 0;
 }
