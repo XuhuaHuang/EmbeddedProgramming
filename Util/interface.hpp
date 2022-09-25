@@ -37,7 +37,7 @@ namespace util {
             virtual ~Printable() = default;
         };
 
-        static inline void print_class_name(Printable* const printable) {
+        inline void print_class_name(Printable* const printable) {
             std::cout << "util::interface::print_class_name(): "
                 << __FILE__ << " " << __LINE__ << printable->getClassName() << "\n";
         }
