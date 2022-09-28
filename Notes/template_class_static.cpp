@@ -11,7 +11,7 @@
 template <class T>
 class Some {
 public:
-	static int stat;
+    static int stat;
 };
 
 template<class T>
@@ -19,10 +19,10 @@ int Some<T>::stat = 10;
 
 int main()
 {
-	Some<int>::stat = 5;
-	std::cout << Some<int>::stat << " "		// 5
-		<< Some<float>::stat << " "			// 10
-		<< Some < long>::stat << std::endl; // 10
+    Some<int>::stat = 5;
+    std::cout << Some<int>::stat << " "     // 5
+        << Some<float>::stat << " "         // 10
+        << Some < long>::stat << std::endl; // 10
 
-	return 0;
+    return 0;
 }
