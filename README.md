@@ -18,6 +18,8 @@ My mentor to the programming world <br>
 Professor, Electronics Engineering and Information Technology <br>
 Heritage College, Gatineau, Quebec, Canada
 
+> Software does not run in a magic fairy aether powered by the fevered dreams of CS PhDs.
+
 #### Languages
 **C/C++, Objective-C/C++**
 
