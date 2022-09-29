@@ -30,6 +30,22 @@
 namespace util {
     namespace interface {
 
+        class Uncopyable;
+
+        template<typename T>
+        class Comparable : private Uncopyable
+        {
+        public:
+            Comparable() = default;
+            virtual ~Comparable() = default;
+        protected:
+            virtual bool operator< (const Comparable&) = 0;
+            virtual bool operator<=(const Comparable&) = 0;
+            virtual bool operator==(const Comparable&) = 0;
+            virtual bool operator> (const Comparable&) = 0;
+            virtual bool operator>=(const Comparable&) = 0;
+        };
+
         class Printable
         {
         public:
@@ -50,10 +66,10 @@ namespace util {
             virtual ~Uncopyable() = default;
 
         private:
-            Uncopyable(const Uncopyable&) = delete;
-            Uncopyable(const Uncopyable&&) = delete;
-            Uncopyable& operator=(const Uncopyable&) = delete;
-            Uncopyable& operator=(const Uncopyable&&) = delete;
+            Uncopyable(const Uncopyable&) {};
+            Uncopyable(const Uncopyable&&) {};
+            Uncopyable& operator=(const Uncopyable&) {};
+            Uncopyable& operator=(const Uncopyable&&) {};
         };
 
     };
