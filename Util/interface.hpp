@@ -34,6 +34,7 @@ namespace util {
         {
         public:
             inline virtual std::string getClassName() = 0;
+            inline virtual std::string getClassName() const = 0;
             virtual ~Printable() = default;
         };
 
