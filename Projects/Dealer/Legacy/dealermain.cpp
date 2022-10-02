@@ -97,5 +97,6 @@ int main(void)
     part3hand.printHandCards();
     // end of test case 3
 
+    std::cin.get();
     return 0;
 }
