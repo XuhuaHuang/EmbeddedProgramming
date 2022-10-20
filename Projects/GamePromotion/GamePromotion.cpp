@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <string>
-#include "mock.h"
+#include "GamePromotion.h"
 
 using namespace std;
 
@@ -16,7 +16,7 @@ void VideoGame::printInfo(void)
 {
     cout << "\n[fn][VideoGame]Invoking Game::printInfo()" << endl;
     Game::printInfo();
-    
+
     cout << "[fn][VideoGame]Genre = " << getGenre() << endl;
     cout << "[fn][VideoGame]Platform = " << getPlatform() << endl;
 
@@ -45,7 +45,7 @@ void Promotion::PrintInfo()
 {
     cout << "\n[fn][Promotion]VideoGame on promotion: " << endl;
     getVideoGame().printInfo();
-    
+
     cout << "[fn][Promotion]BoardGame on promotion: " << endl;
     getBoardGame()->printInfo();
 
