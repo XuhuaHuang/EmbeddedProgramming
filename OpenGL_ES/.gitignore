@@ -1,0 +1,11 @@
+Dependencies/GLEW/doc
+Dependencies/GLEW/LICENSE.txt
+Dependencies/GLFW/docs
+Dependencies/GLFW/LICENSE.md
+
+# Visual C++ version specfic libraries
+Dependencies/GLFW/lib-vc2012
+Dependencies/GLFW/lib-vc2013
+Dependencies/GLFW/lib-vc2015
+Dependencies/GLFW/lib-vc2017
+Dependencies/GLFW/lib-vc2019
