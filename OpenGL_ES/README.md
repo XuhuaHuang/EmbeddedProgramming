@@ -11,5 +11,5 @@ Right click on a start-up item in `Visual Studio`, change the following properti
     * `$(SolutionDir)Dependencies\GLFW\lib-vc2022;`
     * `$(SolutionDir)Dependencies\GLEW\lib\Release\x64;`
 * `Linker` -> `Input` -> `Additional Dependencies` <br>
-    * `glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib`.
+    * `glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;`.
 * Click `Apply` to save the changes, then click `OK` to close the properties window.
