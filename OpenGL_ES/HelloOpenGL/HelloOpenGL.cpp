@@ -3,6 +3,8 @@
  * \brief  Create a simple application to render a window
  * For testing dependencies located in the current directory.
  * 
+ * $(SolutionDir)Dependencies\GLFW\lib-vc2022;$(SolutionDir)Dependencies\GLEW\lib\Release\x64
+ * 
  * \author Xuhua Huang
  * \date   October 22, 2022
  *********************************************************************/
