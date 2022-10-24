@@ -12,7 +12,7 @@
 
 #ifndef _STDIO_H
 #include <stdio.h>
-#else
+#endif
 
 /* Global Macro Definition */
 #define LOG(...) {                                          \
