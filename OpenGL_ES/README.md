@@ -13,3 +13,8 @@ Right click on a start-up item in `Visual Studio`, change the following properti
 * `Linker` -> `Input` -> `Additional Dependencies` <br>
     * `glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;`.
 * Click `Apply` to save the changes, then click `OK` to close the properties window.
+
+### Troubleshooting
+* After creating a `Visual Studio Solution/Project`, it is known that \
+  **the `C/C++` properties menu is unavailble before first build of the project.** <br>
+  To resolve this issue, add a dummy `main` function, build and run the project.
