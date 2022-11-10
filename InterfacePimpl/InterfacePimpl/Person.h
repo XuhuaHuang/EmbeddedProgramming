@@ -14,8 +14,8 @@
 #include <iostream>
 #include <string>
 
- /* Use forward declaration to provide class interfaces. */
- /* Do NOT need to recompile unless the class name changes. */
+/* Use forward declaration to provide class interfaces. */
+/* Do NOT need to recompile unless the class name changes. */
 class Date;
 class Address;
 
@@ -23,35 +23,35 @@ class Address;
 class Person
 {
 public:
-	virtual ~Person();
+    virtual ~Person() {}
 
-	/**
-	 * It is impossible to instantiate an instance for this interface;
-	 * however, its child classes have to have access to a so-called `factory` function.
-	 */
-	virtual std::string name() const = 0;
-	virtual std::string birthDate() const = 0;
-	virtual std::string address() const = 0;
+    /**
+     * It is impossible to instantiate an instance for this interface;
+     * however, its child classes have to have access to a so-called `factory` function.
+     */
+    virtual std::string name() const = 0;
+    virtual std::string birthDate() const = 0;
+    virtual std::string address() const = 0;
 
-	/* Factory function to be used by child classes. */
-	/* Declared static for syntax `Person::createPerson()`. */
-	static std::tr1::shared_ptr<Person> createPerson(
-		const std::string& name,
-		const Date& birthday,
-		const Address& addr
-	);
+    /* Factory function to be used by child classes. */
+    /* Declared static for syntax `Person::createPerson()`. */
+    static std::tr1::shared_ptr<Person> createPerson(
+        const std::string& name,
+        const Date& birthday,
+        const Address& addr
+    );
 
 private:
-	/**
-	 * Private constructor and copy constructor.
-	 */
-	Person() {}
-	Person(const Person&) {}
+    /**
+     * Private constructor and copy constructor.
+     */
+    Person() {}
+    Person(const Person&) {}
 
-	/* Data attributes for Person */
-	std::string _name;
-	Date _birthday;
-	Address _address;
+    /* Data attributes for Person */
+    std::string _name;
+    Date _birthday;
+    Address _address;
 };
 
 class Date {
@@ -73,7 +73,7 @@ class Address {
  * std::tr1::shared_ptr<Person> ptrPerson(Person::createPerson(name, dateOfBirth, liveAddr));
  * // accessing info of such person using const getters
  * std::cout << ptrPerson->name()
- *			 << ptrPerson->birthDate()
- *			 << ptrPerson->address();
+ *           << ptrPerson->birthDate()
+ *           << ptrPerson->address();
  */
 #endif
