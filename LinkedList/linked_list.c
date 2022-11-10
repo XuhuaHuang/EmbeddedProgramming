@@ -1,5 +1,6 @@
 /* mingw32-make */
 /* ./linkedlist */
+/* cmake .\CMakelists.txt */
 
 #include <stdio.h>
 #include <stdlib.h>
