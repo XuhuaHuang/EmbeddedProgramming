@@ -23,6 +23,7 @@ int main(void) {
         << BOOST_COMPILER << "\n"
         << BOOST_STDLIB << "\n";
 
-    std::cin.get();
+    /*std::cin.get();*/
+    system("pause");
     return 0;
 }
