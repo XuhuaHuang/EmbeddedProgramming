@@ -11,7 +11,7 @@
  */
 
 #include "Person.h"
-#include <iostream> // this will be ignored by the include guard _IO_STREAM_
+#include <iostream> // this will be ignored by the include guard _IOSTREAM_
 
 int main(void) {
     std::string name;
@@ -19,7 +19,7 @@ int main(void) {
     Address liveAddr;
 
     // creating an object that implements the `Person` interface
-    std::tr1::shared_ptr<Person> ptrPerson(Person::createPerson(name, dateOfBirth, liveAddr));
+    std::shared_ptr<Person> ptrPerson(Person::createPerson(name, dateOfBirth, liveAddr));
     // accessing info of such person using const getters
     std::cout << ptrPerson->name()
         << ptrPerson->birthDate()
