@@ -43,7 +43,7 @@ private:
 // std::tuple_size<Customer>::value
 template<>
 struct std::tuple_size<Customer> {
-    static inline constexpr int value = 3;
+    static constexpr int value = 3;
 };
 
 // create tuple_element specialization for val
