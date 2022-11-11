@@ -16,8 +16,8 @@
 
 /* Use forward declaration to provide class interfaces. */
 /* Do NOT need to recompile unless the class name changes. */
-class Date;
-class Address;
+class Date {};
+class Address {};
 
 /* Person interface. */
 class Person
@@ -35,11 +35,11 @@ public:
 
     /* Factory function to be used by child classes. */
     /* Declared static for syntax `Person::createPerson()`. */
-    static std::tr1::shared_ptr<Person> createPerson(
+    static std::shared_ptr<Person> createPerson(
         const std::string& name,
         const Date& birthday,
         const Address& addr
-    );
+    ) { return std::make_shared<Person>(); }
 
 private:
     /**
@@ -52,14 +52,6 @@ private:
     std::string _name;
     Date _birthday;
     Address _address;
-};
-
-class Date {
-
-};
-
-class Address {
-
 };
 
 /** REMEMBER: derive class write factory functions
