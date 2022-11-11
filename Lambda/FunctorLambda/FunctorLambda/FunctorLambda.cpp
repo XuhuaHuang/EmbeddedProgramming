@@ -94,6 +94,6 @@ int main(void)
     std::cout << "High income tax payer: " << tax_high_income(90'000) + tax_mid_income(60'000) << "\n";
 
 
-    std::cin.get();
+    system("pause");
     return 0;
 }
