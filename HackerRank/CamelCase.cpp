@@ -39,6 +39,7 @@ int camelcase(const std::string s) {
 
 int main()
 {
+    std::cout << "Please type one or more camel case words: ";
     std::string s;
     std::getline(std::cin, s); // get a camelCase formatted string from user
 
