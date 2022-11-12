@@ -1,7 +1,7 @@
 /*****************************************************************//**
  * \file   OverloadedNewDelete.cpp
  * \brief  Overloading new and delete operator
- *	   Memory allocation related with debug monitoring
+ *         Memory allocation related with debug monitoring
  *
  * \author Xuhua Huang
  * \date   April 2021
@@ -9,7 +9,6 @@
 
 #include <iostream>
 #include <memory>
-using namespace std;
 
 struct AllocationMetrics
 {
@@ -23,32 +22,32 @@ static AllocationMetrics metrics;
 
 void* operator new(size_t size)
 {
-    cout << "Allocating " << size << " bytes memory." << endl;
+    std::cout << "Allocating " << size << " bytes memory." << "\n";
     metrics.TotalAllocated += size;
     return malloc(size);
 }
 
 void operator delete(void* memory, size_t size)
 {
-    cout << "Deallocating " << size << " bytes memory." << endl;
+    std::cout << "Deallocating " << size << " bytes memory." << "\n";
     metrics.TotalFreed += size;
     free(memory);
 }
 
 static void PrintMemoryUsage()
 {
-    cout << "Current memory usage " << metrics.CurrentUsage() << " bytes." << endl;
+    std::cout << "Current memory usage " << metrics.CurrentUsage() << " bytes." << "\n";
 }
 
 struct Object
 {
     Object() : x(0), y(0), z(0) {
-        cout << "[DFCONST]Object" << endl;
+        std::cout << "[DFCONST]Object" << "\n";
     }
 
     Object(int userX, int userY, int userZ) :
         x(userX), y(userY), z(userZ) {
-        cout << "[OLCONST]Object" << endl;
+        std::cout << "[OLCONST]Object" << "\n";
     }
 
     int x, y, z;
@@ -59,7 +58,7 @@ int main(void)
     // Object *myObj = new Object();
     PrintMemoryUsage();
     {
-        unique_ptr<Object> obj_ptr = make_unique<Object>();
+        std::unique_ptr<Object> obj_ptr = std::make_unique<Object>();
         PrintMemoryUsage();
     }
     PrintMemoryUsage();
