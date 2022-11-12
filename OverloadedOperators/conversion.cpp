@@ -8,8 +8,7 @@
  * \date   November 2020
  *********************************************************************/
 
-#include <iostream> 
-using namespace std;
+#include <iostream>
 
 class Fraction
 {
@@ -29,9 +28,9 @@ public:
 int main(void)
 {
     Fraction f(2, 5); // numerator = 2, denominator = 5
-    
+
     float val = f; // float(val) is overloaded
-    cout << val;
-    
-    return 0;
+    std::cout << val;
+
+    return EXIT_SUCCESS;
 }
