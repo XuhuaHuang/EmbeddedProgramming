@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.21)
+
+project(AbstractDataTypes_C)
+
+add_executable(AbstractDataTypes_C
+    "queue.h"
+    "queue.c"
+    "main.c"
+)
+
+set_property(TARGET AbstractDataTypes_C PROPERTY C_STANDARD 17)
