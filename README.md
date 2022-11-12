@@ -108,3 +108,12 @@ For example, building a terminal progress bar for visual effects and working wit
 | Where is the first object with a value succeeding the desired value?            |       `std::find_if()`      |   `std:upper_bound()`  |  `std:upper_bound()` |          `std:upper_bound()`          |
 | How many objects have the desired value?                                        |        `std::count()`       |  `std::equal_range()`  |    `std::count()`    |             `std::count()`            |
 | Where are all the objects with the desired value?                               | `std::find()` (iteratively) |  `std::equal_range()`  | `std::equal_range()` |          `std::equal_range()`         |
+
+---
+
+### **Commonly Used Command in `CMake`**
+* [`target_sources`](https://cmake.org/cmake/help/latest/command/target_sources.html)
+* [`target_compile_options`](https://cmake.org/cmake/help/latest/command/target_compile_options.html)
+* [`target_compile_definitions`](https://cmake.org/cmake/help/latest/command/target_compile_definitions.html)
+* [`target_include_directories`](https://cmake.org/cmake/help/latest/command/target_include_directories.html)
+* [`target_link_libraries`](https://cmake.org/cmake/help/latest/command/target_link_libraries.html)
