@@ -19,57 +19,57 @@
 class Account
 {
 private:
-	double balance;
+    double balance;
 
 public:
-	// default and overloaded constructor:
-	Account();
-	Account(double initBalance);
-	
-	// set and get function for variable 'balance'
-	void setBalance(double newBalance) { balance = newBalance; }
-	double getBalance() { return balance; }
-	
-	// global function: deposit & withdraw
-	void credit(double deposit);
-	bool debit(double withdraw);
+    // default and overloaded constructor:
+    Account();
+    Account(double initBalance);
+    
+    // set and get function for variable 'balance'
+    void setBalance(double newBalance) { balance = newBalance; }
+    double getBalance() { return balance; }
+    
+    // global function: deposit & withdraw
+    void credit(double deposit);
+    bool debit(double withdraw);
 };
 
 // First-level derived class 'SavingsAccount'
 class SavingsAccount : public Account
 {
 private:
-	double interestRate;
+    double interestRate;
 
 public:
-	// default and overloaded constructor:
-	SavingsAccount();
-	SavingsAccount(double initBalance, double interest);
+    // default and overloaded constructor:
+    SavingsAccount();
+    SavingsAccount(double initBalance, double interest);
 
-	// set and get function for variable 'interestRate'
-	void setInterestRate(double newInterestRate) { interestRate = newInterestRate; }
-	double getInterestRate() { return interestRate; }
+    // set and get function for variable 'interestRate'
+    void setInterestRate(double newInterestRate) { interestRate = newInterestRate; }
+    double getInterestRate() { return interestRate; }
 
-	// global function:
-	double calculateInterest();
+    // global function:
+    double calculateInterest();
 };
 
 // First-level derived class 'CheckingAccount'
 class CheckingAccount : public Account
 {
 private:
-	double fee;
+    double fee;
 
 public:
-	// default and overloaded constructor:
-	CheckingAccount();
-	CheckingAccount(double initBalance, double initFee);
+    // default and overloaded constructor:
+    CheckingAccount();
+    CheckingAccount(double initBalance, double initFee);
 
-	// set and get function for variable 'fee'
-	void setFee(double newFee) { fee = newFee; }
-	double getFee() { return fee; }
+    // set and get function for variable 'fee'
+    void setFee(double newFee) { fee = newFee; }
+    double getFee() { return fee; }
 
-	// redefined global function: deposit & withdraw
-	void credit(double deposit);
-	void debit(double withdraw);
+    // redefined global function: deposit & withdraw
+    void credit(double deposit);
+    void debit(double withdraw);
 };
