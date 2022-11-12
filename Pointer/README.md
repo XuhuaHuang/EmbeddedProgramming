@@ -187,9 +187,10 @@ void raiiExample(void) {
 ```
 
 ### Safer `free()` Function Implementation
-See director `..\Util\safe_free.hpp` for definition and demonstration.  
+See directory `..\Util\safe_free.hpp` for definition and demonstration.  
 For short, set the pointer to `NULL` after invoking the `free()` function on such pointer.
 
 ---
 
 ## Function Pointer
+See directory `.\FnPointer\FnPointer.cpp` and `function_pointers.cpp`.
