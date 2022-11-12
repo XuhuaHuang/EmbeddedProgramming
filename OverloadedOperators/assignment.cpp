@@ -7,30 +7,27 @@
  *********************************************************************/
 
 #include <iostream>
-#include <string>
-
-using namespace std;
 
 class point
 {
 public:
-	int _x; int _y;
+    int _x; int _y;
 
-	point& operator= (const point&);
+    point& operator= (const point&);
 };
 
 point& point::operator=(const point& otherPoint)
 {
-	_x = otherPoint._x;
-	_y = otherPoint._y;
+    _x = otherPoint._x;
+    _y = otherPoint._y;
 
-	return *this;
+    return *this;
 }
 
 int main(void)
 {
-	point ptr1, ptr2;
-	ptr1 = ptr2;
+    point ptr1, ptr2;
+    ptr1 = ptr2;
 
-	return 0;
+    return 0;
 }
