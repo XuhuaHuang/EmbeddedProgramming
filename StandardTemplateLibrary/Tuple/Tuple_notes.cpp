@@ -3,7 +3,7 @@
  * \brief
  * 
  * tuple<type, type> tuple_name {value, value}; // initialization
- * get<index>(tuple_name);
+ * std::get<index>(tuple_name);
  * auto tuple_name = std::make_tuple();
  * std::tie(std::ignore, variable_name) = tuple_name
  * std::tuple_size<decltype(tuple_name)>::value
@@ -16,18 +16,18 @@
 #include <string>    // std::string
 #include <tuple>     // std::tuple, std::get, std::tie, std::ignore
 
-using namespace std::cout; // std::cout
+using std::cout; using std::string;
 
 int main(void)
 {
     // creat a tuplw with initialization and access element
     std::tuple<int, int> tuple1{ -1, 1 };
     // tuple<type, type> tuple_name {value, value};
-    // get<index>(tuple_name)
+    // std::get<index>(tuple_name)
     cout << "\nA tuple named \"tuple1\" is created with two integers element." << "\n"
          << "Accessing element in tuple \"tuple1\"..." << "\n"
-         << "First element: " << get<0>(tuple1) << "\n"
-         << "Second element: " << get<1>(tuple1) << "\n"
+         << "First element: " << std::get<0>(tuple1) << "\n"
+         << "Second element: " << std::get<1>(tuple1) << "\n"
          << "\n\"tuple1\" has "
          << std::tuple_size<decltype(tuple1)>::value << " elements: ";
 
@@ -37,8 +37,8 @@ int main(void)
     cout << first << " and " << second << "\n";
 
     cout << "\nChanging element indexed 0 to -2..." << "\n";
-    get<0>(tuple1) = -2; // assign new value
-    cout << "The new assigned value is: " << get<0>(tuple1) << "\n";
+    std::get<0>(tuple1) = -2; // assign new value
+    cout << "The new assigned value is: " << std::get<0>(tuple1) << "\n";
 
     // initialize tuple with keyword 'auto'
     auto tuple2 = std::make_tuple("tuple2", 1024, 3.14, 'A'); // equivalent to: 
