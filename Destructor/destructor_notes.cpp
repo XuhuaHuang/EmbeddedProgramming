@@ -25,7 +25,7 @@ public:
     ~String();          //  and destructor.
 private:
     char* _text;
-    size_t  sizeOfText;
+    size_t sizeOfText;
 };
 
 // Define the constructor.
