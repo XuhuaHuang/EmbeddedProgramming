@@ -1,4 +1,4 @@
-#ifndef _GLIBCXX_IOSTREAM
+#ifndef _IOSTREAM_
 #include <iostream>
 #endif
 

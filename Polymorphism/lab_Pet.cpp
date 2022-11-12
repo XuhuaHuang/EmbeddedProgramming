@@ -21,7 +21,7 @@ protected: // X.H. changed the keyword to 'protected'
 
 public:
     // default and overloaded constructors
-	Pet() {
+    Pet() {
         setAge(0);
         setName("");
     }
@@ -72,7 +72,7 @@ public:
     int getnumLives(void) const { return numLives; }
 
     // new setAge function
-    void setAge(int newage) { age = newage; }
+    void setAge(int newage) override { age = newage; }
 };
 
 int main(void)
