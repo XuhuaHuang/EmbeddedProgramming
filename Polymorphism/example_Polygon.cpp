@@ -18,7 +18,7 @@
 class Polygon
 {
 protected:
-	int width, height;
+    int width, height;
 
 public:
 
