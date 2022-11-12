@@ -1,9 +1,15 @@
+/*****************************************************************//**
+ * \file   MyTime.h
+ * \brief  
+ * 
+ * \author Xuhua Huang (Student #: 1879700)
+ * \date   October 07, 2020
+ *********************************************************************/
+
 #include <iostream>
 #include <cmath>
 
-// 1879700 Xuhua Huang
-
-class mytime
+class MyTime
 {
 private:
     int hour;
