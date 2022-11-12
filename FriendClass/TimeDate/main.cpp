@@ -7,20 +7,18 @@
  *********************************************************************/
 
 #include <iostream>
-#include "lab_Time_Date.h"
-
-using namespace std;
+#include "TimeDate.hpp"
 
 int main(void)
 {
-	Time time; // create a Time object
-	Date date; // create a data object
+    Time time; // create a Time object
+    Date date; // create a data object
 
-	// initialize different properties for object "time" and "date"
-	time.setTime(14, 30, 30);
-	date.setDate(2020, 11, 23);
+    // initialize different properties for object "time" and "date"
+    time.setTime(14, 30, 30);
+    date.setDate(2020, 11, 23);
 
-	date.printDate(time);
+    date.printDate(time);
 
-	return 0;
+    return 0;
 }
