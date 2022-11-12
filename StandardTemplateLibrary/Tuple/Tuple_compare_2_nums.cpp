@@ -6,25 +6,25 @@
 * Last updated: Nov 13, 2020
 * 
 * Member function:
-*	operator =				- assign content
-*	swap					- swap content
+*   operator =              - assign content
+*   swap                    - swap content
 *
 * Non-member function:
-*	make_tuple				- create a tuple object
-*	tie						- unpack a tuple into individual objects
-*	forward_as_tuple		- creates a tuple of forwarding references
-*	tuple_cat				- creates a tuple by coinvatening tuples
-*	std::get				- tuple accesses specified element
+*   make_tuple              - create a tuple object
+*   tie                     - unpack a tuple into individual objects
+*   forward_as_tuple        - creates a tuple of forwarding references
+*   tuple_cat               - creates a tuple by coinvatening tuples
+*   std::get                - tuple accesses specified element
 * 
 * Operator:
-*	==
-*	!=	<	<=	>	>=		removed in C++ 20
-*	<=> added in C++ 20
+*   ==
+*   !=  <   <=  >   >=      removed in C++ 20
+*   <=> added in C++ 20
 * 
 * Helper classes:
-*	tuple_size				- obtains the size of a tuble
-*	tuple_element			- obtains the type of specified element
-*	ignore					- placeholder to skip an element when unpacking a tuple using tie
+*   tuple_size              - obtains the size of a tuble
+*   tuple_element           - obtains the type of specified element
+*   ignore                  - placeholder to skip an element when unpacking a tuple using tie
 */
 
 #include <iostream>
@@ -43,26 +43,26 @@ tuple<int, int> findGreaterSmaller(int num1, int num2)
 
 int main(void)
 {
-    int num1, num2;   
+    int num1, num2;
     cout << "Enter the first number of two to compare: ";
     cin >> num1;
     cout << "Enter the second number of two to compare: ";
     cin >> num2;
-    
+
     int min, max;
     tie(min, max) = findGreaterSmaller(num1, num2);
-    
-    /* 
-    * 'findGreaterSmaller' is the name of the function
-    * function argument: int, int
-    * 
-    * return type: tuple<int, int>
-    * tie() function groups int min and max together to be a tuple
-    * to receive result of the function
-    * 
-    * after variables in tuples are assigned value
-    * variables can be accessed individually 
-    */
+
+    /**
+     * 'findGreaterSmaller' is the name of the function
+     * function argument: int, int
+     * 
+     * return type: tuple<int, int>
+     * tie() function groups int min and max together to be a tuple
+     * to receive result of the function
+     * 
+     * after variables in tuples are assigned value
+     * variables can be accessed individually 
+     */
 
     cout << "The greater number is: " << max << endl
          << "The smaller number is: " << min << endl;
