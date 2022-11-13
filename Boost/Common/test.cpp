@@ -5,7 +5,7 @@
  * $ g++ -o test.exe -IC:\\boost\\boost_1_80_0 .\test.cpp -std=c++11
  * $ .\test.exe
  * 
- * \author Xuhua Huang (xuhua.huang.io@outlook.com)
+ * \author Xuhua Huang (xuhua.huang.io@gmail.com)
  * \date   September 2022
  *********************************************************************/
 
@@ -13,7 +13,7 @@
 #include <boost/version.hpp>
 #include <boost/config.hpp>
 
-int main(void) {
+auto main(void) -> int {
     /* boost/version.hpp */
     std::cout << BOOST_VERSION << "\n"
         << BOOST_LIB_VERSION << "\n";
@@ -25,5 +25,5 @@ int main(void) {
 
     /*std::cin.get();*/
     system("pause");
-    return 0;
+    return EXIT_SUCCESS;
 }
