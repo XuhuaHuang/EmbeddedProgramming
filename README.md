@@ -72,7 +72,7 @@ $ cmake .\CMakelists.txt
 For example, change to directory `.\DesignPatterns`:
 ```Bash
 $ cd .\DesignPatterns
-$ CMake .\CMakelists.txt
+$ cmake .\CMakelists.txt
 ```
 
 
