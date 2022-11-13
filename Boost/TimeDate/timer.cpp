@@ -9,14 +9,14 @@
  * This is an old/depercated version of timer in boost; a compiler
  * warning is expected; however, it is still worthy to look at the API.
  * 
- * \author Xuhua Huang (xuhua.huang.io@outlook.com)
+ * \author Xuhua Huang (xuhua.huang.io@gmail.com)
  * \date   September 19, 2022
  *********************************************************************/
 
 #include <iostream>
 #include <boost/timer.hpp>
 
-int main(void) {
+auto main(void) -> int {
 
     /* boost::timer */
     boost::timer t;
@@ -25,6 +25,6 @@ int main(void) {
         << "Min timespan: " << t.elapsed_min() << "s" << "\n"
         << "Time elapsed: " << t.elapsed() << "s" << "\n";
 
-    std::cin.get();
-    return 0;
+    system("pause");
+    return EXIT_SUCCESS;
 }

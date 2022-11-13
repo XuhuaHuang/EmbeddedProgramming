@@ -22,8 +22,7 @@
 #include <iterator>
 #include <algorithm>
 
-auto main(void) -> int
-{
+auto main(void) -> int {
     using namespace boost::lambda;
     typedef std::istream_iterator<int> in;
 
