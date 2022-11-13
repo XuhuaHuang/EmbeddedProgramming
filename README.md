@@ -4,13 +4,9 @@
 [Wakatime Info Link]: https://wakatime.com/badge/user/f89598ea-6723-481b-a51b-6323e54a3c5c/project/0645c716-822f-4ba1-a897-04cf5a3fbbfb?style=flat
 
 [![wakatime][Wakatime Logo Link]][Wakatime Info Link]
-[![Github All Releases](https://img.shields.io/github/downloads/XuhuaHuang/EmbeddedProgramming/total.svg)]()
-
-`std::code_blooded<std::imposter_syndrome>`<br>
 
 This is a repository created dedicated to embedded programming in Linux environment. <br>
 Each topic is placed in individual folder. Projects are placed under each descriptively-named folders. <br>
-Please use code responsively.
 
 #### **Special Thanks**
 **Prof. Charmaine Jirgens** <br>
@@ -61,9 +57,24 @@ $ g++ --version
 ---
 
 ### **Repository Directories**
+**Most** of the directories are provided with a `CMakelists.txt`. <br>
+Using `CMake` will be significantly easier than manually compilling all the files with your favourite compiler. <br>
 
-#### Directory `.\Notes`
-Contains code/notes and a `README.md` file, learning `std::maps`, `std::move` etc.
+If you already have a configured `CMake` for your operating system, simple change to the directory with such `CMakelists.txt` and run:<br>
+```Bash
+$ cmake .
+```
+or
+```Bash
+$ cmake .\CMakelists.txt
+```
+
+For example, change to directory `.\DesignPatterns`:
+```Bash
+$ cd .\DesignPatterns
+$ CMake .\CMakelists.txt
+```
+
 
 #### Directory `.\Util`
 Functionality provided by separate module. A namespace `util` is created to better manage the functions.
@@ -117,3 +128,19 @@ For example, building a terminal progress bar for visual effects and working wit
 * [`target_compile_definitions`](https://cmake.org/cmake/help/latest/command/target_compile_definitions.html)
 * [`target_include_directories`](https://cmake.org/cmake/help/latest/command/target_include_directories.html)
 * [`target_link_libraries`](https://cmake.org/cmake/help/latest/command/target_link_libraries.html)
+
+---
+
+#### `CMakelists.txt` not Provided nor reformatted:
+* `FriendClass`
+* `Lambda`
+* `Miscellaneous`
+* `MoveSemantics`
+* `MultipleInheritance`
+* `OverloadedOperators`
+* `Pointer`
+* `Polymorphism`
+* `Projects`
+* `TestQuestions`
+* `Thread`
+* `Vector`
