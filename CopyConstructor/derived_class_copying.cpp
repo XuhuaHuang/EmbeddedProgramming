@@ -79,9 +79,9 @@ private:
 };
 
 Customer::Customer(const Customer& rhs)
-    : name(rhs.name),						// member initialization list
+    : name(rhs.name), // member initialization list
     ID(rhs.ID),
-    lastTransaction(rhs.lastTransaction)  // added for copy constructor to behave as required
+    lastTransaction(rhs.lastTransaction) // added for copy constructor to behave as required
 {
     util::logCall("Customer copy constructor");
 }
