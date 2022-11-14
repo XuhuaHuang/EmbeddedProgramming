@@ -1,12 +1,12 @@
 /**
- * @file demo_atomic.cpp
- * @author Xuhua Huang (xuhuahuang0412@gmail.com)
+ * @file atomic.cpp
+ * @author Xuhua Huang (xuhua.huang.io@gmail.com)
  * @brief Spawning multiple threads with standardized vector (std::vector<typename>)
  * to work with an atomic variable.
  * @version 0.1
  * @date 2022-01-27
  * 
- * g++ demo_atomic.cpp -o atomic -lpthread -std=c++17
+ * g++ atomic.cpp -o atomic -lpthread -std=c++17
  * 
  * @copyright Copyright (c) 2022
  * 

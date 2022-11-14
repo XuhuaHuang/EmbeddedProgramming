@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   1_ways_to_create_threads.cpp
+ * \file   create_threads.cpp
  * \brief  contains notes on 3 different ways to create threads with
  *	<threads> library introduced in C++11
  *

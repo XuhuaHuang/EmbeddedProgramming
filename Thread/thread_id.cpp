@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   touch_thread_1.cpp
+ * \file   thread_id.cpp
  * \brief  contains usage for std::thread constructor w/ overloading
  *		   thread id and some other public member function
  *
