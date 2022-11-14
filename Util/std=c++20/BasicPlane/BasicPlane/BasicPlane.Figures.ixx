@@ -2,7 +2,7 @@
  * \file   BasicPlane.Figures.ixx
  * \brief  Export multiple module partitions using a single interface.
  * 
- * \author Xuhua Huang (xuhua.huang.io@outlook.com)
+ * \author Xuhua Huang (xuhua.huang.io@gmail.com)
  * \date   September 2022
  *********************************************************************/
 
