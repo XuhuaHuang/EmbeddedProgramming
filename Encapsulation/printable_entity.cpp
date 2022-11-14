@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   interface.cpp
+ * \file   printable_entity.cpp
  * \brief  pure virtual function in C++
  *         can not instantiate instances without implementing
  *         pure virtual function in the base class
