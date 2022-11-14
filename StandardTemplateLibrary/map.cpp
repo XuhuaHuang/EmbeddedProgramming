@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   learn_maps.cpp
+ * \file   map.cpp
  * \brief  The order of the elements in the map does NOT matter
  * Constant time complexity when accessing value
  * Map is a collection data structure of key-value pairs (JSON)
@@ -13,60 +13,58 @@
 #include <map>
 #include <algorithm>
 
-using namespace std;
-
-map<string, int> employees = {
+std::map<std::string, int> employees = {
     {"John", 3},
     {"Jill", 4},
     {"Rick", 5},
     {"Elaine", 6}
 };
 
-map<string, char> template_demo = {
+std::map<std::string, char> template_demo = {
     {"Apple", 'A'},
     {"Beta", 'B'},
     {"Cat", 'C'},
     {"Dog", 'D'}
 };
 
-void print(const pair<string, int>& employee)
+void print(const std::pair<std::string, int>& employee)
 {
     if (employee.second < 5)
-        cout << employee.first << endl;
+        std::cout << employee.first << "\n";
 }
 
 /* Provide template function to print any map. */
-namespace Util {
+namespace util {
     template<typename T, typename U>
-    void printMap(map<T, U>& const mp)
+    void printMap(std::map<T, U> mp)
     {
         // `typename` is essential in the following for loop
         for (typename std::map<T, U>::iterator itr = mp.begin(); itr != mp.end(); ++itr)
-            std::cout << "Key: " << itr->first << ", value: " << itr->second << std::endl;
+            std::cout << "Key: " << itr->first << ", value: " << itr->second << "\n";
     }
 }
 
 int main(void)
 {
     /* Create a map to map ASCII character and decimal. */
-    map<char, int> mpASCII = {
+    std::map<char, int> mpASCII = {
         {'C', 67}, // each element is a pair
         {'F', 70}, // access through pair.first and
         {'I', 73}  // pair.second method
     };
 
-    cout << mpASCII['C'] << endl
-         << mpASCII['F'] << endl;
+    std::cout << mpASCII['C'] << "\n"
+        << mpASCII['F'] << "\n";
 
     /* Insert a key and corresponding value. */
     // Informal way of inserting: mpASCII['U'] = 85;
-    mpASCII.insert(pair<char, int>('U', 85));
+    mpASCII.insert(std::pair<char, int>('U', 85));
 
-    cout << mpASCII['U'] << endl;
+    std::cout << mpASCII['U'] << "\n";
 
     /* Access element in a pair using first/second index. */
-    cout << pair<char, int>('U', 85).first << endl
-         << pair<char, int>('U', 85).second << endl;
+    std::cout << std::pair<char, int>('U', 85).first << "\n"
+        << std::pair<char, int>('U', 85).second << "\n";
 
     /* Erase an element in the map. */
     // Emptying a map: map.clear()
@@ -75,16 +73,16 @@ int main(void)
     mpASCII.erase('C'); // the first element of the map is removed
 
     /* Iterate through a map. */
-    for (map<char, int>::iterator itr = mpASCII.begin(); itr != mpASCII.end(); ++itr)
+    for (std::map<char, int>::iterator itr = mpASCII.begin(); itr != mpASCII.end(); ++itr)
     {
-        cout << "Key: " << itr->first << ", Value: " << itr->second << endl;
+        std::cout << "Key: " << itr->first << ", Value: " << itr->second << "\n";
     }
 
     /* More map example. */
     /* Map the times a character shows up in a string. */
-    string test = "Hello world my name is Xuhua Huang";
-    map<char, int> charFreq = {};
-    
+    std::string test = "Hello world my name is Xuhua Huang";
+    std::map<char, int> charFreq = {};
+
     for (int i = 0; i < test.length(); ++i)
     {
         char elem = test[i];
@@ -98,9 +96,9 @@ int main(void)
         charFreq[elem]++;
     }
 
-    for (map<char, int>::iterator itr = charFreq.begin(); itr != charFreq.end(); ++itr)
+    for (std::map<char, int>::iterator itr = charFreq.begin(); itr != charFreq.end(); ++itr)
     {
-        cout << "Character: \"" << itr->first << "\", Occupancy: " << itr->second << endl;
+        std::cout << "Character: \"" << itr->first << "\", Occupancy: " << itr->second << "\n";
     }
 
     /* Testing external map and non-template print function. */
@@ -108,8 +106,8 @@ int main(void)
     // print is passed a call-back function
 
     /* Test template function to print map. */
-    Util::printMap(employees);
-    Util::printMap(template_demo);
+    util::printMap(employees);
+    util::printMap(template_demo);
 
     system("pause");
     return 0;

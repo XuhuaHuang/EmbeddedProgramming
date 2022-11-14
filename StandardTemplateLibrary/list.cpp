@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   STL_list.cpp
+ * \file   list.cpp
  * \brief  basic implementation of list
  * 
  * \ to be continue: forward_list (C++11)
@@ -13,21 +13,19 @@
 #include<string>
 #include<iterator>
 
-using namespace std;
-
-extern std::list<string> knownLangsList { "C++", "Python", "Cython", "Rust", "Java" };
-extern std::list<string> mainLangsList { "C++", "Python" };
+extern std::list<std::string> knownLangsList { "C++", "Python", "Cython", "Rust", "Java" };
+extern std::list<std::string> mainLangsList { "C++", "Python" };
 
 // function for printing an integer list
-void showlist(list<int> listToPrint)
+void showlist(std::list<int> listToPrint)
 {
-    cout << "\n[fn]Printing list..." << endl;
+    std::cout << "\n[fn]Printing list..." << "\n";
 
-    list <int>::iterator iterInt; // declare an iterator named "iterInt"
+    std::list<int>::iterator iterInt; // declare an iterator named "iterInt"
     for (iterInt = listToPrint.begin(); iterInt != listToPrint.end(); iterInt++) 
-        cout << *iterInt <<  " "; // iterator is a pointer-like object
+        std::cout << *iterInt <<  " "; // iterator is a pointer-like object
 
-    cout << "\n[fn]Finished printing the list." << endl;
+    std::cout << "\n[fn]Finished printing the list." << "\n";
     return;
 }
 
@@ -40,20 +38,20 @@ namespace util
     template<class T>
     void printList(std::list<T> argList)
     {
-        std::cout << "\n[fn]Printing list..." << std::endl;
+        std::cout << "\n[fn]Printing list..." << "\n";
 
         typename std::list<T>::iterator iter; // keyword "typename" is required for iterator
         for (iter = argList.begin(); iter != argList.end(); ++iter)
             std::cout << *iter << " "; // dereference the iterator to print content
 
-        std::cout << "\n[fn]Finished printing the list." << std::endl;
+        std::cout << "\n[fn]Finished printing the list." << "\n";
         return;
     }
 }
 
 int main(int argc, char** argv)
 {
-    list<int> list1, list2;
+    std::list<int> list1, list2;
     // list <type> variable_name;
 
     for (int i = 0; i < 10; ++i)
@@ -62,34 +60,34 @@ int main(int argc, char** argv)
         list2.push_front(i * 3); // list filled with for loop
     }
 
-    cout << "\nList 1 (list1) is: ";
+    std::cout << "\nList 1 (list1) is: ";
     showlist(list1);
 
-    cout << "\nList 2 (list2) is: ";
+    std::cout << "\nList 2 (list2) is: ";
     showlist(list2);
 
-    cout << "\nPrinting with \"list_name.front()\" and "
-         << "\"list_name.back()\" function: " << endl
-         << "Print first and last element of the list correspondingly" << endl
-         << "\nlist1.front(): " << list1.front() << endl
-         << "\nlist1.back(): " << list1.back() << endl;
+    std::cout << "\nPrinting with \"list_name.front()\" and "
+         << "\"list_name.back()\" function: " << "\n"
+         << "Print first and last element of the list correspondingly" << "\n"
+         << "\nlist1.front(): " << list1.front() << "\n"
+         << "\nlist1.back(): " << list1.back() << "\n";
 
-    cout << "\nlist1.pop_front(): " << endl
-         << "first element in the list removed" << endl;;
+    std::cout << "\nlist1.pop_front(): " << "\n"
+         << "first element in the list removed" << "\n";;
     list1.pop_front(); // first element removed
     showlist(list1);
 
-    cout << "\nlist2.pop_back(): " << endl
-         << "last element in the list removed" << endl;
+    std::cout << "\nlist2.pop_back(): " << "\n"
+         << "last element in the list removed" << "\n";
     list2.pop_back(); // last element in the list removed
     showlist(list2); 
 
-    cout << "\nlist1.reverse(): " << endl
+    std::cout << "\nlist1.reverse(): " << "\n"
          << "the order of contents in the list is reversed";
     list1.reverse(); // list 1 contents reversed
     showlist(list1); 
 
-    cout << "\nlist2.sort(): " << endl
+    std::cout << "\nlist2.sort(): " << "\n"
          << "contents in the list are sorted in ascending order";
     list2.sort(); // list 2 contents sorted
     showlist(list2);
