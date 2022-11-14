@@ -2,7 +2,7 @@
  * \file   FunctorLambda.cpp
  * \brief  Demonstration of classes used as functor in C++.
  * 
- * \author Xuhua Huang (xuhua.huang.io@outlook.com)
+ * \author Xuhua Huang (xuhua.huang.io@gmail.com)
  * \date   September 2022
  *********************************************************************/
 

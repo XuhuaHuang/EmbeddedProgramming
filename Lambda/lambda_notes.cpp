@@ -20,68 +20,67 @@
 #include <algorithm>
 #include <functional>
 
-using namespace std;
-
 // lambda expression with function pointer
-void ForEach(const vector<int>& values, void(*func)(int))
+void ForEach(const std::vector<int>& values, void(*func)(int))
 {
-	/**
-	 * void(*function)(int)
-	 * void - return type of function "func"
-	 * func - name of passed function pointer
-	 * (*func) - dereference to function instead of pointer
-	 * (int) - argument type of "func"
-	 *
-	 * \param values
-	 * \param function
-	 */
-	for (int value : values)
-		func(value);
-	return;
+    /**
+     * void(*function)(int)
+     * void - return type of function "func"
+     * func - name of passed function pointer
+     * (*func) - dereference to function instead of pointer
+     * (int) - argument type of "func"
+     *
+     * \param values
+     * \param function
+     */
+    for (int value : values) {
+        func(value);
+    }
+    return;
 }
 
 int main(void)
 {
-	vector<int> values = { 1, 2, 3, 4, 5 };
+    std::vector<int> values = { 1, 2, 3, 4, 5 };
 
-	// lambda
-	// call function ForEach(vector, void(*)()) with lambda expression
-	// lambda is essentially a throw-away function that's only used once
-	ForEach(values,
-		// lambda expression begins
-		[](int value) {
-			cout << "Value: " << value << endl;
-		} // end of lambda expression
-	);
+    // lambda
+    // call function ForEach(vector, void(*)()) with lambda expression
+    // lambda is essentially a throw-away function that's only used once
+    ForEach(values,
+        // lambda expression begins
+        [](int value) {
+            std::cout << "Value: " << value << "\n";
+        } // end of lambda expression
+    );
 
-	cout << "\nSorting with lambda expression" << endl;
-	sort(values.begin(), values.end(),
-		// lambda expression begins
-		[&values](const int left, const int right) {
-			return (left > right); // descending order
-		} // end of lambda expression
-	);
-	cout << "Sorted. Printing items in \"vector<int> values\"" << endl;
+    std::cout << "\nSorting with lambda expression" << "\n";
+    sort(values.begin(), values.end(),
+        // lambda expression begins
+        [&values](const int left, const int right) {
+            return (left > right); // descending order
+        } // end of lambda expression
+    );
+    std::cout << "Sorted. Printing items in \"vector<int> values\"" << "\n";
 
-	for (const auto& item : values)
-		cout << "Item: " << item << endl;
+    for (const auto& item : values)
+        std::cout << "Item: " << item << "\n";
 
-	int m = 0;
-	int n = 0;
-	
-	// lambda captures variable m by reference and n by value
-	// parameter list: int a = 4
-	// mutable keyword grants access to modify variable n
-	// -> trailing return type: -> void
-	[&m, n](int a) mutable -> void {
-		cout << "\nInside of lambda"
-		     << "\nBefore operation: m = " << m << ", n = " << n << ", a = " << a << endl;
-		m = ++n + a;  // perform operation
-		cout << "After operation: m = " << m << ", n = " << n << ", a = " << a << endl;
-	}(4); // 4 is assigned to int a
-	// "int a" went out of scope, thus it is no longer valid
+    int m = 0;
+    int n = 0;
 
-	cout << "\nOutside of lambda: m = " << m << ", n = " << n << endl;
+    // lambda captures variable m by reference and n by value
+    // parameter list: int a = 4
+    // mutable keyword grants access to modify variable n
+    // -> trailing return type: -> void
+    [&m, n](int a) mutable -> void {
+        std::cout << "\nInside of lambda"
+            << "\nBefore operation: m = " << m << ", n = " << n << ", a = " << a << "\n";
+        m = ++n + a;  // perform operation
+        std::cout << "After operation: m = " << m << ", n = " << n << ", a = " << a << "\n";
+    }(4); // 4 is assigned to int a
+    // "int a" went out of scope, thus it is no longer valid
 
-	return 0;
+    std::cout << "\nOutside of lambda: m = " << m << ", n = " << n << "\n";
+
+    return 0;
 }
