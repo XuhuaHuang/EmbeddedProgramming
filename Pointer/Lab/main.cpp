@@ -16,7 +16,7 @@
 #include <iostream>
 #include <string>
 #include <time.h>
-#include "Pointer_lab.h" // dedicated library
+#include "Pointer_lab.hpp" // dedicated library
 
 int main(void)
 {

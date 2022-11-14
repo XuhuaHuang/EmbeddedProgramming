@@ -15,7 +15,7 @@
 
 #include <iostream>
 #include <string>
-#include "Pointer_lab.h"
+#include "Pointer_lab.hpp"
 
 using std::cout;
 
