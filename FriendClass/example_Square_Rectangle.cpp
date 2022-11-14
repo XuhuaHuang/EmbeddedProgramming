@@ -20,45 +20,45 @@ using namespace std;
 class Square
 {
 private:
-	int side;
+    int side;
 
 public:
-	void setSide(int a) { side = a; }
+    void setSide(int a) { side = a; }
 
-	// Square class allows Rectangle class to access its private data members.
-	friend class Rectangle;
-	// conflict the concept of class encapsulation
-	// could be avoided by using public get functions (getter)
+    // Square class allows Rectangle class to access its private data members.
+    friend class Rectangle;
+    // conflict the concept of class encapsulation
+    // could be avoided by using public get functions (getter)
 };
 
 class Rectangle
 {
 private:
-	int width, height;
+    int width, height;
 
 public:
-	int area() { return (width * height); }
-	void convert(const Square&);
+    int area() { return (width * height); }
+    void convert(const Square&);
 };
 
 void Rectangle::convert(const Square& a)
 {
-	width = a.side;
-	height = a.side;
-	// Rectangle class using Square's private data members (side)
+    width = a.side;
+    height = a.side;
+    // Rectangle class using Square's private data members (side)
 
-	return;
+    return;
 }
 
 int main(void)
 {
-	Square sqr;
-	Rectangle rect;
+    Square sqr;
+    Rectangle rect;
 
-	sqr.setSide(4);
-	rect.convert(sqr);  // converting a square to rectangle
+    sqr.setSide(4);
+    rect.convert(sqr);  // converting a square to rectangle
 
-	cout << rect.area() << endl;
+    cout << rect.area() << endl;
 
-	return 0;
+    return 0;
 }
