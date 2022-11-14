@@ -1,6 +1,6 @@
 /**
  * @file safe_free.hpp
- * @author Xuhua Huang (xuhuahuang0412@gmail.com)
+ * @author Xuhua Huang (xuhua.huang.io@gmail.com)
  * @brief Implementing our own free function from the standard library.
  * Setting the pointer to NULL after calling free() is a good idea.
  * The free() function does not check whether nor set the pointer to NULL.
