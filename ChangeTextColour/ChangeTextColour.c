@@ -1,3 +1,11 @@
+/*****************************************************************//**
+ * \file   ChangeTextColour.c
+ * \brief  Change stdout colour using <windows.h>
+ * 
+ * \author Xuhua Huang
+ * \date   November 2020
+ *********************************************************************/
+
 #include <stdio.h>
 #include <windows.h>
 
