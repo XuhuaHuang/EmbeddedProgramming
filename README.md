@@ -132,6 +132,8 @@ For example, building a terminal progress bar for visual effects and working wit
 ---
 
 ### `TODO`:
+* `Demonstration`
+* `Util`
 * `Projects\Dealer\Refactored`
 * `std::unordered_map<typename T>`
 * `Binary tree`, `Binary search tree`
