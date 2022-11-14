@@ -56,6 +56,6 @@ int main(void)
             << color::bg_magenta   << "this is bg_magenta" << color::reset << "\n"
             << color::bg_cyan      << "this is bg_cyan"    << color::reset << "\n"
             << color::reset;
-            
+
             return 0;
 }
