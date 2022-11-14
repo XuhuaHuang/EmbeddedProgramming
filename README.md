@@ -131,16 +131,7 @@ For example, building a terminal progress bar for visual effects and working wit
 
 ---
 
-#### `CMakelists.txt` not Provided nor reformatted:
-* `FriendClass`
-* `Lambda`
-* `Miscellaneous`
-* `MoveSemantics`
-* `MultipleInheritance`
-* `OverloadedOperators`
+### `CMakelists.txt` not Provided nor reformatted:
+* `Miscellaneous` [[not-yet-reformatted]]
 * `Pointer`
-* `Polymorphism`
-* `Projects`
-* `TestQuestions`
-* `Thread`
-* `Vector`
+* `Projects\Dealer\Refactored` [[todo]]
