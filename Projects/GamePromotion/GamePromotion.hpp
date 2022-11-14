@@ -9,24 +9,22 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 /*******************************
 *    GAME CLASS DEFINITION     *
 ********************************/
 class Game
 {
 public:
-    Game() : name("Undefined") { cout << "[DFCONST]Game" << "\n"; }
-    Game(string initName) : name(initName) { cout << "[OLCONST]Game" << "\n"; }
+    Game() : name("Undefined") { std::cout << "[DFCONST]Game" << "\n"; }
+    Game(std::string initName) : name(initName) { std::cout << "[OLCONST]Game" << "\n"; }
 
-    void setName(string initName) { this->name = initName; }
-    string getName() { return name; }
+    void setName(std::string initName) { this->name = initName; }
+    std::string getName() { return name; }
 
-    void printInfo(void) { cout << "[fn][Game]Name = " << getName() << "\n"; };
+    void printInfo(void) { std::cout << "[fn][Game]Name = " << getName() << "\n"; };
 
 private:
-    string name;
+    std::string name;
 };
 
 /************************************
@@ -35,24 +33,24 @@ private:
 class VideoGame : public Game
 {
 public:
-    VideoGame() : genre("Undefined"), platform("Undefined") { cout << "[DECONST]VideoGame" << "\n"; }
+    VideoGame() : genre("Undefined"), platform("Undefined") { std::cout << "[DECONST]VideoGame" << "\n"; }
 
-    VideoGame(string initName, string initPlatform, string initGenre = "Undefined")
+    VideoGame(std::string initName, std::string initPlatform, std::string initGenre = "Undefined")
         : Game(initName), platform(initPlatform), genre(initGenre)
     {
-        cout << "\n[OLCONST]VideoGame" << "\n";
+        std::cout << "\n[OLCONST]VideoGame" << "\n";
     }
 
-    string getPlatform() { return platform; }
-    void setPlatform(string initPlatform) { platform = initPlatform; }
-    string getGenre() { return genre; }
-    void setGenre(string initGenre) { genre = initGenre; }
+    std::string getPlatform() { return platform; }
+    void setPlatform(std::string initPlatform) { platform = initPlatform; }
+    std::string getGenre() { return genre; }
+    void setGenre(std::string initGenre) { genre = initGenre; }
 
     void printInfo(void); // defined
 
 private:
-    string genre;
-    string platform;
+    std::string genre;
+    std::string platform;
 };
 
 /************************************
@@ -61,12 +59,12 @@ private:
 class BoardGame : public Game
 {
 public:
-    BoardGame() : minAge(18), maxNumPlayers(10) { cout << "[DECONST]BoardGame" << "\n"; }
+    BoardGame() : minAge(18), maxNumPlayers(10) { std::cout << "[DECONST]BoardGame" << "\n"; }
 
-    BoardGame(string initName, int initMinAge = 10, int initMaxNumPlayers = 4)
+    BoardGame(std::string initName, int initMinAge = 10, int initMaxNumPlayers = 4)
         : Game(initName), minAge(initMinAge), maxNumPlayers(initMaxNumPlayers)
     {
-        cout << "[OLCONST]VideoGame" << "\n";
+        std::cout << "[OLCONST]VideoGame" << "\n";
     }
 
     void setminAge(int initMinAge) { minAge = initMinAge; }

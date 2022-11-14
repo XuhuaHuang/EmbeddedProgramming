@@ -1,35 +1,33 @@
 /*****************************************************************//**
  * \file   mock_fn.cpp
- * \brief  contains function definitions for class in "mock.h"
- * 
+ * \brief  contains function definitions for class in "GamePromotion.hpp"
+ *
  * \author Xuhua
  * \date   December 2020
  *********************************************************************/
 
 #include <iostream>
 #include <string>
-#include "GamePromotion.h"
-
-using namespace std;
+#include "GamePromotion.hpp"
 
 void VideoGame::printInfo(void)
 {
-    cout << "\n[fn][VideoGame]Invoking Game::printInfo()" << endl;
+    std::cout << "\n[fn][VideoGame]Invoking Game::printInfo()" << "\n";
     Game::printInfo();
 
-    cout << "[fn][VideoGame]Genre = " << getGenre() << endl;
-    cout << "[fn][VideoGame]Platform = " << getPlatform() << endl;
+    std::cout << "[fn][VideoGame]Genre = " << getGenre() << "\n";
+    std::cout << "[fn][VideoGame]Platform = " << getPlatform() << "\n";
 
     return;
 }
 
 void BoardGame::printInfo()
 {
-    cout << "\n[fn][BoardGame]Invoking Game::printInfo()" << endl;
+    std::cout << "\n[fn][BoardGame]Invoking Game::printInfo()" << "\n";
     Game::printInfo();
 
-    cout << "[fn][BoardGame]Min age = " << getMinAge() << endl;
-    cout << "[fn][BoardGame]Max number of players = " << getMaxNumPlayers() << endl;
+    std::cout << "[fn][BoardGame]Min age = " << getMinAge() << "\n";
+    std::cout << "[fn][BoardGame]Max number of players = " << getMaxNumPlayers() << "\n";
 }
 
 Promotion::Promotion()
@@ -43,10 +41,10 @@ Promotion::Promotion()
 
 void Promotion::PrintInfo()
 {
-    cout << "\n[fn][Promotion]VideoGame on promotion: " << endl;
+    std::cout << "\n[fn][Promotion]VideoGame on promotion: " << "\n";
     getVideoGame().printInfo();
 
-    cout << "[fn][Promotion]BoardGame on promotion: " << endl;
+    std::cout << "[fn][Promotion]BoardGame on promotion: " << "\n";
     getBoardGame()->printInfo();
 
     return;
