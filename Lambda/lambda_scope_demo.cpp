@@ -1,6 +1,6 @@
 /**
  * @file lambda_scope_demo.cpp
- * @author Xuhua Huang (xuhuahuang0412@gmail.com)
+ * @author Xuhua Huang (xuhua.huang.io@gmail.com)
  * @brief Capture by value and capture by reference demonstration
  * @version 0.1
  * @date 2022-01-06
@@ -22,7 +22,7 @@ int main(void) {
 
     std::cout << "Outside the lambda:" << "\n"
         << "Address of x in lambda: " << &x << ", value of x: " << x << "\n"
-        << "Address of y in lambda: " << &y << ", value of y: " << y << "\n\n";
+        << "Address of y in lambda: " << &y << ", value of y: " << y << "\n" << "\n";
 
     auto test_lambda_capture = [x, &y]() mutable -> void {
         std::cout << "Inside the lambda:" << "\n"
@@ -32,7 +32,7 @@ int main(void) {
         x += 1;
         y += 2;
 
-        std::cout << "x: " << x << ", y: " << y << "\n" << "Exit lambda\n\n";
+        std::cout << "x: " << x << ", y: " << y << "\n" << "Exit lambda" << "\n" << "\n";
     };
 
     test_lambda_capture();
