@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
 
 class Compare
 {
@@ -16,8 +15,8 @@ public:
 
     // overloading the "()" operator to compare two int
     // return either 'true/1' or 'false/0'
-    string operator()(int a, int b) { 
-        string result = "false";
+    std::string operator()(int a, int b) { 
+        std::string result = "false";
         if (a < b)
             result = "true";
 
@@ -30,17 +29,17 @@ int main(void)
     Compare compare; // create a function object
     int a = 5;
     int b = 7;
-    string ans = compare(a, b); // using the overloaded () operator
+    std::string ans = compare(a, b); // using the overloaded () operator
                                 // of the "Compare" class
-    cout << ans << endl;
+    std::cout << ans << "\n";
 
     // fun with nested for loops
     for (int i = 0; i < 100; i++)
     {
         for (int j = 0; j < 100; j++)
         {
-            string ans = compare(i, j);
-            cout << "\nFor " << i << " < " << j << " is " << ans << endl;
+            std::string ans = compare(i, j);
+            std::cout << "\nFor " << i << " < " << j << " is " << ans << "\n";
         }
     }
 
