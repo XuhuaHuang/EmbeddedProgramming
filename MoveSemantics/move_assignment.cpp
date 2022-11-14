@@ -52,7 +52,8 @@ int main(void)
     // source is converted to a pure rvalue (i.e. temporary variable)
     std::string destination3 { static_cast<std::string&&>(source) };
     // equivalent to the following
-    std::string destination4 = std::move(source);
+    // std::string destination4 = std::move(source);
+    // C26800: use of a moved from object
 
     std::cin.get();
     return 0;
