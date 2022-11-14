@@ -11,21 +11,21 @@
 class Vehicle {
 public:
     ~Vehicle() {
-        std::cout << "Vehicle" << std::endl;
+        std::cout << "Vehicle" << "\n";
     }
 };
 
 class Engine {
 public:
     ~Engine() {
-        std::cout << "Engine" << std::endl;
+        std::cout << "Engine" << "\n";
     }
 };
 
 class Truck : public Vehicle {
 public:
     ~Truck() {
-        std::cout << "Truck" << std::endl;
+        std::cout << "Truck" << "\n";
     }
 private:
     Engine engine;
@@ -37,9 +37,9 @@ int main()
     /**
      * `truck` goes out of the scope
      * Destructor called in such sequence:
-     * Derived class destructor			-> "Truck"
-     * Private data member destructor	-> "Engine"
-     * Base class destructor.			-> "Vehicle"
+     * Derived class destructor         -> "Truck"
+     * Private data member destructor   -> "Engine"
+     * Base class destructor.           -> "Vehicle"
      */
 
     return 0;
