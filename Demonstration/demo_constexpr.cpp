@@ -1,6 +1,6 @@
 /**
  * @file demo_constexpr.cpp
- * @author Xuhua Huang (xuhuahuang0412@gmail.com)
+ * @author Xuhua Huang (xuhua.huang.io@gmail.com)
  * @brief Demonstration of constant expression (constants at run-time) in C++11.
  * @version 1.0
  * @date 2021-11-30

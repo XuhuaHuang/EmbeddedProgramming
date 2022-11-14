@@ -1,6 +1,6 @@
 /**
  * @file decltype.cpp
- * @author Xuhua Huang (xuhuahuang0412@gmail.com)
+ * @author Xuhua Huang (xuhua.huang.io@gmail.com)
  * @brief 
  * @version 0.9
  * @date 2021-11-09

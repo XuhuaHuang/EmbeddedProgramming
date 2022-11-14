@@ -1,6 +1,6 @@
 /**
  * @file demo_template.cpp
- * @author Xuhua Huang (xuhuahuang0412@gmail.com)
+ * @author Xuhua Huang (xuhua.huang.io@gmail.com)
  * @brief Notes on template. Used as a quick reference guide.
  * @version 0.1
  * @date 2022-02-04
