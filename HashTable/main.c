@@ -1,6 +1,6 @@
 /**
  * @file hashTable.c
- * @author Xuhua Huang (xuhuahuang0412@gmail.com)
+ * @author Xuhua Huang (xuhua.huang.io@gmail.com)
  * @brief Understanding and implementing a hash table in C.
  * Constant operation time of O(1) with Open Addressing and External Chamber.
  *
