@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   STL_deque.cpp
+ * \file   deque.cpp
  * \brief  brief on Double Ended Queue (deque)
  * 
  * \author Xuhua Huang
@@ -9,50 +9,48 @@
 #include <iostream> 
 #include <deque> 
 
-using namespace std;
-
 // create a function to print double ended queue (deque)
-void showdq(deque<int>& queueToPrint)
+void showdq(std::deque<int>& queueToPrint)
 {
-    deque<int>::iterator iterInt; // declare an iterator
+    std::deque<int>::iterator iterInt; // declare an iterator
 
-    cout << "\n[fn]Printing double ended queue..." << endl;
+    std::cout << "\n[fn]Printing double ended queue..." << "\n";
     for (iterInt = queueToPrint.begin(); iterInt != queueToPrint.end(); iterInt++)
     {
-        cout << *iterInt << "\t";
+        std::cout << *iterInt << "\t";
     }
-    cout << "\n[fn]Finished printing double ended queue." << endl;
+    std::cout << "\n[fn]Finished printing double ended queue." << "\n";
 }
 
 int main(void)
 {
-    // deque <type> variable_name;
-    deque <int> dequeue1;
+    // std::deque<type> variable_name;
+    std::deque <int> dequeue1;
     dequeue1.push_back(10);
     dequeue1.push_front(20);
     dequeue1.push_back(30);
     dequeue1.push_front(15);
-    cout << "The deque dequeue1 is : ";
+    std::cout << "The deque dequeue1 is : ";
     showdq(dequeue1);
 
-    cout << "\ndequeue1.size(): " << dequeue1.size();
-    cout << "\ndequeue1.max_size(): " << dequeue1.max_size() << endl;
+    std::cout << "\ndequeue1.size(): " << dequeue1.size();
+    std::cout << "\ndequeue1.max_size(): " << dequeue1.max_size() << "\n";
 
-    cout << "\nAccessing the third element indexed 2: " << endl
-         << "dequeue1.at(2): " << dequeue1.at(2) << endl // print third element
+    std::cout << "\nAccessing the third element indexed 2: " << "\n"
+         << "dequeue1.at(2): " << dequeue1.at(2) << "\n" // print third element
 
-         << "\nAccessing the first element with front() member function" << endl
-         << "dequeue1.front(): " << dequeue1.front() << endl // print first element
+         << "\nAccessing the first element with front() member function" << "\n"
+         << "dequeue1.front(): " << dequeue1.front() << "\n" // print first element
  
-         << "\nAccessing the last element with back() member function" << endl
-         << "dequeue1.back(): " << dequeue1.back() << endl; // print last element
+         << "\nAccessing the last element with back() member function" << "\n"
+         << "dequeue1.back(): " << dequeue1.back() << "\n"; // print last element
 
-    cout << "\npop_front() member function removes the first element" << endl
+    std::cout << "\npop_front() member function removes the first element" << "\n"
          << "dequeue1.pop_front(): ";
     dequeue1.pop_front();
     showdq(dequeue1); // 15 removed
 
-    cout << "\npop_back() member function removes the last element" << endl
+    std::cout << "\npop_back() member function removes the last element" << "\n"
          << "dequeue1.pop_back(): ";
     dequeue1.pop_back();
     showdq(dequeue1); // 30 removed
