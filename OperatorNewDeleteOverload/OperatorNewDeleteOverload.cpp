@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   OverloadedNewDelete.cpp
+ * \file   OperatorNewDeleteOverload.cpp
  * \brief  Overloading new and delete operator
  *         Memory allocation related with debug monitoring
  *
