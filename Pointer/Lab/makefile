@@ -1,6 +1,6 @@
-all:Pointer_lab_fn.o Pointer_lab_main.o
-	g++ Pointer_lab_fn.o Pointer_lab_main.o -o exec
-Pointer_lab_fn.o:Pointer_lab_fn.cpp Pointer_lab.h
-	g++ -c Pointer_lab_fn.cpp
-Pointer_lab_main.o:Pointer_lab_main.cpp Pointer_lab.h
-	g++ -c Pointer_lab_main.cpp
+all:Pointer_lab.o main.o
+	g++ Pointer_lab.o main.o -o exec
+Pointer_lab.o:Pointer_lab.cpp Pointer_lab.hpp
+	g++ -c Pointer_lab.cpp
+main.o:main.cpp Pointer_lab.hpp
+	g++ -c main.cpp
