@@ -13,15 +13,12 @@
 /* example on API design with Date from multiple inheritance lab */
 /* ../master/Inheritance/MultipleInheritance/example_Time_Date.cpp */
 
-using std::cout;
-using std::string;
-
 /* define structures offer explicit conversion constructor */
 class Month
 {
 public:
     // get function
-    string getMonth() const {
+    std::string getMonth() const {
         switch (_month) {
         case 1: return "Jan";
         case 2:	return "Feb";
@@ -118,7 +115,7 @@ Date::Date(const Month& m, const Day& d, const Year& y)
 
 void Date::printDate()
 {
-    cout << "[fn][Date::printDate()" << "\n"
+    std::cout << "[fn][Date::printDate()]" << "\n"
         << this->month.getMonth() << " "
         << this->day.getDay() << ", "
         << this->year.getYear() << "\n";
