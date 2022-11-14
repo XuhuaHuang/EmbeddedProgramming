@@ -1,0 +1,11 @@
+project(ConstructorOverloadLab)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(ConstructorOverloadLab
+    "MyTime.hpp"
+    "Rectangle.hpp"
+    "Point.hpp"
+    "main.cpp"
+)
