@@ -7,7 +7,8 @@
  *********************************************************************/
 
 #include <iostream>
-#include<vector>
+#include <vector>
+#include <string>
 
 class Fibonacci
 {
@@ -28,13 +29,13 @@ int main(int argc, char* argv[])
 {
     if (argc == 2)
     {
-        int value = stoul(argv[1], nullptr, 10);
+        int value = std::stoul(argv[1], nullptr, 10);
         static Fibonacci Fibo(value);
         Fibo.create_series();
         Fibo.print_series();
     }
 
-	return 0;
+    return 0;
 }
 
 // creates a Fibonacci series
