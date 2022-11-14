@@ -1,6 +1,6 @@
 /**
  * @file demo_udl.cpp
- * @author Xuhua Huang (xuhuahuang0412@gmail.com)
+ * @author Xuhua Huang (xuhua.huang.io@gmail.com)
  * @brief Motes and demonstration on "User Defined Literals" in C++20.
  * @version 0.1
  * @date 2022-01-31
