@@ -2,7 +2,7 @@
  * \file   main.cpp
  * \brief  
  * 
- * \author Xuhua Huang (xuhua.huang.io@outlook.com)
+ * \author Xuhua Huang (xuhua.huang.io@gmail.com)
  * \date   September 2022
  *********************************************************************/
 
