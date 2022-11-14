@@ -1,6 +1,6 @@
 /**
  * @file struct_size.c
- * @author Xuhua Huang (xuhuahuang0412@gmail.com)
+ * @author Xuhua Huang (xuhua.huang.io@gmail.com)
  * @brief Exploring the size of a customized struct in C.
  * 
  * Command to compile and run on Windows:
