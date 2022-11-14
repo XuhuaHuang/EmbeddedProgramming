@@ -4,7 +4,7 @@
  * 
  * $ g++ is_same_type.hpp -std=c++2a
  * 
- * \author Xuhua Huang (xuhua.huang.io@outlook.com)
+ * \author Xuhua Huang (xuhua.huang.io@gmail.com)
  * \date   September 2022
  *********************************************************************/
 
