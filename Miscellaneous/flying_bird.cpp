@@ -1,20 +1,24 @@
-#include <iostream>
-#include <cmath>
-#include <windows.h>
-#include <string>
-//#include <stdio.h>
+/*****************************************************************//**
+ * \file   flying_bird.cpp
+ * \brief  g++ -c flying_bird.cpp -o flying_bird.exe
+ * ./flying_bird.exe
+ *
+ * \author Xuhua Huang
+ * \date   November 14, 2020
+ *********************************************************************/
 
-using namespace std;
+#include <iostream>
+#include <windows.h>
 
 int main(void)
 {
-	for (int fly = 0; fly < 10; fly++)
-	{
-		cout << "v^  ";
-		Sleep(500);
-		cout << "-^  ";
-		Sleep(500); // supposed a flying bird
-	}
+    for (int fly = 0; fly < 10; fly++)
+    {
+        std::cout << "v^  ";
+        Sleep(500);
+        std::cout << "-^  ";
+        Sleep(500);
+    }
 
-	return 0;
+    return 0;
 }

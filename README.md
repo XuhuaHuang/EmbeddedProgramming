@@ -131,6 +131,10 @@ For example, building a terminal progress bar for visual effects and working wit
 
 ---
 
-### `CMakelists.txt` not Provided nor reformatted:
-* `Miscellaneous` [[not-yet-reformatted]]
-* `Projects\Dealer\Refactored` [[todo]]
+### `TODO`:
+* `Projects\Dealer\Refactored`
+* `std::unordered_map<typename T>`
+* `Binary tree`, `Binary search tree`
+* `Circular queue`
+* Hailstone sequence using simple template meta-programming
+* Fibonacci series using simple template meta-programming
