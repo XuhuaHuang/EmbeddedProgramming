@@ -1,6 +1,6 @@
 /*****************************************************************//**
- * \file   touch_thread_2.cpp
- * \brief basic thread member function
+ * \file   thread_sleep.cpp
+ * \brief  basic thread member function
  * Keep the program doing something until the user presses Enter key
  * 
  * 1) std::this_thread::get_id()
