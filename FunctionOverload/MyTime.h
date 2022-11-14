@@ -2,7 +2,7 @@
  * \file   MyTime.h
  * \brief  
  * 
- * \author Xuhua Huang (Student #: 1879700)
+ * \author Xuhua Huang
  * \date   October 07, 2020
  *********************************************************************/
 
