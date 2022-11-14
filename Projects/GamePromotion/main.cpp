@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <string>
-#include "GamePromotion.h"
+#include "GamePromotion.hpp"
 
 int main(void)
 {
