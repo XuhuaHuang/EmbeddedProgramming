@@ -1,52 +1,14 @@
 /*****************************************************************//**
- * \file   Primer00_Intro.cpp
- * \brief  Introduction to Google Test framework following tutorial
- * https://google.github.io/googletest/primer.html
+ * \file   queue_test.cpp
+ * \brief  Testing basic implementation of Queue.
  *
  * \author Xuhua Huang
- * \date   July 2021
+ * \date   November 14, 2022
  *********************************************************************/
 
 #include <iostream>
+#include <stdlib.h>
 #include <gtest/gtest.h>
-#include <vector>
-
-using namespace std;
-
-namespace MathUtil {
-    int factorial(int n) {
-        if ((n == 0) || (n == 1))
-            return 1;
-        else
-            return n * factorial(n - 1);
-    }
-}
-
-/**
- * Create a simple test
- *
- * Use TEST() macro to define and name test function
- * ordinary C++ functions that do not return a value
- * result is determined by assertions
- *
- * TEST(TestSuiteName, TestName) {
- *	// ... test body ...
- * }
- */
-
- // Tests factorial of 0
-TEST(FactorialTest, HandlesZeroInput) {
-    EXPECT_EQ(MathUtil::factorial(0), 1);
-}
-
-// Tests factorial of positive numbers
-TEST(FactorialTest, HandlesPositiveInput) {
-    std::vector<int> posInput = { 1, 2, 3, 8 };
-    std::vector<int> expResult = { 1, 2, 6, 40320 };
-    for (int i = 0; i < posInput.size(); ++i) {
-        EXPECT_EQ(MathUtil::factorial(posInput[i]), expResult[i]);
-    }
-}
 
 /**
  * Test fixtures: using the same data configuration for multiple tests
@@ -55,7 +17,7 @@ TEST(FactorialTest, HandlesPositiveInput) {
  * 1) derive a class from ::testing::Test and start its body with `protected`
  * 2) declare objects to use
  * 3) SetUp() / default constructor
- * 4) TearDOwn() / destructor
+ * 4) TearDown() / destructor
  *
  * Use `TEST_F() allows access to objects and subroutines in the test fixture
  * TEST_F(TestFixtureName, TestName) {
@@ -66,8 +28,12 @@ TEST(FactorialTest, HandlesPositiveInput) {
  * or user will get compiler error
  */
 
- /* Queue class definition */
+/* Queue class definition */
+#ifndef Q_SIZE
 #define Q_SIZE 10
+#endif
+
+//template<typename T>
 class Queue {
 public:
     Queue(int size = Q_SIZE);
@@ -80,10 +46,10 @@ public:
     bool isEmpty() { return size() == 0; }
     bool isFull() { return size() == capacity; }
 private:
-    int* arr;		// array to store Queue element
-    int capacity;	// maximum capacity of the queue
-    int front;		// front element (if any)
-    int rear;		// last element (if any)
+    int* arr;        // array to store Queue element
+    int capacity;    // maximum capacity of the queue
+    int front;       // front element (if any)
+    int rear;        // last element (if any)
     size_t count;
 };
 
@@ -99,11 +65,11 @@ Queue::Queue(int size) {
 void Queue::Enqueue(const int& item) {
     // check for queue overflow
     if (isFull()) {
-        cout << "Overflow\nProgram Terminated\n";
+        std::cout << "Overflow occurred. Program Terminated." << "\n";
         exit(EXIT_FAILURE);
     }
     else {
-        std::cout << "Inserting " << item << std::endl;
+        std::cout << "Inserting " << item << "\n";
         rear = (rear + 1) % capacity;
         arr[rear] = item;
         count++;
@@ -112,12 +78,12 @@ void Queue::Enqueue(const int& item) {
 
 int* Queue::Dequeue() {
     if (isEmpty()) {
-        std::cout << "Underflow\nQueue is empty\nProgram Terminated\n";
+        std::cout << "Underflow occurred. Queue is empty." << "\n";
         return nullptr;
     }
     else {
         int* value = &arr[front];
-        std::cout << "Removing " << arr[front] << std::endl;
+        std::cout << "Removing " << arr[front] << "\n";
         front = (front + 1) % capacity;
         count--;
         return value;
@@ -127,13 +93,13 @@ int* Queue::Dequeue() {
 /* Queue class test fixture */
 class QueueTest : public ::testing::Test {
 protected:
-    void SetUp() override {
+    virtual void SetUp() override {
         _q1.Enqueue(1);
         _q2.Enqueue(2);
-        _q2.Enqueue(2);
+        _q2.Enqueue(3);
     }
 
-    // void TearDown() override {}
+    virtual void TearDown() override {}
     // Queue::~Queue() handles destruction and cleanup
 
     Queue _q0;
@@ -142,7 +108,7 @@ protected:
 };
 
 /* Write tests using TEST_F() and created fixture */
-TEST_F(QueueTest, InitEmpty) {
+TEST_F(QueueTest, IsEmptyInitially) {
     EXPECT_EQ(_q0.size(), 0);
 }
 
@@ -161,6 +127,12 @@ TEST_F(QueueTest, DequeueWorks) {
     EXPECT_EQ(*n, 2);
     EXPECT_EQ(_q2.size(), 1);
     delete n;
+
+    n = _q2.Dequeue();
+    ASSERT_NE(n, nullptr);
+    EXPECT_EQ(*n, 3);
+    EXPECT_EQ(_q2.size(), 0);
+    delete n;
 }
 
 /**
@@ -173,7 +145,6 @@ TEST_F(QueueTest, DequeueWorks) {
  * 6 - The above steps are repeated on another QueueTest object,
  * this time running the DequeueWorks test.
  */
-
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
