@@ -1,14 +1,14 @@
 /*****************************************************************//**
- * \file   Pointer_lab_main.cpp
+ * \file   main.cpp
  * \brief  Pointer Lab Main Function
- * 
- * Contains main function of 'Pointer_lab.h'
  *
- * Notice: ALL "cout" statements inside a function are appened
+ * Notice: ALL "std::cout" statements inside a function are appened
  * after signature "[fn]" which stands for printing from function
+ *
  * [DECONST] printed from default constructor
  * [OLCONST] printed from overloaded constructor
  * [DEST] printed from destructor
+ *
  * \author Xuhua Huang
  * \date   November 11, 2020
  *********************************************************************/
@@ -16,17 +16,19 @@
 #include <iostream>
 #include <string>
 #include <time.h>
-#include "Pointer_lab.hpp" // dedicated library
+
+#include "Student.hpp"
+#include "StudentClub.hpp"
+#include "Numbers.hpp"
 
 int main(void)
 {
-    using std::cout;
     //Student* student = new Student("Charlie", "Accounting");
-    //cout << student->getName() << "\n";
-    //cout << student->getMajor() << "\n";
+    //std::cout << student->getName() << "\n";
+    //std::cout << student->getMajor() << "\n";
     //delete student;
 
-    cout << "\nTeating class \"StudentClub\"." << "\n";
+    std::cout << "\nTeating class \"StudentClub\"." << "\n";
     Student* student1 = new Student("Angela", "Medicine");
     // student1 is linked to Angela
 
@@ -49,11 +51,11 @@ int main(void)
     HeritageClub.setSecretary(student3);
     HeritageClub.setTreasurer(student3);
 
-    cout << "\nVerifying student club members in \"HeritageClub\"..." << "\n"
-         << "The president is: " << HeritageClub.getPresident()->getName() << "\n"
-         << "The vice president is: " << HeritageClub.getVicePresident()->getName() << "\n"
-         << "The secretary is: " << HeritageClub.getSecretary()->getName() << "\n"
-         << "The treasurer is: " << HeritageClub.getTreasurer()->getName() << "\n";
+    std::cout << "\nVerifying student club members in \"HeritageClub\"..." << "\n"
+        << "The president is: " << HeritageClub.getPresident()->getName() << "\n"
+        << "The vice president is: " << HeritageClub.getVicePresident()->getName() << "\n"
+        << "The secretary is: " << HeritageClub.getSecretary()->getName() << "\n"
+        << "The treasurer is: " << HeritageClub.getTreasurer()->getName() << "\n";
     // equivalent to: ... << ( *HeritageClub.getPresident() ).getName() << ...
     //                ... <<              ...getVicePresident().getName() << ...
 
@@ -63,28 +65,28 @@ int main(void)
     int index = 0; // index
     srand(time(NULL)); // seed of the rendom number generator
     double randomVal; // random number that gets overwritten as loop increments
-    
+
     while (index < numObject1.getSize()) // putting ten random number to the array
     {
         randomVal = rand() % 100 + 1.00; // 1.00 cast the variable to double
-        // cout << randomVal << "\n"; // comment out this line if you do not need to troubleshoot
+        // std::cout << randomVal << "\n"; // comment out this line if you do not need to troubleshoot
         numObject1.store(index, randomVal);
         index++;
     }
-    cout << "Ten random numbers has been added to the array called \"numObject1\"." << "\n";
+    std::cout << "Ten random numbers has been added to the array called \"numObject1\"." << "\n";
 
     index = 0; // reuse the variable declared before and overwrite with a new value
     double retrievedVal = 0;
     while (index < numObject1.getSize()) // putting ten random number to the array
     {
         retrievedVal = numObject1.retrieve(index); // passing the index to retrieve the value stored in the array
-        cout << "The latest sequencially retrieved value in the array is: " << retrievedVal << "\n";
+        std::cout << "The latest sequencially retrieved value in the array is: " << retrievedVal << "\n";
         index++;
     }
 
     // calculate the average of all ten numbers in numObject1
     double averageObj1 = numObject1.average();
-    cout << "The average of the array called \"numObject1\" is: " << averageObj1 << "\n";
+    std::cout << "The average of the array called \"numObject1\" is: " << averageObj1 << "\n";
 
     delete student1; delete student2; delete student3; // releasing memory
 
