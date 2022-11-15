@@ -32,6 +32,7 @@ public:
         case 10: return "Oct";
         case 11: return "Nov";
         case 12: return "Dec";
+        default: return "Jan";
         } // end switch
     } // end getMonth()
     
@@ -69,6 +70,9 @@ struct Day
         {
             _day = d;
         }
+        else {
+            _day = 0;
+        }
     }
 private:
     int _day;
@@ -80,8 +84,12 @@ struct Year
     /* default and overloaded constructor with explicit conversion */
     explicit Year() { _year = 2000; }
     explicit Year(int y) {
-        if (y > 1900 && y <= 2100)
+        if (y > 1900 && y <= 2100) {
             _year = y;
+        }
+        else {
+            _year = 1900;
+        }
     }
 private:
     int _year;
