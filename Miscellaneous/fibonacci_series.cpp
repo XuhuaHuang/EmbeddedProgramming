@@ -11,15 +11,12 @@
 #include <iostream>
 #include <math.h>
 
-using namespace std;
-
 int main(void)
 {
-    int current; // currentTerm = previous + SecondPrevious
-    int previous;
-    int secondPrevious;
+    int current{ 1 }; // current = previous + secondPrevious
+    int previous{ 1 };
+    int secondPrevious{ 1 };
 
-    current = previous = secondPrevious = 1;
     std::cout << previous << " " << current << " ";
 
     for (int i = 3; i <= 25; i++)
@@ -28,7 +25,9 @@ int main(void)
         std::cout << current << " ";
 
         if (i % 5 == 0)
+        {
             std::cout << "\n";
+        }
 
         secondPrevious = previous; // refresh the value in the series
         previous = current;

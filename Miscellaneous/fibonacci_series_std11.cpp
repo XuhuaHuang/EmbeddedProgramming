@@ -30,9 +30,9 @@ int main(int argc, char* argv[])
     if (argc == 2)
     {
         int value = std::stoul(argv[1], nullptr, 10);
-        static Fibonacci Fibo(value);
-        Fibo.create_series();
-        Fibo.print_series();
+        static Fibonacci fibo(value);
+        fibo.create_series();
+        fibo.print_series();
     }
 
     return 0;
