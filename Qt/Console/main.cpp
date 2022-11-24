@@ -8,7 +8,7 @@
 int main(void)
 {
     // output with <iostream>
-    std::cout << "Hello Qt console" << std::"\n";
+    std::cout << "Hello Qt console" << "\n";
 
     // QString, I/O stream
     QTextStream out(stdout); // output stream object
@@ -25,7 +25,7 @@ int main(void)
 
     // convert std::string to QString and print to console
     QString Name = QString::fromStdString(tempName); // convert
-    out << "Hello "<< Name << "!" << "\n"; // print
+    out << "Hello " << Name << "!" << "\n"; // print
     out.flush();
 
     // use qDebug() to print to console
@@ -47,16 +47,21 @@ int main(void)
     // QList
     QList<int> integerList;
     QList<QString> stringList = QList<QString>() << "Canada" << "U.S.A" << "Mexico";
-    for(int i = 0; i < 6; i++)
+    for (int i = 0; i < 6; i++)
         integerList.append(i);
     integerList.removeOne(4);
 
     // output the integer integerList
     foreach(int n, integerList)
+    {
         qDebug() << n;
+    }
+
     // output the string in stringList
     foreach(QString str, stringList)
+    {
         qDebug() << str;
+    }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
