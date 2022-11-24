@@ -1,0 +1,13 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Launch queue_array",
+            "program": "${workspaceFolder}/CircularQueue/Debug/CircularQueueCStyle.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+    ],
+    "version": "2.0.0"
+}
