@@ -1,3 +1,11 @@
+/*****************************************************************//**
+ * \file   main.cpp
+ * \brief  Qt console application with CMake example
+ * 
+ * \author Xuhua Huang
+ * \date   January 31, 2021
+ *********************************************************************/
+
 #include <iostream>
 
 #include <QTextStream>
@@ -24,6 +32,7 @@ int main(void)
     std::getline(std::cin, tempName); // use getline() function with std::istream
 
     // convert std::string to QString and print to console
+    // with static factory function fromStdString
     QString Name = QString::fromStdString(tempName); // convert
     out << "Hello " << Name << "!" << "\n"; // print
     out.flush();
