@@ -10,3 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(CompareAndReplaceWithPointer "compare_replace.cpp")
 add_executable(SmartPointer "smart_ptr.cpp")
 add_executable(WeakPointer "weak_ptr.cpp")
+
+# Adding sub-directories
+add_subdirectory("Lab")
+add_subdirectory("LectureDemo")

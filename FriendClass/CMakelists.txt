@@ -9,3 +9,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Right-click on each item to set as start-up project
 add_executable(ClassSquareRectangleExample "example_Square_Rectangle.cpp")
 add_executable(ClassTimeDataLab "lab_Time_Date.cpp")
+
+add_subdirectory("TimeDate")
