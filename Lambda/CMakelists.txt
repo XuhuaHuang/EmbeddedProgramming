@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(Lambda)
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -10,3 +11,5 @@ add_executable(ForEachWithLambda "lambda_functional.cpp")
 add_executable(LambdaBasics "lambda_notes.cpp")
 add_executable(LambdaScopeDemo "lambda_scope_demo.cpp")
 add_executable(LambdaWithStdSortAlgo "lambda_with_stdlib.cpp")
+
+add_subdirectory("FunctorLambda")
