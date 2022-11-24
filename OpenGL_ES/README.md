@@ -18,3 +18,6 @@ Right click on a start-up item in `Visual Studio`, change the following properti
 * After creating a `Visual Studio Solution/Project`, it is known that \
   **the `C/C++` properties menu is unavailble before first build of the project.** <br>
   To resolve this issue, add a dummy `main` function, build and run the project.
+
+### References
+> https://github.com/Shot511/OpenGLSampleCmake<br>

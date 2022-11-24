@@ -1,4 +1,7 @@
 ### **EmbeddedProgramming**
+
+`#include <❤>`<br>
+
 <!-- Link Definitions for Wakatime -->
 [Wakatime Logo Link]: https://wakatime.com/badge/user/f89598ea-6723-481b-a51b-6323e54a3c5c/project/0645c716-822f-4ba1-a897-04cf5a3fbbfb.svg
 [Wakatime Info Link]: https://wakatime.com/badge/user/f89598ea-6723-481b-a51b-6323e54a3c5c/project/0645c716-822f-4ba1-a897-04cf5a3fbbfb?style=flat
@@ -19,7 +22,7 @@ Heritage College, Gatineau, Quebec, Canada
 #### Languages
 **C/C++, Objective-C/C++**
 
-<img src=".logo/C_Logo.png" alt="An image for C Language" width="100"/><img src=".logo/CPlusPlus_Logo.png" alt="An image for C++" width="100"/>   <img src=".logo/Mingw_Logo.png" alt="An image for Java" width="110"/>
+<img src="Settings/images/c_logo.png" alt="An image for C Language" width="100"/><img src="Settings/images/cpp_logo.png" alt="An image for C++" width="100"/>   <img src="Settings/images/mingw_logo.png" alt="An image for MinGW" width="110"/>
 
 ```C++
 class employee {
@@ -66,17 +69,25 @@ $ cmake .
 ```
 or
 ```Bash
-$ cmake .\CMakelists.txt
+$ cmake ./CMakelists.txt
 ```
 
-For example, change to directory `.\DesignPatterns`:
+For example, change to directory `./DesignPatterns`:
 ```Bash
-$ cd .\DesignPatterns
-$ cmake .\CMakelists.txt
+$ cd ./DesignPatterns
+$ cmake ./CMakelists.txt
+```
+
+The convention is to create a folder dedicated to `CMake` files, for example, `build` or `bin`:
+```Bash
+$ cd ./DesignPatterns
+$ mkdir build
+$ cd build
+$ cmake ..
 ```
 
 
-#### Directory `.\Util`
+#### Directory `./Util`
 Functionality provided by separate module. A namespace `util` is created to better manage the functions.
 ```C++
 namespace util {
@@ -94,16 +105,16 @@ Contains template (generic) function in a C-style header file, providing the fol
 * `print_list.h`: template function to print a `std::list<>` to the console; accepts a generic type of `std::list`.
 * `print_vec.h`: template function to print a `std::vector<>` to the console; accepts a generic type of `std::vector`.
 
-#### Directory `.\HackerRank`
+#### Directory `./HackerRank`
 Contains solutions to some of the basic problem solving coding questions. Provided file name most likely describes the content.
 The `README.md` has more handy notes when encountering those problems.  
 [Click to see my hackerRank profile](https://www.hackerrank.com/XuhuaHuang?hr_r=1)
 
-#### Directory `.\ObjectiveC`
+#### Directory `./ObjectiveC`
 Popular concepts in Objective-C.
 Compiled in Windows using `GNUstep Core` and provided GNUstep developer tools.
 
-#### Directory `.\Projects`
+#### Directory `./Projects`
 Contains projects carried along the coursework and includes some personal project as well.
 For example, building a terminal progress bar for visual effects and working with `OpenGL` library in `C++`.
 
