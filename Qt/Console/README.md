@@ -17,5 +17,5 @@ start ./ConsoleApplication.sln
 ```
 
 #### References
-> https://github.com/ArthurSonzogni/cmake-Qt5-example
+> https://github.com/ArthurSonzogni/cmake-Qt5-example<br>
 > https://github.com/miurahr/cmake-qt-packaging-example
