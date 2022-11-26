@@ -101,7 +101,7 @@ Contains template (generic) function in a C-style header file, providing the fol
 * `is_instance_of.h`: to quickly identify whether an object if of a specified type; like `isinstance()` in Python.
 * `is_same_type_of.hpp`: to quickly identify whether two objects are the same type using `typeid().hash_code()` and `typeid().name()`.
 * `log.h`: function-style definition `LOG(...)` using macro in C.
-* `parse.h`: to easily split a comma-separated `std::string`.
+* `parse.hpp`: to easily split a comma-separated `std::string`.
 * `print_list.h`: template function to print a `std::list<>` to the console; accepts a generic type of `std::list`.
 * `print_vec.h`: template function to print a `std::vector<>` to the console; accepts a generic type of `std::vector`.
 
