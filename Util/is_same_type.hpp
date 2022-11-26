@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   is_same_type.hpp
- * \brief  
+ * \brief  std::is_same<T, U>::value and std::is_same_v<T, U> impl.
  * 
  * $ g++ is_same_type.hpp -std=c++2a
  * 
