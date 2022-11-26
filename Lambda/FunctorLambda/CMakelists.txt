@@ -5,4 +5,4 @@ project(FunctorLambda)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(FunctorLambda "FunctorLambda/FunctorLambda.cpp")
+add_executable(FunctorLambda "FunctorLambda.cpp")
