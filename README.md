@@ -150,4 +150,3 @@ For example, building a terminal progress bar for visual effects and working wit
 * `Binary tree`, `Binary search tree`
 * `Circular queue`
 * Hailstone sequence using simple template meta-programming
-* Fibonacci series using simple template meta-programming
