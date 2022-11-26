@@ -22,15 +22,15 @@ void doWork()
 {
     using namespace std::literals::chrono_literals;
 
-    std::cout << "Started thread id = " << std::this_thread::get_id() << std::endl;
+    std::cout << "Started thread id = " << std::this_thread::get_id() << "\n";
 
     while (!s_finished)
     {
-        std::cout << "Working on something..." << std::endl;
+        std::cout << "Working on something..." << "\n";
         std::this_thread::sleep_for(1s);
         // std::this_thread refers to the current running thread
     }
-    std::cout << "Done working" << std::endl;
+    std::cout << "Done working" << "\n";
 }
 
 int main(void)
@@ -42,9 +42,9 @@ int main(void)
 
     worker.join(); // wait for the thread to finish executing
     // continue on main thread
-    std::cout << "finished" << std::endl;
+    std::cout << "finished" << "\n";
 
-    std::cout << "Started thread id = " << std::this_thread::get_id() << std::endl;
+    std::cout << "Started thread id = " << std::this_thread::get_id() << "\n";
 
     system("pause");
     return 0;

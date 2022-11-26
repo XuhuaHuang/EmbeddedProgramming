@@ -13,6 +13,6 @@ import Example;
 
 int main(void)
 {
-    std::cout << "The result of fn() is " << Example_NS::fn() << std::endl; // 42
+    std::cout << "The result of fn() is " << Example_NS::fn() << "\n"; // 42
     return 0;
 }

@@ -15,13 +15,13 @@
 template<class T>
 void printVector(std::vector<T> argVector)
 {
-    std::cout << "\n[fn]The content of this vector is listed: " << std::endl;
+    std::cout << "\n[fn]The content of this vector is listed: " << "\n";
 
     typename std::vector<T>::iterator iter; // keyword 'typename' is required for iterator
     for (iter = argVector.begin(); iter < argVector.end(); iter++)
-        std::cout << *iter << std::endl; // dereference the iterator to print content
+        std::cout << *iter << "\n"; // dereference the iterator to print content
 
-    std::cout << "[fn]This is the end of the vector." << std::endl;
+    std::cout << "[fn]This is the end of the vector." << "\n";
     return;
 }
 
@@ -56,7 +56,7 @@ int main(void)
 
     /* create a lambda */
     auto print_int_val = [&](int value) {
-        std::cout << "Printing with lambda: " << value << std::endl;
+        std::cout << "Printing with lambda: " << value << "\n";
     };
 
     /* call ForEach and pass lambda as a function pointer */
@@ -67,7 +67,7 @@ int main(void)
         [](int value) -> int { return value > 3; }
     );
 
-    std::cout << "\nThe first element that's greater than 3 has a value of: " << *iter << std::endl;
+    std::cout << "\nThe first element that's greater than 3 has a value of: " << *iter << "\n";
 
     return 0;
 }
