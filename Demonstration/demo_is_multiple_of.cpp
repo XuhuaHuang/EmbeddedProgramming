@@ -20,7 +20,7 @@
 #include "../Util/log.h"
 
 #ifndef DEBUG
-#define DEBUG(str) std::cout << str << std::endl;
+#define DEBUG(str) std::cout << str << "\n";
 #endif
 
 /**
