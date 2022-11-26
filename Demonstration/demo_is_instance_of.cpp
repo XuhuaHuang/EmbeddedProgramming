@@ -24,26 +24,26 @@ int main(void)
 
     /* Check c is an instance of class Child. */
     if (util::type::is_instance_of<Child>(c)) {
-        std::cout << "Object c is instance of Child class" << std::endl;
+        std::cout << "Object c is instance of Child class" << "\n";
     }
     else {
-        std::cout << "Object c is not instance of Child class" << std::endl;
+        std::cout << "Object c is not instance of Child class" << "\n";
     }
 
     /* Check c is an instance of class Parent. */
     if (util::type::is_instance_of<Parent>(c)) {
-        std::cout << "Object c is instance of Parent class" << std::endl;
+        std::cout << "Object c is instance of Parent class" << "\n";
     }
     else {
-        std::cout << "Object c is not instance of Parent class" << std::endl;
+        std::cout << "Object c is not instance of Parent class" << "\n";
     }
 
     /* Check c is an instance of class AnotherClass. */
     if (util::type::is_instance_of<Unrelated>(c)) {
-        std::cout << "Object c is instance of AnotherClass class" << std::endl;
+        std::cout << "Object c is instance of AnotherClass class" << "\n";
     }
     else {
-        std::cout << "Object c is not instance of AnotherClass class" << std::endl;
+        std::cout << "Object c is not instance of AnotherClass class" << "\n";
     }
 
     system("pause");

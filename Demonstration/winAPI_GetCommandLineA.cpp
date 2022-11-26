@@ -14,7 +14,7 @@
 
 int main(void)
 {
-    std::cout << GetCommandLineA() << std::endl;
+    std::cout << GetCommandLineA() << "\n";
 
     char* const pBuf = GetCommandLineA();
     if (pBuf != nullptr)

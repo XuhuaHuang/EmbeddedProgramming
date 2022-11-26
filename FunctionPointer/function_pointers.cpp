@@ -40,7 +40,7 @@ void printValue(const int value)
      * 
      * \param value: constant copy of an int
      */
-    std::cout << "[fn][void printValue(int)]Content: " << value << std::endl;
+    std::cout << "[fn][void printValue(int)]Content: " << value << "\n";
 }
 
 int main(void)
@@ -74,7 +74,7 @@ int main(void)
     ForEach(values, [](int value) { // start lambda
         // capture all integers in scope by copying
         // no trailing return
-        std::cout << "[lambda][&](int value)Value: " << value << std::endl;
+        std::cout << "[lambda][&](int value)Value: " << value << "\n";
         } // end lambda
     );
 

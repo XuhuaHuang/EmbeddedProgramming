@@ -38,16 +38,16 @@ int main(void)
     // still able to access hello_str, but not world_str
 
     /* Verify element via printing. */
-    std::cout << "The vector contains: " << std::endl;
+    std::cout << "The vector contains: " << "\n";
     for (const std::string& str : str_vec)
         std::cout << str << "\t";
-    std::cout << "\nEnd of the vector" << std::endl;
+    std::cout << "\nEnd of the vector" << "\n";
 
-    std::cout << "Attempting to access hello_str: " << hello_str << std::endl
-        << "Attempting to access world_str: " << world_str << std::endl;
+    std::cout << "Attempting to access hello_str: " << hello_str << "\n"
+        << "Attempting to access world_str: " << world_str << "\n";
 
     /* Test functions in the ../Util headers. */
-    std::cout << "Testing Util functions: " << std::endl;
+    std::cout << "Testing Util functions: " << "\n";
     if (util::type::is_instance_of<std::vector<std::string>>(str_vec)) {
         util::vector::print_vec(str_vec);
     }
