@@ -6,11 +6,16 @@
  * \date   October 2021
  *********************************************************************/
 
-#ifndef PRINT_VEC_H
-#define PRINT_VEC_H
+#ifndef PRINT_VEC_HPP
+#define PRINT_VEC_HPP
 
+#ifndef _IOSTREAM_
 #include <iostream>
+#endif
+
+#ifndef _VECTOR_
 #include <vector>
+#endif
 
 #ifndef DEBUG
 #define DEBUG(arg_str) std::cout << arg_str << "\n";
