@@ -47,7 +47,7 @@ add_executable(ConsoleApplication
     # "mainwindow.ui"
     # "mainwindow.cpp"
     "main.cpp"
-    "resources.qrc"
+    # "resources.qrc"
 )
 
 # Note that the application will still link against Qt5::Core
