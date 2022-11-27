@@ -14,12 +14,12 @@
 
 namespace util {
     namespace type_safety {
-        
+
         /* Templated concept to determine whether can call hash function on an object. */
         template<typename T>
         concept hashable = requires(T t) {
             { std::hash<T>{}(t) } -> std::convertible_to<std::size_t>;
         }
-    
+
     } // end type_safety
 } // end util
