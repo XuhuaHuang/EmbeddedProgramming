@@ -2,7 +2,7 @@
  * \file   MyProgram.cpp
  * \brief  Demonstration to import a C++20 module from a interface file
  * 
- * \author Xuhua Huang (xuhua.huang.io@outloook.com)
+ * \author Xuhua Huang (xuhua.huang.io@gmail.com)
  * \date   September 2022
  *********************************************************************/
 
