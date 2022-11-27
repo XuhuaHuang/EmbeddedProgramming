@@ -46,7 +46,7 @@ int main(void)
     a.prepend("Music ");
 
     out << "Original mesasge: " << a << "\n";
-    out << "The a string has " << a.count()
+    out << "The a string has " << a.length()
         << " characters" << "\n";
 
     // toUpper() and toLower()
