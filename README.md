@@ -60,22 +60,22 @@ $ g++ --version
 ---
 
 ### **Repository Directories**
-**Most** of the directories are provided with a `CMakelists.txt`. <br>
+**Most** of the directories are provided with a `CMakeLists.txt`. <br>
 Using `CMake` will be significantly easier than manually compilling all the files with your favourite compiler. <br>
 
-If you already have a configured `CMake` for your operating system, simple change to the directory with such `CMakelists.txt` and run:<br>
+If you already have a configured `CMake` for your operating system, simple change to the directory with such `CMakeLists.txt` and run:<br>
 ```Bash
 $ cmake .
 ```
 or
 ```Bash
-$ cmake ./CMakelists.txt
+$ cmake ./CMakeLists.txt
 ```
 
 For example, change to directory `./DesignPatterns`:
 ```Bash
 $ cd ./DesignPatterns
-$ cmake ./CMakelists.txt
+$ cmake ./CMakeLists.txt
 ```
 
 The convention is to create a folder dedicated to `CMake` files, for example, `build` or `bin`:
