@@ -1,9 +1,9 @@
 /*****************************************************************//**
- * \file   demo_is_instance_of.cpp
- * \brief  Demonstration of library code in ".\util\is_instance.h"
+ * \file   test_is_instance_of.cpp
+ * \brief  Demonstration of library code in ".\util\is_instance_of.hpp"
  * 
  * Command used to compile:
- * $ g++ -o is_instance.exe .\demo_is_instance.cpp -std=c++11
+ * $ g++ -o is_instance.exe .\test_is_instance_of.cpp -std=c++11
  * $ .\is_instance.exe
  * 
  * \author Xuhua Huang
@@ -12,7 +12,7 @@
 
 #include <iostream>
 #include <stdlib.h>
-#include "../Util/is_instance_of.hpp"
+#include "is_instance_of.hpp"
 
 class Parent {};
 class Child : Parent {};
