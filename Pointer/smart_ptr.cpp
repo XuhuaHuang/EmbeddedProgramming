@@ -17,15 +17,15 @@ class Entity
 {
 public:
     Entity() {
-        std::cout << "[DFCONST]Creating Entity..." << std::endl;
+        std::cout << "[DFCONST]Creating Entity..." << "\n";
     }
 
     ~Entity() {
-        std::cout << "[DFDEST]Destroying Entity..." << std::endl;
+        std::cout << "[DFDEST]Destroying Entity..." << "\n";
     }
 
     void printEntity() {
-        std::cout << "[fn]Printing Entity..." << std::endl;
+        std::cout << "[fn]Printing Entity..." << "\n";
     }
 };
 

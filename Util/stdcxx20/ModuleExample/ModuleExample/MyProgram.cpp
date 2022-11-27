@@ -2,7 +2,7 @@
  * \file   MyProgram.cpp
  * \brief  Demonstration to import a C++20 module from a interface file
  * 
- * \author Xuhua Huang (xuhua.huang.io@outloook.com)
+ * \author Xuhua Huang (xuhua.huang.io@gmail.com)
  * \date   September 2022
  *********************************************************************/
 
@@ -13,6 +13,6 @@ import Example;
 
 int main(void)
 {
-    std::cout << "The result of fn() is " << Example_NS::fn() << std::endl; // 42
+    std::cout << "The result of fn() is " << Example_NS::fn() << "\n"; // 42
     return 0;
 }

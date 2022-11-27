@@ -60,22 +60,22 @@ $ g++ --version
 ---
 
 ### **Repository Directories**
-**Most** of the directories are provided with a `CMakelists.txt`. <br>
+**Most** of the directories are provided with a `CMakeLists.txt`. <br>
 Using `CMake` will be significantly easier than manually compilling all the files with your favourite compiler. <br>
 
-If you already have a configured `CMake` for your operating system, simple change to the directory with such `CMakelists.txt` and run:<br>
+If you already have a configured `CMake` for your operating system, simple change to the directory with such `CMakeLists.txt` and run:<br>
 ```Bash
 $ cmake .
 ```
 or
 ```Bash
-$ cmake ./CMakelists.txt
+$ cmake ./CMakeLists.txt
 ```
 
 For example, change to directory `./DesignPatterns`:
 ```Bash
 $ cd ./DesignPatterns
-$ cmake ./CMakelists.txt
+$ cmake ./CMakeLists.txt
 ```
 
 The convention is to create a folder dedicated to `CMake` files, for example, `build` or `bin`:
@@ -101,7 +101,7 @@ Contains template (generic) function in a C-style header file, providing the fol
 * `is_instance_of.h`: to quickly identify whether an object if of a specified type; like `isinstance()` in Python.
 * `is_same_type_of.hpp`: to quickly identify whether two objects are the same type using `typeid().hash_code()` and `typeid().name()`.
 * `log.h`: function-style definition `LOG(...)` using macro in C.
-* `parse.h`: to easily split a comma-separated `std::string`.
+* `parse.hpp`: to easily split a comma-separated `std::string`.
 * `print_list.h`: template function to print a `std::list<>` to the console; accepts a generic type of `std::list`.
 * `print_vec.h`: template function to print a `std::vector<>` to the console; accepts a generic type of `std::vector`.
 
@@ -150,4 +150,3 @@ For example, building a terminal progress bar for visual effects and working wit
 * `Binary tree`, `Binary search tree`
 * `Circular queue`
 * Hailstone sequence using simple template meta-programming
-* Fibonacci series using simple template meta-programming

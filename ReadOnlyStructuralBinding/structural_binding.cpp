@@ -4,7 +4,7 @@
  * 
  * To run the project with CMake:
  * $ cd .\ReadOnlyStructuralBinding
- * $ cmake .\CMakelists.txt
+ * $ cmake .\CMakeLists.txt
  * 
  * To run the file with g++
  * $ g++ -c .\structural_binding.cpp -o .\structural_binding.exe -std=c++17

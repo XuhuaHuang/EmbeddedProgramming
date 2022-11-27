@@ -23,7 +23,7 @@ void threadFn()
 {
     for (int i = 0; i < 10; ++i)
     {
-        std::cout << "\nFunction named \"threadFn\" executing..." << std::endl;
+        std::cout << "\nFunction named \"threadFn\" executing..." << "\n";
     }
 }
 
@@ -35,7 +35,7 @@ public:
     {
         for (int i = 0; i < 10; ++i)
         {
-            std::cout << "\nOverloaded operator \"DisplayThread::operator()()\" executing..." << std::endl;
+            std::cout << "\nOverloaded operator \"DisplayThread::operator()()\" executing..." << "\n";
         }
     }
 };
@@ -43,7 +43,7 @@ public:
 void printFromMainThread()
 {
     for (int i = 0; i < 10; ++i)
-        std::cout << "\nPrinting from main thread..." << std::endl;
+        std::cout << "\nPrinting from main thread..." << "\n";
 }
 
 int main(void)
@@ -64,13 +64,13 @@ int main(void)
     std::thread threadLambda(
         []() {
             for (int i = 0; i < 10; ++i)
-                std::cout << "\nLambda executing..." << std::endl;
+                std::cout << "\nLambda executing..." << "\n";
         }
     );
 
     printFromMainThread();
     threadLambda.join();
 
-    std::cout << "\nExit of main function" << std::endl;
+    std::cout << "\nExit of main function" << "\n";
     return 0;
 }
