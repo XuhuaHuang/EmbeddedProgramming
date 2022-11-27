@@ -29,6 +29,11 @@
 mono_crash.*
 
 # Build results
+# Qt build results
+build*Qt*-Debug/
+build*Qt*-Profile/
+build*Qt*-Release/
+*.qmake.*
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/

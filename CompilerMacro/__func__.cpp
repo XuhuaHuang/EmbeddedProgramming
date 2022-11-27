@@ -60,7 +60,7 @@ int main(void)
 {
     /* Test __func__ predefined macro */
     std::cout << hello() << "\n" 
-        << world() << std::endl;
+        << world() << "\n";
     LOG("Function call hello() returns: %s", hello());
     LOG("Function call world() returns: %s", world());
 

@@ -10,7 +10,7 @@
 
 void print(const int& value)
 {
-    std::cout << value << std::endl;
+    std::cout << value << "\n";
 }
 
 int main(void)

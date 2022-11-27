@@ -65,13 +65,13 @@ void demo_constexpr(const int arg) {
     return;
 }
 
-int main(void) {
+auto main(void) -> int {
     int temp_const = get_const();
-    std::cout << "Value of temp_const: " << temp_const << std::endl;
+    std::cout << "Value of temp_const: " << temp_const << "\n";
 
     demo_constexpr(1);
     demo_constexpr(2);
 
     system("pause");
-    return 0;
+    return EXIT_SUCCESS;
 }
