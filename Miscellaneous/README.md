@@ -38,8 +38,8 @@ int* func() {
 
 int main(void) {
   int* p = func();
-  std::cout << *p << std::endl; // OK; reserved by compiler
-  std::cout << *p << std::endl; // ERROR without exception! void pointer
+  std::cout << *p << "\n"; // OK; reserved by compiler
+  std::cout << *p << "\n"; // ERROR without exception! void pointer
 
   system("pause");
   return 0;

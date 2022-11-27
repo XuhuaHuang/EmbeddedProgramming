@@ -22,7 +22,7 @@ int main()
     Some<int>::stat = 5;
     std::cout << Some<int>::stat << " "     // 5
         << Some<float>::stat << " "         // 10
-        << Some < long>::stat << std::endl; // 10
+        << Some<long>::stat << "\n";   // 10
 
     return 0;
 }

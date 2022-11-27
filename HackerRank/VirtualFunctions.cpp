@@ -54,7 +54,7 @@ public:
 
     void putdata(void) override {
         Person::putdata();
-        std::cout << " " << this->publications << " " << this->cur_id << std::endl;
+        std::cout << " " << this->publications << " " << this->cur_id << "\n";
     }
 };
 
@@ -85,7 +85,7 @@ public:
 
     void putdata(void) override {
         Person::putdata();
-        std::cout << " " << this->sum << " " << this->cur_id << std::endl;
+        std::cout << " " << this->sum << " " << this->cur_id << "\n";
     }
 };
 

@@ -1,6 +1,8 @@
 /*****************************************************************//**
  * \file   template.cpp
  * \brief  Introduction on template in C++
+ * For more information, please consider code in stand-alone folder
+ * ./Template
  *
  * \author Xuhua Huang
  * \date   November 2020
