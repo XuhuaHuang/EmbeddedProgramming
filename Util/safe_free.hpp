@@ -42,7 +42,7 @@ namespace util {
  * @brief Demonstration of this header file
  * #include <stdio.h>
  * #include <stdlib.h>
- * #include <Util\safe_free.hpp>
+ * #include "safe_free.hpp"
  * 
  * int main(void) {
  *     int* pi;

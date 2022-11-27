@@ -38,8 +38,8 @@ namespace util {
             return;
         }
 
-    } // end Util::list
-} // end Util
+    } // end util::list
+} // end util
 
 
 #endif

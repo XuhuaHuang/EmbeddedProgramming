@@ -40,7 +40,7 @@ namespace util {
             return; // add empty return statement for consistency.
         }
 
-    } // end Util::vector
-} // end Util
+    } // end util::vector
+} // end util
 
 #endif
