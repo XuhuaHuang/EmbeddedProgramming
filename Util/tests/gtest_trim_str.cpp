@@ -23,17 +23,17 @@ public:
 
 TEST_F(TrimStrTest, TrimFront_Test)
 {
-    EXPECT_EQ(std::string((std::ranges::to<std::string>("    test" | trim_front)).c_str()), "test");
+    EXPECT_EQ(std::string((std::ranges::to<std::string>(std::string_view{ "    test" } | trim_front)).c_str()), "test");
 }
 
 TEST_F(TrimStrTest, TrimBack_Test)
 {
-    EXPECT_EQ(std::string((std::ranges::to<std::string>("test    " | trim_back)).c_str()), "test");
+    EXPECT_EQ(std::string((std::ranges::to<std::string>(std::string_view{ "test    " } | trim_back)).c_str()), "test");
 }
 
 TEST_F(TrimStrTest, TrimFrontAndBack_Test)
 {
-    EXPECT_EQ(std::string((std::ranges::to<std::string>("    test    " | trim_spaces)).c_str()), "test");
+    EXPECT_EQ(std::string((std::ranges::to<std::string>(std::string_view{ "    test    "} | trim_spaces)).c_str()), "test");
 }
 
 TEST_F(TrimStrTest, TrimStrFn_Test)
