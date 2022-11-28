@@ -1,0 +1,8 @@
+struct Collection_## TYPE {
+    TYPE* array;
+    size_t size, n;
+}
+
+#ifdef INSTANCE
+Collection_## TYPE make_Collection_## TYPE(size_t ssize) {}
+#endif
