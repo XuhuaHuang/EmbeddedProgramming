@@ -12,6 +12,7 @@ include_directories(${UTIL_ROOT})
 # Right-click on each item to set as start-up project
 add_executable(is_instance_of "${UTIL_ROOT}/is_instance_of.hpp" "test_is_instance_of.cpp")
 add_executable(parse_str "${UTIL_ROOT}/parse.hpp" "${UTIL_ROOT}/print_vec.hpp" "test_parse_str.cpp")
+add_executable(print_range "${UTIL_ROOT}/print_range.hpp" "test_print_range.cpp")
 add_executable(safe_free "${UTIL_ROOT}/safe_free.hpp" "test_safe_free.cpp")
 
 # Adding Google Test component
