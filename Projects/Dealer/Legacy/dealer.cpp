@@ -1,8 +1,14 @@
+/*****************************************************************//**
+ * \file   dealer.cpp
+ * \brief  
+ * 
+ * \author Xuhua Huang
+ * \date   October 19, 2020
+ *********************************************************************/
+
+#include <algorithm>
+#include <random>
 #include "dealer.h"
-
-using namespace std;
-
-// 1879700 Xuhua Huang
 
 void Card::fillVector(void)
 {
@@ -46,13 +52,13 @@ Card::Card(int useriniface, int userinisuit) // overloaded Card constructor with
 
 void Card::printCard() // print the card in format face of suit
 {
-    cout << "Card is " << allFaces.at(getface()) << " of " << allSuits.at(getsuit()) << endl;
+    std::cout << "Card is " << allFaces.at(getface()) << " of " << allSuits.at(getsuit()) << "\n";
 
     return;
 }
 
-// functions inside DeckofCard class are listed below:
-DeckofCard::DeckofCard() // default constructor for the DeckofCard class
+// functions inside Deck class are listed below:
+Deck::Deck() // default constructor for the Deck class
 {
     for (int suit = 0; suit < 4; suit++)
     {
@@ -65,23 +71,23 @@ DeckofCard::DeckofCard() // default constructor for the DeckofCard class
     setcurrentCard(0);
 }
 
-void DeckofCard::nextCard()
+void Deck::nextCard()
 {
     setcurrentCard(getcurrentCard() + 1); // increment currentCard and overwrite using set function
-    //cout << "\nVariable currenCard has been incremented." << endl;
+    //cout << "\nVariable currenCard has been incremented." << "\n";
 
     return;
 }
 
-void DeckofCard::shuffle()
+void Deck::shuffle()
 {
     random_shuffle(deck.begin(), deck.end()); // have access to vector<Card> deck since in the class
-    cout << "\nThe deck is now shuffled!" << endl;
+    std::cout << "\nThe deck is now shuffled!" << "\n";
 
     return;
 }
 
-Card DeckofCard::dealCard()
+Card Deck::dealCard()
 {
     Card cardToReturn = deck.at(getcurrentCard()); // deck is a vector of type 'Card'
     // require same type variable to obtain the content
@@ -90,7 +96,7 @@ Card DeckofCard::dealCard()
     return cardToReturn;
 }
 
-bool DeckofCard::moreCards()
+bool Deck::moreCards()
 {
     bool ifMoreCard = false; // default state
     
@@ -100,9 +106,9 @@ bool DeckofCard::moreCards()
     return ifMoreCard;
 }
 
-void DeckofCard::printCards()
+void Deck::printCards()
 {
-    vector<Card>::iterator itercard; // the content of the iterator is an object of type/class "Card"
+    std::vector<Card>::iterator itercard; // the content of the iterator is an object of type/class "Card"
     // 'itecard' is an iterator of "vector<Card> deck"
 
     for (itercard = deck.begin(); itercard < deck.end(); itercard++)
@@ -113,8 +119,8 @@ void DeckofCard::printCards()
     return;
 }
 
-// functions inside HandofCard class are listed below:
-void HandofCard::addCard(Card cardToAdd)
+// functions inside Hand class are listed below:
+void Hand::addCard(Card cardToAdd)
 {
     hand.push_back(cardToAdd); // 'vector<Card> hand' of type Card
     // add a card to vector<Card> hand using push_back(element)
@@ -122,9 +128,9 @@ void HandofCard::addCard(Card cardToAdd)
     return;
 }
 
-void HandofCard::printHandCards(void)
+void Hand::printHandCards(void)
 {
-    vector<Card>::iterator iterHandCard; // using iterator to loop through vector<Card> hand
+    std::vector<Card>::iterator iterHandCard; // using iterator to loop through vector<Card> hand
     for (iterHandCard = hand.begin(); iterHandCard < hand.end(); iterHandCard++)
     {
         (*iterHandCard).printCard(); // print in format: face of suit
