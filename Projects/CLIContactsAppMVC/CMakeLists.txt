@@ -7,4 +7,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Adding multiple executable to the project
 # Right-click on each item to set as start-up project
-add_executable(CLIContactsAppMVC "CLIContactsAppMVC/main.cpp")
+add_executable(CLIContactsAppMVC "main.cpp")
