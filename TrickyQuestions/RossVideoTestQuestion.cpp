@@ -1,6 +1,9 @@
 /*****************************************************************//**
- * \file   3_RossVideoTestQuestion.cpp
+ * \file   RossVideoTestQuestion.cpp
  * \brief  Contains example questions asked in Ross Video Inc. Test
+ *
+ * $ g++ -c .\RossVideoTestQuestion.cpp -o rossvideo.exe
+ * $ ./rossvideo
  *
  * \author Xuhua Huang
  * \date   April 2021
@@ -179,21 +182,21 @@ std::string findPosition(std::list<Employee> emps, const std::string& name)
 
 void printEmployeeInFormat(const Employee& emp)
 {
-    std::cout << std::setw(16) << left << "Name";
+    std::cout << std::setw(16) << std::left << "Name";
     std::cout << std::setw(16) << "ID Number";
     std::cout << std::setw(16) << "Department";
     std::cout << std::setw(16) << "Position";
     std::cout << std::setw(16) << "Years Worked" << "\n";
 
-    std::cout << std::setw(16) << left << "----";
+    std::cout << std::setw(16) << std::left << "----";
     std::cout << std::setw(16) << "---------";
     std::cout << std::setw(16) << "----------";
     std::cout << std::setw(16) << "--------";
     std::cout << std::setw(16) << "------------" << "\n";
 
-    std::cout << std::fixed << std::setw(16) << left << emp.getName()
+    std::cout << std::fixed << std::setw(16) << std::left << emp.getName()
         << std::setw(16) << emp.getID()
         << std::setw(16) << emp.getDPT()
         << std::setw(16) << emp.getPOS()
-        << std::setw(5) << right << emp.getYEARS() << "\n";
+        << std::setw(5) << std::right << emp.getYEARS() << "\n";
 }

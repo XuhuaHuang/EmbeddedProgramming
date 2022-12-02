@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   2_MatroxTestQuestion.cpp
+ * \file   MatroxTestQuestion.cpp
  * \brief  Interesting questions during test provided by Matrox
  *
  * \author Xuhua Huang
@@ -7,6 +7,8 @@
  *********************************************************************/
 
 #include <iostream>
+#include <string.h>
+#include <stdlib.h>
 
 class SpecialString
 {
@@ -16,7 +18,7 @@ public:
     {
         int size = strlen(pStr) + 1;
         m_pData = new char[size];
-        strcpy_s(m_pData, size, pStr);
+        strcpy(m_pData, pStr);
     }
 
     ~SpecialString()
@@ -69,7 +71,7 @@ int main()
         << (int)&a << " " << (int)&b << " " << (int)&c << "\n"
         << (int)pa << " " << *pa << " " << (int)&(*pa) << "\n"
         << (int)pb << " " << *pb << "\n";
-    // 	 << (int)p << " " << (int)*p << "\n"; // undefined behaviour
+    //  << (int)p << " " << (int)*p << "\n"; // undefined behaviour
 
     return 0;
 }
