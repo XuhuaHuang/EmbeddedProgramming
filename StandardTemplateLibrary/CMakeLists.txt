@@ -16,3 +16,5 @@ add_executable(List "list.cpp")
 add_executable(Map "map.cpp")
 add_executable(StringTransform "string_tranform.cpp")
 add_executable(Template "template.cpp")
+
+add_subdirectory(Tuple)

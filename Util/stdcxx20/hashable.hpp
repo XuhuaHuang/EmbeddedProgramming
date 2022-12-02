@@ -1,6 +1,6 @@
 /**
  * @file hashable.hpp
- * @author Xuhua Huang (huang.xuhua@outlook.com)
+ * @author Xuhua Huang
  * @brief C++20 feature concepts to implement a template
  * to determine whether an object is 'hashable'.
  * @version 0.1

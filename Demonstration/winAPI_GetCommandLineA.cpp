@@ -27,9 +27,9 @@ int main(void)
             pVar += strlen(pVar) + 1;
         }
     }
-    
+
     FreeEnvironmentStringsA(pBuf);
-    
+
     /**
      * Printing all environmental variables.
      */

@@ -11,7 +11,7 @@
 #include <string>
 
 /* example on API design with Date from multiple inheritance lab */
-/* ../master/Inheritance/MultipleInheritance/example_Time_Date.cpp */
+/* ../MultipleInheritance/example_Time_Date.cpp */
 
 /* define structures offer explicit conversion constructor */
 class Month

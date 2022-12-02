@@ -16,3 +16,8 @@ add_executable(FunctionTemplateBasics
     "FunctionTemplate/main.cpp"
     "FunctionTemplate/max.hpp"
 )
+
+# add_executable(TemplateNotes
+#     "template_notes.h"
+#     "template_notes.cpp"
+# )

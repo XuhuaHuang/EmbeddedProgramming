@@ -79,7 +79,7 @@ namespace util {
             return digits;
         }
 
-    } // end Util::parse
-} // end Util
+    } // end util::parse
+} // end util
 
 #endif

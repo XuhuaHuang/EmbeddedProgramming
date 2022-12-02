@@ -83,27 +83,31 @@ The convention is to create a folder dedicated to `CMake` files, for example, `b
 $ cd ./DesignPatterns
 $ mkdir build
 $ cd build
-$ cmake ..
+$ cmake ../CMakeLists.txt
 ```
 
 
-#### Directory `./Util`
+#### Directory `./Util` and `./Util/tests`
 Functionality provided by separate module. A namespace `util` is created to better manage the functions.
 ```C++
 namespace util {
-    namespace type {}
-    namespace parse {}
     namespace list {}
+    namespace parse {}
+    namespace pointer {}
+    namespace range {}
+    namespace type {}
     namespace vector {}
 }
 ```
 Contains template (generic) function in a C-style header file, providing the following functionality:
-* `is_instance_of.h`: to quickly identify whether an object if of a specified type; like `isinstance()` in Python.
+* `is_instance_of.hpp`: to quickly identify whether an object if of a specified type; like `isinstance()` in Python.
 * `is_same_type_of.hpp`: to quickly identify whether two objects are the same type using `typeid().hash_code()` and `typeid().name()`.
 * `log.h`: function-style definition `LOG(...)` using macro in C.
 * `parse.hpp`: to easily split a comma-separated `std::string`.
-* `print_list.h`: template function to print a `std::list<>` to the console; accepts a generic type of `std::list`.
-* `print_vec.h`: template function to print a `std::vector<>` to the console; accepts a generic type of `std::vector`.
+* `print_list.hpp`: template function to print a `std::list<>` to the console; accepts a generic type of `std::list`.
+* `print_range.hpp`: template function to print a `std::ranges<>` to the console; accepts a genrice tpye of `std::ranges`.
+* `print_vec.hpp`: template function to print a `std::vector<>` to the console; accepts a generic type of `std::vector`.
+* `safe_free.hpp`: implementing our own `free()` function from the standard library to release allocated resources.
 
 #### Directory `./HackerRank`
 Contains solutions to some of the basic problem solving coding questions. Provided file name most likely describes the content.
@@ -120,19 +124,6 @@ For example, building a terminal progress bar for visual effects and working wit
 
 ---
 
-### **Quick Algorithm Lookup Table**
-
-| What You Want to Know                                                           |     On a Unsorted Range     |    On a Sorted Range   |   With a set or map  |      With a multiset or multimap      |
-|---------------------------------------------------------------------------------|:---------------------------:|:----------------------:|:--------------------:|:-------------------------------------:|
-| Does the desired value exist?                                                   |        `std::find()`        | `std::binary_search()` |    `std::count()`    |             `std::find()`             |
-| Does the desired value exist? If so, where is the first object with that value? |        `std::find()`        |  `std::equal_range()`  |     `std::find()`    | `std::find()` or `std::lower_bound()` |
-| Where is the first object with a value not preceding the desired value?         |       `std::find_if()`      |  `std::lower_bound()`  | `std::lower_bound()` |          `std::lower_bound()`         |
-| Where is the first object with a value succeeding the desired value?            |       `std::find_if()`      |   `std:upper_bound()`  |  `std:upper_bound()` |          `std:upper_bound()`          |
-| How many objects have the desired value?                                        |        `std::count()`       |  `std::equal_range()`  |    `std::count()`    |             `std::count()`            |
-| Where are all the objects with the desired value?                               | `std::find()` (iteratively) |  `std::equal_range()`  | `std::equal_range()` |          `std::equal_range()`         |
-
----
-
 ### **Commonly Used Command in `CMake`**
 * [`target_sources`](https://cmake.org/cmake/help/latest/command/target_sources.html)
 * [`target_compile_options`](https://cmake.org/cmake/help/latest/command/target_compile_options.html)
@@ -144,9 +135,6 @@ For example, building a terminal progress bar for visual effects and working wit
 
 ### `TODO`:
 * `Demonstration`
-* `Util`
 * `Projects\Dealer\Refactored`
 * `std::unordered_map<typename T>`
 * `Binary tree`, `Binary search tree`
-* `Circular queue`
-* Hailstone sequence using simple template meta-programming
