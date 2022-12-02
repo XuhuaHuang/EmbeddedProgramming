@@ -1,9 +1,17 @@
-all:dealer.o dealermain.o
-	g++ dealer.o dealermain.o -o exec
+
+CC=g++
+CFLAGS=-g -Wall
+OPTFLAG=-O2
+
+all:dealer.o main.o
+	$(CC) $(CFLAGS) $(OPTFLAG) dealer.o main.o -o exec
+
 dealer.o:dealer.cpp dealer.h
-	g++ -c dealer.cpp
-dealermain.o:dealermain.cpp dealer.h
-	g++ -c dealermain.cpp
+	$(CC) $(CFLAGS) $(OPTFLAG) -c dealer.cpp -o dealer.o
+
+main.o:main.cpp
+	$(CC) $(CFLAGS) $(OPTFLAG) -c main.cpp -o main.o
+
 clean:
 	rm -rf *.o
 	rm exec

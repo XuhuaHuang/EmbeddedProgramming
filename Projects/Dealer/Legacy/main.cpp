@@ -1,8 +1,12 @@
+/*****************************************************************//**
+ * \file   main.cpp
+ * \brief  
+ * 
+ * \author Xuhua Huang
+ * \date   October 19, 2020
+ *********************************************************************/
+
 #include "dealer.h"
-
-using namespace std;
-
-// 1879700 Xuhua Huang
 
 int main(void)
 {
@@ -17,26 +21,27 @@ int main(void)
     * 4) allFaces & allSuits vectors
     */
     Card part1test1;
-    cout << "Testing default constructor: \n\tFace:0\n\tSuit:0\n";
-    cout << "The face is " << part1test1.getface() << endl << "The suit is " << part1test1.getsuit() << endl;
-    
+    std::cout << "Testing default constructor: \n\tFace:0\n\tSuit:0\n";
+    std::cout << "The face is " << part1test1.getface() << "\n"
+        << "The suit is " << part1test1.getsuit() << "\n";
+
     part1test1.printCard();
-    
-    cout << "\nA new card is created:\n";
+
+    std::cout << "\nA new card is created:\n";
     Card part1test2(12, 3);
-    cout << "Testing overloaded constructor: ";
-    cout << "\nWith the format Card variableName(int useriniface, int userinisuit): ";
-    cout << "12 (face) and 3(suit)\n";
+    std::cout << "Testing overloaded constructor: ";
+    std::cout << "\nWith the format Card variableName(int useriniface, int userinisuit): ";
+    std::cout << "12 (face) and 3(suit)\n";
     part1test2.printCard();
 
-    cout << "\nUsing for loops to declare the cards and print:\n" << endl;
+    std::cout << "\nUsing for loops to declare the cards and print:\n" << "\n";
     for (int suit = 0; suit < 4; suit++)
     {
         for (int face = 0; face < 13; face++)
         {
             Card testOL(face, suit);
             testOL.printCard();
-            //cout << endl;
+            //std::cout << "\n";
         }
     }
     // end of test case 1
@@ -50,21 +55,21 @@ int main(void)
     * 2) shuffle()
     * 3) dealCard()
     */
-    cout << "\nHere comes test cases for part 2:" << endl;
-    cout << "A new deck is created and printed." << endl;
-    DeckofCard part2test1;
+    std::cout << "\nHere comes test cases for part 2:" << "\n";
+    std::cout << "A new deck is created and printed." << "\n";
+    Deck part2test1;
     part2test1.printCards();
 
-    cout << "\nShuffling...";
+    std::cout << "\nShuffling...";
     part2test1.shuffle();
     part2test1.printCards(); // verified shuffled
 
-    cout << "\nTesting dealCard() and moreCards() function..." << endl;
-    cout << "Deal and print 52 cards as long as there are more cards" << endl;
+    std::cout << "\nTesting dealCard() and moreCards() function..." << "\n";
+    std::cout << "Deal and print 52 cards as long as there are more cards" << "\n";
     while (part2test1.moreCards())
     {
         (part2test1.dealCard()).printCard();
-        // DeckofCard.dealCard() returns a variable of type Card
+        // Deck.dealCard() returns a variable of type Card
         // Card class grants the permission to printCard() function
     }
     // end of test case 2
@@ -78,14 +83,14 @@ int main(void)
     * 2) shuffle()
     * 3) dealCard()
     */
-    cout << "\nHere comes test cases for part 3:" << endl;
-    DeckofCard part3deck;
-    cout << "Creating a new deck and shuffling..." << endl;
+    std::cout << "\nHere comes test cases for part 3:" << "\n";
+    Deck part3deck;
+    std::cout << "Creating a new deck and shuffling..." << "\n";
     part3deck.shuffle();
 
-    HandofCard part3hand;
-    
-    cout << "5 cards should be distributed and printed:" << endl;
+    Hand part3hand;
+
+    std::cout << "5 cards should be distributed and printed:" << "\n";
     for (int deal = 0; deal < 5; deal++)
     {
         if (part3deck.moreCards())
