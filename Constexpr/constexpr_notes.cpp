@@ -1,6 +1,6 @@
 /**
- * @file demo_constexpr.cpp
- * @author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * @file constexpr_notes.cpp
+ * @author Xuhua Huang
  * @brief Demonstration of constant expression (constants at run-time) in C++11.
  * @version 1.0
  * @date 2021-11-30
@@ -12,8 +12,8 @@
  * 4. returned value must be a constant expression. 
  * 
  * To compile and run this file on Windows:
- * $ g++ -o demo_constexpr.exe .\demo_constexpr.cpp -std=c++11
- * $ .\demo_constexpr
+ * $ g++ -o constexpr_notes.exe .\constexpr_notes.cpp -std=c++11
+ * $ .\constexpr_notes
  * 
  * @copyright Copyright (c) 2021
  * 
