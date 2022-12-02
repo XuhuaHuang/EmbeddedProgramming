@@ -7,6 +7,7 @@
  *********************************************************************/
 
 #include <iostream>
+#include <math.h>
 #include "AngryBirds.h"
 
 void initialize(AngryBirds* bird)

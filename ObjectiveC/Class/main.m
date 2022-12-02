@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     Person* p = [[Person alloc] init];
     [p print]; // calling Person::print() member function on object p
-	[pool drain];
+    [pool drain];
 
     return 0;
 }

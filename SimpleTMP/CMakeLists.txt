@@ -9,3 +9,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Right-click on each item to set as start-up project
 add_executable(FibonacciSeries "FibonacciSeries.cpp")
 add_executable(RecursiveFactorial "RecursiveFactorial.cpp")
+
+add_subdirectory(FibonacciSeriesWithStruct)

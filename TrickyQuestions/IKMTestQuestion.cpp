@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   1_IKMTestQuestion.cpp
+ * \file   IKMTestQuestion.cpp
  * \brief  Interesting questions during test on the IKM platform
  *
  * \author Xuhua Huang
