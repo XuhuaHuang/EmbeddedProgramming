@@ -1,9 +1,10 @@
 /**
- * @file demo_template.cpp
- * @author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * @file template_notes.cpp
+ * @author Xuhua Huang
  * @brief Notes on template. Used as a quick reference guide.
  * @version 0.1
  * @date 2022-02-04
+ * Last updated on Dec 02, 2022
  * 
  * "Lift algorithms and data structures from concrete examples
  * to their most general and abastract form." - Bjarne Stroustrup
@@ -12,9 +13,11 @@
  * 
  */
 
-#include<iostream>
-#include<stdlib.h>
-#include<type_traits>
+#include <iostream>
+#include <stdlib.h>
+#include <type_traits>
+#include <vector>
+#include "template_notes.h"
 
 #ifndef BUILD_COMPARE(TYPE)
 #define BUILD_COMPARE(TYPE)                             \
@@ -29,8 +32,8 @@
     }
 #endif
 
-BUILD_TYPE(float)
-BUILD_TYPE(double)
+BUILD_COMPARE(float)
+BUILD_COMPARE(double)
 
 /* ------------------ */
 /* Function Templates */
@@ -64,12 +67,12 @@ T circular_area(T r) {
 
 // wrapper around is_arithmetic from <type_trait> library
 template<typename T>
-inline constexpr is_arithmetic_v = std::is_arithmetic<T>::value;
+inline constexpr size_t is_arithmetic_v = std::is_arithmetic<T>::value;
 
 /* ---------------------------- */
 /* Lambda Templates since C++20 */
 /* ---------------------------- */
-auto multiply = []<class T>(T a, T b) -> T {
+auto multiply = []<typename T>(T a, T b) -> T {
     return a * b;
 };
 
@@ -98,6 +101,7 @@ public:
     void pop();
     void push(const T& t);
     Stack push_all_from(const Stack& stack);
+    Stack();
 };
 
 template<class T>
@@ -128,7 +132,17 @@ public:
     T* pop();
 
     void push(const T& t);
+    void push(const T* const t) {
+        this->m_data.push_back(t);
+    }
+
     Stack push_all_from(const Stack& stack);
+
+    Stack(T* pt) {
+        if (pt!=nullptr)
+            this->m_data.push_back(pt);
+    }
+
 };
 
 template<typename T>
@@ -139,9 +153,12 @@ T* Stack<T*>::pop() {
 }
 
 int main(void) {
-    Stack<std::string*> pstrstack;
-    pstrstack.push(new std::string("Hello, world"));
-    std::cout << *pstrstack.pop() << "\n";
+    Stack<typename std::string*> pstrstack;
+
+    std::string* greetings = new std::string("Hello, world");
+    pstrstack.push(greetings);
+    std::cout << static_cast<std::string>(*pstrstack.pop()) << "\n";
+
     delete pstrstack.pop();
 
     system("pause");
