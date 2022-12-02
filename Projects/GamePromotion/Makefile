@@ -1,9 +1,16 @@
+CC=g++
+CFLAGS=-g -Wall
+OPTFLAG=-O2
+
 all:gamepromotion.o main.o
-	g++ gamepromotion.o main.o -o gamepromotion.exe
+	$(CC) $(CFLAGS) $(OPTFLAG) gamepromotion.o main.o -o gamepromotion.exe
+
 gamepromotion.o:GamePromotion.cpp GamePromotion.hpp
-	g++ -c GamePromotion.cpp
+	$(CC) $(CFLAGS) $(OPTFLAG) -c GamePromotion.cpp
+
 main.o:main.cpp GamePromotion.hpp
-	g++ -c main.cpp -o main.o -std=c++11
+	$(CC) $(CFLAGS) $(OPTFLAG) -c main.cpp -o main.o -std=c++11
+
 clean:
 	rm -rf *.o
 	rm *.exe
