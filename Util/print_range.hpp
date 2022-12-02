@@ -42,7 +42,9 @@ namespace util {
                     }
                     print_range(v, need_delim, depth + 1);
                 }
-                else {
+                // require overloaded operator
+                // might be neccessary for a range of customized objects
+                else if constexpr (requires operator<<(std::ostream& out, v) -> std::ostream&) {
                     std::cout << v; // single dimension range
                 }
 
