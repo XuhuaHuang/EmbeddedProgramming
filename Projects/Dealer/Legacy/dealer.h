@@ -1,14 +1,14 @@
+/*****************************************************************//**
+ * \file   dealer.h
+ * \brief  
+ * 
+ * \author Xuhua Huang
+ * \date   October 19, 2020
+ *********************************************************************/
+
 #include <iostream>
 #include <string>
-#include <algorithm>
 #include <vector>
-#include <cmath>
-#include <windows.h>
-#include <random>
-
-using namespace std;
-
-// Xuhua Huang 1879700
 
 class Card
 {
@@ -17,8 +17,8 @@ private:
     int suit;
 
     // vectors are initialized later in fillVector() function
-    vector <string> allFaces;
-    vector <string> allSuits;
+    std::vector<std::string> allFaces;
+    std::vector<std::string> allSuits;
 
 public:
     // get and set functions are done with one line functions
@@ -40,10 +40,10 @@ public:
     void printCard();
 };
 
-class DeckofCard
+class Deck
 {
 private:
-    vector<Card> deck;
+    std::vector<Card> deck;
     int currentCard;
 
 public:
@@ -52,7 +52,7 @@ public:
     void setcurrentCard(int usercurrentCard) { currentCard = usercurrentCard; }
 
     // default and overloaded constructor:
-    DeckofCard();
+    Deck();
 
     // other function prototype
     void nextCard();
@@ -62,12 +62,15 @@ public:
     void printCards();
 };
 
-class HandofCard
+class Hand
 {
 private:
-    vector<Card> hand;
+    std::vector<Card> hand;
 
 public:
+    Hand() = default;
+    virtual ~Hand() = default;
+
     void addCard(Card cardToAdd);
     void printHandCards(void);
 };
