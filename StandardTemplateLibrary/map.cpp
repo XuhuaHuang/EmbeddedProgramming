@@ -34,7 +34,7 @@ void print(const std::pair<std::string, int>& employee)
 }
 
 /* Provide template function to print any map. */
-namespace util {
+namespace {
     template<typename T, typename U>
     void printMap(std::map<T, U> mp)
     {
@@ -106,8 +106,8 @@ int main(void)
     // print is passed a call-back function
 
     /* Test template function to print map. */
-    util::printMap(employees);
-    util::printMap(template_demo);
+    ::printMap(employees);
+    ::printMap(template_demo);
 
     system("pause");
     return 0;
