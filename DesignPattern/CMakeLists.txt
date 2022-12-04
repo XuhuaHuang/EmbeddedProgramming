@@ -7,4 +7,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Adding multiple executable to the project
 # Right-click on each item to set as start-up project
+add_executable(Factory "factory.cpp")
 add_executable(Singleton "singleton.cpp")
