@@ -1,6 +1,6 @@
 /**
- * @file Inheritance_lab_main.cpp
- * @author 1879700 Xuhua Huang
+ * @file main.cpp
+ * @author Xuhua Huang
  * @brief Inheritance Lab Main File
  * Contains main function - test cases for each class
  *
