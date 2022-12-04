@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-void print(const int& value)
+void print(const int value)
 {
     std::cout << value << "\n";
 }
@@ -23,5 +23,6 @@ int main(void)
     print(a << 2);
     print(a >> 2);
     print((a >> 2) & 1);
+
     return 0;
 }
