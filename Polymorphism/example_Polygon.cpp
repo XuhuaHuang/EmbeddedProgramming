@@ -47,19 +47,19 @@ int main()
     Rectangle rect;
     Triangle trgl;
     Polygon poly;
-    Polygon* ppoly1;
+    Polygon* ppoly;
 
-    ppoly1 = &rect; // point to a "Rectangle" class object
-    ppoly1->set_values(4, 5);
-    std::cout << ppoly1->area() << "\n"; // will print 0 if without "virtual" keyword
+    ppoly = &rect; // point to a "Rectangle" class object
+    ppoly->set_values(4, 5);
+    std::cout << ppoly->area() << "\n"; // will print 0 if without "virtual" keyword
 
-    ppoly1 = &trgl; // pointing to a "Triangle" class object
-    ppoly1->set_values(4, 5);
-    std::cout << ppoly1->area() << "\n"; // will print 0 if without "virtual" keyword
+    ppoly = &trgl; // pointing to a "Triangle" class object
+    ppoly->set_values(4, 5);
+    std::cout << ppoly->area() << "\n"; // will print 0 if without "virtual" keyword
 
-    ppoly1 = &poly; // pointing to a same-base class object
-    ppoly1->set_values(4, 5);
-    std::cout << ppoly1->area() << "\n"; // 0
+    ppoly = &poly; // pointing to a same-base class object
+    ppoly->set_values(4, 5);
+    std::cout << ppoly->area() << "\n"; // 0
 
     return 0;
 }
