@@ -1,6 +1,6 @@
 /**
- * @file demo_udl.cpp
- * @author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * @file udl_notes.cpp
+ * @author Xuhua Huang
  * @brief Motes and demonstration on "User Defined Literals" in C++20.
  * @version 0.1
  * @date 2022-01-31
@@ -13,41 +13,53 @@
 #include<stdlib.h>
 
 /* Forward Declaration; To be implemented later. */
-class Temperature;
+class Temperature {
+public:
+    Temperature() = default;
+    Temperature(const double value) {
+        this->value_with_udl = value;
+    }
+    double value_with_udl;
+    inline operator double() {
+        return this->value_with_udl;
+    }
+};
 
 /**
  * @brief The following 2 user-defined literals shared the same strings
  * Convention is to put them into different namespaces to prevent pollution.
  */
-namespace temperature_namespace {
-    constexpr Temperature operator""_deg(long double);
-}
-
 namespace geometry_namespace {
     constexpr double operator""_deg(long double);
 }
 
-int main(void) {
-    
+namespace temperature_namespace {
+    Temperature operator""_deg(long double value) {
+        return Temperature(value);
+    }
+}
+
+auto main(void) -> int {
+
     using namespace geometry_namespace;
     double right_angle = 90.0_deg; // unambiguously an angle, not a temperature
 
     // start a new scope
     {
         using namespace temperature_namespace;
-        const Temperature room_temperature(26.0_deg);
-    }    
-    
-    system("pause");    
-    return 0;
+        Temperature room_temperature(26.0_deg);
+    }
+
+    system("pause");
+    return EXIT_SUCCESS;
 }
 
 /* Build a base-3 number interpreter */
 namespace base3_namespace {
 
     consteval int operator""_3(const char* digits) {
-        int rat = 0;
-        for (char c = *digits; c != nullptr; c = *++digits) {
+        int ret = 0;
+        for (char c = *digits; c != NULL; c = *++digits) {
             if ('\'' == c) continue; // ignore digit separator
             if (c < '0' || '2' < c)
                 throw std::out_of_range("Invalid base-3 digit.");

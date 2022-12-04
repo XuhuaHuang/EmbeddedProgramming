@@ -39,7 +39,7 @@ public:
     Queue(int size = Q_SIZE);
     ~Queue() { delete[] arr; }
 
-    void Enqueue(const int&);
+    void Enqueue(const int);
     int* Dequeue(); // returns NULL if the queue is empty
 
     size_t size() const { return count; }
@@ -62,7 +62,7 @@ Queue::Queue(int size) {
     count = 0;
 }
 
-void Queue::Enqueue(const int& item) {
+void Queue::Enqueue(const int item) {
     // check for queue overflow
     if (isFull()) {
         std::cout << "Overflow occurred. Program Terminated." << "\n";
@@ -137,7 +137,7 @@ TEST_F(QueueTest, DequeueWorks) {
 
 /**
  * When these tests run, the following happens:
- * 1 - googletest constructs a QueueTest object (let’s call it t1).
+ * 1 - googletest constructs a QueueTest object (lets call it t1).
  * 2 - t1.SetUp() initializes t1.
  * 3 - The first test (IsEmptyInitially) runs on t1.
  * 4 - t1.TearDown() cleans up after the test finishes.
