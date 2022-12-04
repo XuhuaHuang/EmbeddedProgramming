@@ -1,6 +1,6 @@
 /**
- * @file Inheritance_lab_header.hpp
- * @author 1879700 Xuhua Huang
+ * @file BankingAccounts.hpp
+ * @author Xuhua Huang
  * @brief Inheritance Lab Header File
  * 
  * Contains declaration of:

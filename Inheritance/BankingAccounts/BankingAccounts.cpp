@@ -1,6 +1,6 @@
 /**
- * @file Inheritance_lab_functions.cpp
- * @author 1879700 Xuhua Huang
+ * @file BankingAccounts.cpp
+ * @author Xuhua Huang
  * @brief Inheritance Lab Function File
  * default / overloaded constructors
  * function definitions
