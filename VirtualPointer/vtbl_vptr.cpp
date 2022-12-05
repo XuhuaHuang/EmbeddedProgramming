@@ -15,7 +15,6 @@
  * does not take any arguments, does not return.
  */
 typedef void (*fn_ptr)();
-fn_ptr get_vfn_ptr(void*, const unsigned long);
 
 class Base
 {
@@ -108,10 +107,10 @@ auto main(void) -> int
     rBaseToDerived.fn1();
 
     // manually look up vptr and vtable
-    fn_ptr f1 = get_vfn_ptr(pBaseToDerived, unsigned long { 0 });
+    fn_ptr f1 = get_vfn_ptr(pBaseToDerived, 0);
     (*f1)();
 
-    fn_ptr f2 = get_vfn_ptr(pBaseToDerived, unsigned long { 1 });
+    fn_ptr f2 = get_vfn_ptr(pBaseToDerived, 1);
     (*f2)();
 
     delete pBaseToDerived;
