@@ -1,4 +1,4 @@
-### Directory `EmbeddedProgramming/ObjectiveC`
+### `ObjectiveC`
 
 ---
 
