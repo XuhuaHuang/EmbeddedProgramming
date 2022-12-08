@@ -11,7 +11,6 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
 
 // first base class
 class Date
@@ -79,13 +78,13 @@ DateTime::DateTime() : Date(), Time() {}
 DateTime::DateTime(int d, int m, int y, int h, int min, int s) : Date(d, m, y), Time(h, min, s) {}
 
 void DateTime::printTime() {
-    cout << "Hour:Minute:Second = ";
-    cout << getHour() << ":" << getMinute() << ":" << getSecond() << endl;
+    std::cout << "Hour:Minute:Second = ";
+    std::cout << getHour() << ":" << getMinute() << ":" << getSecond() << "\n";
 }
 
 void DateTime::printDate() {
-    cout << "Day/Month/Year = ";
-    cout << getDay() << "/" << getMonth() << "/" << getYear() << endl;
+    std::cout << "Day/Month/Year = ";
+    std::cout << getDay() << "/" << getMonth() << "/" << getYear() << "\n";
 }
 
 int main(void)
