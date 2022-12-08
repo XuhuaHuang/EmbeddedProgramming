@@ -1,13 +1,13 @@
-# Qt itself requires at least CMake version 3.16
-# Qt version 5.14 is required for this project
+﻿# Qt itself requires at least CMake version 3.16
+# Qt version 6.4.1 is used for this project
 cmake_minimum_required(VERSION 3.20)
 
 # ┌──────────────────────────────────────────────────────────────────┐
 # │  Projects Settings                                               │
 # └──────────────────────────────────────────────────────────────────┘
-project(ConsoleApplication
+project(HelloQtConsole
     VERSION 1.0.0
-    DESCRIPTION "Qt console application with CMake example"
+    DESCRIPTION "Qt console application with CMake"
     LANGUAGES CXX
 )
 
@@ -18,43 +18,31 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # │  Qt                                                              │
 # └──────────────────────────────────────────────────────────────────┘
 set(CMAKE_AUTOMOC ON)
-# set(CMAKE_AUTORCC ON)
-# set(CMAKE_AUTOUIC ON)
-
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
 
 if(WIN32)
-    set(Qt5_DIR "C:/Qt/Qt5.14.0/5.14.0/msvc2017_64/lib/cmake/Qt5" CACHE PATH "directory where Qt5Config.cmake exists.")
+    set(Qt6_DIR "C:/Qt6/6.4.1/mingw_64/lib/cmake/Qt6" CACHE PATH "directory where Qt6Config.cmake exists.")
 elseif(APPLE)
-    set(Qt5_DIR "/usr/local/Cellar/qt/5.14.0/clang_64/lib/cmake/Qt5/" CACHE PATH "directory where Qt5Config.cmake exists.")
+    set(Qt6_DIR "/usr/local/Cellar/qt/6.4.1/clang_64/lib/cmake/Qt6/" CACHE PATH "directory where Qt6Config.cmake exists.")
 else()
-    set(Qt5_DIR "" CACHE PATH "directory where Qt5Config.cmake exists.")
+    set(Qt6_DIR "" CACHE PATH "directory where Qt6Config.cmake exists.")
 endif()
 
-find_package(Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Core)
 
-if(WIN32)
-    set(CMAKE_WIN32_EXECUTABLE ON)
-elseif(APPLE)
-    set(CMAKE_MACOSX_BUNDLE ON)
-endif()
+qt_standard_project_setup()
 
 # ┌──────────────────────────────────────────────────────────────────┐
 # │  Executable                                                      │
 # └──────────────────────────────────────────────────────────────────┘
-# set(EXECUTABLE_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/build")
-add_executable(ConsoleApplication
-    # "mainwindow.ui"
-    # "mainwindow.cpp"
-    "main.cpp"
-    # "resources.qrc"
+add_executable(HelloQtConsole
+    qt_console.cpp
 )
 
-# Note that the application will still link against Qt5::Core
-# since Qt5::Widgets depends on it.
-target_link_libraries(ConsoleApplication PRIVATE Qt5::Core)
+target_link_libraries(HelloQtConsole PRIVATE Qt6::Core)
 
-set_target_properties(ConsoleApplication PROPERTIES
+set_target_properties(HelloQtConsole PROPERTIES
     WIN32_EXECUTABLE ON
     MACOSX_BUNDLE OFF
 )

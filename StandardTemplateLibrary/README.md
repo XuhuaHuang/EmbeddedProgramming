@@ -1,6 +1,6 @@
-### Directory `EmbeddedProgramming/StandardTemplateLibrary`
+# `StandardTemplateLibrary`
 
-####  **Quick Algorithm Lookup Table**
+##  **Quick Algorithm Lookup Table**
 
 | What You Want to Know                                                           |     On a Unsorted Range     |    On a Sorted Range   |   With a set or map  |      With a multiset or multimap      |
 |---------------------------------------------------------------------------------|:---------------------------:|:----------------------:|:--------------------:|:-------------------------------------:|
