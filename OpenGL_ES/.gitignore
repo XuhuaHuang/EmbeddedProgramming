@@ -9,3 +9,21 @@ Dependencies/GLFW/lib-vc2013
 Dependencies/GLFW/lib-vc2015
 Dependencies/GLFW/lib-vc2017
 Dependencies/GLFW/lib-vc2019
+
+# ---
+# Ignore long library header files inside "include"
+# to properly reflect composition of repository files types
+# Also acts like an exhaustive list of the what's needed inside this directory.
+# Put the downloaded versions here and it should work just fine
+# ----
+# GLEW
+# ----
+Dependencies/GLEW/include/GL/eglew.h
+Dependencies/GLEW/include/GL/glew.h
+Dependencies/GLEW/include/GL/glxew.h
+Dependencies/GLEW/include/GL/wglew.h
+# ----
+# GLFW
+# ----
+Dependencies/GLFW/include/GLFW/glfw3.h
+Dependencies/GLFW/include/GLFW/glfw3native.h
