@@ -1,4 +1,4 @@
-### Directory `EmbeddedProgramming/HackerRank`
+### `HackerRank`
 
 [Profile](https://www.hackerrank.com/XuhuaHuang?hr_r=1)
 
