@@ -21,3 +21,4 @@ Right click on a start-up item in `Visual Studio`, change the following properti
 
 ### References
 > https://github.com/Shot511/OpenGLSampleCmake<br>
+> https://github.com/andersonfreitas/opengl-tutorial-org/blob/master/misc04_building_your_own_app/CMakeLists.txt<br>
