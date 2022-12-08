@@ -1,12 +1,13 @@
 /*****************************************************************//**
- * \file   main.cpp
- * \brief  Qt console application with CMake example
+ * \file   qt_console.cpp
+ * \brief  Qt console application with CMake example.
  * 
  * \author Xuhua Huang
- * \date   January 31, 2021
+ * \date   January 31, 2021; last updated: December 07, 2022
  *********************************************************************/
 
 #include <iostream>
+#include <stdlib.h>
 
 #include <QTextStream>
 #include <QString>
@@ -24,7 +25,7 @@ int main(void)
 
     out << "This is a console application" << "\n";
     out.flush();
-    out << "Please enter your name" << "\n";
+    out << "Please enter your name: ";
     out.flush();
 
     // fixing the issue to enter full name with a space
@@ -38,39 +39,43 @@ int main(void)
     out.flush();
 
     // use qDebug() to print to console
-    qDebug() << "Using qDebug() to send debugging messages to console in Desktop apps" << "\n";
+    qDebug() << "Using qDebug() to send debugging messages to console in Desktop apps";
 
     // QString, append(), prepend()
-    QString a = "is";
-    a.append(" awesome");
-    a.prepend("Music ");
+    QString test_str = "is";
+    test_str.append(" awesome");
+    test_str.prepend("Music ");
 
-    out << "Original mesasge: " << a << "\n";
-    out << "The a string has " << a.length()
-        << " characters" << "\n";
+    out << "Original mesasge: " << test_str << "\n";
+    out << "The test string has " << test_str.length() << " characters" << "\n";
 
     // toUpper() and toLower()
-    out << a.toUpper() << "\n";
-    out << a.toLower() << "\n";
+    out << "toUpper(): " << test_str.toUpper() << "\n";
+    out << "toLower(): " << test_str.toLower() << "\n";
 
     // QList
     QList<int> integerList;
     QList<QString> stringList = QList<QString>() << "Canada" << "U.S.A" << "Mexico";
+
     for (int i = 0; i < 6; i++)
+    {
         integerList.append(i);
+    }
+
     integerList.removeOne(4);
 
     // output the integer integerList
     foreach(int n, integerList)
     {
-        qDebug() << n;
+        qDebug() << __PRETTY_FUNCTION__ << ": " << n;
     }
 
     // output the string in stringList
     foreach(QString str, stringList)
     {
-        qDebug() << str;
+        qDebug() << __PRETTY_FUNCTION__ << ": " << str;
     }
 
+    system("pause");
     return EXIT_SUCCESS;
 }
