@@ -19,7 +19,7 @@ Dependencies/GLFW/lib-vc2019
 # GLEW
 # ----
 Dependencies/GLEW/include/GL/eglew.h
-Dependencies/GLEW/include/GL/glew.h
+#Dependencies/GLEW/include/GL/glew.h
 Dependencies/GLEW/include/GL/glxew.h
 Dependencies/GLEW/include/GL/wglew.h
 # ----
