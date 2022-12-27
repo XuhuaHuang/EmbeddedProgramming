@@ -16,7 +16,7 @@
 
 /* Global Macro Definition */
 #define LOG(...) {                                          \
-    fprintf(stderr, "%s: Line %d:\t", __FILE__, __LINE__);  \
+    fprintf(stderr, "%s, line %d: ", __FILE__, __LINE__);   \
     fprintf(stderr, __VA_ARGS__);                           \
     fprintf(stderr, "\n");                                  \
 }

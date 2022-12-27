@@ -62,11 +62,11 @@ private:
     // replace the value of this member with a random number generator
     float m_Random_float = 1.00f;
 
-    // static Random s_Instance; // moved to line 49
+    // static Random s_Instance; // moved to line 51
 };
 
 /* [Original] definition of static member */
-// Random Random::s_Instance; // moved to line 49
+// Random Random::s_Instance; // moved to line 51
 
 int main(void)
 {

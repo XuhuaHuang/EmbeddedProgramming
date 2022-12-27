@@ -28,7 +28,7 @@ int main(void) {
     head = &n3;
     n3.next = &n2;
     n2.next = &n1;
-    n1.next = NULL; /* Set the end of the linked list is a null pointer. */
+    n1.next = NULL; /* Set the end of the linked list to a null pointer. */
 
     /* Test the print function. */
     print_linked_list(head);
