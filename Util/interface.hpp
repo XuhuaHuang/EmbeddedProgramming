@@ -9,6 +9,9 @@
  * \date   September 25, 2022
  *********************************************************************/
 
+#ifndef INTERFACE_HPP
+#define INTERFACE_HPP
+
 #ifndef _IOSTREAM_
 #include <iostream>
 #endif
@@ -71,12 +74,14 @@ namespace util {
             // declared as private, will not be called succesfully
             Uncopyable(const Uncopyable&) {};
             Uncopyable(Uncopyable&&) noexcept {};
-            Uncopyable(const Uncopyable&&) {};
+            Uncopyable(const Uncopyable&&) noexcept {};
             Uncopyable& operator=(const Uncopyable&) {};
             Uncopyable& operator=(Uncopyable&&) noexcept {};
-            Uncopyable& operator=(const Uncopyable&&) {};
+            Uncopyable& operator=(const Uncopyable&&) noexcept {};
             bool operator==(const Uncopyable&) {};
         };
 
     } // end util::interface
 } // end util
+
+#endif // INTERFACE_HPP

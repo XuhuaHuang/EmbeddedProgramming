@@ -1,5 +1,11 @@
-// A C++ program uses transform() in STL to
-// increment 1 to all elements of arr[]
+/*****************************************************************//**
+ * \file   array_tranform.cpp
+ * \brief  Useing transform() in STL to increment 1 to all elements of arr[]
+ * Functional approach, can also pass a lambda or std::function as predicate
+ * 
+ * \author Xuhua Huang
+ * \date   November 12, 2020
+ *********************************************************************/
 
 // std::transform(Iterator inputBegin, Iterator inputEnd, Iterator OutputBegin, function_Name)
 

@@ -2,6 +2,7 @@
  * \file   __func__.cpp
  * \brief  Demonstration of __cplusplus macro and __func__ signature
  * __func__ attribute of each function defaults to the name of such fn
+ * __FUNCSIG__ equivalent with MSVC compiler
  * 
  * To compile on Windows:
  * $ g++ -o func.exe .\__func__.cpp -std=c++11
@@ -12,20 +13,14 @@
  *********************************************************************/
 
 #if __cplusplus < 201103L
-    #error "Should use C++ 11 implementation!"
+#error "Should use C++ 11 implementation!"
 #endif
 
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
 
-#ifndef LOG
-#define LOG(...) {\
-    fprintf(stderr, "%s: Line %d:\t", __FILE__, __LINE__);\
-    fprintf(stderr, __VA_ARGS__);\
-    fprintf(stderr, "\n");\
-}
-#endif // !LOG
+#include "../Util/log.h"
 
 #ifndef __USR_NO_EXCEPT__
 #define __USR_NO_EXCEPT__ true
@@ -38,12 +33,14 @@
 const char* hello() noexcept(__USR_NO_EXCEPT__) {
     // Equivalence of defining the following manually:
     // static const char* __func__ = "hello";
+    std::cout << "\033[32m" << __PRETTY_FUNCTION__  << "\033[m" << "\n";
     return __func__;
 }
 
 const char* world() noexcept(__USR_NO_EXCEPT__) {
     // Equivalence of defining the following manually:
     // static const char* __func__ = "world";
+    std::cout << "\033[32m" << __PRETTY_FUNCTION__ << "\033[m" << "\n";
     return __func__;
 }
 
@@ -51,7 +48,12 @@ const char* world() noexcept(__USR_NO_EXCEPT__) {
 typedef struct TestStruct {
 public:
     TestStruct() : name(__func__) {}
-    const char* getName(void) { return this->name; }
+
+    const char* getName(void) {
+        std::cout << "\033[32m" << __PRETTY_FUNCTION__ << "\033[m" << "\n";
+        return this->name;
+    }
+
 private:
     const char* name;
 } TestStruct;
