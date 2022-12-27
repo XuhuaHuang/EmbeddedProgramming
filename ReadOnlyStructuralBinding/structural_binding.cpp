@@ -10,7 +10,7 @@
  * $ g++ -c .\structural_binding.cpp -o .\structural_binding.exe -std=c++17
  * $ .\structural_binding.exe
  * 
- * \author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * \author Xuhua Huang
  * \date   November 2022
  *********************************************************************/
 
@@ -48,12 +48,16 @@ struct std::tuple_size<Customer> {
 
 // create tuple_element specialization for val
 // use case:
-// decltype(std::tuple_element<2, Customer>
+// decltype(std::tuple_element<2, Customer>)
 template<>
 struct std::tuple_element<2, Customer> {
     using type = long;
 };
 
+// consider the following template instantiation:
+// decltype(std::tuple_element<0, Customer>)
+// decltype(std::tuple_element<1, Customer>)
+// std::tuple_element<0, Customer>::type will be evaluated to std::string
 template<std::size_t idx>
 struct std::tuple_element<idx, Customer> {
     using type = std::string;
