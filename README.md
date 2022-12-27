@@ -1,4 +1,4 @@
-# **EmbeddedProgramming**
+# **Embedded Programming**
 
 https://github.com/XuhuaHuang/EmbeddedProgramming
 
@@ -30,15 +30,31 @@ Heritage College, Gatineau, Quebec, Canada
 <img src="Settings/images/c_logo.png" alt="An image for C Language" width="100"/><img src="Settings/images/cpp_logo.png" alt="An image for C++" width="100"/>   <img src="Settings/images/mingw_logo.png" alt="An image for MinGW" width="110"/>
 
 ```C++
-class employee {
+typedef class person {
 private:
-    std::string name_;
+    std::string first;
+    std::string last;
 public:
-    void set_name(const std::string& name) { name_ = name; }
-    void set_name(const std::string&& name) noexcept {
-        name_ = std::move(name);
-    }
-};
+    explicit person() = default;
+
+    explicit person(const std::string& fn, const std::string& ln)
+    : first(fn)
+    , last(ln) {}
+
+    explicit person(std::string&& fn, std::string&& ln)
+    : first(std::move(fn))
+    , last(std::move(ln)) {}
+
+    person(const person& e) = default;
+    person(person&& e) = default;
+
+    [[nodiscard]] inline std::string& firstname() { return first; }
+    inline const std::string& firstname() const { return first; }
+
+    [[nodiscard]] inline std::string& lastname() { return last; }
+    inline const std::string& lastname() const { return last; }
+
+} person_t;
 ```
 
 ## **Getting Started**
@@ -84,7 +100,15 @@ The convention is to create a folder dedicated to `CMake` files, for example, `b
 $ cd ./DesignPatterns
 $ mkdir build
 $ cd build
-$ cmake ../CMakeLists.txt
+$ cmake ../CMakeLists.txt -G "Visual Studio 17 2022"
+```
+
+To build with popular `Ninja` or `MinGW` generator:
+```Bash
+$ # With Ninja generator
+$ cmake ../CMakeLists.txt -G "Ninja"
+$ # With MinGW generator
+$ cmake ../CMakeLists.txt -G "MinGW Makefiles"
 ```
 
 ### `./Util` and `./Util/tests`
@@ -92,11 +116,13 @@ Functionality provided by separate module. A namespace `util` is created to bett
 Tests and `GoogleTest` are located within the `Util/tests` folder.
 ```C++
 namespace util {
+    namespace data_structure {}
     namespace list {}
     namespace parse {}
     namespace pointer {}
     namespace range {}
     namespace type {}
+    namespace type_safety {}
     namespace vector {}
 }
 ```
