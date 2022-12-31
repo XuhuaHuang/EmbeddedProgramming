@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   array_2D.cpp
+ * \file   two_dims_array.cpp
  * \brief  example on how to work with 2D array/vector
  *
  * \author Xuhua Huang
