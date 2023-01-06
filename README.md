@@ -118,6 +118,7 @@ Tests and `GoogleTest` are located within the `Util/tests` folder.
 namespace util {
     namespace data_structure {}
     namespace list {}
+    namespace math {}
     namespace parse {}
     namespace pointer {}
     namespace range {}
