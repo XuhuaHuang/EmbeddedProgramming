@@ -30,10 +30,7 @@ Heritage College, Gatineau, Quebec, Canada
 <img src="Settings/images/c_logo.png" alt="An image for C Language" width="100"/><img src="Settings/images/cpp_logo.png" alt="An image for C++" width="100"/>   <img src="Settings/images/mingw_logo.png" alt="An image for MinGW" width="110"/>
 
 ```C++
-typedef class person {
-private:
-    std::string first;
-    std::string last;
+class person {
 public:
     explicit person() = default;
 
@@ -45,8 +42,11 @@ public:
     : first(std::move(fn))
     , last(std::move(ln)) {}
 
-    person(const person& e) = default;
-    person(person&& e) = default;
+    person(const person& rhs) = default;
+    person& operator = (const person&);
+
+    person(person&& rhs) noexcept = default;
+    person& operator = (person&& rhs) noexcept;
 
     [[nodiscard]] inline std::string& firstname() { return first; }
     inline const std::string& firstname() const { return first; }
@@ -54,7 +54,10 @@ public:
     [[nodiscard]] inline std::string& lastname() { return last; }
     inline const std::string& lastname() const { return last; }
 
-} person_t;
+private:
+    std::string first;
+    std::string last;
+};
 ```
 
 ## **Getting Started**
