@@ -1,7 +1,10 @@
 /*****************************************************************//**
  * \file   lab_Time_Date_complete.cpp
  * \brief  complete version of the lab
- *
+ * 
+ * $ cl /EHsc /analyze /std:c++20 .\lab_Time_Date.cpp
+ * $ .\lab_Time_Date.exe
+ * 
  * \author Xuhua
  * \date   November 2020
  *********************************************************************/
