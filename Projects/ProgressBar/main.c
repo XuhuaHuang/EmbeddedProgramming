@@ -23,7 +23,7 @@
  * @brief Sleep for usec micro-seconds.
  * Compensating for unistd.h on POSIX.
  * namespace does not exist in C, therefore has util_ prefix
- * @param usec 
+ * @param usec, integer representing micro seconds
  */
 void util_usleep(__int64 usec) { 
     HANDLE timer; 
@@ -55,7 +55,6 @@ void update_bar(const int percent_done) {
     return;
 }
 
-
 int main(void) {
     printf_s("Hello, world!\n");
 
@@ -66,5 +65,5 @@ int main(void) {
     printf("\n");
 
     system("pause");
-    return 0;    
+    return 0;
 }
