@@ -15,7 +15,6 @@
  *********************************************************************/
 
 #include <iostream>
-using namespace std;
 
 class Square
 {
@@ -23,7 +22,7 @@ private:
     int side;
 
 public:
-    void setSide(int a) { side = a; }
+    inline void setSide(int a) { side = a; }
 
     // Square class allows Rectangle class to access its private data members.
     friend class Rectangle;
@@ -37,8 +36,8 @@ private:
     int width, height;
 
 public:
-    int area() { return (width * height); }
-    void convert(const Square&);
+    inline constexpr int area() { return (width * height); }
+    void convert(const Square& rhs);
 };
 
 void Rectangle::convert(const Square& a)
@@ -58,7 +57,7 @@ int main(void)
     sqr.setSide(4);
     rect.convert(sqr);  // converting a square to rectangle
 
-    cout << rect.area() << endl;
+    std::cout << rect.area() << "\n";
 
     return 0;
 }
