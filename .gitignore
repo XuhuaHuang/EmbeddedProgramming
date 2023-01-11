@@ -20,6 +20,11 @@
 *.vcxproj
 *.vcxproj.*
 *.sln
+*_deps/
+
+# CMake build
+build/compile_commands.json
+build/Makefile
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -387,3 +392,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+*.hint
