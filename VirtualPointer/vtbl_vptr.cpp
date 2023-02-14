@@ -11,7 +11,7 @@
 
 /**
  * Function pointer type definition.
- * A pointer pointing to a functon that
+ * A pointer pointing to a function that
  * does not take any arguments, does not return.
  */
 typedef void (*fn_ptr)();
@@ -52,7 +52,7 @@ public:
 };
 
 /**
- * @brief Obtain the address of vptr and member fuunctions地址
+ * @brief Obtain the address of vptr and member functions
  * vptr points to the memory that stores all the addresses of the virtual functions
  * such block of address is what we called virtual table (vtable)
  *
