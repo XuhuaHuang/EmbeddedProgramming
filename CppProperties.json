@@ -6,9 +6,10 @@
             ],
             "name": "x64-Debug",
             "includePath": [
+                "C:\\boost\\boost_1_81_0\\boost\\**",
                 "${env.INCLUDE}",
                 "${workspaceRoot}\\**",
-                "C:\boost\boost_1_80_0"
+                "C:\\boost\\boost_1_81_0\\**"
             ],
             "defines": [
                 "WIN32",
