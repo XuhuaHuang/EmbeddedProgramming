@@ -48,7 +48,7 @@ int main()
 void LoadModel()
 {
     // load the model
-    printf("Loading modelfile '%ws' on the '%s' device\n", modelPath.c_str(), deviceName.c_str());
+    printf("Loading model file '%ws' on the '%s' device\n", modelPath.c_str(), deviceName.c_str());
     ULONGLONG ticks = GetTickCount64();
     model = LearningModel::LoadFromFilePath(modelPath);
     ticks = GetTickCount64() - ticks;
@@ -73,7 +73,7 @@ VideoFrame LoadImageFile(hstring filePath)
         BitmapDecoder decoder = BitmapDecoder::CreateAsync(stream).get();
         // get the bitmap
         SoftwareBitmap softwareBitmap = decoder.GetSoftwareBitmapAsync().get();
-        // load a videoframe from it
+        // load a video frame from it
         inputImage = VideoFrame::CreateWithSoftwareBitmap(softwareBitmap);
     }
     catch (...)
@@ -96,7 +96,7 @@ void BindModel()
     // now create a session and binding
     session = LearningModelSession{ model, LearningModelDevice(deviceKind) };
     binding = LearningModelBinding{ session };
-    // bind the intput image
+    // bind the input image
     binding.Bind(L"data_0", ImageFeatureValue::CreateFromVideoFrame(imageFrame));
     // bind the output
     std::vector<int64_t> shape({ 1, 1000, 1, 1 });
