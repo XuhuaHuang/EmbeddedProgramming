@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(FetchContent)
 FetchContent_Declare(
     googletest
-    URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+    URL https://github.com/google/googletest/archive/refs/tags/v1.13.0.zip
 )
 
 # For Windows: Prevent overriding the parent project's compiler/linker settings
@@ -27,7 +27,7 @@ add_executable(
     hello_test.cpp
 )
 
-# GoogleTest for basice implementation of Queue
+# GoogleTest for basic implementation of Queue
 add_executable(
     queue_test
     queue_test.cpp
@@ -67,7 +67,7 @@ target_link_libraries(
 
 include(GoogleTest)
 
-# Make added executables discoved by GTest
+# Make added executables discovered by GTest
 gtest_discover_tests(
     hello_test
     queue_test
