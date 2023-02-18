@@ -5,6 +5,9 @@
  * $ g++ ranges_notes.cpp -o exec -std=c++20 -Wall -Wextra -Wpedantic
  * $ ./exec
  * 
+ * $ cl .\ranges_notes.cpp /EHsc /std:c++20
+ * $ .\ranges_notes.exe
+ * 
  * \author Xuhua Huang
  * \date   March 2022
  *********************************************************************/
@@ -26,7 +29,7 @@ int main()
 
     /* with std::views::filter */
     auto even_nums = vec | std::views::filter(is_even);
-    // view on stack with adaptor
+    // view on stack with adapter
     for (const int16_t& i : even_nums) {
        std::cout << i << " ";
     }
