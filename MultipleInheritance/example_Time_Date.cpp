@@ -5,7 +5,7 @@
  * $ g++ -c example_Time_Date.cpp -o time_date.exe -std=c++11
  * $ ./time_date.exe
  * 
- * \author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * \author Xuhua Huang
  * \date   November 2020
  *********************************************************************/
 

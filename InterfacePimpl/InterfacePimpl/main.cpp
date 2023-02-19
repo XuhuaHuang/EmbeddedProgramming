@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * @author Xuhua Huang
  * @brief Interface Pointer to Implementation.
  *
  * @version 0.1
