@@ -5,7 +5,7 @@
  * $ g++ -o test.exe -IC:\\boost\\boost_1_80_0 .\test.cpp -std=c++11
  * $ .\test.exe
  * 
- * \author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * \author Xuhua Huang
  * \date   September 2022
  *********************************************************************/
 

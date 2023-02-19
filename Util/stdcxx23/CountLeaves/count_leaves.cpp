@@ -1,6 +1,6 @@
 /**
  * @file count_leaves.cpp
- * @author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * @author Xuhua Huang
  * @brief
  * @version 0.1
  * @date 2022-11-10

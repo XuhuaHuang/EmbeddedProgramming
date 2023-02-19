@@ -1,6 +1,6 @@
 /**
  * @file stringNotes.c
- * @author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * @author Xuhua Huang
  * @brief Notes on C-style strings with the string.h
  * 
  * Command to compile and run on Windows:

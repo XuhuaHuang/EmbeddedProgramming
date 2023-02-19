@@ -1,6 +1,6 @@
 /**
  * @file main.c
- * @author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * @author Xuhua Huang
  * @brief A preliminary updating progress bar in CLI written in C
  * To run the file on Windows with MinGW:
  * $ mingw32-make

@@ -9,7 +9,7 @@
  * This is an old/depercated version of timer in boost; a compiler
  * warning is expected; however, it is still worthy to look at the API.
  * 
- * \author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * \author Xuhua Huang
  * \date   September 19, 2022
  *********************************************************************/
 

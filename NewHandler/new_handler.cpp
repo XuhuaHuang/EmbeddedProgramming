@@ -6,7 +6,7 @@
  * \code set_new_handler allows you to specify a function to be called
  * when memory allocation requests can not be satisfied.
  * 
- * \author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * \author Xuhua Huang
  * \date   November 2022
  *********************************************************************/
 

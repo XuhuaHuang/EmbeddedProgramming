@@ -1,6 +1,6 @@
 /**
  * @file auto.cpp
- * @author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * @author Xuhua Huang
  * @brief Demonstration of a macro - compiler version dependant 
  * @version 0.1
  * @date 2021-11-07

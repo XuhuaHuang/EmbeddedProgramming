@@ -1,6 +1,6 @@
 /**
  * @file RecursiveFactorial.cpp
- * @author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * @author Xuhua Huang
  * @brief TMP stands for "Template Metaprogramming"
  * Basic "Hello, world" program to the world of TMP
  *
