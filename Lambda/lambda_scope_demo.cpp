@@ -1,6 +1,6 @@
 /**
  * @file lambda_scope_demo.cpp
- * @author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * @author Xuhua Huang
  * @brief Capture by value and capture by reference demonstration
  * @version 0.1
  * @date 2022-01-06

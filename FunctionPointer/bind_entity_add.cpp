@@ -3,7 +3,7 @@
  * \brief  This file contains the 'main' function.
  * Program execution begins and ends there. Function pointer demo.
  * 
- * \author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * \author Xuhua Huang
  * \date   September 2022
  *********************************************************************/
 

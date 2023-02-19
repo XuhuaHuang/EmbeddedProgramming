@@ -1,6 +1,6 @@
 /**
  * @file SaferString.cpp
- * @author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * @author Xuhua Huang
  * @brief 
  * @version 0.1
  * @date 2021-12-13
