@@ -32,13 +32,15 @@
 
 #include <ostream>
 
-namespace color {
+namespace color
+{
 
-#define MAKE_COLOR_MANIPULATOR(name, code)                               \
-  template < typename CharT, typename Traits = std::char_traits<CharT> > \
-  inline std::basic_ostream< CharT, Traits >&                            \
-  name(std::basic_ostream< CharT, Traits >& os)                          \
-  { return os << code; }
+#define MAKE_COLOR_MANIPULATOR(name, code)                                                                             \
+    template<typename CharT, typename Traits = std::char_traits<CharT>>                                                \
+    inline std::basic_ostream<CharT, Traits>& name(std::basic_ostream<CharT, Traits>& os)                              \
+    {                                                                                                                  \
+        return os << code;                                                                                             \
+    }
 
 // These color definitions are based on the color scheme used by Git (the
 // distributed version control system) as declared in the file
