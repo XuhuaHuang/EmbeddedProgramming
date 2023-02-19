@@ -2,7 +2,7 @@
  * \file   BasicPlane.Figures-Rectangle.cpp
  * \brief  
  * 
- * \author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * \author Xuhua Huang
  * \date   September 2022
  *********************************************************************/
 

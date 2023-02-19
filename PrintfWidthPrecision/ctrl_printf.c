@@ -1,6 +1,6 @@
 /**
  * @file ctrl_printf.c
- * @author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * @author Xuhua Huang
  * @brief Demonstration of conversion specification with printf() function in C.
  * @version 0.1
  * @date 2021-11-02
