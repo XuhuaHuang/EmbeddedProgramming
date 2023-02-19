@@ -11,7 +11,7 @@
  * $ g++ -o progress_timer.exe -c .\progress_timer.cpp -I C:\\boost\\boost_1_80_0 -std=c++2a
  * $ .\progress_timer.exe
  * 
- * \author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * \author Xuhua Huang
  * \date   September 19, 2022
  *********************************************************************/
 

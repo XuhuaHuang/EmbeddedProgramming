@@ -1,6 +1,6 @@
 /**
  * @file weak_ptr.cpp
- * @author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * @author Xuhua Huang
  * @brief Demonstration of weak_ptr feature in C++11.
  * @version 0.1
  * @date 2021-11-26
