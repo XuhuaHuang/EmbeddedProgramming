@@ -1,6 +1,6 @@
 /**
  * @file main.c
- * @author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * @author Xuhua Huang
  * @brief To compile and run the demo, execute the following:
  * $ cd .\AbstractDataTypes_in_C\
  * $ mingw32-make all
