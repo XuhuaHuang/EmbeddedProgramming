@@ -36,26 +36,26 @@
 
 int main(void)
 {
-  std::cout << color::red          << "this is red\n"
-            << color::green        << "this is green\n"
-            << color::yellow       << "this is yellow\n"
-            << color::blue         << "this is blue\n"
-            << color::magenta      << "this is magenta\n"
-            << color::cyan         << "this is cyan\n"
-            << color::bold_red     << "this is bold_red\n"
-            << color::bold_green   << "this is bold_green\n"
-            << color::bold_yellow  << "this is bold_yellow\n"
-            << color::bold_blue    << "this is bold_blue\n"
-            << color::bold_magenta << "this is bold_magenta\n"
-            << color::bold_cyan    << "this is bold_cyan\n"
-            << color::reset
-            << color::bg_red       << "this is bg_red"     << color::reset << "\n"
-            << color::bg_green     << "this is bg_green"   << color::reset << "\n"
-            << color::bg_yellow    << "this is bg_yellow"  << color::reset << "\n"
-            << color::bg_blue      << "this is bg_blue"    << color::reset << "\n"
-            << color::bg_magenta   << "this is bg_magenta" << color::reset << "\n"
-            << color::bg_cyan      << "this is bg_cyan"    << color::reset << "\n"
-            << color::reset;
+    std::cout << color::red          << "this is red\n"
+              << color::green        << "this is green\n"
+              << color::yellow       << "this is yellow\n"
+              << color::blue         << "this is blue\n"
+              << color::magenta      << "this is magenta\n"
+              << color::cyan         << "this is cyan\n"
+              << color::bold_red     << "this is bold_red\n"
+              << color::bold_green   << "this is bold_green\n"
+              << color::bold_yellow  << "this is bold_yellow\n"
+              << color::bold_blue    << "this is bold_blue\n"
+              << color::bold_magenta << "this is bold_magenta\n"
+              << color::bold_cyan    << "this is bold_cyan\n"
+              << color::reset
+              << color::bg_red       << "this is bg_red"     << color::reset << "\n"
+              << color::bg_green     << "this is bg_green"   << color::reset << "\n"
+              << color::bg_yellow    << "this is bg_yellow"  << color::reset << "\n"
+              << color::bg_blue      << "this is bg_blue"    << color::reset << "\n"
+              << color::bg_magenta   << "this is bg_magenta" << color::reset << "\n"
+              << color::bg_cyan      << "this is bg_cyan"    << color::reset << "\n"
+              << color::reset;
 
-            return 0;
+    return 0;
 }
