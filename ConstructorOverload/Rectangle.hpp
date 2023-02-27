@@ -23,44 +23,48 @@ private:
 
 public:
     // set functions prototype
-    void setlength(int userlength) { length = userlength; }
-    void setwidth(int userwidth) { width = userwidth; }
-    void setarea(int userarea) { area = userarea; }
-    void setperimeter(int userperimeter) { perimeter = userperimeter; }
+    inline void setlength(int userlength) { length = userlength; }
+    inline void setwidth(int userwidth) { width = userwidth; }
+    inline void setarea(int userarea) { area = userarea; }
+    inline void setperimeter(int userperimeter) { perimeter = userperimeter; }
 
     // get functions prototype
-    int getlength() { return length; }
-    int getwidth() { return width; }
-    int getarea() { return area; }
-    int getperimeter() { return perimeter; }
+    inline int getlength() { return length; }
+    inline int getwidth() { return width; }
+    inline int getarea() { return area; }
+    inline int getperimeter() { return perimeter; }
 
     // constructor and overloaded constructor prototype
-    Rectangle();
-    Rectangle(int, int);
-    int calcArea(int, int);
-    int calcPerimeter(int, int);
+    constexpr Rectangle();
+    constexpr Rectangle(int, int);
+    constexpr int calcArea(int, int);
+    constexpr int calcPerimeter(int, int);
 
 };
 
-Rectangle::Rectangle() // default constructor the main will call when creating an object
+constexpr Rectangle::Rectangle() // default constructor the main will call when creating an object
+    : length(0)
+    , width(0)
+    , area(0)
+    , perimeter(0)
 {
-    setlength(0);
-    setwidth(0);
 }
 
-Rectangle::Rectangle(int inilength, int iniwidth) // overloaded with two arguments passed from the main
+constexpr Rectangle::Rectangle(int inilength, int iniwidth) // overloaded with two arguments passed from the main
+    : length(inilength)
+    , width(iniwidth)
+    , area(inilength * iniwidth)
+    , perimeter((inilength + iniwidth) * 2)
 {
-    setlength(inilength);
-    setwidth(iniwidth);
 }
 
-int Rectangle::calcArea(int inilength, int iniwidth)
+[[gnu::const]] constexpr int Rectangle::calcArea(int inilength, int iniwidth)
 {
     int area = inilength * iniwidth;
     return area;
 }
 
-int Rectangle::calcPerimeter(int inilength, int iniwidth)
+[[gnu::const]] constexpr int Rectangle::calcPerimeter(int inilength, int iniwidth)
 {
     int perimeter = (inilength + iniwidth) * 2;
     return perimeter;
