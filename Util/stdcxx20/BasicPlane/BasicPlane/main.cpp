@@ -2,12 +2,13 @@
  * \file   main.cpp
  * \brief  
  * 
- * \author Xuhua Huang (xuhua.huang.io@gmail.com)
+ * \author Xuhua Huang
  * \date   September 2022
  *********************************************************************/
 
 //import std.core;
 #include <iostream>
+
 import BasicPlane.Figures;
 
 int main(void)
@@ -23,5 +24,6 @@ int main(void)
     std::cout << "width: " << width(r) << "\n";
     std::cout << "area: " << area(r) << "\n";
 
+    system("pause");
     return 0;
 }

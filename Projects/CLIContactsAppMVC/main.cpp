@@ -1,3 +1,4 @@
+/* clang-format off */
 /*****************************************************************//**
  * \file   main.cpp
  * \brief  Scratch program using refactoring approach.
@@ -5,13 +6,12 @@
  * \author Xuhua Huang
  * \date   September 2021
  *********************************************************************/
+/* clang-format on */
 
-#include <stdlib.h>
-#include <iostream>
-#include <string>
 #include <array>
-
-using namespace std;
+#include <iostream>
+#include <stdlib.h>
+#include <string>
 
 #ifndef DEBUG
 #define DEBUG 1
@@ -24,9 +24,10 @@ using namespace std;
 #define _MAXSIZE 20
 #endif
 
-enum Sex {
+enum Sex
+{
     female = 0,
-    male = 1
+    male   = 1
 };
 
 class Person
@@ -34,13 +35,21 @@ class Person
 public:
     /* Public default and overloaded constructor. */
     /* Default constructor */
-    explicit Person() : _name(""), _sex(Sex::female), _tell(""), _email(""), _addr("") {
+    explicit Person()
+        : _name("")
+        , _sex(Sex::female)
+        , _tell("")
+        , _email("")
+        , _addr("")
+    {
         DEBUG("Default constructor for class Person");
     }
     /* Overloaded constructor */
-    explicit Person(
-        const string name, const int sex,
-        const string tell, const string email, const string addr = "")
+    explicit Person(const std::string name,
+                    const int         sex,
+                    const std::string tell,
+                    const std::string email,
+                    const std::string addr = "")
     {
         DEBUG("Overloaded constructor for class Person");
         this->setName(name);
@@ -49,19 +58,21 @@ public:
         this->setEmail(email);
         this->setAddr(addr);
     }
-    virtual ~Person() {}
+    virtual ~Person() = default;
 
     /**
      * Provide mutator and accessors for private members.
      */
-    void setName(const string name) {
+    void setName(const std::string name)
+    {
         if (name != "\n")
             _name = name;
         else
             DEBUG("Error occurred while setting name! Empty argument.");
     }
 
-    void setSex(const int sex) {
+    void setSex(const int sex)
+    {
         if (sex)
             _sex = Sex::male;
         else if (!sex)
@@ -70,88 +81,105 @@ public:
             DEBUG("Error occurred while setting sex! Non-binary argument.");
     }
 
-    void setTell(const string tell) {
+    void setTell(const std::string tell)
+    {
         if (tell != "\n")
             _tell = tell;
         else
             DEBUG("Error occurred while setting phone number! Empty argument.");
     }
 
-    void setEmail(const string email) {
+    void setEmail(const std::string email)
+    {
         if (email != "\n")
             _email = email;
         else
             DEBUG("Error occurred while setting phone number! Empty argument.");
     }
 
-    void setAddr(const string addr) {
+    void setAddr(const std::string addr)
+    {
         _addr = addr; // with provided default argument in overloaded constructor
     }
 
-    string name() const { return _name; }
-    string sex() const { return _sex ? "Male" : "Female"; }
-    string tell() const { return _tell; }
-    string email() const { return _email; }
-    string addr() const { return _addr; }
+    std::string name() const { return _name; }
+    std::string sex() const { return _sex ? "Male" : "Female"; }
+    std::string tell() const { return _tell; }
+    std::string email() const { return _email; }
+    std::string addr() const { return _addr; }
 
     /* Add support for use case like "std::cout << person;" */
-    friend istream& operator>> (istream& input, Person& argPerson);
-    friend ostream& operator<< (ostream&, const Person&);
+    friend std::istream& operator>>(std::istream& input, Person& argPerson);
+    friend std::ostream& operator<<(std::ostream&, const Person&);
 
 private:
     Person(const Person&) = delete;
 
     /* Private attributes associated with individuals. */
-    string _name;
-    int _sex;
-    string _tell;
-    string _email;
-    string _addr;
+    std::string _name;
+    int         _sex;
+    std::string _tell;
+    std::string _email;
+    std::string _addr;
 };
 
 /* UI namespace contains all required function for View. */
-namespace UI {
+namespace UI
+{
 
-    namespace interact {
-        /* Print instruction in terminal and store answer in reference variable. */
-        void input(const string instruction, string& answer) {
-            if (instruction != "\n") {
-                cout << instruction;
-                std::getline(std::cin, answer);
-            }
-            else
-                DEBUG("Error occurred while asking for input! Invalid instruction.");
-        }
+namespace interact
+{
+/* Print instruction in terminal and store answer in reference variable. */
+void input(const std::string instruction, std::string& answer)
+{
+    if (instruction != "\n")
+    {
+        std::cout << instruction;
+        std::getline(std::cin, answer);
     }
+    else
+        DEBUG("Error occurred while asking for input! Invalid instruction.");
+}
+} // namespace interact
 
-    namespace display {
+namespace display
+{
 
-        void printAsterisks(const int numToPrint = 43, const string arg = "") {
-            for (int i = 0; i < numToPrint; ++i) {
-                cout << "*";
-            }
-            cout << "\n";
-        }
-
-        void printInstructions(const string arg = "") {
-            printAsterisks();
-            cout << "*** Press 0 to print all saved contacts ***" << "\n"
-                << "*** Press 1 to add a new contact to App ***" << "\n"
-                << "*** Press 2 to look up saved individual ***" << "\n"
-                << "*** Press 3 to delete a contact by name ***" << "\n"
-                << "*** Press 4 to remove all saved contact ***" << "\n";
-            printAsterisks();
-        }
-
-        void clearScreen() {
-            system("CLS");
-        }
+void printAsterisks(const int numToPrint = 43, const std::string arg = "")
+{
+    for (int i = 0; i < numToPrint; ++i)
+    {
+        std::cout << "*";
     }
+    std::cout << "\n";
 }
 
-istream& operator>> (istream& input, Person& argPerson)
+void printInstructions(const std::string arg = "")
 {
-    string name, sex, tell, email, address;
+    printAsterisks();
+    std::cout << "*** Press 0 to print all saved contacts ***"
+              << "\n"
+              << "*** Press 1 to add a new contact to App ***"
+              << "\n"
+              << "*** Press 2 to look up saved individual ***"
+              << "\n"
+              << "*** Press 3 to delete a contact by name ***"
+              << "\n"
+              << "*** Press 4 to remove all saved contact ***"
+              << "\n";
+    printAsterisks();
+}
+
+void clearScreen()
+{
+    system("CLS");
+}
+} // namespace display
+} // namespace UI
+
+std::istream& operator>>(std::istream& input, Person& argPerson)
+{
+    std::string name, sex, tell, email, address;
 
     UI::interact::input("Name: ", name);
     UI::interact::input("Sex: ", sex);
@@ -174,13 +202,12 @@ istream& operator>> (istream& input, Person& argPerson)
     return input;
 }
 
-ostream& operator<< (ostream& output, const Person& argPerson)
+std::ostream& operator<<(std::ostream& output, const Person& argPerson)
 {
-    output << "\nPerson: " << argPerson.name() << ", "
-        << argPerson.sex() << "\n"
-        << "Tell: " << argPerson.tell() << "\n"
-        << "Email: " << argPerson.email() << "\n"
-        << "Address: " << argPerson.addr() << "\n";
+    output << "\nPerson: " << argPerson.name() << ", " << argPerson.sex() << "\n"
+           << "Tell: " << argPerson.tell() << "\n"
+           << "Email: " << argPerson.email() << "\n"
+           << "Address: " << argPerson.addr() << "\n";
 
     return output;
 }
@@ -190,7 +217,6 @@ ostream& operator<< (ostream& output, const Person& argPerson)
 class Model
 {
 public:
-
 private:
     std::array<Person, _MAXSIZE> ContactsData;
 };
@@ -200,16 +226,14 @@ private:
  * Need o provide the following functionality:
  * 1) insert
  * 2) look for
- *		i. output
- *		ii. delete
- *		iii. modify and save
+ *      i. output
+ *      ii. delete
+ *      iii. modify and save
  */
 class Controller
 {
 public:
-
 private:
-
 };
 
 
@@ -217,8 +241,8 @@ private:
 int main(int argc, char* argv)
 {
     Person demoPersonToAdd;
-    cin >> demoPersonToAdd;
-    cout << demoPersonToAdd;
+    std::cin >> demoPersonToAdd;
+    std::cout << demoPersonToAdd;
 
     UI::display::printAsterisks();
     UI::display::printInstructions();
