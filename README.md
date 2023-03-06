@@ -1,6 +1,8 @@
 # **Embedded Programming**
 
-https://github.com/XuhuaHuang/EmbeddedProgramming
+$$\int_b^d study \,dt= life$$
+
+<https://github.com/XuhuaHuang/EmbeddedProgramming>
 
 `#include <❤>`
 
