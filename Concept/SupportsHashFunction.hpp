@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   SupportsHashFunction.hpp
- * \brief  
+ * \brief  Concept that requires a generic type T to be hash-able.
  * 
  * \author Xuhua Huang
  * \date   December 02, 2022
