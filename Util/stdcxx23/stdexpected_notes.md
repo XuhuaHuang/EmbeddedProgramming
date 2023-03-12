@@ -24,4 +24,27 @@ auto main(void) -> int {
 
 ```C++
 auto get_widget() -> std::expected<Widget, std::variant<ParseError, IOError, NetworkError>>;
+
+auto widget = get_widget();
+
+template <typename... Ts> struct overload : Ts... {
+    using Ts::operator()...;
+};
+
+if (widget.has_value()) {
+    process(widget.value());
+}
+else {
+    std::visit(overload{
+        [](ParseError& error) {
+            // handle parse error ...
+        },
+        [](IOError& error) {
+            // handle I/O error ...
+        },
+        [](NetworkError& error) {
+            // handle network error ...
+        }
+    }, widget.error());
+}
 ```
