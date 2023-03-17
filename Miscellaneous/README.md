@@ -45,3 +45,21 @@ int main(void) {
   return 0;
 }
 ```
+
+---
+
+```cpp
+auto x = {11, 23, 9}; // x is of type std::initializer_list<int>
+
+template<typename T>
+void f(T param);
+
+f({11, 23, 9}); // error: can't deduce type for T
+```
+Consider the following instead
+```cpp
+template<typename T>
+void f(std::innitializer<T> initList);
+
+f({11, 23, 9}); // T is deducted as int, and initList's type is std::initializer_list<int>
+```
