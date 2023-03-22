@@ -2,6 +2,8 @@
 
 $$\int_b^d study \,dt= life$$
 
+https://g.dev/xuhua-huang-io
+
 <https://github.com/XuhuaHuang/EmbeddedProgramming>
 
 `#include <❤>`
@@ -19,6 +21,7 @@ Using `CMake` will be significantly easier than manually compilling all the file
 For your comfort, some of the files have required compilation command focumented in the source file itself.
 
 ## **Special Thanks** ❤
+
 **Prof. Charmaine Jirgens** <br>
 My mentor to the programming world <br>
 Professor, Electronics Engineering and Information Technology <br>
@@ -27,6 +30,7 @@ Heritage College, Gatineau, Quebec, Canada
 > Software does not run in a magic fairy aether powered by the fevered dreams of CS PhDs.
 
 ## Languages
+
 **C/C++, Objective-C/C++**
 
 <img src="Settings/images/c_logo.png" alt="An image for C Language" width="100"/><img src="Settings/images/cpp_logo.png" alt="An image for C++" width="100"/>   <img src="Settings/images/mingw_logo.png" alt="An image for MinGW" width="110"/>
@@ -63,6 +67,7 @@ private:
 ```
 
 ## **Getting Started**
+
 **Example to Compile a File Named `get_tie.cpp`**
 
 ```Bash
@@ -85,7 +90,9 @@ $ g++ --version
 ```
 
 ## **Repository Directories**
+
 If you already have a configured `CMake` for your operating system, simple change to the directory with such `CMakeLists.txt` and run:<br>
+
 ```Bash
 $ cmake .
 ```
@@ -95,6 +102,7 @@ $ cmake ./CMakeLists.txt
 ```
 
 For example, change to directory `./DesignPatterns`:
+
 ```Bash
 $ cd ./DesignPatterns
 $ cmake ./CMakeLists.txt
