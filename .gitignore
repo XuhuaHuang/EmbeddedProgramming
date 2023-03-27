@@ -8,6 +8,9 @@
 .vscode/
 *.code-workspace
 *.o
+*.pyd
+Cython/*.c
+Cython/*.cpp
 
 # User-specific files
 *.rsuser
