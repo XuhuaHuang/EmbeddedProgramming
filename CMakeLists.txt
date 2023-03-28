@@ -16,5 +16,6 @@ add_subdirectory("Array")
 add_subdirectory("BitwiseOperator")
 # add_subdirectory("Boost")
 # add_subdirectory("Util")  # "Util/CMakeLists.txt", includes sub-directories inside
+add_subdirectory("ValArray")
 add_subdirectory("Vector")
 add_subdirectory("View")
