@@ -19,6 +19,7 @@
 #include <concepts>
 #include <iostream>
 #include <limits>
+#include <span>
 #include <type_traits>
 #include <valarray>
 
@@ -94,6 +95,26 @@ int main()
     // compute the dot product of v and v_squared
     int dot_product = (v * v_squared).sum();
     log << "dot product of v and v_squared: " << dot_product << "\n";
+
+    v = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    log << v << "\n";
+
+    // create a slice with start index 2, length 3, and stride 2
+    // s[2] = 3
+    // s[2 + 2] == s[4] = 5
+    // s[2 + 2 + 2] == s[6] = 7
+    std::slice s{2, 3, 2};
+    log << typeid(s).name() << "\n"; // class std::slice
+
+    // use the slice to create a new valarray
+    std::valarray<int> result = v[s];
+    // print the new valarray
+    log << result << "\n";
+
+    // change the value of the original valarray
+    v[s] = 0;
+    // print the original valarray
+    log << v << "\n";
 
     return 0;
 }
