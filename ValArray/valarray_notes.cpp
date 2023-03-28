@@ -9,6 +9,7 @@
  * .\valarray_notes.exe
  *
  * https://en.cppreference.com/w/cpp/numeric/valarray
+ * https://en.cppreference.com/w/cpp/numeric/valarray/slice
  *
  * @copyright ueg (c) 2023
  *
