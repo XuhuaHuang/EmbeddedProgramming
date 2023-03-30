@@ -25,4 +25,8 @@ execution and output
 88 sum of v: 15
 92 [1, 4, 9, 16, 25]
 96 dot product of v and v_squared: 225
+99 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+106 class std::slice
+111 [3, 5, 7]
+116 [1, 2, 0, 4, 0, 6, 0, 8, 9, 10]
 ```
