@@ -20,13 +20,15 @@
 
 class Customer {
 public:
-    Customer() = default;
-    Customer(std::string first, std::string last, const long val)
+    inline constexpr Customer() noexcept = default;
+    inline Customer(std::string first, std::string last, const long val)
         : first_name(std::move(first)), last_name(std::move(last)), val(val) {}
 
-    std::string get_first_name() const { return this->first_name; }
-    std::string get_last_name() const { return this->last_name; }
-    long get_val() const { return this->val; }
+    inline virtual constexpr ~Customer() noexcept = default;
+
+    inline std::string get_first_name() const { return this->first_name; }
+    inline std::string get_last_name() const { return this->last_name; }
+    inline long get_val() const { return this->val; }
 
 private:
     std::string first_name;
