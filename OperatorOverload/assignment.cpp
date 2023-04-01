@@ -11,6 +11,10 @@
 class point
 {
 public:
+    constexpr point() = default;
+    constexpr point(const point& rhs) = default;
+    virtual ~point() = default;
+
     int _x; int _y;
 
     point& operator= (const point&);
