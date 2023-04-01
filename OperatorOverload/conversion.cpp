@@ -13,15 +13,32 @@
 class Fraction
 {
 private:
-    int num, den;
+    int num;
+    int den;
 
 public:
-    Fraction(int n, int d) { num = n; den = d; }
+    constexpr Fraction()
+        : num(0)
+        , den(0)
+    {
+    };
+
+    constexpr Fraction(int n, int d)
+        : num(n)
+        , den(d)
+    {
+    }
+
+    constexpr Fraction(const Fraction& rhs) = default;
+    virtual ~Fraction() = default;
+
+    constexpr const int getnum() const { return this->num; }
+    constexpr const int getden() const { return this->den; }
 
     // conversion operator: return float value of fraction 
-    operator float() const
+    constexpr operator float() const
     {
-        return float(num) / float(den);
+        return float(getnum()) / float(getden());
     }
 };
 

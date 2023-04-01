@@ -9,6 +9,9 @@
  *
  */
 
+#ifndef UNROLL_HPP
+#define UNROLL_HPP
+
 #ifndef _TYPE_TRAITS_
 #include <type_traits>
 #endif // !_TYPE_TRAITS_
@@ -36,3 +39,5 @@ constexpr auto unroll_ = [](auto expr) {
 
 } // namespace iife
 } // namespace util
+
+#endif

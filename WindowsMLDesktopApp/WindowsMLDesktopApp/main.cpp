@@ -9,8 +9,6 @@ using namespace Windows::Graphics::Imaging;
 using Windows::Media::VideoFrame;
 using namespace Windows::Storage;
 
-//using namespace std;
-
 // Global variables
 // Miscellaneous Path
 winrt::hstring modelPath = L"./model/SqueezeNet.onnx";
