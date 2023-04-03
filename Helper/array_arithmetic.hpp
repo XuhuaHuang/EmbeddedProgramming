@@ -21,11 +21,13 @@ namespace array_arithmetic
 
 // clang-format off
 template<typename T, std::size_t N>
+#if _HAS_CXX23
     requires requires (T t) {
         {
             std::cout << t
         } -> std::convertible_to<std::ostream&>;
     }
+#endif // _HAS_CXX23
 // clang-format on
 inline std::ostream& operator<<(std::ostream& os, const std::array<T, N>& arr)
 {
