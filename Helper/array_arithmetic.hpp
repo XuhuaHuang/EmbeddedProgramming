@@ -122,6 +122,11 @@ inline std::array<T, N>& operator+=(std::array<T, N>& lhs, const T rhs)
 }
 
 template<typename T, std::size_t N>
+    requires requires (T lhs, T rhs) {
+        {
+            lhs += rhs
+        } -> std::convertible_to<T>;
+    }
 inline std::array<T, N>& operator+=(std::array<T, N>& lhs, const std::array<T, N>& rhs)
 {
     for (std::size_t i = 0; i < N; ++i)
