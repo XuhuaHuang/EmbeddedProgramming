@@ -28,17 +28,15 @@ namespace helper
 {
 namespace array_arithmetic
 {
+template<typename T, std::size_t rows, std::size_t cols>
+using mdarray = std::array<std::array<T, cols>, rows>;
 
-// clang-format off
 template<typename T, std::size_t N>
-#if _HAS_CXX23
     requires requires (T t) {
         {
             std::cout << t
         } -> std::convertible_to<std::ostream&>;
     }
-#endif // _HAS_CXX23
-// clang-format on
 inline std::ostream& operator<<(std::ostream& os, const std::array<T, N>& arr)
 {
     os << "[";
@@ -58,17 +56,13 @@ inline std::ostream& operator<<(std::ostream& os, const std::array<T, N>& arr)
     return os;
 }
 
-// clang-format off
 template<typename T, std::size_t N>
-#if _HAS_CXX23
     requires requires (T t) {
         {
             +t
         } -> std::convertible_to<T>;
     }
-#endif // _HAS_CXX23
-// clang-format on
-inline constexpr std::array<T, N> operator+(const std::array<T, N>& rhs)
+inline std::array<T, N> operator+(const std::array<T, N>& rhs)
 {
     /* NRVO variable */
     /// @brief Named Return Value Optimization
@@ -80,17 +74,13 @@ inline constexpr std::array<T, N> operator+(const std::array<T, N>& rhs)
     return ans;
 }
 
-// clang-format off
 template<typename T, std::size_t N>
-#if _HAS_CXX23
     requires requires (T t) {
         {
             -t
         } -> std::convertible_to<T>;
     }
-#endif // _HAS_CXX23
-// clang-format on
-inline constexpr std::array<T, N> operator-(const std::array<T, N>& rhs)
+inline std::array<T, N> operator-(const std::array<T, N>& rhs)
 {
     std::array<T, N> ans = std::array<T, N>();
     for (std::size_t i = 0; i < N; ++i)
