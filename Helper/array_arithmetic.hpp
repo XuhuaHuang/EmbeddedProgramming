@@ -48,6 +48,28 @@ inline std::ostream& operator<<(std::ostream& os, const std::array<T, N>& arr)
     return os;
 }
 
+// clang-format off
+template<typename T, std::size_t N>
+#if _HAS_CXX23
+    requires requires (T t) {
+        {
+            +t
+        } -> std::convertible_to<T>;
+    }
+#endif // _HAS_CXX23
+// clang-format on
+inline constexpr std::array<T, N> operator+(const std::array<T, N>& rhs)
+{
+    /* NRVO variable */
+    /// @brief Named Return Value Optimization
+    std::array<T, N> ans = std::array<T, N>();
+    for (std::size_t i = 0; i < N; ++i)
+    {
+        ans[i] = +rhs[i];
+    }
+    return ans;
+}
+
 } // namespace array_arithmetic
 } // namespace helper
 
