@@ -5,6 +5,8 @@
  * @version 0.1
  * @date 2023-04-03
  *
+ * cmake -Bbuild -Wno-dev
+ *
  * @copyright ueg (c) 2023
  *
  */
@@ -13,6 +15,14 @@
 
 #ifndef ARRAY_ARITHMETIC_HPP
 #define ARRAY_ARITHMETIC_HPP
+
+#ifndef _ARRAY_
+#include <array>
+#endif
+
+#ifndef _IOSTREAM_
+#include <iostream>
+#endif
 
 namespace helper
 {
