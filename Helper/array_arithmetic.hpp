@@ -62,7 +62,7 @@ template<typename T, std::size_t N>
             +t
         } -> std::convertible_to<T>;
     }
-inline std::array<T, N> operator+(const std::array<T, N>& rhs)
+inline [[nodiscard]] std::array<T, N> operator+(const std::array<T, N>& rhs)
 {
     /* NRVO variable */
     /// @brief Named Return Value Optimization
@@ -80,7 +80,7 @@ template<typename T, std::size_t N>
             -t
         } -> std::convertible_to<T>;
     }
-inline std::array<T, N> operator-(const std::array<T, N>& rhs)
+inline [[nodiscard]] std::array<T, N> operator-(const std::array<T, N>& rhs)
 {
     std::array<T, N> ans = std::array<T, N>();
     for (std::size_t i = 0; i < N; ++i)
@@ -96,7 +96,7 @@ template<typename T, std::size_t N>
             ~t
         } -> std::convertible_to<T>;
     }
-inline std::array<T, N> operator~(const std::array<T, N>& rhs)
+inline [[nodiscard]] std::array<T, N> operator~(const std::array<T, N>& rhs)
 {
     std::array<T, N> ans = std::array<T, N>();
     for (std::size_t i = 0; i < N; ++i)
@@ -112,7 +112,7 @@ template<typename T, std::size_t N>
             lhs += rhs
         } -> std::convertible_to<T>;
     }
-inline std::array<T, N>& operator+=(std::array<T, N>& lhs, const T rhs)
+inline std::array<T, N>& operator+=(std::array<T, N>& lhs, const T& rhs)
 {
     for (std::size_t i = 0; i < N; ++i)
     {
