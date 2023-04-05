@@ -30,7 +30,7 @@ namespace GoogleTestUtil {
  * result is determined by assertions
  *
  * TEST(TestSuiteName, TestName) {
- *	// ... test body ...
+ *  // ... test body ...
  * }
  */
 
