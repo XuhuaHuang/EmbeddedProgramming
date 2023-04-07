@@ -52,33 +52,36 @@ Heritage College, Gatineau, Quebec, Canada
 <img src="Settings/images/c_logo.png" alt="An image for C Language" width="100"/><img src="Settings/images/cpp_logo.png" alt="An image for C++" width="100"/>   <img src="Settings/images/mingw_logo.png" alt="An image for MinGW" width="110"/>
 
 ```C++
-class person {
+class person
+{
 public:
     explicit person() = default;
 
     explicit person(const std::string& fn, const std::string& ln)
         : first(fn)
-        , last(ln) {
+        , last(ln)
+    {
     }
 
     explicit person(std::string&& fn, std::string&& ln)
         : first(std::move(fn))
-        , last(std::move(ln)) {
+        , last(std::move(ln))
+    {
     }
 
-    person(const person& rhs) = default;
-    person& operator = (const person&);
+    person(const person& rhs)                = default;
+    person& operator=(const person&)         = default;
 
-    person(person&& rhs) noexcept = default;
-    person& operator = (person&& rhs) noexcept;
+    person(person&& rhs) noexcept            = default;
+    person& operator=(person&& rhs) noexcept = default;
 
-    virtual ~person() = default;
+    virtual ~person() noexcept               = default;
 
-    [[nodiscard]] inline std::string& firstname() { return first; }
-    inline const std::string& firstname() const { return first; }
+    [[nodiscard]] inline std::string& first_name() { return first; }
+    inline const std::string&         first_name() const { return first; }
 
-    [[nodiscard]] inline std::string& lastname() { return last; }
-    inline const std::string& lastname() const { return last; }
+    [[nodiscard]] inline std::string& last_name() { return last; }
+    inline const std::string&         last_name() const { return last; }
 
 private:
     std::string first;
