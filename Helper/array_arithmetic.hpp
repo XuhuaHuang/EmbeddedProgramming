@@ -28,6 +28,7 @@ namespace helper
 {
 namespace array_arithmetic
 {
+
 template<typename T, std::size_t rows, std::size_t cols>
 using mdarray = std::array<std::array<T, cols>, rows>;
 
@@ -43,11 +44,11 @@ inline std::ostream& operator<<(std::ostream& os, const std::array<T, N>& arr)
     for (typename std::array<T, N>::const_iterator it = arr.begin(); it != arr.end(); ++it)
     {
         os << *it;
-        if (it != arr.end() - 1) [[unlikely]]
+        if (it != arr.end() - 1) [[likely]]
         {
             os << ", ";
         }
-        else [[likely]]
+        else [[unlikely]]
         {
             continue;
         }
