@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   lab_Time.cpp
  * \brief  class Time to demonstrate copy constructor
@@ -5,9 +6,9 @@
  * \author Xuhua Huang
  * \date   November 2020
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
-using namespace std;
 
 class Time
 {
@@ -19,13 +20,13 @@ private:
 public:
     // set and functions
     void setHour(int userHour); // definition of set functions follow with validation
-    int getHour() { return hour; }
+    int  getHour() { return hour; }
 
     void setMinute(int userMinute);
-    int getMinute() { return minute; }
+    int  getMinute() { return minute; }
 
     void setSecond(int userSecond);
-    int getSecond() { return second; }
+    int  getSecond() { return second; }
 
     // overloaded constructor
     Time(int userHour, int userMinute, int userSecond);
@@ -40,14 +41,18 @@ int main(void)
 {
     // Time(int userHour, int userMinute, int userSecond);
     Time time1(18, 30, 30);
-    std::cout << "\nAn object named \"time1\" of class \"Time\" is created." << "\n"
-        << "Calling the printTime() function." << "\n";
+    std::cout << "\nAn object named \"time1\" of class \"Time\" is created."
+              << "\n"
+              << "Calling the printTime() function."
+              << "\n";
     time1.printTime();
 
     Time timeCopy(time1);
     std::cout << "\nAn object named \"timeCopy\" of class \"Time\" is created "
-        << "with copy constructor." << "\n"
-        << "Test case to test the copy constructor" << "\n";
+              << "with copy constructor."
+              << "\n"
+              << "Test case to test the copy constructor"
+              << "\n";
     timeCopy.printTime();
 
     return 0;
@@ -62,7 +67,8 @@ void Time::setHour(int userHour) // hour should be valid form 0 to 23
     }
     else if (userHour == 24)
     {
-        std::cout << "\n[fn]Do you mean 0 a.m.? It is automatically set to 0 a.m." << "\n";
+        std::cout << "\n[fn]Do you mean 0 a.m.? It is automatically set to 0 a.m."
+                  << "\n";
         hour = 0;
     }
     else
@@ -123,10 +129,11 @@ Time::Time(const Time& time)
 
 void Time::printTime() // not required
 {
-    std::cout << "\n[fn]\"void Time::printTime()\" called." << "\n"
-        << "[fn]\tHour:Minute:Second" << "\n"
-        << "[fn]\t"
-        << getHour() << ":" << getMinute() << ":" << getSecond() << "\n";
+    std::cout << "\n[fn]\"void Time::printTime()\" called."
+              << "\n"
+              << "[fn]\tHour:Minute:Second"
+              << "\n"
+              << "[fn]\t" << getHour() << ":" << getMinute() << ":" << getSecond() << "\n";
     // using get functions to get stored value with verification
 
     return;
