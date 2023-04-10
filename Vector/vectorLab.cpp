@@ -23,6 +23,8 @@ void palindrome(std::vector<char>);
 
 int main(void)
 {
+    std::random_device rd;
+    std::mt19937       g(rd());
 
     std::vector<int> v1(2, 0); // std::vector v1 of type int
     std::cout << "The first element of v1 is: " << v1.at(0) << "\n"; // print the first element 0
@@ -79,11 +81,11 @@ int main(void)
     vA.push_back(1); // writing all elements into the std::vector
     */
     std::cout << "\nSorting..." << "\n";
-    sort(vA.begin(), vA.end());
+    std::sort(vA.begin(), vA.end());
     printIntVector(vA); // print sorted
 
     std::cout << "\nReversing..." << "\n";
-    reverse(vA.begin(), vA.end());
+    std::reverse(vA.begin(), vA.end());
     printIntVector(vA); // print reversed
 
     std::vector<char> vB{ 'B','S','T', 'W','S','K','A','W' }; // creating int std::vector named 'vB'
@@ -99,15 +101,15 @@ int main(void)
     */
 
     std::cout << "\nSorting..." << "\n";
-    sort(vB.begin(), vB.end());
+    std::sort(vB.begin(), vB.end());
     printCharVector(vB); // print sorted
 
     std::cout << "\nReversing..." << "\n";
-    reverse(vB.begin(), vB.end());
+    std::reverse(vB.begin(), vB.end());
     printCharVector(vB); // print reversed
 
     std::cout << "\nShuffling..." << "\n";
-    random_shuffle(vB.begin(), vB.end());
+    std::shuffle(vB.begin(), vB.end(), g);
     printCharVector(vB); // print shuffled
 
     // counting in std::vector A:
@@ -124,31 +126,31 @@ int main(void)
     std::cout << "The times element \"S\" is: " << count(vB.begin(), vB.end(), 'S') << "\n";
     std::cout << "The times element \"W\" is: " << count(vB.begin(), vB.end(), 'W') << "\n";
 
-    // max_elementin both std::vectors:
+    // max_element in both std::vectors:
     std::cout << "\nConsulting the biggest element in both std::vectors..." << "\n";
     std::cout << "The max element is std::vector A is: " << *max_element(vA.begin(), vA.end()) << "\n"; // print 7
     std::cout << "The max element is std::vector B is: " << *max_element(vB.begin(), vB.end()) << "\n"; // print 'W'
 
-    // min_elementin both std::vectors:
+    // min_element in both std::vectors:
     std::cout << "\nConsulting the smallest element in both std::vectors..." << "\n";
     std::cout << "The min element is std::vector A is: " << *min_element(vA.begin(), vA.end()) << "\n"; // print 1
     std::cout << "The min element is std::vector B is: " << *min_element(vB.begin(), vB.end()) << "\n"; // print 'A'
 
     // replace elements in both std::vectors:
     std::cout << "\nReplacing all \"1\"s in std::vector A..." << "\n";
-    replace(vA.begin(), vA.end(), 1, 8); // replace all 1s with 8s
-    sort(vA.begin(), vA.end()); // sort before printing
+    std::replace(vA.begin(), vA.end(), 1, 8); // replace all 1s with 8s
+    std::sort(vA.begin(), vA.end()); // sort before printing
     printIntVector(vA); // no 1s.
 
     std::cout << "\nReplacing all \"S\"s in std::vector B..." << "\n";
-    replace(vB.begin(), vB.end(), 'S', 'C'); // replace all 'S' with 'C'
-    sort(vB.begin(), vB.end());
+    std::replace(vB.begin(), vB.end(), 'S', 'C'); // replace all 'S' with 'C'
+    std::sort(vB.begin(), vB.end());
     printCharVector(vB);
 
     //squareAndPrint(9); // testing function
     // for_each function
     std::cout << "\nSquaring std::vector A..." << "\n";
-    for_each(vA.begin(), vA.end(), squareAndPrint); // only the function name
+    std::for_each(vA.begin(), vA.end(), squareAndPrint); // only the function name
 
     // checking if it's palindrome int std::vectors:
     std::vector<int> testint{ 1,2,3,2,1 };
