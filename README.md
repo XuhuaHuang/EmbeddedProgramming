@@ -168,7 +168,7 @@ cmake ../CMakeLists.txt -G "Ninja"
 cmake ../CMakeLists.txt -G "MinGW Makefiles"
 ```
 
-### `Util`
+### [`Util`](./Util/)
 
 Functionality provided by separate module. A namespace `util` is created to better manage the functions.<br>
 Tests and `GoogleTest` are located within the `Util/tests` folder.
@@ -191,46 +191,6 @@ namespace util {
     namespace vector {}
 }
 ```
-
-Contains template (generic) function in a C-style header file, providing the following functionality:
-
-- `is_instance_of.hpp`
-  - [definition](./util/is_instance_of.hpp)
-  - [unit tests](./Util/tests/test_is_instance_of.cpp)
-  - identify whether an object if of a specified type.
-  - comparable to `isinstance()` in Python.
-- `is_same_type_of.hpp`
-  - [definition](./Util/is_same_type.hpp)
-  - identify whether two objects are the same type.
-  - use `typeid().hash_code()` and `typeid().name()`.
-- `log.h`
-  - [definition](./Util/log.h)
-  - function-style definition `LOG(...)` using macro in C.
-- `parse.hpp`
-  - [definition](./Util/parse.hpp)
-  - [unit tests](./Util/tests/test_parse_str.cpp)
-  - easily split a comma-separated `std::string`.
-- `print_list.hpp`
-  - [definition](./Util/print_list.hpp)
-  - template function to print a `std::list<>` to console.
-  - accepts a generic type of `std::list<>`.
-- `print_range.hpp`
-  - [definition](./Util/print_range.hpp)
-  - [unit tests](./Util/tests/test_print_range.cpp)
-  - template function to print a `std::ranges<>` to console.
-  - accepts a generic type of `std::ranges<>`.
-- `print_vec.hpp`
-  - [definition](./Util/print_vec.hpp)
-  - template function to print a `std::vector<>` to console.
-  - accepts a generic type of `std::vector<>`.
-- `safe_free.hpp`
-  - [definition](./Util/safe_free.hpp)
-  - [unit tests](./Util/tests/test_safe_free.cpp)
-  - `free()` function implementation to release allocated resources.
-- `trimstr.hpp`
-  - [definition](./Util/trimstr.hpp)
-  - [unit tests](./Util/tests/gtest_trim_str.cpp)
-  - trim a `std::string` using pipeline operator and `std::ranges::to<>`.
 
 ### `HackerRank`
 
