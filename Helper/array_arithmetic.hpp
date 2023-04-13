@@ -64,6 +64,7 @@ template<typename T, std::size_t N>
         } -> std::convertible_to<T>;
     }
 inline [[nodiscard]] std::array<T, N> operator+(const std::array<T, N>& rhs)
+[[nodiscard]] constexpr std::array<T, N> operator+(const std::array<T, N>& rhs)
 {
     /* NRVO variable */
     /// @brief Named Return Value Optimization
@@ -81,7 +82,7 @@ template<typename T, std::size_t N>
             -t
         } -> std::convertible_to<T>;
     }
-inline [[nodiscard]] std::array<T, N> operator-(const std::array<T, N>& rhs)
+[[nodiscard]] constexpr std::array<T, N> operator-(const std::array<T, N>& rhs)
 {
     std::array<T, N> ans = std::array<T, N>();
     for (std::size_t i = 0; i < N; ++i)
@@ -97,12 +98,28 @@ template<typename T, std::size_t N>
             ~t
         } -> std::convertible_to<T>;
     }
-inline [[nodiscard]] std::array<T, N> operator~(const std::array<T, N>& rhs)
+[[nodiscard]] constexpr std::array<T, N> operator~(const std::array<T, N>& rhs)
 {
     std::array<T, N> ans = std::array<T, N>();
     for (std::size_t i = 0; i < N; ++i)
     {
         ans[i] = ~rhs[i];
+    }
+    return ans;
+}
+
+template<typename T, std::size_t N>
+    requires requires (T t) {
+        {
+            !t
+        } -> std::convertible_to<bool>;
+    }
+[[nodiscard]] constexpr std::array<bool, N> operator!(const std::array<T, N>& lhs)
+{
+    std::array<bool, N> ans = std::array<T, N>();
+    for (std::size_t i = 0; i < N; ++i)
+    {
+        ans[i] = !lhs[i];
     }
     return ans;
 }
