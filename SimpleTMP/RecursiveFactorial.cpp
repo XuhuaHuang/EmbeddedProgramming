@@ -28,6 +28,7 @@ struct Factorial {
 };
 
 // special case: the value of Factorial<0> is 1
+// using partial template specilization
 template<>
 struct Factorial<0> {
     enum {
