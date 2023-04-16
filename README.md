@@ -2,7 +2,7 @@
 
 $$\int_b^d study \,dt= life$$
 
-https://g.dev/xuhua-huang-io
+<https://g.dev/xuhua-huang-io>
 
 <https://github.com/XuhuaHuang/EmbeddedProgramming>
 
