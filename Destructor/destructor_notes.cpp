@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   destructorNotes.cpp
  * \brief  
@@ -17,23 +18,27 @@
  * \author Xuhua Huang
  * \date   November 2020
  *********************************************************************/
+// clang-format on
+
 #include <string>
 
-class String {
+class String
+{
 public:
-    String(char* ch);   // Declare constructor
-    ~String();          //  and destructor.
+    String(const char* const ch); // Declare constructor
+    ~String();        // and destructor.
 private:
-    char* _text;
+    char*  _text;
     size_t sizeOfText;
 };
 
 // Define the constructor.
-String::String(char* ch) {
+String::String(const char* const ch)
+{
     sizeOfText = strlen(ch) + 1;
 
     // Dynamically allocate the correct amount of memory.
-    _text = new char[sizeOfText];
+    _text      = new char[sizeOfText];
 
     // If the allocation succeeds, copy the initialization string.
     if (_text)
@@ -41,7 +46,8 @@ String::String(char* ch) {
 }
 
 // Define the destructor.
-String::~String() {
+String::~String()
+{
     // Deallocate the memory that was previously reserved
     //  for this string.
     delete[] _text;
