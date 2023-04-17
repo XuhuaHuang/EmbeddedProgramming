@@ -63,7 +63,6 @@ template<typename T, std::size_t N>
             +t
         } -> std::convertible_to<T>;
     }
-inline [[nodiscard]] std::array<T, N> operator+(const std::array<T, N>& rhs)
 [[nodiscard]] constexpr std::array<T, N> operator+(const std::array<T, N>& rhs)
 {
     /* NRVO variable */
