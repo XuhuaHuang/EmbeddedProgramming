@@ -3,6 +3,8 @@
 
 #include <concepts>
 #include <iostream>
+#include <tuple>
+#include <utility>
 #include <vector>
 
 template<typename T>
@@ -19,7 +21,7 @@ concept is_iterable = requires (T array_like) {
 };
 
 template<is_iterable T>
-std::size_t count(T array)
+constexpr std::size_t count(T array)
 {
     array.reset();
     std::size_t count = 0;
