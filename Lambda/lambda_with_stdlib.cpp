@@ -8,16 +8,23 @@
  * $ g++ -o lambda_stdlib.exe lambda_with_stdlib.cpp -std=c++2a
  * $ .\lambda_stdlib.exe
  *
+ * $ cl .\lambda_with_stdlib.cpp /W4 /Zc:__cplusplus /EHsc /std:c++latest /experimental:module
+ * .\lambda_with_stdlib.exe
+ *
  * @copyright Copyright (c) 2022
  *
  */
 
-#include <iostream>
-#include <stdlib.h>
 #include <algorithm>
+#include <cassert>
+#include <iostream>
+#include <string>
 #include <vector>
 
-class Person {
+
+
+struct Person
+{
 public:
     Person() : _first_name(""), _last_name("") {}
     Person(const std::string& first_name, const std::string& last_name)
@@ -100,6 +107,4 @@ int main(void) {
         vec_people[i].print_to_stdcout();
     }
 
-    system("pause");
     return 0;
-}
