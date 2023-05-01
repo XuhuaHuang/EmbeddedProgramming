@@ -6,7 +6,10 @@ $$\int_b^d study \,dt= life$$
 
 <https://github.com/XuhuaHuang/EmbeddedProgramming>
 
-`#include <❤>`
+```cpp
+#include <❤>
+[c++]<class = lambda_extensions>() {}
+```
 
 <!-- Link Definitions for Wakatime -->
 [Wakatime Logo Link]: https://wakatime.com/badge/user/f89598ea-6723-481b-a51b-6323e54a3c5c/project/0645c716-822f-4ba1-a897-04cf5a3fbbfb.svg

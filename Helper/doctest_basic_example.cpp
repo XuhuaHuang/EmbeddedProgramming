@@ -7,3 +7,9 @@
 #include <iostream>
 #include <vector>
 
+consteval int factorial(int number)
+{
+    static_assert(std::is_constant_evaluated());
+    return number <= 1 ? number : factorial(number - 1) * number;
+}
+
