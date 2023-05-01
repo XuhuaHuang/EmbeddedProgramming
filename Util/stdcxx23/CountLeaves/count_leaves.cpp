@@ -19,7 +19,8 @@ struct Node;
 using Tree = std::variant<Leaf, Node*>;
 
 struct Node {
-    Tree left, right;
+    Tree left;
+    Tree right;
 };
 
 template <typename... Ts> struct overload : Ts... {
