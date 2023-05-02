@@ -5,6 +5,8 @@
  * The i-th item of the series equals to the sum of previous two
  * print a new line every five numbers in console
  *
+ * zig c++ -o fib.exe .\fibonacci_series.cpp -target x86_64-windows
+ *
  * \author Xuhua Huang
  * \date   November 06, 2020
  *********************************************************************/

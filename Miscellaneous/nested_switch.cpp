@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   nested_switch.cpp
  * \brief  g++ nested_switch.cpp -o nested_switch.exe
@@ -6,13 +7,15 @@
  * \author Xuhua Huang
  * \date   November 06, 2020
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
 
 int main(void)
 {
     int x = 1, y = 1;
-    std::cout << "Initially, X is: " << x << "\n" << "Y is: " << y << "\n";
+    std::cout << "Initially, X is: " << x << "\n"
+              << "Y is: " << y << "\n";
     int m, n;
     m = n = 1;
 
@@ -28,7 +31,8 @@ int main(void)
         case 1: // executed
             x = x * 2;
 
-        case 2: y = y * 2; // executed
+        case 2:
+            y = y * 2; // executed
             break;
 
         case 3:
@@ -47,9 +51,9 @@ int main(void)
     default:
         x++;
         y++;
-
     }
-    std::cout << "\nX is now: " << x << "\n" << "Y is now: " << y << "\n";
+    std::cout << "\nX is now: " << x << "\n"
+              << "Y is now: " << y << "\n";
 
     return 0;
 }
