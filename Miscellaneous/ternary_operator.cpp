@@ -9,25 +9,27 @@
  * \date   March 06, 2021
  *********************************************************************/
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 int determineSign(int num);
 
 int main(void)
 {
-    std::cout << "\nConditional Operation" << "\n";
+    std::cout << "\nConditional Operation"
+              << "\n";
     int x = 1, y = 3;
     int result = (y - x) > 0 ? y - x : x - y;
     std::cout << result << "\n";
 
-    //if (y - x > 0)
-    //    result = y - x;
-    //else
-    //    result = x - y;
+    // if (y - x > 0)
+    //     result = y - x;
+    // else
+    //     result = x - y;
 
     // nested conditional operation
-    std::cout << "\nNested conditional operation" << "\n";
+    std::cout << "\nNested conditional operation"
+              << "\n";
     int signX = determineSign(x);
     std::cout << signX << "\n";
 
