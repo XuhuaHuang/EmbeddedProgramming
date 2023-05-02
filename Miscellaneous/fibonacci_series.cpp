@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   fibonacci_series.cpp
  * \brief  Fibonacci Series - first 25 term
@@ -7,15 +8,16 @@
  * \author Xuhua Huang
  * \date   November 06, 2020
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
 #include <math.h>
 
 int main(void)
 {
-    int current{ 1 }; // current = previous + secondPrevious
-    int previous{ 1 };
-    int secondPrevious{ 1 };
+    int current{1}; // current = previous + secondPrevious
+    int previous{1};
+    int secondPrevious{1};
 
     std::cout << previous << " " << current << " ";
 
@@ -30,7 +32,7 @@ int main(void)
         }
 
         secondPrevious = previous; // refresh the value in the series
-        previous = current;
+        previous       = current;
     }
 
     return 0;
