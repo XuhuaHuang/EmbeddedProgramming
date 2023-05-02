@@ -12,9 +12,6 @@
 #include <string>
 #include <cmath>
 
-//using std::cout;
-//using std::cin;
-
 int main(void)
 {
     // boolean value

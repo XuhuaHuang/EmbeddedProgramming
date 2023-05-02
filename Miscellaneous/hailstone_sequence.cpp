@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   fun_hailstone_sequence.cpp
  * \brief  Generate a Hailstone sequence with C++
@@ -6,6 +7,7 @@
  * \author Xuhua Huang
  * \date   March 2021
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
 #include <vector>
@@ -18,7 +20,8 @@
 template<typename T>
 void printVector(std::vector<T> vector)
 {
-    std::cout << "\n[fn][printVector]The content of received vector is listed: " << "\n";
+    std::cout << "\n[fn][printVector]The content of received vector is listed: "
+              << "\n";
 
     typename std::vector<T>::iterator iter;
     for (iter = vector.begin(); iter < vector.end(); iter++)
@@ -26,24 +29,29 @@ void printVector(std::vector<T> vector)
         std::cout << *iter << "\n";
     }
 
-    std::cout << "[fn][printVector]This is the end of the vector." << "\n";
+    std::cout << "[fn][printVector]This is the end of the vector."
+              << "\n";
 
     return;
 }
 
 int main(void)
 {
-    int element;
-    int count = 1;
+    int              element;
+    int              count    = 1;
     std::vector<int> sequence = {};
 
-    std::cout << "Reminder: the first element of the sequence should be greater than 1." << "\n"
-        << "Please enter the first element of the Hailstone sequence: ";
+    std::cout << "Reminder: the first element of the sequence should be greater than 1."
+              << "\n"
+              << "Please enter the first element of the Hailstone sequence: ";
     std::cin >> element;
 
     if (element > 1)
     {
-        std::cout << "\n" << "Generating Hailstone sequence..." << "\n" << "\n";
+        std::cout << "\n"
+                  << "Generating Hailstone sequence..."
+                  << "\n"
+                  << "\n";
 
         do
         {
@@ -56,21 +64,27 @@ int main(void)
             sequence.push_back(element);
         } while (element > 1 && count <= SIZE);
 
-        std::cout << "\nFinished generating sequence." << "\n"
-            << "Steps used to generate sequence: " << count - 1 << "\n";
+        std::cout << "\nFinished generating sequence."
+                  << "\n"
+                  << "Steps used to generate sequence: " << count - 1 << "\n";
     }
     else if (element == 1)
     {
-        std::cout << "Error! { 1 } is already a Hailstone sequence!" << "\n"
-            << "Please try again!" << "\n";
+        std::cout << "Error! { 1 } is already a Hailstone sequence!"
+                  << "\n"
+                  << "Please try again!"
+                  << "\n";
     }
     else
     {
-        std::cout << "Unable to recognize input. Fatal error." << "\n"
-            << "Aborting..." << "\n";
+        std::cout << "Unable to recognize input. Fatal error."
+                  << "\n"
+                  << "Aborting..."
+                  << "\n";
     }
 
-    std::cout << "\nCalling funtion \"printVector(vector T)\"" << "\n";
+    std::cout << "\nCalling funtion \"printVector(vector T)\""
+              << "\n";
     printVector(sequence);
 
     return 0;
