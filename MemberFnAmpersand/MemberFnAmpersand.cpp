@@ -11,22 +11,31 @@
 struct Arg
 {
     int i = 1;
-    Arg(int _i) : i {_i} {}
-    int getArg()&& {
-        std::cout << "In member function int getArg() &&" << "\n";
+
+    Arg(int _i)
+        : i{_i}
+    {
+    }
+
+    int getArg() &&
+    {
+        std::cout << "In member function int getArg() &&"
+                  << "\n";
         return i;
     }
 
-    int& getArg()& {
-        std::cout << "In member function int& getArg() &" << "\n";
+    int& getArg() &
+    {
+        std::cout << "In member function int& getArg() &"
+                  << "\n";
         return i;
     }
 };
 
 int main(void)
 {
-    Arg g1{ 5 };                              /* instanciation with innitializer_list */
-    std::cout << g1.getArg() << "\n";               /* expecting int& getArg() & */
-    std::cout << std::move(g1).getArg() << "\n";    /* expecting int getArg() && */
+    Arg g1{5};                                   /* instanciation with innitializer_list */
+    std::cout << g1.getArg() << "\n";            /* expecting int& getArg() & */
+    std::cout << std::move(g1).getArg() << "\n"; /* expecting int getArg() && */
     return 0;
 }
