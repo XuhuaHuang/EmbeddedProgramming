@@ -1,12 +1,9 @@
-Thanks to: Charmaine Jirgens
-Teacher at Electronics and Information Technology at Heritage College, Gatineau, Quebec, Canada
-
 #include <SFML/Graphics.hpp>
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
+    sf::CircleShape  shape(100.f);
     shape.setFillColor(sf::Color::Green);
 
     while (window.isOpen())
