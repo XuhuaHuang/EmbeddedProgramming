@@ -10,4 +10,10 @@ void print_map(const auto& map, const std::string_view key_desc = "key", const s
         // s == "I'd rather be happy than right."
         std::print("{}: '{}', {}: '{}'", key_desc, k, value_desc, v);
     }
+
+    const auto print_key_value = [&](const auto& data) {
+        const auto& [k, v] = data;
+        std::print("{}: '{}', {}: '{}'", key_desc, k, value_desc, v);
+    };
+    // std::for_each(std::begin(map), std::end(map), print_key_value);
 }
