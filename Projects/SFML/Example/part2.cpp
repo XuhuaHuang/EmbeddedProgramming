@@ -1,6 +1,3 @@
-Thanks to: Charmaine Jirgens
-Teacher at Electronics and Information Technology at Heritage College, Gatineau, Quebec, Canada
-
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 

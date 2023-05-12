@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   HasPushBack.hpp
- * \brief  Concept that requires a enric type T implements push_back()
+ * \brief  Concept that requires a generic type T implements push_back()
  * 
  * \author Xuhua Huang
  * \date   November 15, 2022
@@ -15,8 +15,8 @@
 
 #include <concepts>
 
-template<typename Coll>
-concept HasPushBack = requires (Coll c, typename Coll::value_type v) {
+template<typename Container>
+concept HasPushBack = requires (Container c, typename Container::value_type v) {
     c.push_back(v);
 };
 
