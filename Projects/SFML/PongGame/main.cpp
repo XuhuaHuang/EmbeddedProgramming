@@ -1,16 +1,15 @@
-#include "bat.h"
 #include "ball.h"
-#include <sstream>
-#include <cstdlib>
+#include "bat.h"
 #include <SFML/Graphics.hpp>
- 
-// Avoid having to put sf in front of all the SFML classes and functions
+#include <cstdlib>
+#include <sstream>
+
 using namespace sf;
 
 // This is where our game starts from
 int main()
 {
-    int windowWidth = 1024;
+    int windowWidth  = 1024;
     int windowHeight = 768;
     // Make a window that is 1024 by 768 pixels
     // And has the title "Pong"
@@ -20,12 +19,12 @@ int main()
     int lives = 5;
 
     // create a bat
-    Bat bat (windowWidth / 2, windowHeight - 20);
+    Bat bat(windowWidth / 2, windowHeight - 20);
 
     // X.H. created a texture with the following lines:
     Texture texture;
     texture.loadFromFile("golf.jpg"); // X.H. load from image file named "golf.jpg"
-    
+
     // create a ball
     Ball ball(windowWidth / 2, 1, &texture);
 
@@ -48,17 +47,16 @@ int main()
     while (window.isOpen())
     {
         // Handle the player input
- 
+
         Event event;
         while (window.pollEvent(event))
         {
             if (event.type == Event::Closed) // Someone closed the window- bye
                 window.close();
         }
- 
+
         if (Keyboard::isKeyPressed(Keyboard::Left)) // move left...
         {
-        
             bat.moveLeft();
         }
         else if (Keyboard::isKeyPressed(Keyboard::Right))
@@ -72,16 +70,16 @@ int main()
             // Someone closed the window- bye
             window.close();
         }
-    
+
         // Update the frame
         // Handle ball hitting the bottom
         if (ball.getPosition().top > windowHeight)
         {
             // reverse the ball direction
             ball.hitBottom();
-    
+
             // Remove a life
-            lives --;
+            lives--;
 
             // Check for zero lives
             if (lives < 1)
@@ -133,9 +131,8 @@ int main()
 
         // Show everything we just drew
         window.display();
-        
-    }// This is the end of the "while" loop
+
+    } // This is the end of the "while" loop
 
     return 0;
-
 }

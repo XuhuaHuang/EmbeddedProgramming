@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   fun_fibonacci_series_std11.cpp
  * \brief  work with C++11 to generate a Fibonacci series
@@ -5,20 +6,25 @@
  * \author Xuhua
  * \date   November 2020
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 class Fibonacci
 {
 private:
-    int size;
+    int               size;
     std::vector<long> data;
 
 public:
+    constexpr Fibonacci() noexcept = default;
     // constructor that inherits the item constructor
-    Fibonacci(int size) : size(size) {}
+    constexpr Fibonacci(int size) noexcept(true)
+        : size(size)
+    {
+    }
 
     // other member functions
     void create_series(void);
@@ -29,7 +35,7 @@ int main(int argc, char* argv[])
 {
     if (argc == 2)
     {
-        int value = std::stoul(argv[1], nullptr, 10);
+        int              value = std::stoul(argv[1], nullptr, 10);
         static Fibonacci fibo(value);
         fibo.create_series();
         fibo.print_series();

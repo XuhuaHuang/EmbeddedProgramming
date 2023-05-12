@@ -7,8 +7,8 @@
  * \date   November 06, 2020
  *********************************************************************/
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 int main(void)
 {

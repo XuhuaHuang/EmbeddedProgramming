@@ -15,7 +15,7 @@ int main(void)
     std::cout.precision(numPrecision);
 
     double a = 0;
-    int b = 1;
+    int    b = 1;
 
     std::cout << "Value for \"double a\" is: " << std::fixed << a << "\n";
     std::cout << "Value for \"int b\" is: " /* << std::fixed */ << b << "\n";

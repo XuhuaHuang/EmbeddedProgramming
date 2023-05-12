@@ -37,4 +37,25 @@ private:
     const char* cstr_;
 };
 
+namespace experimental
+{
+
+template<std::size_t N>
+struct string
+{
+private:
+    std::array<char, N> data;
+    std::size_t         current_size = 0;
+
+public:
+    template<std::size_t Size>
+    consteval string(const char (&str)[Size])
+        : current_size{Size - 1}
+    {
+        std::copy(std::begin(str), std::end(str), std::begin(data));
+    }
+};
+
+} // namespace experimental
+
 } // namespace util

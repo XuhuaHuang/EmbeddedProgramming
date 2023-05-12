@@ -33,18 +33,23 @@ int main(void)
      * scope of static and non-static variable
      * keyword 'static' grants dedicated non-erased memory allocation.
      */
-    std::cout << "\nCalling function \"staticGlobalValTest()\" to verify output." << "\n";
-    std::cout << "Calling first time: " << "\n";
+    std::cout << "\nCalling function \"staticGlobalValTest()\" to verify output."
+              << "\n";
+    std::cout << "Calling first time: "
+              << "\n";
     staticGlobalValTest();
 
-    std::cout << "Called second time: " << "\n";
+    std::cout << "Called second time: "
+              << "\n";
     staticGlobalValTest();
 
-    std::cout << "Called thrid time: " << "\n";
+    std::cout << "Called thrid time: "
+              << "\n";
     staticGlobalValTest();
 
-    std::cout << "\nFinding sum of integers from 1 to 100 with recursion function." << "\n"
-        << "Sum found: " << summation(100) << "\n";
+    std::cout << "\nFinding sum of integers from 1 to 100 with recursion function."
+              << "\n"
+              << "Sum found: " << summation(100) << "\n";
 
     return 0;
 }
@@ -70,7 +75,7 @@ int multiRecursion(int k)
     {
         result = k + multiRecursion(k - 1);
         std::cout << "Variable \"K\" is: " << k << "\n"
-            << "Variable \"result\" is: " << result << "\n";
+                  << "Variable \"result\" is: " << result << "\n";
     }
     else
         result = 0;
@@ -102,12 +107,13 @@ void staticGlobalValTest()
      * variable declared with keyword 'static' can be accessed from outside of the function
      * scope of non-static variable is limited inside the function
      */
-    static int staticVal = 10; // keyword 'static'
-    int nonStaticVal = 10;
+    static int staticVal    = 10; // keyword 'static'
+    int        nonStaticVal = 10;
 
-    std::cout << "\nPrinting from function \"staticGlobalValTest()\":" << "\n"
-        << "Staic value is: " << staticVal << "\n"
-        << "Non-static value is: " << nonStaticVal << "\n";
+    std::cout << "\nPrinting from function \"staticGlobalValTest()\":"
+              << "\n"
+              << "Staic value is: " << staticVal << "\n"
+              << "Non-static value is: " << nonStaticVal << "\n";
 
     staticVal += 10;
     nonStaticVal += 10;
