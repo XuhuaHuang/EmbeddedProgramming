@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   compare_ints_class.cpp
  * \brief  Modified program using class - C++ only
@@ -5,6 +6,7 @@
  * \author Xuhua Huang
  * \date   November 2022
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
 
@@ -32,7 +34,7 @@ GreaterSmaller findGreaterSmaller(int a, int b)
     return result;
 }
 
-// Driver code 
+// Driver code
 int main()
 {
     int num1, num2;
@@ -49,7 +51,7 @@ int main()
 
     // 'greater' and 'smaller' are public variable inside of class 'GreaterSmaller'
     std::cout << "\nThe greater number is: " << result.greater << "\n"
-        << "The smaller number is: " << result.smaller << "\n";
+              << "The smaller number is: " << result.smaller << "\n";
 
     return 0;
 }

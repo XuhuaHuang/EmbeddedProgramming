@@ -1,14 +1,13 @@
 /*****************************************************************//**
  * \file   fun_count_digits.cpp
  * \brief  contains function definition and calling
- *		   to count the number of digits in an integer
+ *         to count the number of digits in an integer
  *
  * \author Xuhua Huang
  * \date   February 2021
  *********************************************************************/
 
 #include <iostream>
-using namespace std;
 
 size_t numDigits(int number);
 

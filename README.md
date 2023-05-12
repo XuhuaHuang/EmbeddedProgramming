@@ -9,6 +9,7 @@ $$\int_b^d study \,dt= life$$
 ```cpp
 #include <❤>
 [c++]<class = lambda_extensions>() {}
+std::cout << std::hex << std::showbase << std::internal << std::uppercase << std::setfill('0') << std::setw(8)
 ```
 
 <!-- Link Definitions for Wakatime -->

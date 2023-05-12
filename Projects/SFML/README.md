@@ -1,4 +1,4 @@
-Created on: Nov 09, 2020
-
-Update: added a Pong game
-        Nov 16, 2020
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+```
