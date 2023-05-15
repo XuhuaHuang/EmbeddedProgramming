@@ -1,3 +1,3 @@
 # Summary
 
-- [`Deducing-this`](./deducing_this.md)
+- [`Deducing-this`](./deducing-this.md)
