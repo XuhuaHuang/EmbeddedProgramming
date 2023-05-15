@@ -1,0 +1,6 @@
+[book]
+authors = ["Xuhua Huang"]
+language = "en"
+multilingual = false
+src = "docs"
+title = "Embedded Programming"
