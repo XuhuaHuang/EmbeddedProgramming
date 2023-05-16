@@ -26,3 +26,7 @@
 # Projects
 
 - [Util](../util/README.md)
+
+-----------
+
+[Basic Indefinite Integration](basic-indefinite-integration.md)
