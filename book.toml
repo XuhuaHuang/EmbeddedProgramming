@@ -1,16 +1,23 @@
 [book]
 authors = ["Xuhua Huang"]
+description = "Embedded programming journey with C++."
 language = "en"
 multilingual = false
 src = "docs"
 title = "Embedded Programming"
 
 [output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
 mathjax-support = true
 
 [output.html.playground]
 editable = true
 line-numbers = true
+
+[output.html.print]
+enable = true
+page-break = true
 
 [output.html.search]
 limit-results = 20
