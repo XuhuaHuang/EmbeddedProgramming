@@ -1,7 +1,0 @@
-theme: minima
-
-minima:
-  skin: dark
-
-title: Embedded Programming
-description: Start learning modern C++ and its surrounded toolchains today!
