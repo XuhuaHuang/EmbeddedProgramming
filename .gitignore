@@ -12,6 +12,7 @@
 Cython/*.c
 Cython/*.cpp
 book/*
+*.html
 
 # User-specific files
 *.rsuser
