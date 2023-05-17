@@ -27,7 +27,8 @@
 
 - [Util](../util/README.md)
 
------------
+# Math
 
-[Basic Indefinite Integration](basic-indefinite-integration.md)
-[Calculus Discontinuity](calculus-discontinuity.md)
+- [Basic Indefinite Integration](basic-indefinite-integration.md)
+- [Calculus Discontinuity](calculus-discontinuity.md)
+- [Calculus Derivative](calculus-derivative.md)
