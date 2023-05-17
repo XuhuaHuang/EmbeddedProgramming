@@ -30,3 +30,4 @@
 -----------
 
 [Basic Indefinite Integration](basic-indefinite-integration.md)
+[Calculus Discontinuity](calculus-discontinuity.md)
