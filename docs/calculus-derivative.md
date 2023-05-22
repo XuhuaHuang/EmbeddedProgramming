@@ -64,3 +64,14 @@ $$ f(x) = \frac{sinx}{cosx} $$
 $$ f'(x) = \frac{(sinx)'cosx - sinx(cosx)'}{cos^{2}x} $$
 $$ f'(x) = \frac{(cosx)cosx - sinx(-sinx)}{cos^{2}x} = \frac{cos^{2}x + sin^{2}x}{cos^{2}x} $$
 $$ f'(x) = \frac{1}{cos^{2}x} = (\frac{1}{secx})^{2} = sec^{2}x $$
+
+## Higher Order Derivative
+
+$$ y' = \frac{dy}{dx} $$
+$$ y'' = \frac{d}{dx} (\frac{dy}{dx}) = \frac{d(\frac{dy}{dx})}{dx} = \frac{d^{2}y}{dx^{2}} $$
+$$ y''' = \frac{d}{dx}[\frac{d}{dx} (\frac{dy}{dx})] = \frac{d}{dx}(\frac{d^{2}y}{dx^{2}}) = \frac{d^{3}y}{dx^{3}} $$
+$$ y ^{(n)} = \frac{d^{n}y}{dx^{n}} $$
+
+---
+
+$$ (U \plusmn V) ^{(n)} = U ^{(n)} \plusmn V ^{(n)} $$
