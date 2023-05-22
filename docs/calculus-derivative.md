@@ -24,6 +24,23 @@ approaching from the left hand side exists.
 
 Thus f(x) is derivable on close range `[a, b]`.
 
+## Basic Derivative Formula
+
+$$ (C)' = 0 $$
+$$ (Cx)' = C $$
+$$ (x ^{u})' = ux ^{u - 1} $$
+$$ (a ^{x})' = a ^{x}ln(a) $$
+$$ (e ^{x})' = e ^{x} $$
+$$ (\log_a x)' = \frac{1}{xln(a)} $$
+$$ (lnx)' = \frac{1}{x} $$
+
+---
+
+$$ (U \plusmn V)' = U' \plusmn V' $$
+$$ (UV)' = U'V + UV' $$
+$$ (UVW)' = U'VW + UV'W + UVW' $$
+$$ (\frac{U}{V})' = \frac{U'V - UV'}{V ^{2}} $$
+
 ## Practice Problems
 
 - Solve for f'(x) given f(x):
