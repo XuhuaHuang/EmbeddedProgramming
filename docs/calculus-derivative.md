@@ -24,6 +24,23 @@ approaching from the left hand side exists.
 
 Thus f(x) is derivable on close range `[a, b]`.
 
+## Basic Derivative Formula
+
+$$ (C)' = 0 $$
+$$ (Cx)' = C $$
+$$ (x ^{u})' = ux ^{u - 1} $$
+$$ (a ^{x})' = a ^{x}ln(a) $$
+$$ (e ^{x})' = e ^{x} $$
+$$ (\log_a x)' = \frac{1}{xln(a)} $$
+$$ (lnx)' = \frac{1}{x} $$
+
+---
+
+$$ (U \plusmn V)' = U' \plusmn V' $$
+$$ (UV)' = U'V + UV' $$
+$$ (UVW)' = U'VW + UV'W + UVW' $$
+$$ (\frac{U}{V})' = \frac{U'V - UV'}{V ^{2}} $$
+
 ## Practice Problems
 
 - Solve for f'(x) given f(x):
@@ -47,3 +64,14 @@ $$ f(x) = \frac{sinx}{cosx} $$
 $$ f'(x) = \frac{(sinx)'cosx - sinx(cosx)'}{cos^{2}x} $$
 $$ f'(x) = \frac{(cosx)cosx - sinx(-sinx)}{cos^{2}x} = \frac{cos^{2}x + sin^{2}x}{cos^{2}x} $$
 $$ f'(x) = \frac{1}{cos^{2}x} = (\frac{1}{secx})^{2} = sec^{2}x $$
+
+## Higher Order Derivative
+
+$$ y' = \frac{dy}{dx} $$
+$$ y'' = \frac{d}{dx} (\frac{dy}{dx}) = \frac{d(\frac{dy}{dx})}{dx} = \frac{d^{2}y}{dx^{2}} $$
+$$ y''' = \frac{d}{dx}[\frac{d}{dx} (\frac{dy}{dx})] = \frac{d}{dx}(\frac{d^{2}y}{dx^{2}}) = \frac{d^{3}y}{dx^{3}} $$
+$$ y ^{(n)} = \frac{d^{n}y}{dx^{n}} $$
+
+---
+
+$$ (U \plusmn V) ^{(n)} = U ^{(n)} \plusmn V ^{(n)} $$
