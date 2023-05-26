@@ -5,6 +5,7 @@
 # Core C++ Notes
 
 - [Destructor](../Destructor/README.md)
+- [Make Unique](basic-std-make-unique-impl.md)
 - [Miscellaneous](../Miscellaneous/README.md)
 - [Pointer](../Pointer/README.md)
 - [Standard Template Library](../StandardTemplateLibrary/README.md)
