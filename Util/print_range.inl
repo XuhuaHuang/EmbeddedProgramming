@@ -20,6 +20,28 @@
 #include <ranges>
 #endif
 
+namespace util
+{
+namespace range
+{
+
+auto print_range(const std::ranges::range auto& range, bool newline = false) -> void;
+
+namespace detail
+{
+
+auto print(const std::ranges::range auto& value) -> void
+{
+    print_range(value, false);
+}
+
+auto print(const auto& value) -> void
+{
+    std::cout << value;
+}
+
+} // namespace detail
+
 } // namespace range
 } // namespace util
 
