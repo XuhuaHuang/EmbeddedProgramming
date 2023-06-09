@@ -42,6 +42,30 @@ auto print(const auto& value) -> void
 
 } // namespace detail
 
+auto print_range(const std::ranges::range auto& range, bool newline) -> void
+{
+    const auto begin = std::ranges::cbegin(range);
+    const auto end   = std::ranges::cend(range);
+
+    std::cout << '[';
+
+    for (auto&& i : std::ranges::subrange(begin, end - 1))
+    {
+        // std::cout << i << ",";
+        detail::print(i);
+        std::cout << ',';
+    }
+
+    // std::cout << *(end - 1) << ']';
+    detail::print(*(end - 1));
+    std::cout << ']';
+
+    if (newline)
+    {
+        std::cout << '\n';
+    }
+}
+
 } // namespace range
 } // namespace util
 
