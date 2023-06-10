@@ -39,6 +39,10 @@ constexpr std::size_t count(T&& array)
     return count(array);
 }
 
+struct iterable_array
+{
+};
+
 consteval [[nodiscard]] std::size_t __cdecl count_iterable_array()
 {
     static_assert(std::is_constant_evaluated());
