@@ -28,3 +28,10 @@ the calling code will look like the following:
 ```cpp
 my_vector{3, 1, 4, 1, 5, 9, 2, 6, 5}.sorted_by(less_than);
 ```
+
+```cpp
+template<typename Derived, typename Base>
+concept derived_from =
+    std::is_base_of<Base, Derived> and
+    std::is_convertible_v<const volatile Derived*, const volatile Base>
+```
