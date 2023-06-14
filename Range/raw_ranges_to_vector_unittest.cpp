@@ -11,3 +11,9 @@
 #include <utility>
 #include <vector>
 
+int main()
+{
+    using boost::ut::operator""_test;
+    using boost::ut::expect;
+    return 0;
+}
