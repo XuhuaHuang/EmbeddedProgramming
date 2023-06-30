@@ -15,5 +15,28 @@ int main()
 {
     using boost::ut::operator""_test;
     using boost::ut::expect;
+
+    auto test = [](auto to_vector) {
+        "ranges.to"_test = [=] {
+            "view"_test = [=] {
+                const auto view = ranges::views::ints | ranges::views::take(3);
+                expect(std::vector{0, 1, 2} == to_vector(view));
+            };
+
+            "list"_test = [=] {
+                const std::list l{1, 2, 3};
+                expect(std::vector{1, 2, 3} == to_vector(l));
+            };
+
+            "string"_test = [=] {
+                const std::string s = "str";
+                expect(std::vector{'s', 't', 'r'} == to_vector(s));
+            };
+        };
+    };
+
+    test([](auto... ts) { return test::ranges::to_vector(ts...); });
+    test([](auto... ts) { return test::stl::to_vector(ts...); });
+
     return 0;
 }
