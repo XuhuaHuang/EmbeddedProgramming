@@ -57,3 +57,36 @@ Contains template (generic) function in a C-style header file, providing the fol
     - `std::string str = std::move(another_std_str);`  
       In this case, `std::move(std::string&& src)` is "invoked with" a (pure) rvalue
 
+### Arithmetic and Comparison Operators Support
+
+```cpp
+template<typename Type>
+struct support_stdspan_arithmetic_operators {
+    using value_type = std::remove_cv_t<Type>;
+public:
+    inline constexpr friend std::span<value_type> operator + (std::span<value_type> lhs, const value_type n)
+    {
+        std::span<value_type> copy{ lhs };
+        for (/* std::span<value_type>::iterator */ constexpr auto it = copy.begin(); it != copy.end(); it++) {
+            *it += n;
+        }
+        return std::span<value_type>(copy);
+    }
+};
+
+struct long_double_span_arithmetic_operators : support_stdspan_arithmetic_operators<long double> {};
+
+struct double_span_arithmetic_operators : support_stdspan_arithmetic_operators<double> {};
+
+template<typename Type>
+struct support_stdspan_comparison_operators {
+    using value_type = std::remove_cv_t<Type>;
+public:
+    constexpr support_stdspan_comparison_operators() = default;
+    template<typename value_type>
+    friend constexpr bool operator == (std::span<value_type> lhs, std::span<value_type> rhs) { return true; }
+};
+
+struct double_span_comparison_operator : support_stdspan_comparison_operators<double> {};
+```
+
