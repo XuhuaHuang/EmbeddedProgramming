@@ -1,6 +1,9 @@
 // cd "c:\Users\hux1mis\source\repos\EmbeddedProgramming\Class\"
 // dmd struct_student_unittest.d && "c:\Users\hux1mis\source\repos\EmbeddedProgramming\Class\"struct_student_unittest
 
+// struct are allocated on stack by default
+// struct does not allow inheritance
+
 import std.stdio;
 
 struct Student {
@@ -22,6 +25,12 @@ Student CreateStudent(int age, int id) {
     return s;
 }
 
+// Reset instance of Student by taking a mutable reference to such instance
+void ResetStudent(ref Student s) {
+    s.id = 0000;
+    s.age = 0000;
+}
+
 void main() {
     Student andy;
 
@@ -29,6 +38,9 @@ void main() {
     andy.age = 22;
 
     // writeln(andy.id, " ", andy.age);
+    andy.Print();
+
+    ResetStudent(andy);
     andy.Print();
 
     // Array of 10 students
