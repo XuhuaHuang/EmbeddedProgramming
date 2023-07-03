@@ -28,11 +28,9 @@ public:
     void push(const T& elem);
     T pop();
     T top() const;
-    bool empty() const {
-        return elems.empty();
-    }
+    inline bool empty() const { return elems.empty(); }
 
-    auto operator<=>(const Stack& rhs) -> int;
+    auto operator <=> (const Stack& rhs)->std::strong_ordering;
 
     /**
      * implicit requriement:
@@ -43,6 +41,32 @@ public:
             std::cout << elem << " ";
         }
     }
+
+    // iterator classes
+    class iterator {
+    public:
+        iterator(typename std::vector<T>::iterator it) : it_(it) {}
+        T& operator * () { return *it_; }
+        iterator& operator ++ () { ++it_; return *this; }
+        bool operator != (const iterator& other) { return it_ != other.it_; }
+    private:
+        typename std::vector<T>::iterator it_;
+    };
+
+    class const_iterator {
+    public:
+        const_iterator(typename std::vector<T>::const_iterator it) : it_(it) {}
+        const T& operator * () const { return *it_; }
+        const_iterator& operator ++ () { ++it_; return *this; }
+        bool operator != (const const_iterator& other) const { return it_ != other.it_; }
+    private:
+        typename std::vector<T>::const_iterator it_;
+    };
+
+    iterator begin() { return iterator(elems.begin()); }
+    iterator end() { return iterator(elems.end()); }
+    const_iterator begin() const { return const_iterator(elems.begin()); }
+    const_iterator end() const { return const_iterator(elems.end()); }
 };
 
 template<typename T>
