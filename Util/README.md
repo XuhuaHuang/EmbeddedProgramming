@@ -42,3 +42,51 @@ Contains template (generic) function in a C-style header file, providing the fol
   - [unit tests](./tests/gtest_trim_str.cpp)
   - trim a `std::string` using pipeline operator and `std::ranges::to<>`.
 
+## `cpp` Language Reference and Notes
+
+### `&` and `&&` overload operators thoughts experiment - **Reference Qualifiers**
+
+- Consider the `&` and `&&` operator overloads either with const qualifications or not as "invoked with"
+  - For example, `&concrete_instance` shall be considered as "such function is invoked with a lvalue"  
+    Consider the following example: <https://github.com/XuhuaHuang/EmbeddedProgramming/blob/main/MemberFnAmpersand/MemberFnAmpersand.cpp>
+    - The function with the signature `int& getArg()&` is _invoked with_ a mutable lvalue (left value)
+    - The function with the signature `int& getArg()&&` is _invoked with_ a mutable rvalue (right value)
+  - Such mentality will also make sense for a normal operation like the following;
+    - `int* p_int = &int_on_stack;`  
+      In this case, the `&` operator is "invoked with" a lvalue
+    - `std::string str = std::move(another_std_str);`  
+      In this case, `std::move(std::string&& src)` is "invoked with" a (pure) rvalue
+
+### Arithmetic and Comparison Operators Support
+
+```cpp
+template<typename Type>
+struct support_stdspan_arithmetic_operators {
+    using value_type = std::remove_cv_t<Type>;
+public:
+    inline constexpr friend std::span<value_type> operator + (std::span<value_type> lhs, const value_type n)
+    {
+        std::span<value_type> copy{ lhs };
+        for (/* std::span<value_type>::iterator */ constexpr auto it = copy.begin(); it != copy.end(); it++) {
+            *it += n;
+        }
+        return std::span<value_type>(copy);
+    }
+};
+
+struct long_double_span_arithmetic_operators : support_stdspan_arithmetic_operators<long double> {};
+
+struct double_span_arithmetic_operators : support_stdspan_arithmetic_operators<double> {};
+
+template<typename Type>
+struct support_stdspan_comparison_operators {
+    using value_type = std::remove_cv_t<Type>;
+public:
+    constexpr support_stdspan_comparison_operators() = default;
+    template<typename value_type>
+    friend constexpr bool operator == (std::span<value_type> lhs, std::span<value_type> rhs) { return true; }
+};
+
+struct double_span_comparison_operator : support_stdspan_comparison_operators<double> {};
+```
+
