@@ -1,4 +1,11 @@
+#ifndef ANY_CONSTRUCTIBLE_WITH_N_HPP
+#define ANY_CONSTRUCTIBLE_WITH_N_HPP
+
+// cl .\any.hpp /W4 /Zc:__cplusplus /EHsc /std:c++latest /exportHeader
+// output: any.hpp.ifc
+
 #include <concepts>
+#include <type_traits>
 
 struct Any
 {
@@ -46,3 +53,5 @@ static_assert(ConstructibleWithN<Baz, 2>);
 
 template<typename T, size_t N>
 concept AggregateOfN = std::is_aggregate_v<T> && ConstructibleWithN<T, N> && not ConstructibleWithN<T, N + 1>;
+
+#endif // !ANY_CONSTRUCTIBLE_WITH_N_HPP
