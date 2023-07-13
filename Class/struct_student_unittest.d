@@ -1,5 +1,5 @@
-// cd "c:\Users\hux1mis\source\repos\EmbeddedProgramming\Class\"
-// dmd struct_student_unittest.d && "c:\Users\hux1mis\source\repos\EmbeddedProgramming\Class\"struct_student_unittest
+// dmd struct_student_unittest.d
+// .\struct_student_unittest
 
 // struct are allocated on stack by default
 // struct does not allow inheritance
