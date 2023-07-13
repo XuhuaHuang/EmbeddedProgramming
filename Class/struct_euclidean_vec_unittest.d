@@ -20,6 +20,13 @@ struct euclidean_vec {
         x = y = z = val;
     }
 
+    // Destructor
+    ~this() {
+        // Do nothing for now
+        // Print debuging message if needed
+        // All fields' des
+    }
+
     void Print() {
         writeln(x, ", ", y, ", ", z);
     }
