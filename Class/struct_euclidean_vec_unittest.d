@@ -24,7 +24,7 @@ struct euclidean_vec {
     ~this() {
         // Do nothing for now
         // Print debuging message if needed
-        // All fields' des
+        // All fields' destructor will be called as well
     }
 
     void Print() {
