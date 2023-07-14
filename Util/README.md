@@ -90,3 +90,29 @@ public:
 struct double_span_comparison_operator : support_stdspan_comparison_operators<double> {};
 ```
 
+### Include Gard
+
+```cpp
+#if defined(__has_include) && __has_include(<version>)
+#include <version>
+#endif
+```
+
+### Design by Introspection
+
+```cpp
+consteval decltype(auto) foo(auto t) {
+    if constexpr (requires{ t.foo; }) {
+        return t.foo;
+    } else {
+        return 0;
+    }
+}
+
+constexpr struct { int foo{42}; } f;
+static_assert(42 == foo(f));
+
+constexpr struct { int bar{42}; } b;
+static_assert(0 == foo(b));
+```
+
