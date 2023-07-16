@@ -20,6 +20,13 @@ struct euclidean_vec {
         x = y = z = val;
     }
 
+    // Copy Constructor
+    this(ref return scope const euclidean_vec rhs) {
+        this.x = rhs.x;
+        this.y = rhs.y;
+        this.z = rhs.z;
+    }
+
     // Destructor
     ~this() {
         // Do nothing for now
