@@ -15,3 +15,31 @@
  *
  */
 
+#include <expected>
+#include <iostream>
+
+enum class error
+{
+    compile_time_error,
+    runtime_error
+};
+
+[[nodiscard]] auto unexpected_runtime_error() -> std::expected<int, error>
+{
+    return std::unexpected(error::runtime_error);
+}
+
+int main()
+{
+    const auto e = unexpected_runtime_error();
+
+    e.and_then([](const auto& e) -> std::expected<int, error> {
+         std::cout << "and_then: " << int(e); // not printed
+         return {};
+     }).or_else([](const auto& e) -> std::expected<int, error> {
+        std::cout << "or_else: " << int(e); // prints this line
+        return {};
+    });
+
+    return 0;
+}
