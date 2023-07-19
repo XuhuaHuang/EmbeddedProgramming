@@ -1,9 +1,11 @@
 // clang-format off
 /*****************************************************************//**
- * \file   fun_fibonacci_series_std11.cpp
+ * \file   fibonacci_series_std11.cpp
  * \brief  work with C++11 to generate a Fibonacci series
  * 
- * \author Xuhua
+ * zig c++ -o fibonacci_series_std11 fibonacci_series_std11.cpp -target x86_64-windows
+ * 
+ * \author Xuhua Huang
  * \date   November 2020
  *********************************************************************/
 // clang-format on
