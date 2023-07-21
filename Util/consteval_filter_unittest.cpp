@@ -13,6 +13,8 @@
 
 int main()
 {
+    using util::range::filter;
+
     static_assert(std::tuple{1, 2, 3} == filter([] { return std::tuple{1, 2, 3}; }, [](auto) { return true; }));
     static_assert(std::tuple{} == filter([] { return std::tuple{1, 2, 3}; }, [](auto) { return false; }));
     static_assert(std::tuple{1, 3} == filter([] { return std::tuple{1, 2, 3}; }, [](auto v) { return v != 2; }));
