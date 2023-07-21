@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   class_notes_User.cpp
  * \brief  brief notes on class
@@ -7,30 +8,31 @@
  * \author Xuhua Huang
  * \date   November 2020
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
 
 class User
 {
 public:
-    User();
-    ~User();
+    inline User();
+    inline ~User();
 
-    static int getUserCount(void) { return userCount; }
+    static inline int getUserCount(void) { return userCount; }
 
-    void setFirstName(std::string userFirstName) { firstName = userFirstName; }
-    std::string getFirstName(void) { return firstName; }
+    inline void        setFirstName(std::string userFirstName) { firstName = userFirstName; }
+    inline std::string getFirstName(void) { return firstName; }
 
-    void setLastName(std::string userLastName) { lastName = userLastName; }
-    std::string getLastName(void) { return lastName; }
+    inline void        setLastName(std::string userLastName) { lastName = userLastName; }
+    inline std::string getLastName(void) { return lastName; }
 
-    void setStatus(std::string userStatus) { status = userStatus; }
-    std::string getStatus(void) { return status; }
+    inline void        setStatus(std::string userStatus) { status = userStatus; }
+    inline std::string getStatus(void) { return status; }
 
-    void printInfo(void);
+    inline void printInfo(void);
 
 private:
-    static int userCount; // a private static member data of the "User" class
+    static int  userCount; // a private static member data of the "User" class
     std::string firstName;
     std::string lastName;
     std::string status;
@@ -41,20 +43,19 @@ int User::userCount = 0;
 
 User::User() // default constructor
 {
-    userCount++; // increment static member data "userCount" 
+    userCount++; // increment static member data "userCount"
     // when a User object is created
 }
 
-User::~User() // destructor
+inline User::~User() // destructor
 {
-    userCount--; // decrement static member data "userCount" 
+    userCount--; // decrement static member data "userCount"
     // when a User object is destroyed
 }
 
-void User::printInfo(void)
+inline void User::printInfo(void)
 {
-    std::cout << "User " << firstName << " " << lastName
-        << " is of status " << status << "\n";
+    std::cout << "User " << firstName << " " << lastName << " is of status " << status << "\n";
 }
 
 int main(void)
