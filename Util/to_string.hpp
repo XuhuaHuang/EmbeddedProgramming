@@ -5,6 +5,8 @@
  * @version 0.1
  * @date 2023-03-29
  *
+ * cl /W4 /Zc:__cplusplus /EHsc /std:c++latest /exportHeader .\to_string.hpp
+ *
  * @copyright ueg (c) 2023
  *
  */
