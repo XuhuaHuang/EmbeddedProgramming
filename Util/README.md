@@ -116,3 +116,15 @@ constexpr struct { int bar{42}; } b;
 static_assert(0 == foo(b));
 ```
 
+### Immediately-Invoked Function Expression (IIFE)
+
+```cpp
+#include <iostream>
+#include "unroll.hpp"
+
+int main(void) {
+    util::iife::unroll<2>([]{ std::puts("Hello C++ 20!"); });
+    return 0;
+}
+```
+
