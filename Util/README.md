@@ -147,3 +147,11 @@ _EXPORT_STD template <class _Ty>
 const _Ty* addressof(const _Ty&&) = delete;
 ```
 
+### An Easy-to-read `invocable` Concept
+
+```cpp
+template<typename Fn, typename... Args>
+concept my_invocable = requires (Fn&& fn, Args&&... args) {
+    std::invoke(std::forward<Fn>(fn), std::forward<Args>(args)...);
+}
+```
