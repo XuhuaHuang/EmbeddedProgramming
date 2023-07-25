@@ -128,3 +128,22 @@ int main(void) {
 }
 ```
 
+### `std::valarray::swap` and `std::addressof` Implementation
+
+```cpp
+void swap(valarray& _Right) noexcept {
+    if (this != _STD addressof(_Right)) {
+        _STD swap(_Myptr, _Right._Myptr);
+        _STD swap(_Mysize, _Right._Mysize);
+    }
+}
+
+_EXPORT_STD template <class _Ty>
+_NODISCARD constexpr _Ty* addressof(_Ty& _Val) noexcept {
+    return __builtin_addressof(_Val);
+}
+
+_EXPORT_STD template <class _Ty>
+const _Ty* addressof(const _Ty&&) = delete;
+```
+
