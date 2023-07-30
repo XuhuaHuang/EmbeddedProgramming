@@ -7,14 +7,20 @@
 import std.stdio;
 
 struct Student {
-    int id;
-    int age;
+  align:
+    int id;     // placed at offset 0
+    int age;    // placed at offset 4
 
     // Member function
     void Print() {
         writeln("id: ", id, " age: ", age);
     }
 }
+
+// Check struct alignment at compile-time
+static assert(Student.alignof == 4);
+static assert(Student.age.offsetof == 4);
+static assert(Student.sizeof == 8);
 
 // Example of using a struct to return an aggregate of 2 integers
 Student CreateStudent(int age, int id) {
