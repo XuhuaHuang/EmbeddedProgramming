@@ -2,6 +2,15 @@
 // .\struct_euclidean_vec_unittest
 
 import std.stdio;
+import std.typecons;
+
+Tuple!(float, "x", float, "y", float, "z") GetOriginCoordinate() {
+    Tuple!(float, "x", float, "y", float, "z") result;
+    result.x = 0.0f;
+    result.y = 0.0f;
+    result.z = 0.0f;
+    return result;
+}
 
 struct euclidean_vec {
     float x;
