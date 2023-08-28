@@ -3,6 +3,10 @@
 // ./matrix_multiply_unittest
 // rm matrix_multiply_unittest
 
+// cl .\matrix_multiply_unittest.cpp /W4 /Zc:__cplusplus /EHsc /std:c++latest /experimental:module
+// ./matrix_multiply_unittest
+// rm matrix_multiply_unittest
+
 #include <array>
 #include <iostream>
 
