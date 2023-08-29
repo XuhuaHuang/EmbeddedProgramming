@@ -116,3 +116,66 @@ constexpr struct { int bar{42}; } b;
 static_assert(0 == foo(b));
 ```
 
+### Immediately-Invoked Function Expression (IIFE)
+
+```cpp
+#include <iostream>
+#include "unroll.hpp"
+
+int main(void) {
+    util::iife::unroll<2>([]{ std::puts("Hello C++ 20!"); });
+    return 0;
+}
+```
+
+### `std::valarray::swap` and `std::addressof` Implementation
+
+```cpp
+void swap(valarray& _Right) noexcept {
+    if (this != _STD addressof(_Right)) {
+        _STD swap(_Myptr, _Right._Myptr);
+        _STD swap(_Mysize, _Right._Mysize);
+    }
+}
+
+_EXPORT_STD template <class _Ty>
+_NODISCARD constexpr _Ty* addressof(_Ty& _Val) noexcept {
+    return __builtin_addressof(_Val);
+}
+
+_EXPORT_STD template <class _Ty>
+const _Ty* addressof(const _Ty&&) = delete;
+```
+
+### Typical `get_data()` Function Implementation with Variadic Template Parameter Pack
+
+```cpp
+#include <array>
+
+template<typename ValueType, typename ... Params>
+[[nodiscard]] std::array<ValueType, sizeof...(Params)+1> get_data(const ValueType& v1, const Params& ... params)
+{
+    return {v1, params...};
+}
+
+/// @brief C++17 Implementation with CTAD
+template<typename ValueType, typename ... Params>
+auto get_data(const ValueType& v1, const Params& ... params)
+{
+    return std::array{v1, params...};
+}
+
+auto get_data(auto&& ... params)
+{
+    return std::array{std::forward<decltype(params)>(params)...};
+}
+```
+
+### An Easy-to-read `invocable` Concept
+
+```cpp
+template<typename Fn, typename... Args>
+concept my_invocable = requires (Fn&& fn, Args&&... args) {
+    std::invoke(std::forward<Fn>(fn), std::forward<Args>(args)...);
+}
+```
