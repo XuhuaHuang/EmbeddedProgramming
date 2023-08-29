@@ -23,6 +23,10 @@
 
 #define NAME_LENGTH 60
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct {                /* Memory allocation example */
     uint8_t age;                /* FDD0; start of the struct */
     uint16_t height_in_cm;      /* FDD1; age occupied 8 bits (1 byte) */
@@ -31,6 +35,10 @@ typedef struct {                /* Memory allocation example */
     uint8_t weight;             /* FE11; chess_score occupied 16 bits (2 bytes)  */
 
 } person_t;
+
+#ifdef __cplusplus
+}
+#endif
 
 int main(void) {
     printf("The size of the defined struct person_t is %llu bytes.\n", sizeof(person_t));
