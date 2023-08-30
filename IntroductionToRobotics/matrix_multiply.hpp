@@ -8,6 +8,8 @@
  * The inner dimensions of the 2 matrices being multiplied together must match
  * The resulting matric has the shape of the outer dimensions
  *
+ * Special clang-format option: BreakAfterAttributes: Always
+ *
  * @copyright ueg (c) 2023
  *
  */
@@ -49,9 +51,9 @@ concept is_matrix_multiplicable_type = requires (T lhs, T rhs) {
 /// @return Resule matrix of size M by P
 template<typename T, std::size_t M, std::size_t N, std::size_t P>
     requires is_matrix_multiplicable_type<T>
-inline constexpr // function attributes
-    auto
-    matrix_multiply(const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B)
+[[nodiscard]]
+inline __attribute__((always_inline)) constexpr // function attributes
+    auto matrix_multiply(const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B)
         -> std::array<std::array<T, P>, M>;
 
 /// @brief Operator * overload to multiply 2 matrices
@@ -64,7 +66,8 @@ inline constexpr // function attributes
 /// @return Resule matrix of size M by P
 template<typename T, size_t M, size_t N, size_t P>
     requires is_matrix_multiplicable_type<T>
-inline constexpr // function attributes
+[[nodiscard]]
+inline __attribute__((always_inline)) constexpr // function attributes
     auto
     operator*(const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B)
         -> std::array<std::array<T, P>, M>
@@ -76,8 +79,9 @@ inline constexpr // function attributes
 struct matmul
 {
     template<typename T, std::size_t M, std::size_t N, std::size_t P>
-    [[nodiscard]] inline constexpr auto operator()(const std::array<std::array<T, N>, M>& A,
-                                                   const std::array<std::array<T, P>, N>& B)
+    [[nodiscard]]
+    inline __attribute__((always_inline)) constexpr auto
+    operator()(const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B)
         -> std::array<std::array<T, P>, M>
     {
         return matrix_multiply(A, B);
