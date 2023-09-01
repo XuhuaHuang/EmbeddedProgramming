@@ -48,7 +48,7 @@ concept is_matrix_multiplicable_type = requires (T lhs, T rhs) {
 ///
 /// @param [in] A LHS matrix of size M by N
 /// @param [in] B RHS matrix of size N by P
-/// @return Resule matrix of size M by P
+/// @return Result matrix of size M by P
 template<typename T, std::size_t M, std::size_t N, std::size_t P>
     requires is_matrix_multiplicable_type<T>
 [[nodiscard]]
@@ -63,7 +63,7 @@ inline __attribute__((always_inline)) constexpr // function attributes
 /// @tparam P Number of columns of the second matrix
 /// @param A LHS matrix of size M by N
 /// @param B RHS matrix of size N by P
-/// @return Resule matrix of size M by P
+/// @return Result matrix of size M by P
 template<typename T, size_t M, size_t N, size_t P>
     requires is_matrix_multiplicable_type<T>
 [[nodiscard]]
