@@ -28,6 +28,22 @@ template<typename T, std::size_t M, std::size_t N>
 inline __attribute__((always_inline)) constexpr // function attributes
     auto matrix_transpose(const std::array<std::array<T, N>, M>& matrix) -> std::array<std::array<T, M>, N>;
 
+/// @brief Alias struct to function matrix_transpose
+struct transpose
+{
+    template<typename T, std::size_t M, std::size_t N>
+        requires std::is_arithmetic_v<T> && std::is_copy_assignable_v<T>
+    [[nodiscard]]
+    inline __attribute__((always_inline)) constexpr auto
+    operator()(const std::array<std::array<T, N>, M>& matrix) -> std::array<std::array<T, M>, N>
+    {
+        return matrix_transpose(matrix);
+    }
+};
+
+/// @brief Using declaration alias to struct transpose
+using t = transpose;
+
 #include "matrix_transpose.inl"
 
 #endif // !MATRIX_TRANSPOSE_HPP
