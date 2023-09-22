@@ -16,4 +16,34 @@
 #include <array>
 #include <concepts>
 
+/// @brief Function to transpose 1 matrix
+/// @tparam T Individual element type
+/// @tparam M Number of rows of the input matrix
+/// @tparam N Number of columns of the input matrix
+/// @param A Input matrix of size M by N
+/// @return Result matrix of size N by M
+template<typename T, std::size_t M, std::size_t N>
+    requires std::is_arithmetic_v<T> && std::is_copy_assignable_v<T>
+[[nodiscard]]
+inline __attribute__((always_inline)) constexpr // function attributes
+    auto matrix_transpose(const std::array<std::array<T, N>, M>& matrix) -> std::array<std::array<T, M>, N>;
+
+/// @brief Alias struct to function matrix_transpose
+struct transpose
+{
+    template<typename T, std::size_t M, std::size_t N>
+        requires std::is_arithmetic_v<T> && std::is_copy_assignable_v<T>
+    [[nodiscard]]
+    inline __attribute__((always_inline)) constexpr auto
+    operator()(const std::array<std::array<T, N>, M>& matrix) -> std::array<std::array<T, M>, N>
+    {
+        return matrix_transpose(matrix);
+    }
+};
+
+/// @brief Using declaration alias to struct transpose
+using t = transpose;
+
+#include "matrix_transpose.inl"
+
 #endif // !MATRIX_TRANSPOSE_HPP

@@ -18,93 +18,183 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
+#include <set>
 #include <string>
 #include <vector>
 
-
+#include "../Helper/container_ordering.hpp"
 
 struct Person
 {
 public:
-    Person() : _first_name(""), _last_name("") {}
-    Person(const std::string& first_name, const std::string& last_name)
-        : _first_name(first_name)
-        , _last_name(last_name) {}
+    constexpr Person() noexcept(std::is_nothrow_constructible_v<std::string>) = default;
 
-    // mutator and accessor
-    // using the nature of function overloading
-    std::string firstname() const { return this->_first_name; }
-    std::string lastname() const { return this->_last_name; }
-    void firstname(const std::string first_name) { this->_first_name = first_name; }
-    void lastname(const std::string last_name) { this->_last_name = last_name; }
-
-    void print_to_stdcout() {
-        std::cout << this->firstname() << " " << this->lastname() << "\n";
-    };
-
-    // copy constructor
-    Person(const Person& rhs) {
-        this->firstname(rhs.firstname());
-        this->lastname(rhs.lastname());
+    constexpr explicit Person(const std::string&  first_name,
+                              const std::string&  last_name,
+                              const std::uint32_t age) noexcept(std::is_nothrow_copy_constructible_v<std::string>)
+        : first_name_(first_name)
+        , last_name_(last_name)
+        , age_(age)
+    {
     }
 
-    // move constructor
-    Person(Person&& rhs) noexcept {
-        this->firstname(std::move(rhs.firstname()));
-        this->lastname(std::move(rhs.lastname()));
-    }
+    // clang-format off
+    template<typename Self>
+    constexpr [[nodiscard]] auto&& firstname(this Self&& self) noexcept { return self.first_name_; }
 
-    // copy assignment operator
-    Person operator=(const Person& rhs) {
-        return Person(rhs.firstname(), rhs.lastname());
-    }
+    template<typename Self>
+    constexpr [[nodiscard]] auto&& lastname(this Self&& self) noexcept { return self.last_name_; }
 
-    // move assignment operator
-    Person operator=(Person&& rhs) noexcept {
-        return Person(std::move(rhs.firstname()), std::move(rhs.lastname()));
-    }
+    template<typename Self>
+    constexpr [[nodiscard]] auto&& age(this Self&& self) noexcept { return self.age_; }
 
-    inline bool operator==(const Person& rhs) const {
-        return (this->firstname() == rhs.firstname()) && (this->lastname() == rhs.lastname());
-    }
+    constexpr Person(const Person& rhs)                     = default;
+    constexpr Person& operator=(const Person& rhs) noexcept = default;
+    constexpr Person(Person&& rhs) noexcept                 = default;
+    constexpr Person& operator=(Person&& rhs) noexcept      = default;
+    constexpr virtual ~Person() noexcept                    = default;
+    // clang-format on
 
-    virtual ~Person() = default;
+    friend constexpr inline auto operator<=>(const Person& lhs, const Person& rhs) = default;
+
+    inline bool operator==(const Person& rhs) const
+    {
+        return (firstname() == rhs.firstname()) && (lastname() == rhs.lastname()) && (age() == rhs.age());
+    }
 
 private:
-    std::string _first_name;
-    std::string _last_name;
+    std::string   first_name_;
+    std::string   last_name_;
+    std::uint32_t age_;
 };
 
-int main(void) {
-    // initialize an empty array
-    std::vector<Person> vec_people {};
+inline std::ostream& operator<<(std::ostream& os, const Person& person) noexcept
+{
+    os << person.firstname() << " " << person.lastname() << " of age " << person.age();
+    return os;
+}
 
-    Person me = Person();
-    me.firstname("Xuhua");
-    me.lastname("Huang");
-    Person partner = Person("Lanfeng", "Jin");
+inline std::ostream& operator<<(std::ostream& os, const std::vector<Person>& people) noexcept
+{
+    for (const auto& person : people)
+        os << person << "\n";
+    return os;
+}
 
-    vec_people.push_back(partner);
-    vec_people.push_back(me);
+auto compare_people = [](const Person& lhs, const Person& rhs) {
+    return ((lhs.age() < rhs.age()) && (lhs.firstname() < rhs.firstname()) && (lhs.lastname() < rhs.lastname()));
+};
 
-    for (int i = 0; i < vec_people.size(); i++)
-    {
-        vec_people[i].print_to_stdcout();
-    }
+namespace std
+{
 
-    // sort according to the name
-    std::sort(
-        vec_people.begin(),
-        vec_people.end(), // the range of elements to sort
-        [](const Person& p1, const Person& p2) {
-            return p1.lastname() < p2.lastname()
-                || (p1.lastname() == p2.lastname() && p1.firstname() < p2.firstname());
-        }
-    );
+template<>
+struct tuple_size<Person>
+{
+    static constexpr size_t value = 3;
+};
 
-    for (int i = 0; i < vec_people.size(); i++)
-    {
-        vec_people[i].print_to_stdcout();
-    }
+template<size_t I>
+struct tuple_element<I, Person>
+{
+    using type = string;
+};
+
+template<>
+struct tuple_element<2, Person>
+{
+    using type = uint32_t;
+};
+
+template<size_t I>
+    requires (I < tuple_size<Person>::value)
+decltype(auto) get(Person& person)
+{
+    if constexpr (I == 0)
+        return person.firstname();
+    else if constexpr (I == 1)
+        return person.lastname();
+    else
+        return person.age();
+}
+
+template<size_t I>
+    requires (I < tuple_size<Person>::value)
+decltype(auto) get(const Person& person)
+{
+    if constexpr (I == 0)
+        return person.firstname();
+    else if constexpr (I == 1)
+        return person.lastname();
+    else
+        return person.age();
+}
+
+template<size_t I>
+    requires (I < tuple_size<Person>::value)
+decltype(auto) get(Person&& person)
+{
+    if constexpr (I == 0)
+        return person.firstname();
+    else if constexpr (I == 1)
+        return person.lastname();
+    else
+        return person.age();
+}
+
+} // namespace std
+
+int main(void)
+{
+    static_assert(std::tuple_size<Person>::value == 3);
+    static_assert(std::is_same<std::tuple_element<0U, Person>::type, std::string>::value);
+    static_assert(std::is_same<std::tuple_element<1U, Person>::type, std::string>::value);
+    static_assert(std::is_same<std::tuple_element<2U, Person>::type, std::uint32_t>::value);
+
+    std::vector<Person> people{};
+
+    Person me                = Person();
+    me.firstname()           = "Xuhua";
+    me.lastname()            = "Huang";
+    me.age()                 = 22U;
+    constexpr Person partner = Person("Lanfeng", "Jin", 36U);
+
+    assert(std::get<0>(partner) == "Lanfeng");
+    assert(std::get<1>(partner) == "Jin");
+    assert(std::get<2>(partner) == 36U);
+
+    const auto [fn, ln, age] = partner;
+    assert(fn == "Lanfeng");
+    assert(ln == "Jin");
+    assert(age == 36U);
+
+    people.push_back(partner);
+    people.push_back(me);
+
+    // print before sorting
+    std::cout << people << "\n";
+    // sort
+    std::sort(people.begin(), people.end(), [](const Person& p1, const Person& p2) {
+        return p1.lastname() < p2.lastname() || (p1.lastname() == p2.lastname() && p1.firstname() < p2.firstname());
+    });
+    // verify sort operation
+    std::cout << people << "\n";
+
+    auto result = me <=> partner;
+    std::cout << typeid(result).name() << "\n";
+    using helper::container_ordering::operator<<;
+    std::cout << result << "\n";
+
+    // test mutable structured binding
+    auto&& [myfn, myln, myage] = me;
+    std::cout << typeid(myfn).name() << "\n" << typeid(myln).name() << "\n" << typeid(myage).name() << "\n";
+    myfn = "Andy";
+    std::cout << me << "\n";
+
+    auto equal_to_rslt = std::equal_to{}(me, partner);
+    std::cout << typeid(equal_to_rslt).name() << "\n";
+    std::cout << std::boolalpha << equal_to_rslt << "\n";
+    std::cout << std::boolalpha << std::not_equal_to{}(me, partner) << "\n";
 
     return 0;
+}
