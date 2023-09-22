@@ -1,5 +1,22 @@
 # `Util`
 
+## Prefer STL Algorithms over Raw Loops
+
+```cpp
+void lower(std::string s) {
+    for (unsigned int i = 0; i <= std::strlen(s.data()); ++i) {
+        s[i] = std::lower(s[i]);
+    }
+}
+
+std::transform(s.begin(), s.end(), s.begin(), [](char c) { return std::tolower(c); });
+```
+
+## Prefer Immutable Data to Mutable Data
+* Easier to verify code when using constants.
+* Constants have higher optimization potential.
+* Constant data is data-race free by design, since mutation is a necessary condition for a data-race.
+
 ## About
 
 Contains template (generic) function in a C-style header file, providing the following functionality:

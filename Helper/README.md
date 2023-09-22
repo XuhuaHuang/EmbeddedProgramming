@@ -19,3 +19,23 @@ struct plus {
     }
 };
 ```
+
+```cpp
+// std::integral_constant<T, t>
+_STD_BEGIN
+_EXPORT_STD template <class _Ty, _Ty _Val>
+struct integral_constant {
+    static constexpr _Ty value = _Val;
+
+    using value_type = _Ty;
+    using type       = integral_constant;
+
+    constexpr operator value_type() const noexcept {
+        return value;
+    }
+
+    _NODISCARD constexpr value_type operator()() const noexcept {
+        return value;
+    }
+};
+```

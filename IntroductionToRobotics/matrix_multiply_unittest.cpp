@@ -1,9 +1,6 @@
-// g++ matrix_multiply_unittest.cpp  -std=c++2b -o matrix_multiply_unittest -Wall -Wextra -O3
+/// @file matrix_multiply_unittest.cpp
+// g++ matrix_multiply_unittest.cpp -std=c++2b -o matrix_multiply_unittest -Wall -Wextra -O3
 // -Wno-pragma-once-outside-header
-// ./matrix_multiply_unittest
-// rm matrix_multiply_unittest
-
-// cl .\matrix_multiply_unittest.cpp /W4 /Zc:__cplusplus /EHsc /std:c++latest /experimental:module
 // ./matrix_multiply_unittest
 // rm matrix_multiply_unittest
 
