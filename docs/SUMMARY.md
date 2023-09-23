@@ -1,33 +1,41 @@
 # Summary
 
-[Project Overview](../README.md)
+[Project Overview]()
 
 # Core C++ Notes
 
-- [Destructor](../Destructor/README.md)
-- [Interface](../Interface/README.md)
+- [Destructor]()
+- [Interface]()
 - [Make Unique](basic-std-make-unique-impl.md)
-- [Miscellaneous](../Miscellaneous/README.md)
-- [Pointer](../Pointer/README.md)
-- [Standard Template Library](../StandardTemplateLibrary/README.md)
+- [Miscellaneous]()
+- [Operator Overload]()
+- [Pointer]()
+- [Standard Template Library]()
 
 # C++20 Notes
 
-- [Structural Binding](../ReadOnlyStructuralBinding/README.md)
+- [Range]()
+- [Structural Binding]()
 
 # C++23 Notes
 
-- [Deducing-this](./deducing-this.md)
-- [Expected](../Util/stdcxx23/stdexpected_notes.md)
+- [Concept]()
+- [Deducing-this](deducing-this.md)
+- [Expected]()
+- [Transform Reduce](algorithms/std-transform-reduce.md)
 
 # Toolchain References
 
-- [Boost](../Boost/README.md)
-- [OpenGL](../OpenGL_ES/README.md)
+- [Boost]()
+- [GNU Scientific Library]()
+- [OpenGL]()
+- [Qt]()
 
 # Projects
 
-- [Util](../util/README.md)
+- [WinCat]()
+- [ReadCSV]()
+- [Util]()
 
 # Math
 
