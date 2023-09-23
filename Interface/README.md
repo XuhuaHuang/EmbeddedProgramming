@@ -13,3 +13,8 @@
 
 - A singleton is just a global variable
 
+## Make Good Interfaces
+- Make interfaces explicit
+- Make interfaces precise and strongly typed
+- Keep the number of function arguments low
+- Avoid adjacent unrelated parameters of the same type
