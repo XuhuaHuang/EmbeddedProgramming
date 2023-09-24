@@ -1,12 +1,12 @@
 # Summary
 
-[Project Overview]()
+[Project Overview](README.md)
 
 # Core C++ Notes
 
 - [Destructor]()
 - [Interface]()
-- [Make Unique](basic-std-make-unique-impl.md)
+- [Make Unique](docs/basic-std-make-unique-impl.md)
 - [Miscellaneous]()
 - [Operator Overload]()
 - [Pointer]()
@@ -20,9 +20,9 @@
 # C++23 Notes
 
 - [Concept]()
-- [Deducing-this](deducing-this.md)
+- [Deducing-this](docs/deducing-this.md)
 - [Expected]()
-- [Transform Reduce](algorithms/std-transform-reduce.md)
+- [Transform Reduce](docs/algorithms/std-transform-reduce.md)
 
 # Toolchain References
 
@@ -39,6 +39,6 @@
 
 # Math
 
-- [Basic Indefinite Integration](basic-indefinite-integration.md)
-- [Calculus Discontinuity](calculus-discontinuity.md)
-- [Calculus Derivative](calculus-derivative.md)
+- [Basic Indefinite Integration](docs/basic-indefinite-integration.md)
+- [Calculus Discontinuity](docs/calculus-discontinuity.md)
+- [Calculus Derivative](docs/calculus-derivative.md)
