@@ -3,7 +3,7 @@ authors = ["Xuhua Huang"]
 description = "Embedded programming journey with C++."
 language = "en"
 multilingual = false
-src = "docs"
+src = "."
 title = "Embedded Programming"
 
 [output.html]
