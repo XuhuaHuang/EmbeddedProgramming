@@ -15,6 +15,7 @@ book/*
 *.html
 *.pth
 *.gch
+book/
 
 # User-specific files
 *.rsuser
