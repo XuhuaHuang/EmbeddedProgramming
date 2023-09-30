@@ -16,8 +16,13 @@ auto out_line = std::ostream_iterator<mys::Line>{
 using rng = std::ranges;
 using vws = std::views;
 
-auto is_cmd = [](mys::Line const& line) {
+constexpr auto is_cmd = [](mys::Line const& line) {
     return line.mLine[0] == '$';
+};
+
+constexpr auto is_cmd_bad = []
+    (mys::Line const& line, char const ch = '$') {
+        return line.mLine[0] == ch;
 };
 
 // filter view selects for command lines
@@ -73,4 +78,9 @@ struct eval {
         for (auto _ : view);
     }
 };
+
+void eval_view(rng::input_range auto&& view) noexcept
+{
+    view | eval();
+}
 ```
