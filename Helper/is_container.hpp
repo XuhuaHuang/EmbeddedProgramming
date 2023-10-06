@@ -21,6 +21,17 @@ namespace helper
 namespace generic_container
 {
 
+template<typename T>
+struct is_container {
+    template<typename S>
+    static std::byte f(...);
+
+    template<typename S>
+    static std::size_t f(typename S::iterator*);
+
+    static const bool value = (sizeof(f<T>(0)) == sizeof(std::size_t));
+};
+
 } // namespace generic_container
 } // namespace helper
 
