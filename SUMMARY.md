@@ -10,11 +10,11 @@
 - [Miscellaneous]()
 - [Operator Overload]()
 - [Pointer]()
-- [Standard Template Library]()
+- [Standard Template Library](docs/algorithms/quick-algorithm-lookup.md)
 
 # C++20 Notes
 
-- [Range]()
+- [Range](docs/range-views-pipelines.md)
 - [Structural Binding]()
 
 # C++23 Notes
