@@ -21,6 +21,31 @@ namespace helper
 namespace generic_container
 {
 
+/**
+ * @brief A container of type C is a type that can be iterated with range-based for loop if:
+ * std::begin(C&) returns begin iterator
+ * std::end(C&) return tail iterator
+ * begin iterator and tail iterator are comparable with !=
+ * std::next can be used on a begin iterator
+ * begin iterator has * operator and isn't void
+ * begin iterator and tail iterator are copy constructible and destructible
+ */
+
+template<typename C>
+using TBegin = decltype(std::begin(std::declval<C&>()));
+
+template<typename C>
+using TEnd = decltype(std::end(std::declval<C&>()));
+
+template<typename BeginIter, typename EndIter>
+using TNotEqual = decltype(std::declval<BeginIter>() != std::declval<EndIter>());
+
+template<typename BeginIter>
+using TInc = decltype(std::next(std::declval<BeginIter>()));
+
+template<typename BeginIter>
+using TDeref = decltype(*std::declval<BeginIter>());
+
 template<typename T>
 struct is_container {
     template<typename S>
