@@ -17,6 +17,7 @@
 #define IS_CONTAINER_HPP
 
 #include <concepts>
+#include <iterator>
 #include <type_traits>
 
 namespace helper
@@ -59,6 +60,26 @@ struct is_container
     static std::size_t f(typename S::iterator*);
 
     static const bool value = (sizeof(f<T>(0)) == sizeof(std::size_t));
+};
+
+// clang-format off
+template<typename C>
+struct is_container<C, std::void_t<
+    TBegin<C>,
+    TEnd<C>,
+    TInc<C>,
+    TInc<TBegin<C>>,
+    TNotEqual<TBegin<C>, TEnd<C>>,
+    TDeref<TBegin<C>>
+    > // std::void_t
+    > // is_container
+    : std::integral_constant<bool,
+        std::is_convertible_v<TNotEqual<TBegin<C>, TEnd<C>>, bool>
+            and not std::is_void_v<TDeref<TBegin<C>>> and std::is_destructible<TBegin<C>>
+            and std::is_copy_constructible_v<TBegin<C>> and std::is_destructible_v<TEnd<C>>
+            and std::is_copy_constructible_v<TEnd<C>>
+    > // std::integral_constant
+{
 };
 
 template<typename C>
