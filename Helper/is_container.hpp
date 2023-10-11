@@ -16,6 +16,9 @@
 #ifndef IS_CONTAINER_HPP
 #define IS_CONTAINER_HPP
 
+#include <concepts>
+#include <type_traits>
+
 namespace helper
 {
 namespace generic_container
@@ -47,7 +50,8 @@ template<typename BeginIter>
 using TDeref = decltype(*std::declval<BeginIter>());
 
 template<typename T>
-struct is_container {
+struct is_container
+{
     template<typename S>
     static std::byte f(...);
 
@@ -56,6 +60,12 @@ struct is_container {
 
     static const bool value = (sizeof(f<T>(0)) == sizeof(std::size_t));
 };
+
+template<typename C>
+constexpr bool is_container_v(const C& c)
+{
+    return is_container<C>::value;
+}
 
 } // namespace generic_container
 } // namespace helper
