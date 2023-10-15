@@ -81,6 +81,7 @@ struct is_container<C, std::void_t<
     > // std::integral_constant
 {
 };
+// clang-format on
 
 template<typename C>
 constexpr bool is_container_v(const C& c)
