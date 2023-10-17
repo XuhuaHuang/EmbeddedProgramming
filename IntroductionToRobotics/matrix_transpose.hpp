@@ -20,7 +20,7 @@
 /// @tparam T Individual element type
 /// @tparam M Number of rows of the input matrix
 /// @tparam N Number of columns of the input matrix
-/// @param A Input matrix of size M by N
+/// @param matrix Input matrix of size M by N
 /// @return Result matrix of size N by M
 template<typename T, std::size_t M, std::size_t N>
     requires std::is_arithmetic_v<T> && std::is_copy_assignable_v<T>
