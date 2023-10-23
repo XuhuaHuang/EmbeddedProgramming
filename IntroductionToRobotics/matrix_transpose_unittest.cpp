@@ -1,11 +1,10 @@
 /// @file matrix_transpose_unittest.cpp
-// g++ matrix_transpose_unittest.cpp  -std=c++2b -o matrix_transpose_unittest -Wall -Wextra -O3
+// g++ matrix_transpose_unittest.cpp -std=c++2b -o matrix_transpose_unittest -Wall -Wextra -O3
 // -Wno-pragma-once-outside-header
 // ./matrix_transpose_unittest
 // rm matrix_transpose_unittest
 
 #include <array>
-#include <assert.h>
 #include <iostream>
 #include <type_traits>
 
