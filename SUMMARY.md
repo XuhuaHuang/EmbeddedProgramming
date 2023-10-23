@@ -9,8 +9,9 @@
 - [Make Unique](docs/basic-std-make-unique-impl.md)
 - [Miscellaneous]()
 - [Operator Overload]()
-- [Pointer]()
+- [Pointer](Pointer/README.md)
 - [Standard Template Library](docs/algorithms/quick-algorithm-lookup.md)
+- [Template](Template/README.md)
 
 # C++20 Notes
 
