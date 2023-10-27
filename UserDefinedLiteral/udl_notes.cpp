@@ -50,6 +50,14 @@ auto main(void) -> int {
         Temperature room_temperature(26.0_deg);
     }
 
+    {
+        using namespace std::literals;
+        static_assert(1h == 60m);
+        static_assert(1h == 3600s);
+
+        static_assert(std::is_same<decltype("hello"sv), std::string_view>::value);
+    }
+
     system("pause");
     return EXIT_SUCCESS;
 }
