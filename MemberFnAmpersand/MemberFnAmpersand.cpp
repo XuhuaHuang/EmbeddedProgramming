@@ -1,12 +1,32 @@
+// clang-format off
 /*****************************************************************//**
  * \file   MemberFnAmpersand.cpp
  * \brief  
  * 
+ * cl .\MemberFnAmpersand.cpp /W4 /analyze /Zc:__cplusplus /EHsc /std:c++latest /experimental:module
+ * 
  * \author Xuhua Huang
  * \date   November 2022
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
+
+struct kwarg
+{
+    kwarg() = delete;
+    constexpr inline kwarg(const char* rhs) { kw = rhs; }
+    constexpr inline kwarg(const std::string_view& rhs) { kw = rhs; }
+    constexpr inline kwarg(std::string_view&& rhs) { kw = std::move(rhs); }
+
+    constexpr inline decltype(auto) operator=(const auto rhs) { return rhs; }
+
+    constexpr inline bool operator==(const kwarg& rhs) = delete;
+    constexpr inline decltype(auto) operator<=>(const kwarg& rhs) = delete;
+
+private:
+    std::string_view kw;
+};
 
 struct Arg
 {
