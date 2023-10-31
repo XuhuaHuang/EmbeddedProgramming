@@ -41,6 +41,24 @@ constexpr std::size_t count(T&& array)
 
 struct iterable_array
 {
+    inline constexpr iterable_array() noexcept                      = default;
+    inline constexpr iterable_array(const iterable_array&) noexcept = default;
+    inline constexpr iterable_array(const std::size_t s)
+        : array(s)
+    {
+    }
+    inline constexpr ~iterable_array() noexcept = default;
+
+    std::vector<uint32_t> array{};
+    std::size_t           index = 0;
+
+    inline constexpr void          reset() { index = 0; }
+    inline constexpr bool          has_next() const noexcept { return index < array.size(); }
+    inline constexpr std::uint32_t next()
+    {
+        index++;
+        return array[index - 1];
+    }
 };
 
 consteval [[nodiscard]] std::size_t __cdecl count_iterable_array()
