@@ -6,6 +6,8 @@
  * @date 2023-10-23
  *
  * Recall that for any matrix A, det(A Transposed) == det(A)
+ * the determinant of A is equal to the determinant of its transpose.
+ *
  * For any matrices A and B that can multiplied, det(AB) == det(A)det(B).
  *
  * @copyright ueg (c) 2023
