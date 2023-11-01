@@ -67,6 +67,15 @@ consteval [[nodiscard]] std::size_t __cdecl count_iterable_array()
     return count(iterable_array(10));
 }
 
+namespace std
+{
+
+template<>
+struct tuple_size<iterable_array> : integral_constant<std::size_t, 2>
+{
+};
+} // namespace std
+
 auto main(void) -> int
 {
     return 0;
