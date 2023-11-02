@@ -74,6 +74,18 @@ template<>
 struct tuple_size<iterable_array> : integral_constant<std::size_t, 2>
 {
 };
+
+template<>
+struct tuple_element<0U, iterable_array>
+{
+    using type = vector<uint32_t>;
+};
+
+template<>
+struct tuple_element<1U, iterable_array>
+{
+    using type = size_t;
+};
 } // namespace std
 
 auto main(void) -> int
