@@ -1,8 +1,8 @@
 /*****************************************************************//**
  * \file   derived_class_copying.cpp
  * \brief  properly copying derived class objects by invoking:
- *		   base class copy constructor
- *		   base class copy assignment operator
+ *         base class copy constructor
+ *         base class copy assignment operator
  *
  * \author Xuhua Huang
  * \date   March 2021
