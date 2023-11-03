@@ -106,6 +106,17 @@ typename const tuple_element<I, iterable_array>::type& get(const iterable_array&
     else /* constexpr */
         return itrarray.index;
 }
+
+template<size_t I>
+    requires (I < tuple_size<iterable_array>::value)
+typename tuple_element<I, iterable_array>::type&& get(iterable_array&& itrarray)
+{
+    if constexpr (I == 0)
+        return std::forward<tuple_element<0U, iterable_array>::type>(itrarray.array);
+    else /* constexpr */
+        return std::forward<tuple_element<1U, iterable_array>::type>(itrarray.index);
+}
+
 } // namespace std
 
 auto main(void) -> int
