@@ -121,5 +121,22 @@ typename tuple_element<I, iterable_array>::type&& get(iterable_array&& itrarray)
 
 auto main(void) -> int
 {
+    static_assert(std::tuple_size<iterable_array>::value == 2);
+    static_assert(std::tuple_size_v<iterable_array> == 2);
+    static_assert(std::is_same_v<std::tuple_element<0, iterable_array>::type, std::vector<std::uint32_t>>);
+    static_assert(std::is_same_v<std::tuple_element<1, iterable_array>::type, std::size_t>);
+
+    static_assert(count_iterable_array() == 10);
+    std::cout << "line " << __LINE__ << ": " << count_iterable_array() << "\n";
+
+    constexpr iterable_array array{};
+    auto [v, s] = array;
+    static_assert(std::is_same_v<decltype(v), std::vector<std::uint32_t>>);
+    static_assert(std::is_same_v<decltype(s), std::size_t>);
+
+    std::cout << "line " << __LINE__ << ": typeid(v).name() " << typeid(v).name() << "\n";
+    std::cout << "line " << __LINE__ << ": typeid(s).name() " << typeid(s).name() << "\n";
+
+    system("pause");
     return 0;
 }
