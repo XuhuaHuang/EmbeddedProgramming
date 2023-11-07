@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(EmbeddedProgramming LANGUAGES CXX)
+project(EmbeddedProgramming LANGUAGES C CXX)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # The following executable is a preliminary "Hello World" program in the repository
