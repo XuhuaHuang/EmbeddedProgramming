@@ -12,6 +12,8 @@
 #ifndef SUM_HPP
 #define SUM_HPP
 
+#include <numeric>
+
 namespace util
 {
 namespace span
