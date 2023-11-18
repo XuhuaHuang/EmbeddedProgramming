@@ -22,4 +22,11 @@
 #include <concepts>
 #include <type_traits>
 
+template<typename T>
+[[nodiscard]]
+inline constexpr T det(const matrix_t<T, 1, 1>& M) noexcept
+{
+    return M[0][0];
+}
+
 #endif // !MATRIX_DETERMINANT_HPP
