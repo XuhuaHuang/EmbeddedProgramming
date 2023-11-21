@@ -7,7 +7,7 @@
 - [Destructor]()
 - [Interface]()
 - [Make Unique](docs/basic-std-make-unique-impl.md)
-- [Miscellaneous]()
+- [Miscellaneous](Miscellaneous/README.md)
 - [Operator Overload]()
 - [Pointer](Pointer/README.md)
 - [Standard Template Library](docs/algorithms/quick-algorithm-lookup.md)
@@ -36,7 +36,7 @@
 
 - [WinCat]()
 - [ReadCSV]()
-- [Util]()
+- [Util](Util/README.md)
 
 # Math
 
