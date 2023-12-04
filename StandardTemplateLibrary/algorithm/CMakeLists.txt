@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(merge "merge.cpp")
 add_executable(nth_element "nth_element.cpp")
+add_executable(partition_point "partition_point.cpp")
 
 # Assign value by relative path
 # The relative path with respect to current file MUST change if this instruction block is reused
@@ -20,6 +21,13 @@ target_include_directories(merge
 )
 
 target_include_directories(nth_element
+    PUBLIC
+        ${REPO_ROOT_DIR}
+        ${REPO_ROOT_DIR}/Helper
+        ${REPO_ROOT_DIR}/Util
+)
+
+target_include_directories(partition_point
     PUBLIC
         ${REPO_ROOT_DIR}
         ${REPO_ROOT_DIR}/Helper
