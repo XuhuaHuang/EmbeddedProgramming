@@ -18,4 +18,4 @@ add_executable(StringTransform "string_tranform.cpp")
 add_executable(Template "template.cpp")
 add_executable(Valarray "valarray.cpp")
 
-add_subdirectory(Tuple)
+add_subdirectory("Tuple")
