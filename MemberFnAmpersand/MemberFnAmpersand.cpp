@@ -4,6 +4,7 @@
  * \brief  
  * 
  * cl .\MemberFnAmpersand.cpp /W4 /analyze /Zc:__cplusplus /EHsc /std:c++latest /experimental:module
+ * Reference Qualifier
  * 
  * \author Xuhua Huang
  * \date   November 2022
@@ -21,7 +22,7 @@ struct kwarg
 
     constexpr inline decltype(auto) operator=(const auto rhs) { return rhs; }
 
-    constexpr inline bool operator==(const kwarg& rhs) = delete;
+    constexpr inline bool           operator==(const kwarg& rhs)  = delete;
     constexpr inline decltype(auto) operator<=>(const kwarg& rhs) = delete;
 
 private:
@@ -51,6 +52,18 @@ struct Arg
         return i;
     }
 };
+
+namespace experimental
+{
+struct Arg
+{
+    int i = 1;
+
+    inline int getArg(this Arg& arg) { return arg.i; }
+    inline int getArg(this const Arg& arg) { return arg.i; }
+    inline int getArg(this Arg&& arg) { return arg.i; }
+};
+} // namespace experimental
 
 int main(void)
 {
