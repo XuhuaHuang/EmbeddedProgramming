@@ -5,6 +5,7 @@
 
 #include <algorithm>
 #include <array>
+#include <tuple>
 
 template<typename T = int, typename... Vs>
 struct any_of
@@ -26,5 +27,27 @@ public:
         return std::any_of(std::cbegin(this->values), std::cend(this->values), [&other](auto x) { return x == other; });
     }
 };
+
+namespace experimental
+{
+
+template<class... Ts>
+struct any_of
+{
+    any_of(Ts... args)
+        : args{args...}
+    {
+    }
+
+    auto operator==(auto rhs) const
+    {
+        return std::apply([&](auto... lhs) { return (... or (lhs == rhs)); }, args);
+    }
+
+private:
+    std::tuple<Ts...> args;
+};
+
+} // namespace experimental
 
 #endif // !ANY_OF_HPP
