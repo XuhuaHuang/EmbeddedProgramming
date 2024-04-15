@@ -1,9 +1,9 @@
 // clang-format off
 /*****************************************************************//**
- * \file   MemberFnAmpersand.cpp
+ * \file   reference_qualifier.cpp
  * \brief  
  * 
- * cl .\MemberFnAmpersand.cpp /W4 /analyze /Zc:__cplusplus /EHsc /std:c++latest /experimental:module
+ * cl .\reference_qualifier.cpp /W4 /analyze /Zc:__cplusplus /EHsc /std:c++latest /experimental:module
  * Reference Qualifier
  * 
  * \author Xuhua Huang
