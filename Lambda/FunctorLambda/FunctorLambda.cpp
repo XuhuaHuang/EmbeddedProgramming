@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   FunctorLambda.cpp
  * \brief  Demonstration of classes used as functor in C++.
@@ -9,7 +10,6 @@
 #include <iostream>
 
 namespace functor {
-
     class add_w_optr {
     public:
         explicit add_w_optr() = default;
@@ -64,6 +64,7 @@ namespace calc {
     };
 }
 
+// clang-format on
 int main(void)
 {
     int a = 3, b = 4;
@@ -81,18 +82,17 @@ int main(void)
     const functor::add_w_ctr add_ol(a, b);
     std::cout << "Result with overloaded constructor: " << add_ol.get_result() << "\n";
 
-    const calc::tax tax_default {};
+    const calc::tax tax_default{};
     std::cout << "Default tax payer: " << tax_default() << "\n";
 
     // pay 15% tax when income is above 11k, lower than 24k
     // pay 25% tax of the part above 24k, lower than 60k
-    const calc::tax tax_mid_income{ 0.25, 24'000 };
+    const calc::tax tax_mid_income{0.25, 24'000};
     std::cout << "Low income tax payer: " << tax_mid_income(45'000) + tax_default() << "\n";
 
     // pay 40% tax of the part above 60k, lower than 90k
-    const calc::tax tax_high_income{ 0.35, 60'000 };
+    const calc::tax tax_high_income{0.35, 60'000};
     std::cout << "High income tax payer: " << tax_high_income(90'000) + tax_mid_income(60'000) << "\n";
-
 
     system("pause");
     return 0;
