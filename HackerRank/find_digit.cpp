@@ -1,14 +1,10 @@
 /*****************************************************************//**
- * \file   FindDigits.cpp
+ * \file   find_digit.cpp
  * \brief  Test question on HackerRank platform.
  * https://www.hackerrank.com/challenges/find-digits/problem
  * Using the integer's digits as divisors, count the number of them.
  * Passes all test cases and the code is submitted.
- * 
- * Command used to compile:
- * $ g++ -o FindDigits.exe .\FindDigits.cpp -std=c++11
- * $ .\FindDigits.exe
- * 
+ *
  * \author Xuhua Huang
  * \date   October 2021
  *********************************************************************/

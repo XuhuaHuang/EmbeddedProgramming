@@ -1,27 +1,22 @@
+// clang-format off
 /*****************************************************************//**
  * \file   CamelCase.cpp
  * \brief  Test question on HackerRank platform.
  * https://www.hackerrank.com/challenges/camelcase/problem
  * Count the total number of words in a camelCase formatted string.
  * Passes all test cases and the code is submitted.
- * 
- * Command used to compile:
- * $ g++ -o camelCase.exe .\CamelCase.cpp -std=c++11
- * $ .\camelCase.exe
- * 
+ *
  * \author Xuhua Huang
  * \date   October 2021
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
 #include <string>
 
-/*
- * Complete the 'camelcase' function below.
- *
- * The function is expected to return an INTEGER.
- * The function accepts STRING s as parameter.
- */
+/// @brief The function is expected to return an INTEGER.
+/// @param s The function accepts STRING s as parameter.
+/// @return 
 int camelcase(const std::string s) {
     int word_count = 1;
 
