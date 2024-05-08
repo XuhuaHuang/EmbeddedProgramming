@@ -4,10 +4,6 @@
  * https://www.hackerrank.com/challenges/virtual-functions/problem
  * Passes all test cases and the code is submitted.
  * 
- * Command used to compile:
- * $ g++ -o virtual_fn.exe .\VirtualFunctions.cpp -std=c++11
- * $ .\virtual_fn.exe
- * 
  * \author Xuhua Huang
  * \date   October 2021
  *********************************************************************/
