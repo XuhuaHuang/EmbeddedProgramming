@@ -3,5 +3,15 @@
         "string": "cpp",
         "cassert": "cpp",
         "iostream": "cpp"
+    },
+    "settings": {
+        "C_Cpp.autocomplete": "enabled",
+        "C_Cpp.codeFolding": "enabled",
+        "C_Cpp.debugShortcut": false,
+        "C_Cpp.dimInactiveRegions": true,
+        "C_Cpp.doxygen.generateOnType": false,
+        "C_Cpp.enhancedColorization": "enabled",
+        "C_Cpp.errorSquiggles": "enabled",
+        "Prettier-SQL.keywordCase": "upper"
     }
 }
