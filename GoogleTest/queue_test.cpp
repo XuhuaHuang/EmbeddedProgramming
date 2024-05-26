@@ -120,19 +120,16 @@ TEST_F(QueueTest, DequeueWorks) {
     ASSERT_NE(n, nullptr);
     EXPECT_EQ(*n, 1);
     EXPECT_EQ(_q1.size(), 0);
-    delete n;
 
     n = _q2.Dequeue();
     ASSERT_NE(n, nullptr);
     EXPECT_EQ(*n, 2);
     EXPECT_EQ(_q2.size(), 1);
-    delete n;
 
     n = _q2.Dequeue();
     ASSERT_NE(n, nullptr);
     EXPECT_EQ(*n, 3);
     EXPECT_EQ(_q2.size(), 0);
-    delete n;
 }
 
 /**
