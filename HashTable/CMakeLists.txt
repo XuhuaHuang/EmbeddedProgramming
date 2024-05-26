@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.20)
 
-project(HashTable)
+project("hash_table")
 
 set(C_STANDARD 17)
 set(C_STANDARD_REQUIRED ON)
 
-add_executable(HashTable "main.c")
+add_executable(hash_table "main.c")

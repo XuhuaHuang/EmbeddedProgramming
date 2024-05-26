@@ -1,18 +1,16 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(Template)
+project("template")
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Adding multiple executable to the project
-# Right-click on each item to set as start-up project
-add_executable(ClassTemplateBasics
+add_executable(template_cls
     "ClassTemplate/main.cpp"
     "ClassTemplate/Stack.hpp"
 )
 
-add_executable(FunctionTemplateBasics
+add_executable(template_fn
     "FunctionTemplate/main.cpp"
     "FunctionTemplate/max.hpp"
 )

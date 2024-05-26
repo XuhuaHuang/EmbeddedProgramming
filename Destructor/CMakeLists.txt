@@ -1,11 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(Destructor)
+project("destructor")
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Adding multiple executable to the project
-# Right-click on each item to set as start-up project
-add_executable(DestructorNotes "destructor_notes.cpp")
-add_executable(SequenceDestruction "sequence_destruction.cpp")
+add_executable(destructor_notes "notes.cpp")
+add_executable(sequence_destruction "sequence_destruction.cpp")

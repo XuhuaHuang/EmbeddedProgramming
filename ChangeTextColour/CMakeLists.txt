@@ -7,15 +7,13 @@ set(C_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Adding multiple executable to the project
-# Right-click on each item to set as start-up project
 add_executable(
-    ChangeTextColourCStyle
-    "ChangeTextColour.c"
+    change_text_colour_c
+    "change_text_colour.c"
 )
 
 add_executable(
-    ChangeTextColourCXXStyle
+    change_text_colour_cpp
     "color.hpp"
     "color.cpp"
 )

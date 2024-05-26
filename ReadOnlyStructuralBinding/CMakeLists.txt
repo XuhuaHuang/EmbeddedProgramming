@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(StructuralBinding)
+project("structural_binding")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(StructuralBinding structural_binding.cpp)
+add_executable(structural_binding "structural_binding.cpp")

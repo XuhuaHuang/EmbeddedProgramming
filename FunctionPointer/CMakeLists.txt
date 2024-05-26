@@ -1,11 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(FunctionPointer LANGUAGES CXX)
+project("function_pointer" LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Adding multiple executable to the project
-# Right-click on each item to set as start-up project
-add_executable(BindEntityAdd "bind_entity_add.cpp")
-add_executable(ForEachFuncPtr "function_pointers.cpp")
+add_executable(bind_entity_add "bind_entity_add.cpp")
+add_executable(for_each_fn_ptr "function_pointers.cpp")

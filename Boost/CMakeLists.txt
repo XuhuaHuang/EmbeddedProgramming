@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.20)
 # ┌──────────────────────────────────────────────────────────────────┐
 # │  Projects Settings                                               │
 # └──────────────────────────────────────────────────────────────────┘
-project(BoostExamples
+project("boost"
     VERSION 1.0.0
     DESCRIPTION "Examples on using boost library"
     LANGUAGES CXX
