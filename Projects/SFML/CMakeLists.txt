@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.20)
 
-project(CMakeSFMLProject LANGUAGES CXX)
+project("sfml_cmake" LANGUAGES CXX)
 
 include(FetchContent)
 FetchContent_Declare(SFML
@@ -8,13 +8,13 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(CMakeSFMLProject "Example/main.cpp")
-target_link_libraries(CMakeSFMLProject PRIVATE sfml-graphics)
-target_compile_features(CMakeSFMLProject PRIVATE cxx_std_17)
+add_executable(sfml_cmake "Example/main.cpp")
+target_link_libraries(sfml_cmake PRIVATE sfml-graphics)
+target_compile_features(sfml_cmake PRIVATE cxx_std_17)
 
 if (WIN32 AND BUILD_SHARED_LIBS)
-    add_custom_command(TARGET CMakeSFMLProject POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:CMakeSFMLProject> $<TARGET_FILE_DIR:CMakeSFMLProject> COMMAND_EXPAND_LISTS)
+    add_custom_command(TARGET sfml_cmake POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:sfml_cmake> $<TARGET_FILE_DIR:sfml_cmake> COMMAND_EXPAND_LISTS)
 endif()
 
-install(TARGETS CMakeSFMLProject)
+install(TARGETS sfml_cmake)
