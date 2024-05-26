@@ -33,7 +33,6 @@ public:
     inline long value() const { return val; }
     inline long& value() { return val; }
 
-private:
     std::string first;
     std::string last;
     long val;
