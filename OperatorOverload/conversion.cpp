@@ -4,7 +4,7 @@
  * 
  * Document highlight: n/a
  * 
- * \author 1879700
+ * \author Xuhua Huang
  * \date   November 2020
  *********************************************************************/
 
@@ -17,11 +17,7 @@ private:
     int den;
 
 public:
-    constexpr Fraction()
-        : num(0)
-        , den(0)
-    {
-    };
+    constexpr Fraction() = default;
 
     constexpr Fraction(int n, int d)
         : num(n)
