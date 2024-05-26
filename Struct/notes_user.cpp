@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   StructNotesUser.cpp
+ * \file   notes_user.cpp
  * \brief  brief notes on structure
  *         By convention is to use smaller thing in structure
  *         more complex things in class
