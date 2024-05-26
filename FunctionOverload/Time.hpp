@@ -9,7 +9,7 @@
 #include <iostream>
 #include <cmath>
 
-class MyTime
+class Time
 {
 private:
     int hour;
