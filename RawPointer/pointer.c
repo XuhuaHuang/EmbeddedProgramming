@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   pointer.c
- * \brief  Lab 7 pointers - 1879700 Xuhua Huang
+ * \brief  Lab 7 pointers - Xuhua Huang
  *
  * \author Xuhua Huang
  * \date   October 2019
