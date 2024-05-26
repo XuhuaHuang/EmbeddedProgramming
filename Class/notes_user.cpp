@@ -1,6 +1,6 @@
 // clang-format off
 /*****************************************************************//**
- * \file   class_notes_User.cpp
+ * \file   notes_user.cpp
  * \brief  brief notes on class
  *         By convention is to use smaller thing in structure
  *         more complex things in class
