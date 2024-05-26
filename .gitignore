@@ -402,3 +402,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 *.hint
+build/FileIO/example_file.txt
