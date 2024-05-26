@@ -6,7 +6,10 @@
  * \date   March 2020
  *********************************************************************/
 
-#include "MyTIme.hpp"
+
+#include <iostream>
+
+#include "TIme.hpp"
 #include "Rectangle.hpp"
 #include "Point.hpp"
 
