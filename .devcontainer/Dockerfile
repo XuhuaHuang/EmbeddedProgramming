@@ -1,9 +1,15 @@
-# [Choice] Debian / Ubuntu version (use Debian 11/9, Ubuntu 18.04/21.04 on local arm64/Apple Silicon): debian-11, debian-10, debian-9, ubuntu-21.04, ubuntu-20.04, ubuntu-18.04
-ARG VARIANT=22.04
+ARG VARIANT=focal
 FROM ubuntu:${VARIANT}
 
 # Restate the variant to use it later on in the llvm and cmake installations
 ARG VARIANT
+
+# Setup time zone for ubuntu
+ENV \
+    # Configure machine encoding
+    LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    TZ="America/Detroit"
 
 # Install necessary packages available from standard repos
 RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
@@ -114,7 +120,4 @@ ENV CC=${CC:-"gcc"}
 ENV CXX=${CXX:-"g++"}
 
 # Include project
-#ADD . /workspaces/cpp_starter_project
-#WORKDIR /workspaces/cpp_starter_project
-
 CMD ["/bin/bash"]
