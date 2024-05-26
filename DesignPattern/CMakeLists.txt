@@ -1,11 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(DesignPattern LANGUAGES CXX)
+project("design_pattern" LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Adding multiple executable to the project
-# Right-click on each item to set as start-up project
-add_executable(Factory "factory.cpp")
-add_executable(Singleton "singleton.cpp")
+add_executable(factory            "factory.cpp")
+add_executable(singleton          "singleton.cpp")
