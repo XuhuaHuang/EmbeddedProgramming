@@ -10,7 +10,7 @@
  * "cout" statements with signature "[fn]" come from functions
  * If not specified, default constructors are called
  * 
- * \author Xuhua Huang 1879700
+ * \author Xuhua Huang
  * \date   November 19, 2020
  *********************************************************************/
 

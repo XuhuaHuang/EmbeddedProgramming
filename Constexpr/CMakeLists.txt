@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(Constexpr)
+project("constexpr" LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(ConstexprForLoop "constexpr_for.cpp")
-add_executable(NotesOnConstexpr "constexpr_notes.cpp")
+add_executable(constexpr_for "constexpr_for.cpp")
+add_executable(constexpr_notes "notes.cpp")

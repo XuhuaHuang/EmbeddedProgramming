@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(HelloGUI
+project("hello_qt_gui"
     VERSION 1.0.0
     DESCRIPTION "Introduction to Qt Creator"
     LANGUAGES CXX
@@ -34,7 +34,7 @@ endif()
 # ┌──────────────────────────────────────────────────────────────────┐
 # │  Executable                                                      │
 # └──────────────────────────────────────────────────────────────────┘
-add_executable(HelloGUI
+add_executable(hello_qt_gui
     "TestWidget.h"
     "TestWidget.cpp"
     "main.cpp"
@@ -42,9 +42,9 @@ add_executable(HelloGUI
 
 # Note that the application will still link against Qt5::Core
 # since Qt5::Widgets depends on it.
-target_link_libraries(HelloGUI PRIVATE Qt5::Core)
+target_link_libraries(hello_qt_gui PRIVATE Qt5::Core)
 
-set_target_properties(HelloGUI PROPERTIES
+set_target_properties(hello_qt_gui PROPERTIES
     WIN32_EXECUTABLE ON
     MACOSX_BUNDLE OFF
 )

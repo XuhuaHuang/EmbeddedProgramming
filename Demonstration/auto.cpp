@@ -33,8 +33,11 @@
 
 int main(void) {
 
+#if __cplusplus < 201103L
     int max1 = Max_cpp0x(1*2*3*4, 5+6+7+8);
+#elif __cplusplus >= 201103L
     int max2 = Max_cpp11(1*2*3*4, 5+6+7+8);
+#endif
 
     system("pause");
     return 0;

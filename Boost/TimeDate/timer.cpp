@@ -3,7 +3,7 @@
  * \brief  Boost V1 timer, the new cpu_timer is added in V2.
  * 
  * To compile this file with g++ in PowerShell or bash:
- * $ g++ -o timer.exe -c .\timer.cpp -I C:\\boost\\boost_1_80_0 -std=c++2a
+ * $ g++ -o timer.exe -c .\timer.cpp -I C:\\boost\\boost_1_82_0 -std=c++2a
  * $ .\timer.exe
  * 
  * This is an old/depercated version of timer in boost; a compiler

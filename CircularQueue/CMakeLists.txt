@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.20)
 
-project(CircularQueueCStyle)
+project(circular_queue)
 
 set(C_STANDARD 17)
 set(C_STANDARD_REQUIRED ON)
 
-add_executable(CircularQueueCStyle
+add_executable(circular_queue
     "queue_array.c"
 )

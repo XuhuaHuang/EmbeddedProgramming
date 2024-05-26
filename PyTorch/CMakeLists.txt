@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
-project(dcgan)
+project("dcgan")
 
 set(Torch_DIR "C:/libtorch/")
 set(CMAKE_PREFIX_PATH "C:/libtorch/share/cmake/")

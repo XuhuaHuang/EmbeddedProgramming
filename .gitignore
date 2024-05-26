@@ -33,6 +33,7 @@ book/
 # CMake build
 build/compile_commands.json
 build/Makefile
+build/Testing/TAG
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(BasicPlane)
+project("basic_plane")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_library(BasicPlaneModule
+add_library(basic_plane_module
     "BasicPlane/BasicPlane.Figures.ixx"
     "BasicPlane/BasicPlane.Figures-Point.ixx"
     "BasicPlane/BasicPlane.Figures-Rectangle.ixx"
@@ -16,4 +16,4 @@ add_executable(basic_plane_exec
     "BasicPlane/main.cpp"
 )
 
-target_link_libraries(basic_plane_exec BasicPlaneModule)
+target_link_libraries(basic_plane_exec basic_plane_module)

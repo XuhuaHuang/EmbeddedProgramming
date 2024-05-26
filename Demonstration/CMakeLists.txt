@@ -5,12 +5,13 @@ project(Demonstration LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Adding multiple executable to the project
-# Right-click on each item to set as start-up project
+if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    # Compiler is Microsoft Visual C++
+    # Set MSVC-specific flags
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4 /Zc:__cplusplus /EHsc /std:c17 /std:c++latest /experimental:module")
+endif()
 
-# add_executable(auto "auto.cpp")
-# target_compile_definitions(auto PUBLIC _ENABLE_EXTENDED_ALIGNED_STORAGE __cplusplus=201703L)
-
+add_executable(auto "auto.cpp")
 add_executable(multiple_of "demo_is_multiple_of.cpp")
 add_executable(unions_align "unions_align.cpp")
-add_executable(winapi_cmdarg "winAPI_GetCommandLineA.cpp")
+add_executable(winapi_cmdarg "winapi_cmdarg.cpp")

@@ -2,7 +2,7 @@
  * \file   test.cpp
  * \brief  Test installation of the Boost library.
  * 
- * $ g++ -o test.exe -IC:\\boost\\boost_1_80_0 .\test.cpp -std=c++11
+ * $ g++ -o test.exe -IC:\\boost\\boost_1_82_0 .\test.cpp -std=c++11
  * $ .\test.exe
  * 
  * \author Xuhua Huang

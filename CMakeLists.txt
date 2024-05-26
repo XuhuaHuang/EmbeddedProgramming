@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(EmbeddedProgramming LANGUAGES C CXX)
+project("embedded_prog" LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -23,17 +23,19 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 endif()
 
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
 # The following executable is a preliminary "Hello World" program in the repository
-add_executable(HelloWorld "Miscellaneous/hello_world.cpp" "LICENSE.md" "README.md")
+add_executable(hello_world "Miscellaneous/hello_world.cpp" "LICENSE.md" "README.md")
 
 # To add more build target,
 # Simply call the add_directory() function with the folder name with a "CMakeLists.txt" in it
 # Consider the following example:
-# add_subdirectory("AbstractDataTypeCStyle")  # "./AbstractDataTypeCStyle/CMakeLists.txt"
+add_subdirectory("AbstractDataType")
 add_subdirectory("Array")
 add_subdirectory("BitwiseOperator")
 # add_subdirectory("Boost")
-# add_subdirectory("Util")  # "Util/CMakeLists.txt", includes sub-directories inside
+# add_subdirectory("Util")
 add_subdirectory("ValArray")
 add_subdirectory("Vector")
 add_subdirectory("View")

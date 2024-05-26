@@ -8,7 +8,7 @@
  * and the time elapsed since the object is created will be printed out.
  * 
  * To compile this file with g++ in PowerShell or bash:
- * $ g++ -o progress_timer.exe -c .\progress_timer.cpp -I C:\\boost\\boost_1_80_0 -std=c++2a
+ * $ g++ -o progress_timer.exe -c .\progress_timer.cpp -I C:\\boost\\boost_1_82_0 -std=c++2a
  * $ .\progress_timer.exe
  * 
  * \author Xuhua Huang
