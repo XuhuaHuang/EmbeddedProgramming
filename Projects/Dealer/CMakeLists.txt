@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.20)
 # ┌──────────────────────────────────────────────────────────────────┐
 # │  Projects Settings                                               │
 # └──────────────────────────────────────────────────────────────────┘
-project(Dealer
+project("dealer"
     VERSION 1.0.0
     DESCRIPTION "Legacy and refactored Dealer project with unit tests"
     LANGUAGES CXX
