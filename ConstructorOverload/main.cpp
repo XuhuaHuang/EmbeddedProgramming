@@ -20,9 +20,9 @@ int main(void)
     std::cout << "\tEnter 1 for time.\n\tEnter 2 for rectangle.\n\tEnter 3 for point." << "\n";
     std::cin >> choice;
 
-    if (choice == 1) // test case for 'MyTime' class
+    if (choice == 1) // test case for 'Time' class
     {
-        MyTime userTime; // declaring an object
+        Time userTime; // declaring an object
 
         int userHour;
         std::cout << "Please enter the hour you want to set to." << "\n";
@@ -43,29 +43,29 @@ int main(void)
         // asking the user to set section ends
 
         // test cases and print function
-        userTime.setTime(12, 34); // valid hour, minute; should call MyTime::setTime(int , int)
+        userTime.setTime(12, 34); // valid hour, minute; should call Time::setTime(int , int)
         userTime.printTime(); // 12:34:00
 
-        userTime.setTime(25, 34); // invalid hour and valid minute; should call MyTime::setTime(int, int)
+        userTime.setTime(25, 34); // invalid hour and valid minute; should call Time::setTime(int, int)
         userTime.printTime(); // 00:34:00
 
-        userTime.setTime(12, 60); // valid hour and invalid minute; should call MyTime::setTime(int, int)	
+        userTime.setTime(12, 60); // valid hour and invalid minute; should call Time::setTime(int, int)	
         userTime.printTime(); // 12:00:00
 
-        userTime.setTime(23); // valid hour; should call MyTime::setTime(int userHour);
+        userTime.setTime(23); // valid hour; should call Time::setTime(int userHour);
         userTime.printTime(); // 23:00:00
 
         // test cases of default and overloaded constructors
-        MyTime time1;
+        Time time1;
         time1.printTime();
 
-        MyTime time2(12, 34, 56);
+        Time time2(12, 34, 56);
         time2.printTime(); // 12:34:56
 
-        MyTime time3(12, 34);
+        Time time3(12, 34);
         time3.printTime(); // 12:34:00
 
-        MyTime time4(12); // 12:00:00
+        Time time4(12); // 12:00:00
         time4.printTime();
     }
     else if (choice == 2) // Rectangle main
