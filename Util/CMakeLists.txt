@@ -29,5 +29,5 @@ endif()
 
 # Add sub-directories with CMakeLists.txt in them
 add_subdirectory("stdcxx20")
-add_subdirectory("stdcxx23/CountLeaves")
+add_subdirectory("stdcxx23")
 add_subdirectory("tests")
