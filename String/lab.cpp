@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   stringNotes.cpp
+ * \file   lab.cpp
  * \brief  lab on strings in C++
  *
  * \author Xuhua Huang
