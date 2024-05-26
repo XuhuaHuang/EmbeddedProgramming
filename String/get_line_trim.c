@@ -1,11 +1,11 @@
 /**
- * @file getLineTrimImpl.c
+ * @file getline_trim.c
  * @author Xuhua Huang
  * @brief Attempt to implement getLine and trim in C with realloc().
  * @version 0.1
  * @date 2022-11-24
  *
- * $ gcc -c ./getLineTrimImpl.c -o getLineTrimImpl.exe
+ * $ gcc -c ./getline_trim.c -o getline_trim.exe
  *
  * @copyright Copyright (c) 2022
  *
@@ -15,7 +15,7 @@
 #include <string.h>
 #include <cassert>
 
-char* getLine(void) {
+char* get_line(void) {
     const size_t sizeIncrement = 10;
     char* buffer = malloc(sizeIncrement);
     char* currentPosition = buffer;

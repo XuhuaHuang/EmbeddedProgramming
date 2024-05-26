@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   stringLab.c
+ * \file   lab.c
  * \brief  Lab 6 on C-Style strings (character array)
  *
  * \author Xuhua Huang

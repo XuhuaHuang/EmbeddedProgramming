@@ -1,5 +1,5 @@
 /**
- * @file stringNotes.c
+ * @file notes.c
  * @author Xuhua Huang
  * @brief Notes on C-style strings with the string.h
  * 
