@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(Demonstration LANGUAGES CXX)
+project("demo" LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -12,6 +12,6 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 endif()
 
 # add_executable(auto "auto.cpp")
-add_executable(multiple_of "demo_is_multiple_of.cpp")
+add_executable(multiple_of "is_multiple_of.cpp")
 add_executable(unions_align "unions_align.cpp")
 add_executable(winapi_cmdarg "winapi_cmdarg.cpp")

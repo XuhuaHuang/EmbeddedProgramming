@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(ChangeTextColour)
+project("change_text_colour")
 
 set(C_STANDARD 98)
 set(C_STANDARD_REQUIRED ON)

@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   demo_is_multiple_of.cpp
+ * \file   is_multiple_of.cpp
  * \brief  Asked question in test for the company Kinaxis.
  * 
  * Command used to compile:
