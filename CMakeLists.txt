@@ -26,7 +26,7 @@ endif()
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 # The following executable is a preliminary "Hello World" program in the repository
-add_executable(hello_world "Miscellaneous/hello_world.cpp" "LICENSE.md" "README.md")
+add_executable(hello_world "PrintfWidthPrecision/std_fmtprint.cpp" "LICENSE.md" "README.md")
 
 # To add more build target,
 # Simply call the add_directory() function with the folder name with a "CMakeLists.txt" in it
