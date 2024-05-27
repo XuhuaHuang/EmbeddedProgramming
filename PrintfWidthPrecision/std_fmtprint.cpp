@@ -22,9 +22,9 @@ auto stdprint_tofile() -> void
 {
     std::print("{0} {2}{1}!\n", "Hello", 23, "C++"); // overload (1)
 
-    const auto tmp{std::filesystem::temp_directory_path() / "test.txt"};
+    const std::filesystem::path tmp{std::filesystem::temp_directory_path() / "test.txt"};
 
-    if (std::FILE * stream{std::fopen(tmp.c_str(), "w")})
+    if (std::FILE * stream{std::fopen(reinterpret_cast<const char*>(tmp.c_str()), "w")})
     {
         std::print(stream, "File: {}", tmp.string()); // overload (2)
         std::fclose(stream);
@@ -33,7 +33,7 @@ auto stdprint_tofile() -> void
     return;
 }
 
-int main(int argc, char const *argv[])
+int main(int argc, char const* argv[])
 {
     std::println("{} arguments passed to main! Hello, world!", argc);
     std::println("{}", argv[0]);
