@@ -1,23 +1,25 @@
+// clang-format off
 /*****************************************************************//**
  * \file   is_multiple_of.cpp
  * \brief  Asked question in test for the company Kinaxis.
  * 
  * Command used to compile:
- * $ g++ -o demo_is_multiple.exe .\demo_is_multiple_of.cpp -std=c++11
- * $ .\demo_is_multiple.exe
+ * $ g++ -o is_multiple.exe .\is_multiple_of.cpp -std=c++11
+ * $ .\is_multiple.exe
  * 
  * \author Xuhua Huang
  * \date   October 2021
  *********************************************************************/
+// clang-format on
 
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 #include <stdlib.h>
-#include <vector>
 #include <string>
+#include <vector>
 
-#include "../Util/print_vec.hpp"
 #include "../Util/log.h"
+#include "../Util/print_vec.hpp"
 
 #ifndef DEBUG
 #define DEBUG(str) std::cout << str << "\n";
@@ -30,29 +32,35 @@
  * 2) any of a and b is multiple of 60.
  */
 
-bool is_multiple_of_60(const int num) {
-    return num%60 == 0;
+bool is_multiple_of_60(const int num)
+{
+    return num % 60 == 0;
 }
 
 int main(int argc, char** argv)
 {
     using namespace util::vector;
 
-    std::vector<int> input = { 30, 60, 90, 120 };
+    std::vector<int> input = {30, 60, 90, 120};
     print_vec(input);
     // equivalence of: util::vector::print_vec(input);
 
-    int count = 0;
+    int              count = 0;
     std::vector<int> result;
 
-    for (int i = 0; i < 4; ++i) {
-        if (is_multiple_of_60(input[i])) {
+    for (int i = 0; i < 4; ++i)
+    {
+        if (is_multiple_of_60(input[i]))
+        {
             count++;
             result.push_back(input[i]);
         }
-        else {
-            for (int j = 1; j <= input.size(); ++j) {
-                if (is_multiple_of_60(input[i] + input[j]) == true) {
+        else
+        {
+            for (int j = 1; j <= input.size(); ++j)
+            {
+                if (is_multiple_of_60(input[i] + input[j]) == true)
+                {
                     count++;
                     result.push_back(input[i] + input[j]);
                 }
