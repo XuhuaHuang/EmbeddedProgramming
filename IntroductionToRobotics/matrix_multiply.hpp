@@ -64,9 +64,9 @@ concept is_matrix_multiplicable_type = requires (T lhs, T rhs) {
 template<typename T, std::size_t M, std::size_t N, std::size_t P>
     requires is_matrix_multiplicable_type<T>
 [[nodiscard]]
-INLINE constexpr
-    auto matrix_multiply(const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B)
-        -> std::array<std::array<T, P>, M>;
+INLINE constexpr auto matrix_multiply(
+    const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B
+) -> std::array<std::array<T, P>, M>;
 
 /// @brief Function to multiply a matrix with a scalar
 /// @tparam T Individual element type
@@ -91,6 +91,21 @@ INLINE constexpr auto matrix_multiply(const matrix_t<T, M, N>& A, const T& scala
     return result;
 }
 
+/// @brief Function to multiply a matrix with a scalar
+/// @tparam T Individual element type
+/// @tparam M Number of rows
+/// @tparam N Number of columns
+/// @param scalar scalar to be multiplied with matrix A
+/// @param A matrix of size M by N
+/// @return matrix of size M by N
+template<typename T, std::size_t M, std::size_t N>
+    requires is_matrix_multiplicable_type<T>
+[[nodiscard]]
+constexpr auto matrix_multiply(const T& scalar, const matrix_t<T, M, N>& A) -> matrix_t<T, M, N>
+{
+    return matrix_multiply(A, scalar);
+}
+
 /// @brief Operator * overload to multiply 2 matrices
 /// @tparam T Individual element type
 /// @tparam M Number of rows of the first matrix
@@ -102,10 +117,8 @@ INLINE constexpr auto matrix_multiply(const matrix_t<T, M, N>& A, const T& scala
 template<typename T, size_t M, size_t N, size_t P>
     requires is_matrix_multiplicable_type<T>
 [[nodiscard]]
-inline __attribute__((always_inline)) constexpr // function attributes
-    auto
-    operator*(const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B)
-        -> std::array<std::array<T, P>, M>
+constexpr auto operator*(const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B)
+    -> std::array<std::array<T, P>, M>
 {
     return matrix_multiply(A, B);
 }
