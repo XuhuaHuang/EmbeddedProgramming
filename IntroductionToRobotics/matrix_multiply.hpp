@@ -124,12 +124,13 @@ constexpr auto operator*(const std::array<std::array<T, N>, M>& A, const std::ar
 }
 
 /// @brief Alias struct to function matrix_multiply
+/// This struct defines a functor matmul which provides overloaded function call operators
+/// for performing matrix multiplication and scalar-matrix multiplication.
 struct matmul
 {
     template<typename T, std::size_t M, std::size_t N, std::size_t P>
     [[nodiscard]]
-    inline __attribute__((always_inline)) constexpr auto
-    operator()(const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B)
+    constexpr auto operator()(const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B) const
         -> std::array<std::array<T, P>, M>
     {
         return matrix_multiply(A, B);
@@ -147,7 +148,7 @@ using dotprod = matmul;
 /// @return Modified output stream object with contents concatenated
 template<typename T, std::size_t N>
     requires std::is_arithmetic<T>::value
-inline std::ostream& operator<<(std::ostream& os, const std::array<T, N>& A);
+INLINE std::ostream& operator<<(std::ostream& os, const std::array<T, N>& A);
 
 /// @brief Operator << overload to print a matrix to output stream
 /// @tparam T Individual element type
@@ -158,7 +159,7 @@ inline std::ostream& operator<<(std::ostream& os, const std::array<T, N>& A);
 /// @return Modified output stream object with contents concatenated
 template<typename T, std::size_t M, std::size_t N>
     requires std::is_arithmetic<T>::value
-inline std::ostream& operator<<(std::ostream& os, const std::array<std::array<T, N>, M>& A);
+INLINE std::ostream& operator<<(std::ostream& os, const std::array<std::array<T, N>, M>& A);
 
 #include "matrix_multiply.inl"
 
