@@ -17,7 +17,6 @@
 #include <stdlib.h>
 #include <type_traits>
 #include <vector>
-#include "template_notes.h"
 
 #ifndef BUILD_COMPARE(TYPE)
 #define BUILD_COMPARE(TYPE)                             \
