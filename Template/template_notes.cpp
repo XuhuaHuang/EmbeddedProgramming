@@ -116,23 +116,25 @@ auto Stack<T>::begin() const -> const_iterator {
 template<typename T>
 class Stack<T*> {
 private:
-    std::vector<T> m_data;
+    std::vector<T*> m_data;
     inline static int m_count = 0;
 
 public:
-    using const_iterator = typename std::vector<T>::const_iterator;
+    using const_iterator = typename std::vector<T*>::const_iterator;
+
+    Stack() = default;
 
     const_iterator begin() const;
     const_iterator end() const;
-    bool is_empty() const;
+    bool is_empty() const { return m_data.empty(); }
 
     /* Specialized function */
     T* top() const;
     T* pop();
 
     void push(const T& t);
-    void push(const T* const t) {
-        this->m_data.push_back(t);
+    void push(T* t) {
+        m_data.push_back(t);
     }
 
     Stack push_all_from(const Stack& stack);
@@ -141,18 +143,27 @@ public:
         if (pt!=nullptr)
             this->m_data.push_back(pt);
     }
-
 };
 
 template<typename T>
+T* Stack<T*>::top() const {
+    if (!is_empty())
+        return m_data.back();
+    return nullptr;
+}
+
+template<typename T>
 T* Stack<T*>::pop() {
-    T* tmp = m_data.back();
-    m_data.pop_back();
-    return tmp;
+    if (!is_empty()) {
+        T* tmp = m_data.back();
+        m_data.pop_back();
+        return tmp;
+    }
+    return nullptr;
 }
 
 int main(void) {
-    Stack<typename std::string*> pstrstack;
+    Stack<typename std::string*> pstrstack{};
 
     std::string* greetings = new std::string("Hello, world");
     pstrstack.push(greetings);
@@ -160,6 +171,6 @@ int main(void) {
 
     delete pstrstack.pop();
 
-    system("pause");
+    std::cin.get();
     return 0;
 }
