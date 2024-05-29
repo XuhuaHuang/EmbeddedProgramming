@@ -13,4 +13,4 @@ add_executable(angry_birds_cls
     "AngryBirds/main.cpp"
 )
 
-add_executable(notes_user "notes_user.cpp")
+add_executable(cls_notes_user "notes_user.cpp")
