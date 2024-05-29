@@ -20,7 +20,21 @@
 
 #include <array>
 #include <concepts>
+#include <numeric>
 #include <type_traits>
+
+#include "matrix_constraint.hpp"
+
+#if defined(_MSC_VER)
+// Microsoft Visual C++
+#define INLINE inline __forceinline
+#elif defined(__GNUC__) || defined(__clang__)
+// GCC or Clang
+#define INLINE __attribute__((always_inline)) inline
+#else
+// Default fallback
+#define INLINE inline
+#endif
 
 /// @brief Using declaration to represent a row vector
 /// @tparam T Individual element type
@@ -38,9 +52,7 @@ using col_vector_t = std::array<std::array<T, 1U>, N>;
 
 template<typename T>
 concept is_matrix_multiplicable_type = requires (T lhs, T rhs) {
-    {
-        (lhs * rhs)
-    } -> std::convertible_to<T>;
+    { (lhs * rhs) } -> std::convertible_to<T>;
 } and std::is_arithmetic_v<T>;
 
 /// @brief Function to multiply 2 matrices
@@ -52,9 +64,32 @@ concept is_matrix_multiplicable_type = requires (T lhs, T rhs) {
 template<typename T, std::size_t M, std::size_t N, std::size_t P>
     requires is_matrix_multiplicable_type<T>
 [[nodiscard]]
-inline __attribute__((always_inline)) constexpr // function attributes
+INLINE constexpr
     auto matrix_multiply(const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B)
         -> std::array<std::array<T, P>, M>;
+
+/// @brief Function to multiply a matrix with a scalar
+/// @tparam T Individual element type
+/// @tparam M Number of rows
+/// @tparam N Number of columns
+/// @param A matrix of size M by N
+/// @param scalar scalar to be multiplied with matrix A
+/// @return matrix of size M by N
+template<typename T, std::size_t M, std::size_t N>
+    requires is_matrix_multiplicable_type<T>
+[[nodiscard]]
+INLINE constexpr auto matrix_multiply(const matrix_t<T, M, N>& A, const T& scalar) -> matrix_t<T, M, N>
+{
+    matrix_t<T, M, N> result{};
+    for (std::size_t row = 0; row < M; ++row)
+    {
+        for (std::size_t col = 0; col < N; ++col)
+        {
+            result[row][col] = A[row][col] * scalar;
+        }
+    }
+    return result;
+}
 
 /// @brief Operator * overload to multiply 2 matrices
 /// @tparam T Individual element type
