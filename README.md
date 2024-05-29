@@ -172,6 +172,14 @@ cmake ../CMakeLists.txt -G "Ninja"
 cmake ../CMakeLists.txt -G "MinGW Makefiles"
 ```
 
+To build the repository and run tests:
+```Bash
+cmake . -Bbuild
+cd build
+cmake --build .
+ctest --verbose
+```
+
 ### [`Util`](./Util/)
 
 Functionality provided by separate module. A namespace `util` is created to better manage the functions.<br>
