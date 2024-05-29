@@ -1,0 +1,64 @@
+# basic setup from https://help.github.com/en/articles/configuring-git-to-handle-line-endings
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto eol=lf
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.c text
+*.h text
+*.cpp text
+*.hpp text
+*.cmake text
+*.inl text
+*.adoc text
+*.py text
+*.svg text
+# Denote all files that are truly binary and should not be modified.
+*.3ds binary
+*.docx binary
+*.eap binary
+*.fig binary
+*.gie binary
+*.gif binary
+*.jpeg binary
+*.jpg binary
+*.onnx binary
+*.otf binary
+*.pdf binary
+*.png binary
+*.pptx binary
+*.pyd binary
+*.xslx binary
+# Git tracked lfs types.
+*.docx filter=lfs diff=lfs merge=lfs -text
+*.eap filter=lfs diff=lfs merge=lfs -text
+*.fig filter=lfs diff=lfs merge=lfs -text
+*.gie filter=lfs diff=lfs merge=lfs -text
+*.gif filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.onnx filter=lfs diff=lfs merge=lfs -text
+*.otf filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.pptx filter=lfs diff=lfs merge=lfs -text
+*.pyd filter=lfs diff=lfs merge=lfs -text
+*.xslx filter=lfs diff=lfs merge=lfs -text
+*.svg filter=lfs diff=lfs merge=lfs -text
+*.DOCX filter=lfs diff=lfs merge=lfs -text
+*.EAP filter=lfs diff=lfs merge=lfs -text
+*.FIG filter=lfs diff=lfs merge=lfs -text
+*.GIE filter=lfs diff=lfs merge=lfs -text
+*.GIF filter=lfs diff=lfs merge=lfs -text
+*.JPEG filter=lfs diff=lfs merge=lfs -text
+*.JPG filter=lfs diff=lfs merge=lfs -text
+*.ONNX filter=lfs diff=lfs merge=lfs -text
+*.OTF filter=lfs diff=lfs merge=lfs -text
+*.PDF filter=lfs diff=lfs merge=lfs -text
+*.PNG filter=lfs diff=lfs merge=lfs -text
+*.PPTX filter=lfs diff=lfs merge=lfs -text
+*.PYD filter=lfs diff=lfs merge=lfs -text
+*.XSLX filter=lfs diff=lfs merge=lfs -text
+*.SVG filter=lfs diff=lfs merge=lfs -text
+*.stl filter=lfs diff=lfs merge=lfs -text
+*.3ds filter=lfs diff=lfs merge=lfs -text
+*.3DS filter=lfs diff=lfs merge=lfs -text
