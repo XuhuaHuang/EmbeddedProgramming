@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   move_semantics.cpp
  * \brief  Brief introduction in move semantics in C++ with
@@ -12,6 +13,7 @@
  * \author Xuhua Huang
  * \date   October 2021
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
 
@@ -23,29 +25,36 @@ class HasPtrMem
 {
 public:
     /* Default Constructor */
-    HasPtrMem() : ptr(new int(0)) {
+    HasPtrMem()
+        : ptr(new int(0))
+    {
         std::cout << __func__ << " at line: " << __LINE__ << "\n"
-            << "Default Construct: " << ++n_cstr << "\n";
+                  << "Default Construct: " << ++n_cstr << "\n";
     }
 
     /* Copy Constructor */
-    HasPtrMem(const HasPtrMem& rhs) : ptr(new int(*rhs.ptr)) {
+    HasPtrMem(const HasPtrMem& rhs)
+        : ptr(new int(*rhs.ptr))
+    {
         std::cout << __func__ << " at line: " << __LINE__ << "\n"
-            << "Copy Constructor: " << ++n_cptr << "\n";
+                  << "Copy Constructor: " << ++n_cptr << "\n";
     }
 
     /* Move Constructor */
-    HasPtrMem(HasPtrMem&& rhs) : ptr(rhs.ptr) {
+    HasPtrMem(HasPtrMem&& rhs)
+        : ptr(rhs.ptr)
+    {
         rhs.ptr = nullptr; // void the right-hand-side object internal pointer
         std::cout << __func__ << " at line: " << __LINE__ << "\n"
-            << "Move Constructor: " << ++n_mvtr << "\n";
+                  << "Move Constructor: " << ++n_mvtr << "\n";
     }
 
     /* Destructor */
-    ~HasPtrMem() {
+    ~HasPtrMem()
+    {
         delete ptr;
         std::cout << __func__ << " at line: " << __LINE__ << "\n"
-            << "Destructor: " << ++n_dstr << "\n";
+                  << "Destructor: " << ++n_dstr << "\n";
     }
 
     /* Definition of static integer members. */
@@ -53,7 +62,7 @@ public:
     static int n_cptr; // number of times copy constructor called
     static int n_mvtr; // number of times move constructor called
     static int n_dstr; // number of times destructor called
-// private:
+                       // private:
     /* Member attribute - integer pointer. */
     int* ptr;
 };
@@ -64,10 +73,10 @@ int HasPtrMem::n_cptr = 0;
 int HasPtrMem::n_mvtr = 0;
 int HasPtrMem::n_dstr = 0;
 
-HasPtrMem getTemp() {
+HasPtrMem getTemp()
+{
     HasPtrMem temp;
-    std::cout << "Resource from " << __func__ << ": "
-        << _HEX << temp.ptr << "\n";
+    std::cout << "Resource from " << __func__ << ": " << _HEX << temp.ptr << "\n";
 
     return temp;
 }
@@ -75,10 +84,9 @@ HasPtrMem getTemp() {
 int main(void)
 {
     HasPtrMem h = getTemp();
-    std::cout << "Resource from " << __func__ << ": "
-        << _HEX << h.ptr << "\n";
+    std::cout << "Resource from " << __func__ << ": " << _HEX << h.ptr << "\n";
 
-    //std::cin.get();
+    // std::cin.get();
     system("pause");
     return 0;
 }
