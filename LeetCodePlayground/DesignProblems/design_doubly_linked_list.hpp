@@ -1,5 +1,8 @@
 // https://leetcode.com/problems/design-linked-list
 
+#include <cstddef>
+#include <iostream>
+
 static const int _ = []() {
     std::ios::sync_with_stdio(false);
     std::cin.tie(NULL);
