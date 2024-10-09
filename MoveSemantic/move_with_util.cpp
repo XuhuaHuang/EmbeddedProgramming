@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   learn_move.cpp
  * \brief  Move semantics in C++
@@ -12,14 +13,15 @@
  * \author Xuhua Huang
  * \date   October 2021
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
 #include <stdlib.h>
 #include <string>
 #include <vector>
 
-#include "../Util/print_vec.hpp"
 #include "../Util/is_instance_of.hpp"
+#include "../Util/print_vec.hpp"
 
 int main(void)
 {
@@ -30,9 +32,9 @@ int main(void)
     std::vector<std::string> str_vec;
     str_vec.push_back(hello_str);
 
-    // uses the rvalue reference push_back(T&&) overload, 
+    // uses the rvalue reference push_back(T&&) overload,
     // which means no strings will be copied; instead, the contents
-    // of world_str will be moved into the vector. 
+    // of world_str will be moved into the vector.
     // This is less expensive, but also means world_str might now be empty.
     str_vec.push_back(std::move(world_str));
     // still able to access hello_str, but not world_str
@@ -44,11 +46,12 @@ int main(void)
     std::cout << "\nEnd of the vector" << "\n";
 
     std::cout << "Attempting to access hello_str: " << hello_str << "\n"
-        << "Attempting to access world_str: " << world_str << "\n";
+              << "Attempting to access world_str: " << world_str << "\n";
 
     /* Test functions in the ../Util headers. */
     std::cout << "Testing Util functions: " << "\n";
-    if (util::type::is_instance_of<std::vector<std::string>>(str_vec)) {
+    if (util::type::is_instance_of<std::vector<std::string>>(str_vec))
+    {
         util::vector::print_vec(str_vec);
     }
 
