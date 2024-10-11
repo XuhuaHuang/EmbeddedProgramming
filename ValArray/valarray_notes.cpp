@@ -33,17 +33,13 @@ template<typename T>
 inline std::ostream& operator<<(std::ostream& os, const std::valarray<T>& values) noexcept
 {
     os << "[";
-    if (values.size() > 1) [[likely]]
+    if (values.size() >= 1) [[likely]]
     {
         for (const T* it = std::begin(values); it < std::end(values) - 1; it++)
         {
             os << *it << ", ";
         }
         os << values[values.size() - 1];
-    }
-    else if (values.size() == 1)
-    {
-        os << values[0];
     }
     os << "]";
     return os;
@@ -63,6 +59,7 @@ int main()
     // create an empty valarray
     std::valarray<float_t> val;
     log << val << "\n";
+    log << val.size() << "\n";
     val.resize(1);
     val[0] = 3.14;
     log << val << "\n";
