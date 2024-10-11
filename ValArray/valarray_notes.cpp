@@ -33,11 +33,19 @@ template<typename T>
 inline std::ostream& operator<<(std::ostream& os, const std::valarray<T>& values) noexcept
 {
     os << "[";
-    for (const T* it = std::begin(values); it < std::end(values) - 1; it++)
+    if (values.size() > 1) [[likely]]
     {
-        os << *it << ", ";
+        for (const T* it = std::begin(values); it < std::end(values) - 1; it++)
+        {
+            os << *it << ", ";
+        }
+        os << values[values.size() - 1];
     }
-    os << values[values.size() - 1] << "]";
+    else if (values.size() == 1)
+    {
+        os << values[0];
+    }
+    os << "]";
     return os;
 }
 
@@ -51,6 +59,17 @@ int main()
     // log << std::is_arithmetic_v<std::uint8_t> << "\n";
     // log << std::numeric_limits<std::uint16_t>::min() << "\n";
     // log << std::numeric_limits<std::uint16_t>::max() << "\n";
+
+    // create an empty valarray
+    std::valarray<float_t> val;
+    log << val << "\n";
+    val.resize(1);
+    val[0] = 3.14;
+    log << val << "\n";
+
+    val.resize(2);
+    val[1] = 2.71;
+    log << val << "\n";
 
     // create a valarray of size 5, initialized with values 0, 1, 2, 3, 4
     std::valarray<int> v{0, 1, 2, 3, 4};
