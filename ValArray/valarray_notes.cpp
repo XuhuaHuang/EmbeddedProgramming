@@ -25,7 +25,7 @@
 #include <valarray>
 
 #ifndef log
-#define log std::cout << __LINE__ << " " << std::boolalpha
+#define log std::cout << __LINE__ << ": " << std::boolalpha
 #endif
 
 template<typename T>
@@ -33,19 +33,11 @@ template<typename T>
 inline std::ostream& operator<<(std::ostream& os, const std::valarray<T>& values) noexcept
 {
     os << "[";
-    for (int const* it = std::begin(values); it != std::end(values); ++it)
+    for (const T* it = std::begin(values); it < std::end(values) - 1; it++)
     {
-        os << *it;
-        if (it != std::end(values) - 1) [[likely]]
-        {
-            os << ", ";
-        }
-        else [[unlikely]]
-        {
-            continue;
-        }
+        os << *it << ", ";
     }
-    os << "]";
+    os << values[values.size() - 1] << "]";
     return os;
 }
 
