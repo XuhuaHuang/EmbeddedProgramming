@@ -1,5 +1,6 @@
+// clang-format off
 /*****************************************************************//**
- * \file   example_Polygon.cpp
+ * \file   polygon.cpp
  * \brief
  *
  * 1) The virtual keyword allows a member function of a derived class 
@@ -12,6 +13,7 @@
  * \author Xuhua
  * \date   November 2020
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
 
@@ -21,9 +23,12 @@ protected:
     int width, height;
 
 public:
-
     // function prototype
-    void set_values(int a, int b) { width = a; height = b; }
+    void set_values(int a, int b)
+    {
+        width  = a;
+        height = b;
+    }
 
     // "Polygon" is a 'polymorphic class'
     virtual int area() const { return 0; } // virtual keyword ensures
@@ -45,9 +50,9 @@ public:
 int main()
 {
     Rectangle rect;
-    Triangle trgl;
-    Polygon poly;
-    Polygon* ppoly;
+    Triangle  trgl;
+    Polygon   poly;
+    Polygon*  ppoly;
 
     ppoly = &rect; // point to a "Rectangle" class object
     ppoly->set_values(4, 5);

@@ -7,9 +7,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Adding multiple executable to the project
 # Right-click on each item to set as start-up project
-add_executable(AnimalExample
-    "example_Animal.hpp"
-    "example_Animal.cpp"
+add_executable(animal
+    "animal.hpp"
+    "animal.cpp"
 )
-add_executable(PolygonExample "example_Polygon.cpp")
-add_executable(ClassPetLab "lab_Pet.cpp")
+add_executable(polygon "polygon.cpp")
+add_executable(pet "pet.cpp")

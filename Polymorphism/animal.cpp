@@ -9,15 +9,15 @@
  * Created on: Nov 06, 2020
  */
 
+#include "animal.hpp"
 #include <iostream>
 #include <string>
-#include "example_Animal.hpp"
 
 int main(void)
 {
     Animal myAnimal;
-    Pig myPig;
-    Dog myDog;
+    Pig    myPig;
+    Dog    myDog;
 
     std::cout << "Sound from class \"Animal\":";
     myAnimal.animalSound();
