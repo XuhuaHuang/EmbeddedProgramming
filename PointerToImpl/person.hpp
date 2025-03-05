@@ -28,6 +28,13 @@ public:
     std::string name() const;
     void        setName(const std::string& name);
 
+    /**
+     * @brief Set the Name object
+     * The setName function is a member of the pimpl::Person class and takes an rvalue reference to a std::string as its
+     * parameter, allowing the caller to set the name of the Person object by moving the string.
+     */
+    void setName(std::string&&);
+
     int  age() const;
     void setAge(int age);
 
