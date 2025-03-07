@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(LinkedList)
+project("linked_list")
 
 set(C_STANDARD 17)
 set(C_STANDARD_REQUIRED ON)
 
-add_executable(LinkedList linked_list.c)
+add_executable(linked_list "linked_list.c")
