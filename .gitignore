@@ -16,6 +16,11 @@ book/*
 *.pth
 *.gch
 book/
+*.so
+build/
+dist/
+*.egg-info/
+*.egg/
 
 # User-specific files
 *.rsuser
@@ -403,3 +408,4 @@ MigrationBackup/
 FodyWeavers.xsd
 *.hint
 build/FileIO/example_file.txt
+OpenGL_ES/Dependencies/GLEW/include/GL/glew.h
