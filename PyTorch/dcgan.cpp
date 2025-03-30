@@ -15,7 +15,7 @@ struct Net : torch::nn::Module {
     torch::Tensor another_bias;
 };
 
-auto main(void) -> int {
+int main(void) {
     torch::Tensor tensor = torch::eye(3);
     std::cout << tensor << "\n";
 
