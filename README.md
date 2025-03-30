@@ -110,6 +110,18 @@ struct print
 
 ## **Getting Started**
 
+**Obtain `vcpkg` and Dependencies**
+
+```bash
+cd
+git clone https://github.com/microsoft/vcpkg
+cd vcpkg
+bash ./bootstrap-vcpkg.sh
+./vcpkg integrate install
+./vcpkg install gtest
+./vcpkg install qt6
+```
+
 **Example to Compile a File Named `get_tie.cpp`**
 
 ```Bash
