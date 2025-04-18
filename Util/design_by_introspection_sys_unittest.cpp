@@ -2,15 +2,13 @@
 
 #include <boost/ut.hpp>
 
-int main()
-{
+int main() {
     using namespace boost::ut;
     using util::sys;
 
     "should not trade since there is no condition set"_test = [] {
         sys sys{};
-        struct
-        {
+        struct {
             int price = 42;
         } trade;
         expect(not sys.process(trade));
@@ -19,8 +17,7 @@ int main()
     "should not trade since condition doesn't match"_test = [] {
         sys sys{};
         sys.process([](auto price) { return price > 100; });
-        struct
-        {
+        struct {
             int price = 42;
         } trade;
         expect(not sys.process(trade));
@@ -29,8 +26,7 @@ int main()
     "should trade since condition matches"_test = [] {
         sys sys{};
         sys.process([](auto price) { return price > 100; });
-        struct
-        {
+        struct {
             int price = 142;
         } trade;
         expect(sys.process(trade));
@@ -38,8 +34,7 @@ int main()
 
     "should only trade on the second condition"_test = [] {
         sys sys{};
-        struct
-        {
+        struct {
             int price = 42;
         } trade;
 

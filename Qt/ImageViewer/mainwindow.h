@@ -9,18 +9,17 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-#include <QMenuBar>
-#include <QToolBar>
 #include <QAction>
+#include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
 #include <QGraphicsView>
-#include <QStatusBar>
 #include <QLabel>
-#include <QGraphicsPixmapItem>
+#include <QMainWindow>
+#include <QMenuBar>
+#include <QStatusBar>
+#include <QToolBar>
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
@@ -49,10 +48,10 @@ private:
     QToolBar* viewToolBar;
 
     QGraphicsScene* imageScene;
-    QGraphicsView* imageView;
+    QGraphicsView*  imageView;
 
     QStatusBar* mainStatusBar;
-    QLabel* mainStatusLabel;
+    QLabel*     mainStatusLabel;
 
     QAction* openAction;
     QAction* saveAsAction;
@@ -62,7 +61,7 @@ private:
     QAction* prevAction;
     QAction* nextAction;
 
-    QString currentImagePath;
+    QString              currentImagePath;
     QGraphicsPixmapItem* currentImage;
 };
 

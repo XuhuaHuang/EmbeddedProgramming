@@ -1,12 +1,12 @@
 # `HelloQtConsole`
 
-This projects uses `Qt 6.4.1` on Windows with `g++` compiler.<br>
+This projects uses `Qt 6.8.2` on Windows with `g++` compiler.<br>
 
 ## A few things
-1. The default installation location of `Qt` is `C:\Qt\6.7.1`.
+1. The default installation location of `Qt` is `C:\Qt\6.8.2`.
 2. However, the actual installation location may vary.
-3. Following the default installation option, make sure to add `C:\Qt\6.7.1\mingw_64\bin` to the system `path` variable.<br>
-4. The `Qt6Config.cmake` file required by `CMakelists.txt` `find_package()` is located in `C:\Qt\6.7.1\mingw_64\lib\cmake\Qt6`
+3. Following the default installation option, make sure to add `C:\Qt\6.8.2\mingw_64\bin` to the system `path` variable.<br>
+4. The `Qt6Config.cmake` file required by `CMakelists.txt` `find_package()` is located in `C:\Qt\6.8.2\mingw_64\lib\cmake\Qt6`
 
 ## Build and Execute
 

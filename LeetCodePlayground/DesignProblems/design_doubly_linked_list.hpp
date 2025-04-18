@@ -10,8 +10,7 @@ static const int _ = []() {
     return 0;
 }();
 
-struct MyLinkedListNode
-{
+struct MyLinkedListNode {
     int               val;
     MyLinkedListNode* prev;
     MyLinkedListNode* next;
@@ -19,27 +18,21 @@ struct MyLinkedListNode
     MyLinkedListNode(int v)
         : val(v)
         , prev(nullptr)
-        , next(nullptr)
-    {
-    }
+        , next(nullptr) {}
     MyLinkedListNode(int v, MyLinkedListNode* p, MyLinkedListNode* n)
         : val(v)
         , prev(p)
-        , next(n)
-    {
-    }
+        , next(n) {}
 };
 
-class MyLinkedList
-{
+class MyLinkedList {
 private:
     MyLinkedListNode *head, *tail;
     int               size;
 
 public:
     MyLinkedList()
-        : size(0)
-    {
+        : size(0) {
         head       = new MyLinkedListNode(0);
         tail       = new MyLinkedListNode(0);
 
@@ -47,24 +40,20 @@ public:
         tail->prev = head;
     }
 
-    ~MyLinkedList()
-    {
+    ~MyLinkedList() {
         auto curr = head;
         auto del  = curr;
-        while (curr)
-        {
+        while (curr) {
             del  = curr;
             curr = curr->next;
             delete del;
         }
     }
 
-    MyLinkedListNode* findFromTail(int index)
-    {
+    MyLinkedListNode* findFromTail(int index) {
         int  i    = size - 1;
         auto curr = tail->prev;
-        while (curr != head)
-        {
+        while (curr != head) {
             if (i == index)
                 return curr;
 
@@ -75,14 +64,11 @@ public:
         return nullptr;
     }
 
-    MyLinkedListNode* findFromHead(int index)
-    {
+    MyLinkedListNode* findFromHead(int index) {
         int  i    = 0;
         auto curr = head->next;
-        while (curr != tail)
-        {
-            if (i == index)
-            {
+        while (curr != tail) {
+            if (i == index) {
                 return curr;
             }
 
@@ -93,60 +79,49 @@ public:
         return nullptr;
     }
 
-    MyLinkedListNode* find(int index)
-    {
-        if (index > size / 2)
-        {
+    MyLinkedListNode* find(int index) {
+        if (index > size / 2) {
             return findFromTail(index);
         }
         return findFromHead(index);
     }
 
-    int get(int index)
-    {
-        if (index >= size || index < 0)
-        {
+    int get(int index) {
+        if (index >= size || index < 0) {
             return -1;
         }
 
         auto n = find(index);
-        if (n != nullptr)
-        {
+        if (n != nullptr) {
             return n->val;
         }
 
         return -1;
     }
 
-    void addAtHead(int val)
-    {
+    void addAtHead(int val) {
         auto node  = new MyLinkedListNode(val, head, head->next);
         head->next = head->next->prev = node;
         size += 1;
     }
 
-    void addAtTail(int val)
-    {
+    void addAtTail(int val) {
         auto node  = new MyLinkedListNode(val, tail->prev, tail);
         tail->prev = tail->prev->next = node;
         size += 1;
     }
 
-    void addAtIndex(int index, int val)
-    {
-        if (index > size || index < 0)
-        {
+    void addAtIndex(int index, int val) {
+        if (index > size || index < 0) {
             return;
         }
 
-        if (index == size)
-        {
+        if (index == size) {
             return addAtTail(val);
         }
 
         auto n = find(index);
-        if (n != nullptr)
-        {
+        if (n != nullptr) {
             n         = n->prev;
             auto node = new MyLinkedListNode(val, n, n->next);
             n->next = n->next->prev = node;
@@ -154,16 +129,13 @@ public:
         }
     }
 
-    void deleteAtIndex(int index)
-    {
-        if (index >= size || index < 0)
-        {
+    void deleteAtIndex(int index) {
+        if (index >= size || index < 0) {
             return;
         }
 
         auto n = find(index);
-        if (n != nullptr)
-        {
+        if (n != nullptr) {
             n->prev->next = n->next;
             n->next->prev = n->prev;
             delete n;

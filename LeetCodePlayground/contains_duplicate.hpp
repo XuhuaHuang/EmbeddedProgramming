@@ -4,22 +4,17 @@
 #include <map>
 #include <vector>
 
-class Solution
-{
+class Solution {
 public:
-    bool containsDuplicate(std::vector<int>& nums)
-    {
+    bool containsDuplicate(std::vector<int>& nums) {
         std::map<int, int> mp;
-        for (auto i : nums)
-        {
+        for (auto i : nums) {
             mp[i]++;
         }
 
         bool flag = false;
-        for (auto i : mp)
-        {
-            if (i.second >= 2)
-            {
+        for (auto i : mp) {
+            if (i.second >= 2) {
                 return true;
             }
         }
@@ -27,17 +22,13 @@ public:
     }
 };
 
-class SortArraySolution
-{
+class SortArraySolution {
 public:
-    bool containsDuplicate(std::vector<int>& nums)
-    {
+    bool containsDuplicate(std::vector<int>& nums) {
         std::sort(nums.begin(), nums.end());
         bool flag = false;
-        for (int i = 0; i < nums.size() - 1; i++)
-        {
-            if (nums[i] == nums[i + 1])
-            {
+        for (int i = 0; i < nums.size() - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
                 return true;
             }
         }

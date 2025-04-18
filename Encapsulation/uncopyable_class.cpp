@@ -13,8 +13,7 @@
 #include <iostream>
 #include <string>
 
-class Uncopyable
-{
+class Uncopyable {
 protected:
     // allow construction and destruction of derived class objects
     Uncopyable() {}
@@ -27,25 +26,25 @@ private:
     Uncopyable(Uncopyable&&) noexcept {}
     Uncopyable& operator=(const Uncopyable&) {}
     Uncopyable& operator=(Uncopyable&&) noexcept {}
-    bool operator==(const Uncopyable&) {}
+    bool        operator==(const Uncopyable&) {}
 };
 
 // class that inherits the private part of the base class 'Uncopyable'
-class Secret : private Uncopyable
-{
+class Secret : private Uncopyable {
 private:
     std::string secret = "MY SECRET";
+
 public:
-    Secret(const std::string argSecret) : secret(argSecret) {}
+    Secret(const std::string argSecret)
+        : secret(argSecret) {}
     ~Secret() {}
 };
 
-int main(void)
-{
+int main(void) {
     Secret mySecret("My secret");
-    //Secret yrSecret{ std::move(mySecret) };
-    //Secret yrSecret{ mySecret };
-    //yrSecret = mySecret;
+    // Secret yrSecret{ std::move(mySecret) };
+    // Secret yrSecret{ mySecret };
+    // yrSecret = mySecret;
 
     return 0;
 }

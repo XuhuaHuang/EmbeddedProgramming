@@ -1,7 +1,6 @@
 #include <vector>
 
-struct widget
-{
+struct widget {
     using data_type = std::vector<double>;
 
     // reference qualifier overloads

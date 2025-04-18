@@ -18,8 +18,7 @@
 
 #include <iostream>
 
-class Square
-{
+class Square {
 private:
     int side;
 
@@ -32,18 +31,16 @@ public:
     // could be avoided by using public get functions (getter)
 };
 
-class Rectangle
-{
+class Rectangle {
 private:
     int width, height;
 
 public:
-    inline constexpr int area() { return (width * height); }
+    constexpr inline int area() { return (width * height); }
     void                 convert(const Square& rhs);
 };
 
-void Rectangle::convert(const Square& a)
-{
+void Rectangle::convert(const Square& a) {
     width  = a.side;
     height = a.side;
     // Rectangle class using Square's private data members (side)
@@ -51,8 +48,7 @@ void Rectangle::convert(const Square& a)
     return;
 }
 
-int main(void)
-{
+int main(void) {
     Square    sqr;
     Rectangle rect;
 

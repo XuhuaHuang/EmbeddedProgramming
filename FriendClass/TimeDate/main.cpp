@@ -7,10 +7,10 @@
  *********************************************************************/
 
 #include <iostream>
+
 #include "TimeDate.hpp"
 
-int main(void)
-{
+int main(void) {
     Time time; // create a Time object
     Date date; // create a data object
 

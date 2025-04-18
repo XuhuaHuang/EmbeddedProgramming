@@ -9,22 +9,16 @@
  *
  */
 
-namespace util
-{
-namespace type
-{
+namespace util {
+namespace type {
 
-template<typename T>
-struct is_tuple : std::false_type
-{
-};
+template <typename T>
+struct is_tuple : std::false_type {};
 
-template<typename... Args>
-struct is_tuple<std::tuple<Args...>> : std::true_type
-{
-};
+template <typename... Args>
+struct is_tuple<std::tuple<Args...>> : std::true_type {};
 
-template<typename T>
+template <typename T>
 constexpr bool is_tuple_v = is_tuple<T>::value;
 
 } // namespace type

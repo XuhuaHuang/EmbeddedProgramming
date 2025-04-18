@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
 
-int main()
-{
+int main() {
     // Make a window that is 800 by 200 pixels
     // And has the title "Hello from SFML"
     sf::RenderWindow window(sf::VideoMode(1600, 400), "GoodBye from Bob");
@@ -27,19 +26,18 @@ int main()
 
     // Choose a color
     sf::Color col(
-        0, 0, 255); // X.H. changed the color of the txt from (255, 255, 255) to (0, 0, 255) which is dark blue
+        0, 0, 255
+    ); // X.H. changed the color of the txt from (255, 255, 255) to (0, 0, 255) which is dark blue
 
     message.setFillColor(col);
 
 
     // This "while" loop goes round and round- perhaps forever
-    while (window.isOpen())
-    {
+    while (window.isOpen()) {
         // The next 6 lines of code detect if the window is closed
         // And then shuts down the program
         sf::Event event;
-        while (window.pollEvent(event))
-        {
+        while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 // Someone closed the window- bye
                 window.close();

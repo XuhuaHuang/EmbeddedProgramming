@@ -14,15 +14,13 @@
 #ifndef STRCAT_HPP
 #define STRCAT_HPP
 
-#include <string>
 #include <spanstream>
+#include <string>
 
-namespace util
-{
+namespace util {
 
 [[nodiscard]]
-constexpr auto strcat(auto&&... args)
-{
+constexpr auto strcat(auto&&... args) {
     char             buf[256]{};
     std::ospanstream oss{std::span{buf}};
     ((oss << args), ...);

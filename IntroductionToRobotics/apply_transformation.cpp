@@ -20,8 +20,7 @@
 using Matrix3x3 = std::array<std::array<double, 3>, 3>;
 using Vector3   = std::array<double, 3>;
 
-Vector3 applyTransformation(const Matrix3x3& rotation, const Vector3& translation, const Vector3& point)
-{
+Vector3 apply_transformation(const Matrix3x3& rotation, const Vector3& translation, const Vector3& point) {
     Vector3 transformed_point = {
         rotation[0][0] * point[0] + rotation[0][1] * point[1] + rotation[0][2] * point[2] + translation[0],
         rotation[1][0] * point[0] + rotation[1][1] * point[1] + rotation[1][2] * point[2] + translation[1],
@@ -30,8 +29,7 @@ Vector3 applyTransformation(const Matrix3x3& rotation, const Vector3& translatio
     return transformed_point;
 }
 
-int main()
-{
+int main() {
     // Example rotation matrix (identity, no rotation)
     Matrix3x3 rotation = {
         {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}}
@@ -42,7 +40,7 @@ int main()
     Vector3 point = {4, 5, 6};
 
     // Apply transformation
-    Vector3 transformed_point = applyTransformation(rotation, translation, point);
+    Vector3 transformed_point = apply_transformation(rotation, translation, point);
 
     // Output the result
     std::cout << "Transformed point: (" << transformed_point[0] << ", " << transformed_point[1] << ", "

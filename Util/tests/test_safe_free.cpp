@@ -12,12 +12,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "safe_free.hpp"
 
-int main(void)
-{
+int main(void) {
     int* pi;
-    pi = (int*)malloc(sizeof(int));
+    pi  = (int*)malloc(sizeof(int));
     *pi = 5;
     printf("Before: %p.\n", pi);
     util::pointer::safe_free((void**)&(pi));

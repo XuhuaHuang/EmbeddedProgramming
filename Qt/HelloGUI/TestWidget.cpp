@@ -10,7 +10,8 @@
 
 // TestWidget class constructor
 // pointer parent is passed to parent class constructor
-TestWidget::TestWidget(QWidget* parent) : QWidget(parent) {
+TestWidget::TestWidget(QWidget* parent)
+    : QWidget(parent) {
     // instanciate a vertical box layout manager
     QVBoxLayout* vbox = new QVBoxLayout();
 
@@ -36,7 +37,8 @@ TestWidget::TestWidget(QWidget* parent) : QWidget(parent) {
 
 // TestWidget class destructor is empty since
 // all heap objects are deleted by parent class destructor
-TestWidget::~TestWidget() noexcept {}
+TestWidget::~TestWidget() noexcept {
+}
 
 // content modified by function will stay since it is passed the address
 void TestWidget::showHyperlink(QLabel* const label) {

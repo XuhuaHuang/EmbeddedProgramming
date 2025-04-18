@@ -5,8 +5,7 @@
 #include <unordered_map>
 #include <vector>
 
-int main(int argc, const char** argv)
-{
+int main(int argc, const char** argv) {
     std::vector<int> arr{100, -23, -23, 404, 100, 23, 23, 23, 3, 404};
     // std::vector<int> arr{7, 6, 9, 6, 9, 6, 9, 7};
     Solution  solution;

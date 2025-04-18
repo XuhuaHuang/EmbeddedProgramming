@@ -4,15 +4,17 @@
 // ./matrix_transpose_unittest
 // rm matrix_transpose_unittest
 
+#include "matrix_transpose.hpp"
+
 #include <array>
 #include <iostream>
 #include <type_traits>
 
 #include "matrix_multiply.hpp"
-#include "matrix_transpose.hpp"
 
-int main()
-{
+int main() {
+    using namespace robotics;
+
     constexpr std::array<std::array<float, 3U>, 3U> A = {
         {{1.0F, 2.0F, 3.0F}, {4.0F, 5.0F, 6.0F}, {7.0F, 8.0F, 9.0F}}
     };

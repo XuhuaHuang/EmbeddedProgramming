@@ -1,10 +1,10 @@
-#include <iostream>
 #include <math.h>
+
+#include <iostream>
 #include <opencv2/opencv.hpp>
 #include <vector>
 
-int main()
-{
+int main() {
     using namespace cv;
     using namespace std;
 

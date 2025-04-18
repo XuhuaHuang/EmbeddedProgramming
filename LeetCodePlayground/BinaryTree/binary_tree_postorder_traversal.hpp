@@ -14,16 +14,13 @@
 
 #include "binary_tree_node.hpp"
 
-class Solution
-{
+class Solution {
 public:
     vector<int> v;
 
-    void postorder(TreeNode* root)
-    {
+    void postorder(TreeNode* root) {
         // design an exit condition
-        if (root == nullptr)
-        {
+        if (root == nullptr) {
             return;
         }
         postorder(root->left);
@@ -31,8 +28,7 @@ public:
         v.push_back(root->val);
     }
 
-    vector<int> postorderTraversal(TreeNode* root)
-    {
+    vector<int> postorderTraversal(TreeNode* root) {
         postorder(root);
         return v;
     }

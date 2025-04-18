@@ -16,11 +16,13 @@ int main(void) {
     // \n will not be interpreted as new line character
     // and the empty spaces at line 19 will be printed
     std::cout << R"(Hello,\n
-        world)" << "\n";
+        world)"
+              << "\n";
 
     std::cout << R"(This is a Python style
 multi-line string literal,
-which acts like doc strings)" << "\n";
+which acts like doc strings)"
+              << "\n";
 
     return 0;
 }

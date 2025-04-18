@@ -9,11 +9,13 @@
  * \date   October 22, 2022
  *********************************************************************/
 
-#include <GL\glew.h>
 #include <GLFW\glfw3.h>
+#include <GL\glew.h>
+
 #include <iostream>
 
-void init(GLFWwindow* window) {}
+void init(GLFWwindow* window) {
+}
 
 void display(GLFWwindow* window, double currentTime) {
     glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
@@ -22,7 +24,6 @@ void display(GLFWwindow* window, double currentTime) {
 }
 
 int main(void) {
-
     // Check if the GLFW initialization is successful
     if (!glfwInit()) {
         exit(EXIT_FAILURE);
@@ -38,7 +39,7 @@ int main(void) {
 
     // Check if the GLEW initialization is successful
     // unresolved external symbol __imp_glewInit referenced in function main
-    //if (glewInit() != GLEW_OK) {
+    // if (glewInit() != GLEW_OK) {
     //    exit(EXIT_FAILURE);
     //}
 

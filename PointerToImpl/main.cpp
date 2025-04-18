@@ -14,8 +14,7 @@
 
 #include "person.hpp"
 
-int main()
-{
+int main() {
     pimpl::Person p("Alice", 30);
     std::cout << p.name() << ", " << p.age() << "\n";
 

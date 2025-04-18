@@ -10,20 +10,15 @@
 
 #include <iostream>
 
-class Singleton
-{
+class Singleton {
 public:
     // to prevent having additional copy of the instance
     // mark copy constructor as delete, required C++ 17
     Singleton(const Singleton& instance) = delete;
 
-    static Singleton& getInstance() {
-        return s_Instance;
-    }
+    static Singleton& getInstance() { return s_Instance; }
 
-    void printInstance() {
-        std::cout << "Singleton::printInstance()" << "\n";
-    }
+    void printInstance() { std::cout << "Singleton::printInstance()" << "\n"; }
 
 private:
     // private constructor to restrict instantiation of class
@@ -38,8 +33,7 @@ private:
 Singleton Singleton::s_Instance;
 
 /* Example: random number generator class */
-class Random
-{
+class Random {
 public:
     Random(const Random& instance) = delete;
 
@@ -52,9 +46,7 @@ public:
         return s_Instance;
     }
 
-    float getRandom() {
-        return m_Random_float;
-    }
+    float getRandom() { return m_Random_float; }
 
 private:
     Random() {}
@@ -68,8 +60,7 @@ private:
 /* [Original] definition of static member */
 // Random Random::s_Instance; // moved to line 51
 
-int main(void)
-{
+int main(void) {
     /**
      * use public function inside singleton class to get instance
      * and call function to print out instance

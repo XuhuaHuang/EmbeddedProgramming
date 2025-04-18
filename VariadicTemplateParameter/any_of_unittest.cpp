@@ -6,8 +6,7 @@
 
 #include <boost/ut.hpp>
 
-int main()
-{
+int main() {
     using namespace boost::ut;
 
     should("return true if any of given values is equal the expected value") = [] {

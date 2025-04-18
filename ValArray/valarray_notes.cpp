@@ -28,15 +28,12 @@
 #define log std::cout << __LINE__ << ": " << std::boolalpha
 #endif
 
-template<typename T>
+template <typename T>
     requires std::is_arithmetic_v<T> && (!std::is_pointer_v<T>) && (!std::is_reference_v<T>)
-inline std::ostream& operator<<(std::ostream& os, const std::valarray<T>& values) noexcept
-{
+inline std::ostream& operator<<(std::ostream& os, const std::valarray<T>& values) noexcept {
     os << "[";
-    if (values.size() >= 1) [[likely]]
-    {
-        for (const T* it = std::begin(values); it < std::end(values) - 1; it++)
-        {
+    if (values.size() >= 1) [[likely]] {
+        for (const T* it = std::begin(values); it < std::end(values) - 1; it++) {
             os << *it << ", ";
         }
         os << values[values.size() - 1];
@@ -45,11 +42,10 @@ inline std::ostream& operator<<(std::ostream& os, const std::valarray<T>& values
     return os;
 }
 
-template<>
+template <>
 inline std::ostream& operator<<(std::ostream& os, const std::valarray<std::uint8_t>& values) noexcept = delete;
 
-int main()
-{
+int main() {
     static_assert(std::is_arithmetic_v<std::uint8_t>);
 
     // log << std::is_arithmetic_v<std::uint8_t> << "\n";

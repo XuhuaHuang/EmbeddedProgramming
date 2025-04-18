@@ -8,11 +8,11 @@
 
 #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
 
-#include <iostream>
-#include <cstdlib>
-
 #include <Python.h>
 #include <numpy/arrayobject.h>
+
+#include <cstdlib>
+#include <iostream>
 
 auto main(int argc, char* argv[]) -> int {
     // Initialize the Python interpreter
@@ -29,13 +29,13 @@ auto main(int argc, char* argv[]) -> int {
     PyObject* array = PyObject_CallMethod(numpy, "array", "O", list);
 
     // Get the data type of the array
-    PyObject* dtype = PyObject_GetAttrString(array, "dtype");
-    const char* str = PyUnicode_AsUTF8(dtype);
+    PyObject*   dtype = PyObject_GetAttrString(array, "dtype");
+    const char* str   = PyUnicode_AsUTF8(dtype);
     printf("Data type: %s\n", str);
 
     // Get the shape of the array
-    PyObject* shape = PyObject_GetAttrString(array, "shape");
-    Py_ssize_t len = PyTuple_Size(shape);
+    PyObject*  shape = PyObject_GetAttrString(array, "shape");
+    Py_ssize_t len   = PyTuple_Size(shape);
     printf("Shape: (%ld", PyLong_AsLong(PyTuple_GetItem(shape, 0)));
     for (int i = 1; i < len; i++) {
         printf(", %ld", PyLong_AsLong(PyTuple_GetItem(shape, i)));

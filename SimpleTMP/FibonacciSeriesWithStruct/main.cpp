@@ -6,11 +6,13 @@
  * \date   November 28, 2022
  *********************************************************************/
 
-#include <iostream>
 #include <stdlib.h>
+
+#include <iostream>
+
 #include "Fibonacci.hpp"
 
-auto main(void) -> int {
+int main(void) {
     static_assert(Fibonacci<5>::value == 5);
     static_assert(Fibonacci<10>::value == 55);
 

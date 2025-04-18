@@ -9,10 +9,10 @@
 #ifndef DECK_HPP
 #define DECK_HPP
 
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <iostream>
 #include <random>
+#include <vector>
 
 #include "Card.hpp"
 #include "ICardSource.hpp"
@@ -30,18 +30,14 @@ public:
             }
         }
 
-        std::random_device rd;
+        std::random_device         rd;
         std::default_random_engine rng(rd());
         std::shuffle(m_cards.begin(), m_cards.end(), rng);
     }
 
-    void sort() {
-        std::sort(m_cards.begin(), m_cards.end());
-    }
+    void sort() { std::sort(m_cards.begin(), m_cards.end()); }
 
-    void push(Card&& card) {
-        m_cards.push_back(std::move(card));
-    }
+    void push(Card&& card) { m_cards.push_back(std::move(card)); }
 
     Card draw() noexcept {
         Card cardToReturn;
@@ -52,9 +48,7 @@ public:
         return cardToReturn;
     }
 
-    inline bool is_empty() const {
-        return m_cards.empty();
-    }
+    inline bool is_empty() const { return m_cards.empty(); }
 
 private:
     std::vector<Card> m_cards;

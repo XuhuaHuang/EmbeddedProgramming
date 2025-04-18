@@ -4,6 +4,22 @@ INLINE constexpr auto matrix_multiply(
     const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B
 ) -> std::array<std::array<T, P>, M>
 {
+/**
+ * @file matrix_multiply.inl
+ * @author Xuhua Huang
+ * @brief
+ * @version 0.1
+ * @date 2024-06-17
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
+
+#pragma once
+#ifndef MATRIX_MULTIPLY_INL
+#define MATRIX_MULTIPLY_INL
+
+namespace robotics {
     std::array<std::array<T, P>, M> result{};
 
     for (size_t i = 0; i < M; ++i)
@@ -62,3 +78,7 @@ INLINE std::ostream& operator<<(std::ostream& os, const std::array<std::array<T,
     os << "]";
     return os;
 }
+
+} // namespace robotics
+
+#endif // !MATRIX_MULTIPLY_INL

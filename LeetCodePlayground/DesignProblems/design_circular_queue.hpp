@@ -7,30 +7,26 @@ static const int _ = []() {
     return 0;
 }();
 
-class MyCircularQueue
-{
+class MyCircularQueue {
 public:
     int* arr;
     int  front;
     int  rear;
     int  size;
 
-    MyCircularQueue(int k)
-    {
+    MyCircularQueue(int k) {
         arr   = new int[k];
         front = -1;
         rear  = -1;
         size  = k;
     }
 
-    ~MyCircularQueue()
-    {
+    ~MyCircularQueue() {
         delete[] arr;
         arr = NULL;
     }
 
-    bool enQueue(int value)
-    {
+    bool enQueue(int value) {
         if (isFull())
             return false;
         if (isEmpty())
@@ -40,8 +36,7 @@ public:
         return true;
     }
 
-    bool deQueue()
-    {
+    bool deQueue() {
         if (isEmpty())
             return false;
         if (front == rear)
@@ -51,15 +46,13 @@ public:
         return true;
     }
 
-    int Front()
-    {
+    int Front() {
         if (isEmpty())
             return -1;
         return arr[front];
     }
 
-    int Rear()
-    {
+    int Rear() {
         if (isEmpty())
             return -1;
         return arr[rear];

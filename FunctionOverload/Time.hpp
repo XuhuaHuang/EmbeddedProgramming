@@ -6,11 +6,10 @@
  * \date   October 07, 2020
  *********************************************************************/
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
-class Time
-{
+class Time {
 private:
     int hour;
     int minute;

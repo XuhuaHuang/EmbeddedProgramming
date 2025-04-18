@@ -17,14 +17,11 @@
 #include <tuple>
 #include <vector>
 
-namespace util
-{
-namespace range
-{
+namespace util {
+namespace range {
 
-template<typename... Ranges>
-auto zip(Ranges&&... ranges)
-{
+template <typename... Ranges>
+auto zip(Ranges&&... ranges) {
     return std::views::zip(std::forward<Ranges>(ranges)...);
 }
 

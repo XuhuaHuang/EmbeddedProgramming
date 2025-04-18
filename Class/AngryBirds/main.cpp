@@ -17,8 +17,7 @@
 #include <cmath>
 #endif
 
-int main(void)
-{
+int main(void) {
     AngryBirds bird;
 
     double userv;

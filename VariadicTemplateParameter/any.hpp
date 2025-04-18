@@ -7,35 +7,31 @@
 #include <concepts>
 #include <type_traits>
 
-struct Any
-{
+struct Any {
     // template<typename T>
     // operator T();
 
-    template<typename T>
+    template <typename T>
     operator T&() /* const */ volatile;
 
-    template<typename T>
+    template <typename T>
     operator T&&();
 };
 
-template<typename T, std::size_t Idx>
+template <typename T, std::size_t Idx>
 using repeated_with = T;
 
-template<typename T, std::size_t N>
+template <typename T, std::size_t N>
 concept ConstructibleWithN = requires {
     []<std::size_t... Idxs>(std::index_sequence<Idxs...>)
         requires requires {
             // try to construct T with N objects convertible to anything
             T{repeated_with<Any, Idxs>{}...};
         }
-    {
-    }
-    (std::make_index_sequence<N>{});
+    {}(std::make_index_sequence<N>{});
 };
 
-struct Bar
-{
+struct Bar {
     Bar(int, int);
 };
 static_assert(ConstructibleWithN<Bar, 2>);
@@ -44,14 +40,13 @@ static_assert(ConstructibleWithN<Bar, 2>);
 // because it finds the implicit generated copy and move constructor
 static_assert(ConstructibleWithN<Bar, 1>);
 
-struct Baz
-{
+struct Baz {
     int i;
     int j;
 };
 static_assert(ConstructibleWithN<Baz, 2>);
 
-template<typename T, size_t N>
+template <typename T, size_t N>
 concept AggregateOfN = std::is_aggregate_v<T> && ConstructibleWithN<T, N> && not ConstructibleWithN<T, N + 1>;
 
 #endif // !ANY_CONSTRUCTIBLE_WITH_N_HPP

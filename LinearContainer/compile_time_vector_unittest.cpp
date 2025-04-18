@@ -10,14 +10,14 @@
  */
 
 #include "compile_time_vector.hpp"
+
 #include <iostream>
 #include <string>
 #include <vector>
 
 #define log std::cout << __LINE__ << " " << std::boolalpha << std::fixed
 
-int main(void)
-{
+int main(void) {
     {
         // constexpr linear_container::compile_time_vector<int, 3U> v{10, 20, 30};
         // log << std::boolalpha << v.empty() << "\n";
@@ -58,15 +58,15 @@ int main(void)
         log << "get<2>(v): " << get<2>(v) << "\n";
         log << "get<3>(v): " << get<3>(v) << "\n";
 
-        auto v2            = push_back(v, 'X');
+        auto v2 = push_back(v, 'X');
         // log << typeid(v2).name() << "\n";
         // log << boost::typeindex::type_id<decltype(v2)>().pretty_name() << "\n";
 
         using vector2_type = boost::fusion::vector<int, std::string, bool, double, char>;
         vector2_type v2_   = push_back(v, 'X');
         log << typeid(v2_).name() << "\n";
-        log << boost::fusion::at<boost::mpl::int_<4>>(v2_) << "\n";          // 'X'
-        log << get_type<4>(v2_) << "\n";                                     // char
+        log << boost::fusion::at<boost::mpl::int_<4>>(v2_) << "\n"; // 'X'
+        log << get_type<4>(v2_) << "\n";                            // char
 
         log << "boost::fusion::size(v): " << boost::fusion::size(v) << "\n"; // 4
         log << "linear_container::size_of(v): " << linear_container::size_of(v) << "\n";

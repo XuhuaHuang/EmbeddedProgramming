@@ -4,25 +4,22 @@
  * @brief Motes and demonstration on "User Defined Literals" in C++20.
  * @version 0.1
  * @date 2022-01-31
- * 
+ *
  * @copyright Copyright (c) 2022
- * 
+ *
  */
 
-#include<iostream>
-#include<stdlib.h>
+#include <stdlib.h>
+
+#include <iostream>
 
 /* Forward Declaration; To be implemented later. */
 class Temperature {
 public:
     Temperature() = default;
-    Temperature(const double value) {
-        this->value_with_udl = value;
-    }
+    Temperature(const double value) { this->value_with_udl = value; }
     double value_with_udl;
-    inline operator double() {
-        return this->value_with_udl;
-    }
+    inline operator double() { return this->value_with_udl; }
 };
 
 /**
@@ -30,17 +27,16 @@ public:
  * Convention is to put them into different namespaces to prevent pollution.
  */
 namespace geometry_namespace {
-    constexpr double operator""_deg(long double);
+constexpr double operator""_deg(long double);
 }
 
 namespace temperature_namespace {
-    Temperature operator""_deg(long double value) {
-        return Temperature(value);
-    }
+Temperature operator""_deg(long double value) {
+    return Temperature(value);
 }
+} // namespace temperature_namespace
 
-auto main(void) -> int {
-
+int main(void) {
     using namespace geometry_namespace;
     double right_angle = 90.0_deg; // unambiguously an angle, not a temperature
 
@@ -65,26 +61,26 @@ auto main(void) -> int {
 /* Build a base-3 number interpreter */
 namespace base3_namespace {
 
-    consteval int operator""_3(const char* digits) {
-        int ret = 0;
-        for (char c = *digits; c != NULL; c = *++digits) {
-            if ('\'' == c) continue; // ignore digit separator
-            if (c < '0' || '2' < c)
-                throw std::out_of_range("Invalid base-3 digit.");
-            if (ret >= (std::numeric_limits<int>::max() - (c - '0')) / 3)
-                throw std::overflow_error("Integer overflow");
-            ret = 3 * ret + (c - '0');
-        }
-        return ret;
-    } // end udl
+consteval int operator""_3(const char* digits) {
+    int ret = 0;
+    for (char c = *digits; c != NULL; c = *++digits) {
+        if ('\'' == c)
+            continue; // ignore digit separator
+        if (c < '0' || '2' < c)
+            throw std::out_of_range("Invalid base-3 digit.");
+        if (ret >= (std::numeric_limits<int>::max() - (c - '0')) / 3)
+            throw std::overflow_error("Integer overflow");
+        ret = 3 * ret + (c - '0');
+    }
+    return ret;
+} // end udl
 
-} // end namespace
+} // namespace base3_namespace
 
 /* ---------------------------- */
 /* String UDL Operator Template */
 /* ---------------------------- */
-struct IPv4Addr
-{
+struct IPv4Addr {
     // calling syntax:
     // IPv4Addr::isIPv4Format(const char*)
     static constexpr bool isIPv4Format(const char* str);
@@ -92,23 +88,19 @@ struct IPv4Addr
     // ...
 };
 
-struct IPv6Addr
-{
+struct IPv6Addr {
     explicit constexpr IPv6Addr(const char* str) {}
     // ...
 };
 
 /* Define a custom string proxy to be used in UDL template */
-template<typename CharT, std::size_t N>
-struct StrLiteralProxy
-{
+template <typename CharT, std::size_t N>
+struct StrLiteralProxy {
     // Requires a compile-time constant to construct the member array
     // Therefore, define a constexpr constructor to guarantee it
-    constexpr StrLiteralProxy(const CharT (&s)[N]) {
-        std::copy(std::begin(s), std::end(s), std::begin(m_data));
-    }
+    constexpr StrLiteralProxy(const CharT (&s)[N]) { std::copy(std::begin(s), std::end(s), std::begin(m_data)); }
 
-    constexpr std::size_t size() const { return N - 1; }
+    constexpr std::size_t  size() const { return N - 1; }
     constexpr const CharT* data() const { return m_data; }
 
 private:
@@ -117,10 +109,9 @@ private:
 
 /* Operator Template */
 /* Template type deduction happens during compile time. */
-template<StrLiteralProxy slp>
+template <StrLiteralProxy slp>
 constexpr auto operator""_IP() {
-    return std::conditional<IPv4Addr::isIPv4Format(slp.data()),
-        IPv4Addr, IPv6Addr>(slp.data());
+    return std::conditional<IPv4Addr::isIPv4Format(slp.data()), IPv4Addr, IPv6Addr>(slp.data());
 }
 
 // auto v4 = "1.2.3.4"_IP;      // type deducted to IPv4

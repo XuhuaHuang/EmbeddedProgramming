@@ -2,23 +2,18 @@
 
 #include "linked_list_node.hpp"
 
-class Solution
-{
+class Solution {
 public:
-    ListNode* detectCycle(ListNode* h)
-    {
+    ListNode* detectCycle(ListNode* h) {
         ListNode* s   = h;
         ListNode* f   = h;
         ListNode* ans = NULL;
-        while (s && f && f->next)
-        {
+        while (s && f && f->next) {
             s = s->next;
             f = f->next->next;
-            if (f == s)
-            {
+            if (f == s) {
                 f = h;
-                while (f != s)
-                {
+                while (f != s) {
                     f = f->next;
                     s = s->next;
                 }

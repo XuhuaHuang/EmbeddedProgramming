@@ -7,15 +7,11 @@
  *********************************************************************/
 #include <iostream>
 
-void compare(int a, int b, int& addr_greater, int& addr_smaller)
-{
-    if (a > b)
-    {
+void compare(int a, int b, int& addr_greater, int& addr_smaller) {
+    if (a > b) {
         addr_greater = a;
         addr_smaller = b;
-    }
-    else
-    {
+    } else {
         addr_greater = b;
         addr_smaller = a;
     }
@@ -23,9 +19,8 @@ void compare(int a, int b, int& addr_greater, int& addr_smaller)
     return;
 }
 
-// Driver code 
-int main(void)
-{
+// Driver code
+int main(void) {
     int greaterNum, smallerNum, num1, num2;
 
     std::cout << "Enter the first number of two to compare: ";
@@ -38,7 +33,7 @@ int main(void)
     compare(num1, num2, greaterNum, smallerNum);
 
     std::cout << "\nThe greater number is: " << greaterNum << "\n"
-        << "The smaller number is: " << smallerNum << "\n";
+              << "The smaller number is: " << smallerNum << "\n";
 
     return 0;
 }

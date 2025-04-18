@@ -10,8 +10,7 @@
 #include <iostream>
 
 template <typename T, T... Numbers>
-class sequence
-{
+class sequence {
 public:
     static constexpr std::array<T, sizeof...(Numbers)> values = {Numbers...};
 };

@@ -9,12 +9,11 @@
 #include <iostream>
 #include <string>
 
-int main(void)
-{
-    std::string theBird; // declare a variable of data type string
+int main(void) {
+    std::string theBird;  // declare a variable of data type string
     theBird = "Blue-jay"; // initialize the string variable theBird
     std::cout << theBird << "\n";
-    std::string action = "fly";
+    std::string action   = "fly";
     std::string sentence = theBird + " can " + action; // concatenate in string
     std::cout << sentence << "\n";
 
@@ -22,7 +21,7 @@ int main(void)
     std::string str;
     std::cout << "Enter a  sentence: ";
     getline(std::cin, str); // use the function std::cin and store it in the object str
-    //std::cin.ignore(); // ignore the \n characters;
+    // std::cin.ignore(); // ignore the \n characters;
     std::cout << str << "\n";
 
 
@@ -49,19 +48,18 @@ int main(void)
 
 
     std::string hello = "hello";
-    size_t y = hello.find('l', 3); // trying to find the letter l starting at position 3
-    if (y == std::string::npos) // std::string no position
+    size_t      y     = hello.find('l', 3); // trying to find the letter l starting at position 3
+    if (y == std::string::npos)             // std::string no position
         std::cout << "The letter \"l\" is not found in string hello." << "\n";
     else
         std::cout << "The letter \"l\" is found at position " << y << "\n";
 
 
     // iterator
-    std::string tree = "deciduous";
+    std::string           tree = "deciduous";
     std::string::iterator iterstr; // pointer
 
-    for (iterstr = tree.begin(); iterstr < tree.end(); iterstr++)
-    {
+    for (iterstr = tree.begin(); iterstr < tree.end(); iterstr++) {
         std::cout << *iterstr;
     }
 

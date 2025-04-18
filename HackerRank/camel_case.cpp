@@ -16,7 +16,7 @@
 
 /// @brief The function is expected to return an INTEGER.
 /// @param s The function accepts STRING s as parameter.
-/// @return 
+/// @return
 int camelcase(const std::string s) {
     int word_count = 1;
 
@@ -32,8 +32,7 @@ int camelcase(const std::string s) {
     return word_count;
 }
 
-int main()
-{
+int main() {
     std::cout << "Please type one or more camel case words: ";
     std::string s;
     std::getline(std::cin, s); // get a camelCase formatted string from user

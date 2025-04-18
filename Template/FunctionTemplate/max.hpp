@@ -17,21 +17,21 @@
 #include <concepts>
 
 /**
-* This function definition has 2 implicit requirements of genric type T:
-* 1. it has the comparison operator overloaded
-* 2. it is copiable, since we are passing and returning by value
-*/
+ * This function definition has 2 implicit requirements of genric type T:
+ * 1. it has the comparison operator overloaded
+ * 2. it is copiable, since we are passing and returning by value
+ */
 // template<typename T>
 // T max(T a, T b) {
 //     return b < a ? a : b;
 // }
 
-template<typename T>
+template <typename T>
 concept SupportsLessThan = requires (T t) { t < t; };
 
 /* Adding explicit constraint for T */
-template<typename T>
-requires std::copyable<T> && SupportsLessThan<T>
+template <typename T>
+    requires std::copyable<T> && SupportsLessThan<T>
 T max(T a, T b) {
     return b < a ? a : b;
 }

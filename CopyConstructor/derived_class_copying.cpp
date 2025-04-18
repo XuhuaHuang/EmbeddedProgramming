@@ -13,45 +13,49 @@
 
 // make a log entry to keep track of function call
 namespace util {
-    static void logCall(const std::string& functionName)
-    {
-        // make log entry
-        std::cout << "\nLog entry invoked on function called: "
-            << functionName << "\n";
-    }
+static void logCall(const std::string& functionName) {
+    // make log entry
+    std::cout << "\nLog entry invoked on function called: " << functionName << "\n";
 }
+} // namespace util
 
-class Date
-{
+class Date {
 private:
-    int year = 2021;
+    int year  = 2021;
     int month = 3;
-    int day = 1;
+    int day   = 1;
 
 public:
     // default, overloaded constructor and destructor
-    Date() : year(), month(), day() {}
+    Date()
+        : year()
+        , month()
+        , day() {}
     Date(int argYear, int argMonth, int argDay)
-        : year(argYear), month(argMonth), day(argDay) {}
+        : year(argYear)
+        , month(argMonth)
+        , day(argDay) {}
     ~Date() {}
 
     // function to print information
     void printDate() {
         std::cout << "\n[fn][Date::printDate()]\n"
-            << "Year: " << this->year << "\n"
-            << "Month: " << this->month << "\n"
-            << "Day: " << this->day << "\n";
+                  << "Year: " << this->year << "\n"
+                  << "Month: " << this->month << "\n"
+                  << "Day: " << this->day << "\n";
     }
 };
 
-class Customer
-{
+class Customer {
 public:
     // ...
     // default and overloaded constructor
-    Customer() : name("unknown"), ID("unknown") {}
+    Customer()
+        : name("unknown")
+        , ID("unknown") {}
     Customer(std::string argName, std::string argID)
-        : name(argName), ID(argID) {}
+        : name(argName)
+        , ID(argID) {}
 
     // copy constructor
     Customer(const Customer&);
@@ -60,12 +64,11 @@ public:
     Customer& operator=(const Customer&);
     // ...
 
-    void printCustomer(int priority = 0)
-    {
+    void printCustomer(int priority = 0) {
         std::cout << "\n[fn][Customer::printCustomer]\n"
-            << "Name: " << name << "\n"
-            << "ID: " << ID << "\n"
-            << "Priority: " << priority << "\n";
+                  << "Name: " << name << "\n"
+                  << "ID: " << ID << "\n"
+                  << "Priority: " << priority << "\n";
     }
 
 private:
@@ -79,18 +82,18 @@ private:
 };
 
 Customer::Customer(const Customer& rhs)
-    : name(rhs.name), // member initialization list
-    ID(rhs.ID),
-    lastTransaction(rhs.lastTransaction) // added for copy constructor to behave as required
+    : name(rhs.name)
+    , // member initialization list
+    ID(rhs.ID)
+    , lastTransaction(rhs.lastTransaction) // added for copy constructor to behave as required
 {
     util::logCall("Customer copy constructor");
 }
 
-Customer& Customer::operator=(const Customer& rhs)
-{
+Customer& Customer::operator=(const Customer& rhs) {
     util::logCall("Customer copy assignment operator");
-    this->name = rhs.name;
-    this->ID = rhs.ID;
+    this->name            = rhs.name;
+    this->ID              = rhs.ID;
     this->lastTransaction = rhs.lastTransaction;
 
     // return convention
@@ -99,35 +102,33 @@ Customer& Customer::operator=(const Customer& rhs)
 }
 
 // MOST of the issue arise through inheritance
-class priorityCustomer : public Customer
-{
+class priorityCustomer : public Customer {
 private:
     int priority;
 
 public:
     // overloaded constructor
     priorityCustomer(std::string argName, std::string argID, int argPriority)
-        : Customer(argName, argID), // invoke base class overloaded constructor
+        : Customer(argName, argID)
+        , // invoke base class overloaded constructor
         priority(argPriority) {}
 
     // copy constructor
     priorityCustomer(const priorityCustomer&);
 
     // copy assignment operator
-    priorityCustomer& operator= (const priorityCustomer&);
+    priorityCustomer& operator=(const priorityCustomer&);
 };
 
 // derived class copy constructor
 // invoking parent class copy constructor
 priorityCustomer::priorityCustomer(const priorityCustomer& rhs)
-    : Customer(rhs),
-    priority(rhs.priority)
-{
+    : Customer(rhs)
+    , priority(rhs.priority) {
     util::logCall("PriorityCustomer copy constructor");
 }
 
-priorityCustomer& priorityCustomer::operator= (const priorityCustomer& rhs)
-{
+priorityCustomer& priorityCustomer::operator=(const priorityCustomer& rhs) {
     util::logCall("PriorityCustomer copy assignment operator");
 
     // invoke base class copy assignment operator
@@ -138,8 +139,7 @@ priorityCustomer& priorityCustomer::operator= (const priorityCustomer& rhs)
     return *this;
 }
 
-int main(void)
-{
+int main(void) {
     // test base class overloaded constructor
     Customer customer1("Xuhua Huang", "1879700");
     customer1.printCustomer();

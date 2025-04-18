@@ -12,21 +12,17 @@
 
 #include <iostream>
 
-struct Vector2D
-{
+struct Vector2D {
     float x, y;
 };
 
-struct Vector4D
-{
-    union
-    {
+struct Vector4D {
+    union {
         struct // anonymous struct
         {
             float x, y, z, w;
         };
-        struct
-        {
+        struct {
             /**
              * memory of x and y of type float is aligned with Vector2D v1
              * memory of z and w of type float is aligned with Vector2D v2
@@ -36,17 +32,14 @@ struct Vector4D
     };
 };
 
-void printVector2D(const Vector2D& vector)
-{
+void printVector2D(const Vector2D& vector) {
     std::cout << __func__ << "\n"
-         << "Printing struct Vector2D, x: " << vector.x << ", y: " << vector.y << "\n";
-    
+              << "Printing struct Vector2D, x: " << vector.x << ", y: " << vector.y << "\n";
+
     return;
 }
 
-int main(void)
-{
-
+int main(void) {
     /* Basic syntax
     union
     {
@@ -55,13 +48,13 @@ int main(void)
     };
     */
 
-    Vector4D vector = { 1.0f, 2.0f, 3.0f, 4.0f };
+    Vector4D vector = {1.0f, 2.0f, 3.0f, 4.0f};
     printVector2D(vector.v1); // retrieving member in the second anonymous struct
     // 1.0 and 2.0
     printVector2D(vector.v2);
     // 3.0 and 4.0
 
-    /* Change elements in the first anonymous struct 
+    /* Change elements in the first anonymous struct
      * and verify change in the second anonymous struct
      */
     vector.z = 16.0f;

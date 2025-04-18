@@ -6,8 +6,7 @@
 #include <string>
 #include <vector>
 
-int main()
-{
+int main() {
     using namespace boost::ut;
     using std::literals::string_literals::operator""s;
     using util::data_structure::ostream_joiner;

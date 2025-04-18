@@ -15,33 +15,33 @@
  *********************************************************************/
 
 // built-in library:
-#include <iostream>
-#include <math.h>
-#include <string>
 #include <Windows.h>
-//#include <iomanip>
-//#include <float.h>
+#include <math.h>
+
+#include <iostream>
+#include <string>
+// #include <iomanip>
+// #include <float.h>
 
 // customized class:
 #include "Relatives.hpp"
 
 /*
-* Class name:
-* Grandfather - base
-* Father - first-level derived
-* Son - second-level derived
-*/ 
+ * Class name:
+ * Grandfather - base
+ * Father - first-level derived
+ * Son - second-level derived
+ */
 
 using std::cout;
 
-int main(void)
-{
-    //Testing Grandfather class
+int main(void) {
+    // Testing Grandfather class
     Grandfather myGrandfather1;
     // verify cout statements with '[DFCONST]' printed from default constructor
-    
+
     cout << "\033[1;32m" // change colour to green
-         << "\nTesting \"Grandfather\" class..." << "\n"	
+         << "\nTesting \"Grandfather\" class..." << "\n"
          << "Object \"myGrandfather1\" is created with default constructor." << "\n"
          << "Verify statement printed with [DFCONST] signature." << "\n"
          << "The name for \"myGrandfather1\" is: " << myGrandfather1.getName() << "\n"
@@ -56,13 +56,16 @@ int main(void)
          << "The name for \"myGrandfather2\" is: " << myGrandfather2.getName() << "\n"
          << "And \"myGrandfather2\" is born in: " << myGrandfather2.getYearBorn() << "\n";
 
-    cout << "\nTest cases for class \"Grandfather\" end here.\n" << "\n"
+    cout << "\nTest cases for class \"Grandfather\" end here.\n"
+         << "\n"
          << "\033[0m" // reset colour to white
-         << "****************************************************************************************************************" << "\n";
+         << "**********************************************************************************************************"
+            "******"
+         << "\n";
 
     // Testing Father class
     // creating an object from class 'Father'
-    Father myFather1; 
+    Father myFather1;
 
     cout << "\033[1;36m" // change colour to cyan
          << "\nTesting \"Father\" class..." << "\n"
@@ -82,9 +85,12 @@ int main(void)
          << "Name for \"myFather2\" is: " << myFather2.getName() << "\n"
          << "And \"myFather2\" is born in: " << myFather2.getYearBorn() << "\n";
 
-    cout << "\nTest cases for class \"Father\" end here.\n" << "\n"
+    cout << "\nTest cases for class \"Father\" end here.\n"
+         << "\n"
          << "\033[0m" // reset colour to white
-         << "****************************************************************************************************************" << "\n";
+         << "**********************************************************************************************************"
+            "******"
+         << "\n";
 
     // Testing Son class
     // added variable 'schoolYear[int]'
@@ -101,18 +107,18 @@ int main(void)
          << "And \"mySon1\" is born in: " << mySon1.getYearBorn() << "\n";
 
     /*
-    * for mySon1, update the information
-    * change value with set functions
-    * name: Paul
-    * born year: 2008
-    * occupation: student
-    * school year : 6
-    */
-    
+     * for mySon1, update the information
+     * change value with set functions
+     * name: Paul
+     * born year: 2008
+     * occupation: student
+     * school year : 6
+     */
+
     cout << "\nUpdating name, born year, occupation and school year..." << "\n"
          << "Information should be updated to: " << "\n"
          << "\tname: Paul\n\tborn in: 2008\n\toccupation: student\n\tschool year: 6" << "\n";
-    
+
     mySon1.setName("Paul");
     mySon1.setYearBorn(2008);
     mySon1.setOccupation("student");
@@ -124,10 +130,13 @@ int main(void)
          << "Born year for \"mySon1\" is updated to: " << mySon1.getYearBorn() << "\n"
          << "Occupation for \"mySon1\" is updated to: " << mySon1.getOccupation() << "\n"
          << "School year for \"mySon1\" is updated to: " << mySon1.getSchoolYear() << "\n";
-         
-    cout << "\nTest cases for class \"Son\" end here.\n" << "\n"
+
+    cout << "\nTest cases for class \"Son\" end here.\n"
+         << "\n"
          << "\033[0m" // reset colour to white
-         << "****************************************************************************************************************" << "\n";
-    
+         << "**********************************************************************************************************"
+            "******"
+         << "\n";
+
     return 0;
 }

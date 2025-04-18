@@ -15,18 +15,16 @@
 
 #include <iostream>
 #include <string>
-#include <time.h>
 
+#include "Numbers.hpp"
 #include "Student.hpp"
 #include "StudentClub.hpp"
-#include "Numbers.hpp"
 
-int main(void)
-{
-    //Student* student = new Student("Charlie", "Accounting");
-    //std::cout << student->getName() << "\n";
-    //std::cout << student->getMajor() << "\n";
-    //delete student;
+int main(void) {
+    // Student* student = new Student("Charlie", "Accounting");
+    // std::cout << student->getName() << "\n";
+    // std::cout << student->getMajor() << "\n";
+    // delete student;
 
     std::cout << "\nTeating class \"StudentClub\"." << "\n";
     Student* student1 = new Student("Angela", "Medicine");
@@ -41,30 +39,30 @@ int main(void)
     // declare a StudentClub object
     StudentClub HeritageClub;
 
-    //Set Angela as the president
+    // Set Angela as the president
     HeritageClub.setPresident(student1);
 
-    //Set Carmen as the vice - president
+    // Set Carmen as the vice - president
     HeritageClub.setVicePresident(student2);
 
-    //Set George as both the Secretary and Treasurer
+    // Set George as both the Secretary and Treasurer
     HeritageClub.setSecretary(student3);
     HeritageClub.setTreasurer(student3);
 
     std::cout << "\nVerifying student club members in \"HeritageClub\"..." << "\n"
-        << "The president is: " << HeritageClub.getPresident()->getName() << "\n"
-        << "The vice president is: " << HeritageClub.getVicePresident()->getName() << "\n"
-        << "The secretary is: " << HeritageClub.getSecretary()->getName() << "\n"
-        << "The treasurer is: " << HeritageClub.getTreasurer()->getName() << "\n";
+              << "The president is: " << HeritageClub.getPresident()->getName() << "\n"
+              << "The vice president is: " << HeritageClub.getVicePresident()->getName() << "\n"
+              << "The secretary is: " << HeritageClub.getSecretary()->getName() << "\n"
+              << "The treasurer is: " << HeritageClub.getTreasurer()->getName() << "\n";
     // equivalent to: ... << ( *HeritageClub.getPresident() ).getName() << ...
     //                ... <<              ...getVicePresident().getName() << ...
 
     // craeting an object of class 'Number'
     Numbers numObject1(10); // using the overloaded constructor to set the size to 10
 
-    int index = 0; // index
+    int index = 0;     // index
     srand(time(NULL)); // seed of the rendom number generator
-    double randomVal; // random number that gets overwritten as loop increments
+    double randomVal;  // random number that gets overwritten as loop increments
 
     while (index < numObject1.getSize()) // putting ten random number to the array
     {
@@ -75,7 +73,7 @@ int main(void)
     }
     std::cout << "Ten random numbers has been added to the array called \"numObject1\"." << "\n";
 
-    index = 0; // reuse the variable declared before and overwrite with a new value
+    index               = 0; // reuse the variable declared before and overwrite with a new value
     double retrievedVal = 0;
     while (index < numObject1.getSize()) // putting ten random number to the array
     {
@@ -88,7 +86,9 @@ int main(void)
     double averageObj1 = numObject1.average();
     std::cout << "The average of the array called \"numObject1\" is: " << averageObj1 << "\n";
 
-    delete student1; delete student2; delete student3; // releasing memory
+    delete student1;
+    delete student2;
+    delete student3; // releasing memory
 
     return 0;
 }

@@ -14,18 +14,15 @@
 #ifndef IS_TYPE_HPP
 #define IS_TYPE_HPP
 
-namespace helper
-{
+namespace helper {
 
-template<typename C, typename X>
-auto is(X const&) -> std::false_type
-{
+template <typename C, typename X>
+auto is(const X&) -> std::false_type {
     return {};
 }
 
-template<typename C, std::same_as<C> X>
-constexpr auto is(X const&) -> std::true_type
-{
+template <typename C, std::same_as<C> X>
+constexpr auto is(const X&) -> std::true_type {
     return {};
 }
 
@@ -42,16 +39,14 @@ constexpr auto is(X const&) -> std::true_type
 //     return {};
 // }
 
-template<typename C, typename X>
+template <typename C, typename X>
     requires (!std::same_as<C, X> && !std::is_base_of<C, X> && !(std::is_polymorphic_v<C> && std::is_polymorphic_v<X>))
-auto is(X const&) -> std::false_type
-{
+auto is(const X&) -> std::false_type {
     return {};
 }
-template<typename C, typename X>
+template <typename C, typename X>
     requires (std::is_base_of<C, X>)
-auto is(X const&) -> std::true_type
-{
+auto is(const X&) -> std::true_type {
     return {};
 }
 

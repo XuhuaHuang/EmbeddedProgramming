@@ -6,12 +6,13 @@
  * \date   November 15, 2022
  *********************************************************************/
 
-#include <iostream>
 #include <complex>
+#include <iostream>
 #include <string>
+
 #include "Stack.hpp"
 
-auto main(void) -> int {
+int main(void) {
     Stack<int> intStack;
     intStack.push(7);
 
@@ -33,10 +34,10 @@ auto main(void) -> int {
 
     Stack<std::pair<int, double>> pairStack;
     pairStack.push(std::pair<int, double>(1, 2.0));
-    pairStack.push({ 3, 4.00 });
+    pairStack.push({3, 4.00});
     std::cout << pairStack.top().first << "\n";
 
-    //pairStack.print(); // compile-time error; std::pair does not overload operator <<
+    // pairStack.print(); // compile-time error; std::pair does not overload operator <<
 
     return EXIT_SUCCESS;
 }

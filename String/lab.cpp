@@ -9,13 +9,12 @@
 #include <iostream>
 #include <string>
 
-int main(void)
-{
+int main(void) {
     // requirement 1
     std::string userInput1;
     std::cout << "Please enter your favourite idiom:" << "\n";
     getline(std::cin, userInput1);
-    std::cout << "The sentence you just entered is: " + userInput1 << "\n";  // for testing purpose only
+    std::cout << "The sentence you just entered is: " + userInput1 << "\n"; // for testing purpose only
 
     std::string dogName;
     std::cout << "Please enter your dog's name. We promise we won't do any harm to your loved ones." << "\n";
@@ -31,10 +30,9 @@ int main(void)
     // requirement 2 find and erase
     std::string fixedStr = "she sells seashells from the sea shore.";
 
-    size_t search = fixedStr.find('s', 0);
+    size_t search        = fixedStr.find('s', 0);
 
-    while (search != std::string::npos)
-    {
+    while (search != std::string::npos) {
         fixedStr.erase(search, 1);
         search = fixedStr.find('s', 0);
         std::cout << "It is now: " + fixedStr << "\n"; // printing the lines  to see one "s" less each line
@@ -71,8 +69,7 @@ int main(void)
 
     for (int x = 0; x <= (int)alpha.length(); x++) // forstd::cing it to of type int
     {
-        for (iteralpha = alpha.begin(); iteralpha < alpha.begin() + x; iteralpha++)
-        {
+        for (iteralpha = alpha.begin(); iteralpha < alpha.begin() + x; iteralpha++) {
             std::cout << *iteralpha;
         }
         std::cout << "\n";
@@ -99,8 +96,7 @@ int main(void)
             std::cout << fruit3 << " comes least alphabetically." << "\n";
         else // fruit3 < fruit2
             std::cout << fruit2 << " comes least alphabetically." << "\n";
-    }
-    else if ((fruit2 < fruit1) && (fruit2 < fruit3)) // fruit2 comes first
+    } else if ((fruit2 < fruit1) && (fruit2 < fruit3)) // fruit2 comes first
     {
         std::cout << "\n" << fruit2 << " comes first alphabetically." << "\n";
 
@@ -108,8 +104,7 @@ int main(void)
             std::cout << fruit3 << " comes least alphabetically." << "\n";
         else // fruit3 < fruit1
             std::cout << fruit1 << " comes least alphabetically." << "\n";
-    }
-    else // fruit3 comes first
+    } else // fruit3 comes first
     {
         std::cout << "\n" << fruit3 << " comes first alphabetically." << "\n";
 

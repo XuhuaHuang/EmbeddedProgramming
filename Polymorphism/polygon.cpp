@@ -17,15 +17,13 @@
 
 #include <iostream>
 
-class Polygon
-{
+class Polygon {
 protected:
     int width, height;
 
 public:
     // function prototype
-    void set_values(int a, int b)
-    {
+    void set_values(int a, int b) {
         width  = a;
         height = b;
     }
@@ -35,20 +33,17 @@ public:
     // Polygon* to access class function for address-linked-object
 };
 
-class Rectangle : public Polygon
-{
+class Rectangle : public Polygon {
 public:
     int area() const override { return (width * height); }
 };
 
-class Triangle : public Polygon
-{
+class Triangle : public Polygon {
 public:
     int area() const override { return (width * height / 2); }
 };
 
-int main()
-{
+int main() {
     Rectangle rect;
     Triangle  trgl;
     Polygon   poly;

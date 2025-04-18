@@ -16,9 +16,10 @@
 #error "Should use C++ 11 implementation!"
 #endif
 
-#include <iostream>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+
+#include <iostream>
 
 #include "../Util/log.h"
 
@@ -33,7 +34,7 @@
 const char* hello() noexcept(__USR_NO_EXCEPT__) {
     // Equivalence of defining the following manually:
     // static const char* __func__ = "hello";
-    std::cout << "\033[32m" << __PRETTY_FUNCTION__  << "\033[m" << "\n";
+    std::cout << "\033[32m" << __PRETTY_FUNCTION__ << "\033[m" << "\n";
     return __func__;
 }
 
@@ -47,7 +48,8 @@ const char* world() noexcept(__USR_NO_EXCEPT__) {
 /* __func__ in struct */
 typedef struct TestStruct {
 public:
-    TestStruct() : name(__func__) {}
+    TestStruct()
+        : name(__func__) {}
 
     const char* getName(void) {
         std::cout << "\033[32m" << __PRETTY_FUNCTION__ << "\033[m" << "\n";
@@ -58,18 +60,16 @@ private:
     const char* name;
 } TestStruct;
 
-int main(void)
-{
+int main(void) {
     /* Test __func__ predefined macro */
-    std::cout << hello() << "\n" 
-        << world() << "\n";
+    std::cout << hello() << "\n" << world() << "\n";
     LOG("Function call hello() returns: %s", hello());
     LOG("Function call world() returns: %s", world());
 
     /* Testing the LOG(...) macro */
     int x = 5;
     LOG("x = %d", x);
-    
+
     /* Testing TestStruct constructor with __func__ */
     TestStruct* ts = new TestStruct();
     LOG("__func__ in TestStruct constructor has the value of: %s", ts->getName());

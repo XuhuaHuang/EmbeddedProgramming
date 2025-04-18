@@ -65,8 +65,7 @@ namespace calc {
 }
 
 // clang-format on
-int main(void)
-{
+int main(void) {
     int a = 3, b = 4;
 
     const functor::add_w_optr add;

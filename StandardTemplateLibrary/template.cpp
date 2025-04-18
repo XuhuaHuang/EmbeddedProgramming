@@ -11,28 +11,31 @@
 #include <iostream>
 
 // overload functions
-int sum(int num1, int num2) { return num1 + num2; }
-double sum(double num1, double num2) { return num1 + num2; }
+int sum(int num1, int num2) {
+    return num1 + num2;
+}
+double sum(double num1, double num2) {
+    return num1 + num2;
+}
 
 // function templates
-template<class Custom> // class type is a variable // equivalent to : template<typename Custom>
+template <class Custom>              // class type is a variable // equivalent to : template<typename Custom>
 Custom sum(Custom num1, Custom num2) // when calling: sum<Custom>(num1, num2)
 {
     std::cout << num1 << " + " << num2 << " = " << num1 + num2 << "\n";
     return num1 + num2;
 }
 
-template<class Custom, int N>
+template <class Custom, int N>
 Custom fixedMultiply(Custom val) // when calling: fixedMultiply<Custom, N>(val)
 {
     std::cout << val << " is being multiplied with " << N << "\n";
     return val * N;
 }
 
-int main(void)
-{
+int main(void) {
     std::cout << "\nWith overloading functions" << "\n";
-    std::cout << sum(10, 20) << "\n"; // 30
+    std::cout << sum(10, 20) << "\n";       // 30
     std::cout << sum(10.01, 20.02) << "\n"; // 30.03
 
     /**

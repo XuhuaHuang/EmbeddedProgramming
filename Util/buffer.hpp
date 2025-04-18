@@ -14,20 +14,17 @@
 
 #include <string_view>
 
-namespace util
-{
-namespace data_structure
-{
+namespace util {
+namespace data_structure {
 
-template<auto N>
-struct buffer
-{
+template <auto N>
+struct buffer {
     constexpr buffer() {}
-    constexpr char const* begin() const { return data; }
-    constexpr char const* end() const { return data + N; }
+    constexpr const char* begin() const { return data; }
+    constexpr const char* end() const { return data + N; }
     constexpr operator std::basic_string_view<char>() const { return std::basic_string_view<char>(begin(), end()); }
 
-    char      data[N]{};
+    char data[N]{};
 };
 
 constexpr buffer<42> b;

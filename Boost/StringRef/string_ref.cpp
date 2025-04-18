@@ -7,15 +7,15 @@
  * \date   December 07, 2022
  *********************************************************************/
 
-#include <iostream>
 #include <stdlib.h>
-#include <string>
-#include <cassert>
+
 #include <boost/utility/string_ref.hpp>
+#include <cassert>
+#include <iostream>
+#include <string>
 
-auto main(void) -> int {
-
-    const char* c_str = { "Days of Future Past" };
+int main(void) {
+    const char* c_str = {"Days of Future Past"};
     std::string cpp_str(c_str);
 
     boost::string_ref c_str_ref(c_str);
@@ -27,7 +27,7 @@ auto main(void) -> int {
 
     boost::string_ref first_4_chars(c_str, 4); // "Days"
     // note: boost::string_ref also supports substr()
-    assert(cpp_str_ref.front()  == 'D');
+    assert(cpp_str_ref.front() == 'D');
     assert(first_4_chars == cpp_str.substr(0, 4));
 
     auto first_five_chars = [](boost::string_ref str_ref) -> boost::string_ref {

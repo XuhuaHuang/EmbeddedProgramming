@@ -3,32 +3,24 @@
 
 #include <concepts>
 
-namespace util
-{
+namespace util {
 
-struct sys
-{
+struct sys {
 private:
     using condition_t     = auto (*)(int) -> bool;
     condition_t condition = nullptr;
 
-    template<typename T>
-    constexpr static inline bool always_false = false;
+    template <typename T>
+    static constexpr inline bool always_false = false;
 
 public:
-    template<typename T>
-    constexpr auto process(const T& t)
-    {
-        if constexpr (requires { condition = t; })
-        {
+    template <typename T>
+    constexpr auto process(const T& t) {
+        if constexpr (requires { condition = t; }) {
             condition = t;
-        }
-        else if constexpr (requires { condition(t.price); })
-        {
+        } else if constexpr (requires { condition(t.price); }) {
             return condition and condition(t.price);
-        }
-        else
-        {
+        } else {
             static_assert(always_false<T>, "Incorrect argument to process");
         }
     }

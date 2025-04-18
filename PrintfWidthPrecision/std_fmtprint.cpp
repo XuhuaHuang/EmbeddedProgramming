@@ -18,14 +18,12 @@
 #include <print>
 #include <ranges>
 
-auto stdprint_tofile() -> void
-{
+auto stdprint_tofile() -> void {
     std::print("{0} {2}{1}!\n", "Hello", 23, "C++"); // overload (1)
 
     const std::filesystem::path tmp{std::filesystem::temp_directory_path() / "test.txt"};
 
-    if (std::FILE * stream{std::fopen(reinterpret_cast<const char*>(tmp.c_str()), "w")})
-    {
+    if (std::FILE * stream{std::fopen(reinterpret_cast<const char*>(tmp.c_str()), "w")}) {
         std::print(stream, "File: {}", tmp.string()); // overload (2)
         std::fclose(stream);
     }
@@ -33,8 +31,7 @@ auto stdprint_tofile() -> void
     return;
 }
 
-int main(int argc, char const* argv[])
-{
+int main(int argc, const char* argv[]) {
     std::println("{} arguments passed to main! Hello, world!", argc);
     std::println("{}", argv[0]);
 
@@ -50,21 +47,24 @@ int main(int argc, char const* argv[])
         | std::views::take_while([&sum](char) { return sum < 42; });
     // clang-format on
 
-    for (auto n : v)
-    {
+    for (auto n : v) {
         sum += n;
         ++num;
     }
 
 #ifdef __cpp_lib_print
-    std::print(std::cout,
-               "√2 = {}...\n"
-               "The sum of its first {} digits is {}{}\n",
-               std::numbers::sqrt2, num, sum, '.');
+    std::print(
+        std::cout,
+        "√2 = {}...\n"
+        "The sum of its first {} digits is {}{}\n",
+        std::numbers::sqrt2, num, sum, '.'
+    );
 #else
-    std::cout << std::format("√2 = {}...\n"
-                             "The sum of its first {} digits is {}{}\n",
-                             std::numbers::sqrt2, num, sum, '.');
+    std::cout << std::format(
+        "√2 = {}...\n"
+        "The sum of its first {} digits is {}{}\n",
+        std::numbers::sqrt2, num, sum, '.'
+    );
 #endif
 
     return EXIT_SUCCESS;

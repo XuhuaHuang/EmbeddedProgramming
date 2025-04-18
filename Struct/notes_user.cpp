@@ -11,8 +11,7 @@
 #include <iostream>
 #include <string>
 
-struct User
-{
+struct User {
 public:
     // by default, variables inside a struture are public
     // if changed to private, need to create accessor and mutator functions
@@ -23,11 +22,10 @@ public:
     std::string status;
 };
 
-int main(void)
-{
+int main(void) {
     User user;
     user.firstName = "Xuhua";
-    user.lastName = "Huang";
+    user.lastName  = "Huang";
 
     std::cout << "The user's name is " << user.firstName << user.lastName << "\n";
 

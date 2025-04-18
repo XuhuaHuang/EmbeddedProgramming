@@ -21,8 +21,7 @@
 #include "Date.hpp"
 #include "Time.hpp"
 
-class Calendar
-{
+class Calendar {
 private:
     Time* time;
     Date* date;
@@ -40,8 +39,7 @@ public:
     Date* getDate() { return date; } // return a pointer
 };
 
-Calendar::Calendar()
-{
+Calendar::Calendar() {
     /*
      * Time* t = new Time(14, 25, 0);
      * setTime(t);
@@ -53,8 +51,7 @@ Calendar::Calendar()
               << "\n";
 }
 
-Calendar::~Calendar()
-{
+Calendar::~Calendar() {
     delete time;
     delete date;
 
@@ -62,8 +59,7 @@ Calendar::~Calendar()
               << "\n";
 }
 
-void Calendar::print()
-{
+void Calendar::print() {
     Time* temp = getTime(); // creating a temporary pointer
     std::cout << "\n[fn]Printig current time: "
               << "\n"

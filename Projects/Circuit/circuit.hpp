@@ -19,20 +19,18 @@
 #define PI 3.14159265359
 #endif
 
- /*******************************
-     COMPONENT CLASS DEFINITION
- *******************************/
-class COMPONENT
-{
+/*******************************
+    COMPONENT CLASS DEFINITION
+*******************************/
+class COMPONENT {
 public:
-
     // default and overloaded constructor
     COMPONENT();
     COMPONENT(double initValue);
 
     // set and get functions for private member 'value'
-    void setValue(double initValue) { value = initValue; } // mutator
-    double getValue() { return value; } // accessors
+    void   setValue(double initValue) { value = initValue; } // mutator
+    double getValue() { return value; }                      // accessors
 
     // printInfo function
     void printInfo(void);
@@ -45,16 +43,14 @@ private:
     RESISTOR CLASS DEFINITION
 *********************************/
 // derived class RESISTOR from base class COMPONENT
-class RESISTOR : public COMPONENT
-{
+class RESISTOR : public COMPONENT {
 public:
-
     // default and overloaded constructor
     RESISTOR();
     RESISTOR(double initValue, double initPowerRating);
 
     // set and get function for newly added private data member powereRating
-    void setPowerRating(double initPowerRating) { powerRating = initPowerRating; }
+    void   setPowerRating(double initPowerRating) { powerRating = initPowerRating; }
     double getPowerRating() { return powerRating; }
 
     // printInfo function
@@ -68,14 +64,13 @@ private:
     INDUCTOR CLASS DEFINITION
 *********************************/
 // derived class INDUCTOR from base class COMPONENT
-class INDUCTOR : public COMPONENT
-{
+class INDUCTOR : public COMPONENT {
 public:
     INDUCTOR();
     ~INDUCTOR();
 
     // set and get function for newly added private data member reactance
-    void setReactance(double initReactance) { reactance = initReactance; }
+    void   setReactance(double initReactance) { reactance = initReactance; }
     double getReactance() { return reactance; }
 
     // calcReactance and printInfo function
@@ -89,32 +84,30 @@ private:
 /*********************************
     CIRCUIT CLASS DEFINITION
 *********************************/
-class CIRCUIT
-{
+class CIRCUIT {
 public:
-
     // constructor and destructor
     CIRCUIT();
     virtual ~CIRCUIT();
 
     // set and get functions for private member frequency
-    void setFrequency(double initFrequency) { frequency = initFrequency; }
+    void   setFrequency(double initFrequency) { frequency = initFrequency; }
     double getFrequency() { return frequency; }
 
     // set and get for resistor (not a pointer)
-    void setResistor(RESISTOR initResistor) { resistor = initResistor; }
+    void     setResistor(RESISTOR initResistor) { resistor = initResistor; }
     RESISTOR getResistor() { return resistor; }
 
     // set and get for inductor (pointer)
-    void setInductor(INDUCTOR* initInductor) { inductor = initInductor; }
+    void      setInductor(INDUCTOR* initInductor) { inductor = initInductor; }
     INDUCTOR* getInductor() { return inductor; }
 
     // printInfo function
     void printInfo(void);
 
 private:
-    double frequency;
-    RESISTOR resistor;  // object gets created automatically
+    double    frequency;
+    RESISTOR  resistor; // object gets created automatically
     INDUCTOR* inductor; // object does not get created automatically
 };
 

@@ -1,26 +1,27 @@
 /**
  * @file decltype.cpp
  * @author Xuhua Huang
- * @brief 
+ * @brief
  * @version 0.9
  * @date 2021-11-09
- * 
+ *
  * @copyright Copyright (c) 2021
- * 
+ *
  */
 
 // g++ -o decltype.exe .\decltype.cpp -std=c++17
 // ./decltype
 // highlight: std::is_same<decltype(w), decltype(wht)>::value in <type_traits>
-// and customized type-determining function is_same_type() 
+// and customized type-determining function is_same_type()
 // using typeid().name() and typeid().hash_code()
 #if __has_include(<typeinfo>)
 #include <typeinfo>
 #endif
 
-#include <iostream>
-#include <iomanip>
 #include <stdlib.h>
+
+#include <iomanip>
+#include <iostream>
 #include <string>
 #include <type_traits>
 
@@ -31,7 +32,7 @@ class Black {};
 // to see difference after running is_same_type().
 // using Black = White;
 
-template<typename T, typename U>
+template <typename T, typename U>
 bool is_same_type(const T& t, const U& u) {
     /**
      * @brief The following macro is required if this is defined in a stand-alone .h lib file.
@@ -46,7 +47,7 @@ bool is_same_type(const T& t, const U& u) {
     return typeid(t).hash_code() == typeid(u).hash_code();
 }
 
-template<typename T, typename U>
+template <typename T, typename U>
 bool is_same_type() {
     bool _same_type = false;
     // std::cout << "Overload " << __func__ << "\n";
@@ -57,7 +58,6 @@ bool is_same_type() {
 }
 
 int main(void) {
-
     White w;
     Black b;
 
@@ -73,24 +73,23 @@ int main(void) {
     /* Operation with the returned type. */
     const std::string class_name = typeid(w).name();
     std::cout << "Class name of object " << std::quoted("w") << ": " << class_name << "\n"
-        << "Length: " << class_name[0] << "\n"; /* class_name.at(0) */
+              << "Length: " << class_name[0] << "\n"; /* class_name.at(0) */
 
     /* Explicitly parse the name of the classes and objects. */
-    std::cout << std::quoted("is_same_type<White, Black>(w, b)") << ": "
-        << is_same_type<White, Black>(w, b) << "\n";
+    std::cout << std::quoted("is_same_type<White, Black>(w, b)") << ": " << is_same_type<White, Black>(w, b) << "\n";
 
     /* Using decltype() to let the compiler dynamically derive the type. */
-    std::cout << std::quoted("is_same_type<decltype(w), decltype(b)>(w, b)") << ": " 
-        << is_same_type<decltype(w), decltype(b)>(w, b) << "\n";
-    
+    std::cout << std::quoted("is_same_type<decltype(w), decltype(b)>(w, b)") << ": "
+              << is_same_type<decltype(w), decltype(b)>(w, b) << "\n";
+
     /* With overload function. */
     std::cout << std::quoted("is_same_type<decltype(w), decltype(b)>()") << ": "
-        << is_same_type<decltype(w), decltype(b)>() << "\n";
+              << is_same_type<decltype(w), decltype(b)>() << "\n";
 
     /* With std::is_same<T, U> from <type_traits>. */
     White wht; // create another instance of class White
     std::cout << std::quoted("std::is_same<decltype(w), decltype(wht)>::value") << ": "
-        << std::is_same<decltype(w), decltype(wht)>::value << "\n";
+              << std::is_same<decltype(w), decltype(wht)>::value << "\n";
 
     system("pause");
     return 0;

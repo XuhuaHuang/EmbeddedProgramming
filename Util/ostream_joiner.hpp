@@ -4,30 +4,21 @@
 #include <iosfwd>
 #include <string_view>
 
-namespace util
-{
-namespace data_structure
-{
+namespace util {
+namespace data_structure {
 
-struct ostream_joiner
-{
+struct ostream_joiner {
     ostream_joiner(std::ostream& s, std::string_view separator)
         : s{s}
-        , separator{separator}
-    {
-    }
+        , separator{separator} {}
 
     auto& operator++() { return *this; }
     auto& operator*() { return *this; }
 
-    auto& operator=(auto&& anything)
-    {
-        if (emit_separator)
-        {
+    auto& operator=(auto&& anything) {
+        if (emit_separator) {
             s << separator;
-        }
-        else
-        {
+        } else {
             emit_separator = true;
         }
         s << std::forward<decltype(anything)>(anything);

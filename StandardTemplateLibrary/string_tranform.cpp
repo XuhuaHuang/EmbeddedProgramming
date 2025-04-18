@@ -1,12 +1,11 @@
-// C++ program to convert whole string to 
+// C++ program to convert whole string to
 // uppercase or lowercase using STL.
 
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 #include <string>
 
-int main(void)
-{
+int main(void) {
     std::string first_name = "Xuhua";
     // using transform() function and ::toupper in STL
     std::transform(first_name.begin(), first_name.end(), first_name.begin(), ::toupper);
@@ -15,7 +14,7 @@ int main(void)
     std::string last_name = "Huang";
     // using transform() function and ::tolower in STL
     std::transform(last_name.begin(), last_name.end(), last_name.begin(), ::tolower);
-    std::cout << last_name << "\n";  // "huang"
+    std::cout << last_name << "\n"; // "huang"
 
     return 0;
 }

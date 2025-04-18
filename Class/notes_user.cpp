@@ -12,8 +12,7 @@
 
 #include <iostream>
 
-class User
-{
+class User {
 public:
     inline User();
     inline ~User();
@@ -53,13 +52,11 @@ inline User::~User() // destructor
     // when a User object is destroyed
 }
 
-inline void User::printInfo(void)
-{
+inline void User::printInfo(void) {
     std::cout << "User " << firstName << " " << lastName << " is of status " << status << "\n";
 }
 
-int main(void)
-{
+int main(void) {
     User user;
     user.setFirstName("Xuhua");
     user.setLastName("Huang");

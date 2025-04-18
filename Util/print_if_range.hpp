@@ -19,9 +19,6 @@
 #include <ranges>
 #endif
 
-namespace util::range
-{
-
-} // namespace util::range
+namespace util::range {} // namespace util::range
 
 #endif

@@ -16,11 +16,9 @@
 #include <type_traits>
 #endif // !_TYPE_TRAITS_
 
-namespace util
-{
+namespace util {
 // immediately-invoked function expression
-namespace iife
-{
+namespace iife {
 
 // clang-format off
 template<auto N>

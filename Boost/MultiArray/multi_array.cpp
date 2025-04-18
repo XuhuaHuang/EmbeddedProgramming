@@ -12,12 +12,11 @@
 #include <boost/multi_array.hpp>
 #include <iostream>
 
-int main()
-{
+int main() {
     // define the shape of the tensor (3D)
-    const int d1   = 2;
-    const int d2   = 3;
-    const int d3   = 4;
+    const int d1 = 2;
+    const int d2 = 3;
+    const int d3 = 4;
 
     // create the tensor
     // 3 dimensional array
@@ -27,24 +26,18 @@ int main()
     tensor_t tensor(boost::extents[d1][d2][d3]);
 
     // fill the tensor with some values
-    for (int i = 0; i < d1; ++i)
-    {
-        for (int j = 0; j < d2; ++j)
-        {
-            for (int k = 0; k < d3; ++k)
-            {
+    for (int i = 0; i < d1; ++i) {
+        for (int j = 0; j < d2; ++j) {
+            for (int k = 0; k < d3; ++k) {
                 tensor[i][j][k] = i * j * k;
             }
         }
     }
 
     // print the tensor
-    for (int i = 0; i < d1; ++i)
-    {
-        for (int j = 0; j < d2; ++j)
-        {
-            for (int k = 0; k < d3; ++k)
-            {
+    for (int i = 0; i < d1; ++i) {
+        for (int j = 0; j < d2; ++j) {
+            for (int k = 0; k < d3; ++k) {
                 std::cout << tensor[i][j][k] << " ";
             }
             std::cout << "\n";

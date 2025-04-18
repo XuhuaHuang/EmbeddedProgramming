@@ -19,7 +19,7 @@
 #include <iostream>
 
 int main(void) {
-    Collection_int collInt = make_Collection_int(5);
+    Collection_int    collInt = make_Collection_int(5);
     Collection_double collDbl = make_Collection_double(10);
 
     return 0;

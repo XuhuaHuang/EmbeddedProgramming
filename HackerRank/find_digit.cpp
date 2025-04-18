@@ -9,9 +9,10 @@
  * \date   October 2021
  *********************************************************************/
 
-#include <iostream>
 #include <algorithm>
+#include <cctype>
 #include <functional>
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -30,8 +31,7 @@ void splitNumber(std::vector<int>& digits, int number) {
      */
     if (0 == number) {
         digits.push_back(0);
-    }
-    else {
+    } else {
         while (number != 0) {
             int last = number % 10;
             digits.insert(digits.begin(), 1, last);
@@ -41,7 +41,7 @@ void splitNumber(std::vector<int>& digits, int number) {
 }
 
 int findDigits(int n) {
-    int count = 0;
+    int              count = 0;
     std::vector<int> temp;
     splitNumber(temp, n);
 
@@ -54,8 +54,7 @@ int findDigits(int n) {
     return count;
 }
 
-int main()
-{
+int main() {
     std::string t_temp;
     std::getline(std::cin, t_temp);
 
@@ -65,7 +64,7 @@ int main()
         std::string n_temp;
         std::getline(std::cin, n_temp);
 
-        int n = std::stoi(ltrim(rtrim(n_temp)));
+        int n      = std::stoi(ltrim(rtrim(n_temp)));
 
         int result = findDigits(n);
 
@@ -83,23 +82,19 @@ std::string ltrim(const std::string& str) {
     std::string s(str);
 
     s.erase(
-        s.begin(),
-        find_if(
-            s.begin(), s.end(), // specify an iterator-based range to search
-            std::not1(std::ptr_fun<int, int> (isspace)) // lambda parsed to determine
-        )
+        s.begin(), find_if(
+                       s.begin(), s.end(),                        // specify an iterator-based range to search
+                       std::not1(std::ptr_fun<int, int>(isspace)) // lambda parsed to determine
+                   )
     );
 
     return s;
 }
 
 std::string rtrim(const std::string& str) {
-    std::string s{ str };
+    std::string s{str};
 
-    s.erase(
-        std::find_if(s.rbegin(), s.rend(), std::not1(std::ptr_fun<int, int>(isspace))).base(),
-        s.end()
-    );
+    s.erase(std::find_if(s.rbegin(), s.rend(), std::not1(std::ptr_fun<int, int>(isspace))).base(), s.end());
 
     return s;
 }

@@ -6,21 +6,22 @@
  * \date   November 14, 2022
  *********************************************************************/
 
-#include <iostream>
 #include <gtest/gtest.h>
 
+#include <iostream>
+
 namespace GoogleTestUtil {
-    namespace Math {
+namespace Math {
 
-        int factorial(int n) {
-            if ((n == 0) || (n == 1))
-                return 1;
-            else
-                return n * factorial(n - 1);
-        }
+int factorial(int n) {
+    if ((n == 0) || (n == 1))
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
 
-    } // Math
-} // GoogleTestUtil
+} // namespace Math
+} // namespace GoogleTestUtil
 
 /**
  * Create a simple test
@@ -41,8 +42,8 @@ TEST(FactorialTest, HandlesZeroInput) {
 
 // Tests factorial of positive numbers
 TEST(FactorialTest, HandlesPositiveInput) {
-    std::vector<int> posInput = { 1, 2, 3, 8 };
-    std::vector<int> expResult = { 1, 2, 6, 40320 };
+    std::vector<int> posInput  = {1, 2, 3, 8};
+    std::vector<int> expResult = {1, 2, 6, 40320};
     for (int i = 0; i < posInput.size(); ++i) {
         EXPECT_EQ(GoogleTestUtil::Math::factorial(posInput[i]), expResult[i]);
     }

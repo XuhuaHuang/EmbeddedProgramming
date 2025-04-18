@@ -6,8 +6,7 @@
 
 #define LISTSIZE 100
 
-typedef struct
-{
+typedef struct {
     int list[LISTSIZE];
     int length;
 } SeqList;
@@ -27,7 +26,7 @@ bool isListEmpty(const SeqList& L) {
 
 /* Function to get element by index and existing pointer. */
 int GetElement(const SeqList& L, int i, int* e) {
-    if (i<1 || i>L.length) // determine the boundary edge cases
+    if (i < 1 || i > L.length) // determine the boundary edge cases
         return -1;
 
     *e = L.list[i - 1];
@@ -46,15 +45,13 @@ int LocElement(const SeqList& L, int e) {
 /* Function to insert an element to the list. */
 /* return -1 for error, 0 for full list, 1 for success. */
 int InsertElement(SeqList* L, int i, int e) {
-    if (i<1 || i>L->length + 1) {
+    if (i < 1 || i > L->length + 1) {
         printf_s("Illegal index, out of list boundary.\n");
         return -1;
-    }
-    else if (L->length >= LISTSIZE) {
+    } else if (L->length >= LISTSIZE) {
         printf_s("Sequential list is full.\n");
         return 0;
-    }
-    else {
+    } else {
         for (int j = L->length; j >= i; j--)
             L->list[j] = L->list[j - 1];
         L->list[i - 1] = e;
@@ -68,12 +65,10 @@ int DeleteElement(SeqList* L, int i, int* e) {
     if (L->length <= 0) {
         printf_s("Sequential list is empty to begin with!\n");
         return 0;
-    }
-    else if (i<1 || i>L->length) {
+    } else if (i < 1 || i > L->length) {
         printf_s("Illegal index, out of list boundary.\n");
         return -1;
-    }
-    else {
+    } else {
         *e = L->list[i - 1];
         for (int j = i; j <= L->length - 1; j++)
             L->list[j - 1] = L->list[j];
@@ -90,7 +85,7 @@ int ListLength(const SeqList& L) {
 /* Function to clear a list. */
 void ClearList(SeqList* L) {
     L->list[LISTSIZE - 1] = {};
-    L->length = 0;
+    L->length             = 0;
 }
 
 #endif

@@ -7,22 +7,22 @@
  * \date   November 14, 2020
  *********************************************************************/
 
-#include <iostream>
 #include <float.h>
-#include <string>
-#include <cmath>
 
-int main(void)
-{
+#include <cmath>
+#include <iostream>
+#include <string>
+
+int main(void) {
     // boolean value
     bool life_is_good = true;
     std::cout << std::boolalpha << life_is_good << "\n";
     if (life_is_good) // brackets evaluate the condition and feedback either true or false
         std::cout << "This is True." << "\n";
 
-    //float and double
-    float a = 0;
-    double b;
+    // float and double
+    float       a = 0;
+    double      b;
     long double c;
 
     std::cout << std::fixed << a << "\n";

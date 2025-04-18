@@ -17,9 +17,10 @@
  *********************************************************************/
 // clang-format on
 
+#include <stdlib.h>
+
 #include <algorithm>
 #include <iostream>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -27,8 +28,7 @@
 void printVector(std::vector<double> dv);
 void func(double value);
 
-int main(void)
-{
+int main(void) {
     /* Using template constructor */
     std::vector<int> v1(6, 0);     // create an array of 6 elements and initialize them to zero
     std::cout << v1.at(0) << "\n"; // display zero from position indexed 0
@@ -44,8 +44,7 @@ int main(void)
 
     // int vector iterator
     std::vector<int>::iterator iterint;
-    for (iterint = v1.begin(); iterint < v1.end(); iterint++)
-    {
+    for (iterint = v1.begin(); iterint < v1.end(); iterint++) {
         std::cout << *iterint << "\n";
     }
 
@@ -59,8 +58,7 @@ int main(void)
     dv.push_back(9.9);
 
     std::vector<double>::iterator iterdouble;
-    for (iterdouble = dv.begin(); iterdouble < dv.end(); iterdouble++)
-    {
+    for (iterdouble = dv.begin(); iterdouble < dv.end(); iterdouble++) {
         std::cout << *iterdouble << "\n";
     }
 
@@ -90,22 +88,19 @@ int main(void)
 }
 
 
-void printVector(std::vector<double> dv)
-{
+void printVector(std::vector<double> dv) {
     /* Constant references could not be used here
      * due the nature of an iterator.
      */
     std::vector<double>::iterator iterdouble;
-    for (iterdouble = dv.begin(); iterdouble < dv.end(); ++iterdouble)
-    {
+    for (iterdouble = dv.begin(); iterdouble < dv.end(); ++iterdouble) {
         std::cout << *iterdouble << "\n";
     }
 
     return;
 }
 
-void func(double value)
-{
+void func(double value) {
     std::cout << "Inside  function func(): ";
     std::cout << value << "\n";
 

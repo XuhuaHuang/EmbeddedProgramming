@@ -17,29 +17,28 @@
 #endif
 
 namespace util {
-    namespace list {
+namespace list {
 
-        /* Template to print a std::list with O(n). */
-        /* For sanity, using constant reference instead of iterators. */
-        template<typename T>
-        static void print_list(std::list<T> arg_list) {
-            DEBUG("\n[fn]util::list::print_list");
+/* Template to print a std::list with O(n). */
+/* For sanity, using constant reference instead of iterators. */
+template <typename T>
+static void print_list(std::list<T> arg_list) {
+    DEBUG("\n[fn]util::list::print_list");
 
-            /* Loop through the vector with iterator. */
-            // typename std::list<T>::iterator iter; // keyword "typename" is required for iterator
-            // for (iter = arg_list.begin(); iter != arg_list.end(); ++iter)
-            //     std::cout << *iter << ", "; // dereference the iterator to print content
-            for (const T& t : arg_list)
-            {
-                std::cout << t << ", ";
-            }
+    /* Loop through the vector with iterator. */
+    // typename std::list<T>::iterator iter; // keyword "typename" is required for iterator
+    // for (iter = arg_list.begin(); iter != arg_list.end(); ++iter)
+    //     std::cout << *iter << ", "; // dereference the iterator to print content
+    for (const T& t : arg_list) {
+        std::cout << t << ", ";
+    }
 
-            DEBUG("\n[fn]Finished printing the list.");
-            return;
-        }
+    DEBUG("\n[fn]Finished printing the list.");
+    return;
+}
 
-    } // end util::list
-} // end util
+} // namespace list
+} // namespace util
 
 
 #endif

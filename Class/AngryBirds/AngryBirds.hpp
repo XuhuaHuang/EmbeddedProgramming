@@ -9,8 +9,7 @@
 #define PI 3.14159365359
 #define G 9.81
 
-class AngryBirds
-{
+class AngryBirds {
 private:
     double initVel;
     double angle;
@@ -58,5 +57,4 @@ public:
     void calcT();
     void calcRange();
     void calcHmax();
-
 };

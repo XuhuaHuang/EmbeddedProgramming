@@ -15,16 +15,16 @@
  *********************************************************************/
 // clang-format on
 
-#include <iostream>
 #include <stdlib.h>
+
+#include <iostream>
 #include <string>
 #include <vector>
 
 #include "../Util/is_instance_of.hpp"
 #include "../Util/print_vec.hpp"
 
-int main(void)
-{
+int main(void) {
     /* Initialize 2 strings, 1 of which to move. */
     std::string hello_str = "hello";
     std::string world_str = "world";
@@ -50,8 +50,7 @@ int main(void)
 
     /* Test functions in the ../Util headers. */
     std::cout << "Testing Util functions: " << "\n";
-    if (util::type::is_instance_of<std::vector<std::string>>(str_vec))
-    {
+    if (util::type::is_instance_of<std::vector<std::string>>(str_vec)) {
         util::vector::print_vec(str_vec);
     }
 

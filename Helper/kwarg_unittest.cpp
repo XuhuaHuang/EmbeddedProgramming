@@ -11,13 +11,11 @@
 
 #include "kwarg.hpp"
 
-consteval inline int add(const int a, const int b) noexcept
-{
+consteval inline int add(const int a, const int b) noexcept {
     return a + b > INTMAX_MAX ? INTMAX_MAX : a + b;
 }
 
-int main(void)
-{
+int main(void) {
     using namespace helper::mlcxx;
     static_assert(add(kwarg{"a"} = 1, kwarg{"b"} = 2) == 3);
     return 0;

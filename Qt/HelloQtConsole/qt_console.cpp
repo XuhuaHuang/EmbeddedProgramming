@@ -6,22 +6,21 @@
  * \date   January 31, 2021; last updated: December 07, 2022
  *********************************************************************/
 
-#include <iostream>
 #include <stdlib.h>
 
-#include <QTextStream>
-#include <QString>
 #include <QDebug>
 #include <QList>
+#include <QString>
+#include <QTextStream>
+#include <iostream>
 
-int main(void)
-{
+int main(void) {
     // output with <iostream>
     std::cout << "Hello Qt console" << "\n";
 
     // QString, I/O stream
     QTextStream out(stdout); // output stream object
-    QTextStream in(stdin); // input stream object
+    QTextStream in(stdin);   // input stream object
 
     out << "This is a console application" << "\n";
     out.flush();
@@ -29,13 +28,13 @@ int main(void)
     out.flush();
 
     // fixing the issue to enter full name with a space
-    std::string tempName; // temporary variable
+    std::string tempName;             // temporary variable
     std::getline(std::cin, tempName); // use getline() function with std::istream
 
     // convert std::string to QString and print to console
     // with static factory function fromStdString
     QString Name = QString::fromStdString(tempName); // convert
-    out << "Hello " << Name << "!" << "\n"; // print
+    out << "Hello " << Name << "!" << "\n";          // print
     out.flush();
 
     // use qDebug() to print to console
@@ -54,28 +53,26 @@ int main(void)
     out << "toLower(): " << test_str.toLower() << "\n";
 
     // QList
-    QList<int> integerList;
+    QList<int>     integerList;
     QList<QString> stringList = QList<QString>() << "Canada" << "U.S.A" << "Mexico";
 
-    for (int i = 0; i < 6; i++)
-    {
+    for (int i = 0; i < 6; i++) {
         integerList.append(i);
     }
 
     integerList.removeOne(4);
 
     // output the integer integerList
-    foreach(int n, integerList)
-    {
-        qDebug() << __PRETTY_FUNCTION__ << ": " << n;
+    foreach (int n, integerList) {
+        qDebug() << __FUNCTION__ << ": " << n;
     }
 
     // output the string in stringList
-    foreach(QString str, stringList)
-    {
-        qDebug() << __PRETTY_FUNCTION__ << ": " << str;
+    foreach (QString str, stringList) {
+        qDebug() << __FUNCTION__ << ": " << str;
     }
 
-    system("pause");
-    return EXIT_SUCCESS;
+    std::cout << "Press Enter to exit..." << std::endl;
+    std::cin.get(); // wait for user input
+    return 0;
 }

@@ -10,8 +10,7 @@
 #include <cmath>
 #include <iostream>
 
-int main(void)
-{
+int main(void) {
     int threeDigit;
     std::cout << "Please enter a three digit number: ";
     std::cin >> threeDigit;

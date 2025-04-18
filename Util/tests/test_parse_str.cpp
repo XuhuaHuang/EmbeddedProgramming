@@ -11,10 +11,11 @@
  * \date   October 2021
  *********************************************************************/
 
-#include <iostream>
 #include <stdlib.h>
-#include <vector>
+
+#include <iostream>
 #include <sstream>
+#include <vector>
 
 // Customized utility library
 #include "parse.hpp"
@@ -25,16 +26,16 @@ int main() {
     std::string str;
     // std::cin >> str;
 
-    str = "1,23,456,789";                       // test with a comma as delimiter
+    str                       = "1,23,456,789"; // test with a comma as delimiter
     std::vector<int> integers = util::parse::parse_str<int>(str);
     util::vector::print_vec<int>(integers);
 
-    std::string cell_phone = "541-952-1655";    // test with a dash as delimiter
+    std::string      cell_phone   = "541-952-1655"; // test with a dash as delimiter
     std::vector<int> cell_to_ints = util::parse::parse_str<int>(cell_phone, '-');
     util::vector::print_vec<int>(cell_to_ints);
 
     /* Split a comma-separated string to an array of characters. */
-    const std::string name = "Huang,Xuhua";
+    const std::string        name       = "Huang,Xuhua";
     std::vector<std::string> spell_name = util::parse::parse_str<std::string>(name);
     util::vector::print_vec<std::string>(spell_name);
 

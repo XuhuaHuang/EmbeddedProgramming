@@ -10,8 +10,7 @@
 #include <cmath>
 #include <iostream>
 
-int main(void)
-{
+int main(void) {
     int value = 0;
     std::cout << "Reversing a four digit number..."
               << "\n";

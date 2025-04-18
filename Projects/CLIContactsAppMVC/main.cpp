@@ -8,9 +8,10 @@
  *********************************************************************/
 /* clang-format on */
 
+#include <stdlib.h>
+
 #include <array>
 #include <iostream>
-#include <stdlib.h>
 #include <string>
 
 #ifndef DEBUG
@@ -24,14 +25,9 @@
 #define _MAXSIZE 20
 #endif
 
-enum Sex
-{
-    female = 0,
-    male   = 1
-};
+enum Sex { female = 0, male = 1 };
 
-class Person
-{
+class Person {
 public:
     /* Public default and overloaded constructor. */
     /* Default constructor */
@@ -40,17 +36,17 @@ public:
         , _sex(Sex::female)
         , _tell("")
         , _email("")
-        , _addr("")
-    {
+        , _addr("") {
         DEBUG("Default constructor for class Person");
     }
     /* Overloaded constructor */
-    explicit Person(const std::string name,
-                    const int         sex,
-                    const std::string tell,
-                    const std::string email,
-                    const std::string addr = "")
-    {
+    explicit Person(
+        const std::string name,
+        const int         sex,
+        const std::string tell,
+        const std::string email,
+        const std::string addr = ""
+    ) {
         DEBUG("Overloaded constructor for class Person");
         this->setName(name);
         this->setSex(sex);
@@ -63,16 +59,14 @@ public:
     /**
      * Provide mutator and accessors for private members.
      */
-    void setName(const std::string name)
-    {
+    void setName(const std::string name) {
         if (name != "\n")
             _name = name;
         else
             DEBUG("Error occurred while setting name! Empty argument.");
     }
 
-    void setSex(const int sex)
-    {
+    void setSex(const int sex) {
         if (sex)
             _sex = Sex::male;
         else if (!sex)
@@ -81,24 +75,21 @@ public:
             DEBUG("Error occurred while setting sex! Non-binary argument.");
     }
 
-    void setTell(const std::string tell)
-    {
+    void setTell(const std::string tell) {
         if (tell != "\n")
             _tell = tell;
         else
             DEBUG("Error occurred while setting phone number! Empty argument.");
     }
 
-    void setEmail(const std::string email)
-    {
+    void setEmail(const std::string email) {
         if (email != "\n")
             _email = email;
         else
             DEBUG("Error occurred while setting phone number! Empty argument.");
     }
 
-    void setAddr(const std::string addr)
-    {
+    void setAddr(const std::string addr) {
         _addr = addr; // with provided default argument in overloaded constructor
     }
 
@@ -124,38 +115,29 @@ private:
 };
 
 /* UI namespace contains all required function for View. */
-namespace UI
-{
+namespace UI {
 
-namespace interact
-{
+namespace interact {
 /* Print instruction in terminal and store answer in reference variable. */
-void input(const std::string instruction, std::string& answer)
-{
-    if (instruction != "\n")
-    {
+void input(const std::string instruction, std::string& answer) {
+    if (instruction != "\n") {
         std::cout << instruction;
         std::getline(std::cin, answer);
-    }
-    else
+    } else
         DEBUG("Error occurred while asking for input! Invalid instruction.");
 }
 } // namespace interact
 
-namespace display
-{
+namespace display {
 
-void printAsterisks(const int numToPrint = 43, const std::string arg = "")
-{
-    for (int i = 0; i < numToPrint; ++i)
-    {
+void printAsterisks(const int numToPrint = 43, const std::string arg = "") {
+    for (int i = 0; i < numToPrint; ++i) {
         std::cout << "*";
     }
     std::cout << "\n";
 }
 
-void printInstructions(const std::string arg = "")
-{
+void printInstructions(const std::string arg = "") {
     printAsterisks();
     std::cout << "*** Press 0 to print all saved contacts ***"
               << "\n"
@@ -170,15 +152,13 @@ void printInstructions(const std::string arg = "")
     printAsterisks();
 }
 
-void clearScreen()
-{
+void clearScreen() {
     system("CLS");
 }
 } // namespace display
 } // namespace UI
 
-std::istream& operator>>(std::istream& input, Person& argPerson)
-{
+std::istream& operator>>(std::istream& input, Person& argPerson) {
     std::string name, sex, tell, email, address;
 
     UI::interact::input("Name: ", name);
@@ -202,8 +182,7 @@ std::istream& operator>>(std::istream& input, Person& argPerson)
     return input;
 }
 
-std::ostream& operator<<(std::ostream& output, const Person& argPerson)
-{
+std::ostream& operator<<(std::ostream& output, const Person& argPerson) {
     output << "\nPerson: " << argPerson.name() << ", " << argPerson.sex() << "\n"
            << "Tell: " << argPerson.tell() << "\n"
            << "Email: " << argPerson.email() << "\n"
@@ -214,8 +193,7 @@ std::ostream& operator<<(std::ostream& output, const Person& argPerson)
 
 
 /* Define a Model class to contain data for Contacts Manager. */
-class Model
-{
+class Model {
 public:
 private:
     std::array<Person, _MAXSIZE> ContactsData;
@@ -230,16 +208,14 @@ private:
  *      ii. delete
  *      iii. modify and save
  */
-class Controller
-{
+class Controller {
 public:
 private:
 };
 
 
 /* Main function; Debug mode. */
-int main(int argc, char* argv)
-{
+int main(int argc, char* argv) {
     Person demoPersonToAdd;
     std::cin >> demoPersonToAdd;
     std::cout << demoPersonToAdd;

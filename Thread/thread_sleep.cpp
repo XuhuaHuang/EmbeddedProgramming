@@ -12,20 +12,19 @@
  *********************************************************************/
 
 #include <stdlib.h>
+
+#include <chrono>
 #include <iostream>
 #include <thread>
-#include <chrono>
 
 static bool s_finished = false;
 
-void doWork()
-{
+void doWork() {
     using namespace std::literals::chrono_literals;
 
     std::cout << "Started thread id = " << std::this_thread::get_id() << "\n";
 
-    while (!s_finished)
-    {
+    while (!s_finished) {
         std::cout << "Working on something..." << "\n";
         std::this_thread::sleep_for(1s);
         // std::this_thread refers to the current running thread
@@ -33,8 +32,7 @@ void doWork()
     std::cout << "Done working" << "\n";
 }
 
-int main(void)
-{
+int main(void) {
     std::thread worker(doWork); // immediately start the thread
 
     std::cin.get(); // wait for the user to press Enter

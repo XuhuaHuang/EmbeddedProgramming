@@ -6,8 +6,9 @@
  * \date   December 04, 2022
  *********************************************************************/
 
-#include <iostream>
 #include <stdio.h>
+
+#include <iostream>
 
 /**
  * Function pointer type definition.
@@ -16,39 +17,30 @@
  */
 typedef void (*fn_ptr)();
 
-class Base
-{
+class Base {
 protected:
     Base(const Base&) = default;
 
 public:
-    Base() = default;
+    Base()          = default;
     virtual ~Base() = default;
 
-    virtual void fn1() {
-        std::cout << "Base::fn1()" << "\n";
-    }
+    virtual void fn1() { std::cout << "Base::fn1()" << "\n"; }
 
-    virtual void fn2() {
-        std::cout << "Base::fn2()" << "\n";
-    }
+    virtual void fn2() { std::cout << "Base::fn2()" << "\n"; }
 
     virtual void fn3() {}
 };
 
-class Derived : public Base
-{
+class Derived : public Base {
 public:
-    Derived() : Base() {};
+    Derived()
+        : Base() {}
     ~Derived() override = default;
 
-    void fn1() override {
-        std::cout << "Derived::fn1()" << "\n";
-    }
+    void fn1() override { std::cout << "Derived::fn1()" << "\n"; }
 
-    void fn2() override {
-        std::cout << "DerivedClass::fn2()" << "\n";
-    }
+    void fn2() override { std::cout << "DerivedClass::fn2()" << "\n"; }
 };
 
 /**
@@ -61,8 +53,7 @@ public:
  *
  * @return
  */
-fn_ptr get_vfn_ptr(void* obj, const unsigned long offset)
-{
+fn_ptr get_vfn_ptr(void* obj, const unsigned long offset) {
     /**
      * @brief access virtual table through vptr
      * each element in the virtual table (pointer to virtual functions) occupy 8 bytes on a 64-bit machine
@@ -80,9 +71,8 @@ fn_ptr get_vfn_ptr(void* obj, const unsigned long offset)
     return (fn_ptr)vfn_addr;
 }
 
-auto main(void) -> int
-{
-    Base base;
+int main(void) {
+    Base    base;
     Derived derived;
 
     // Base class pointer pointing to Derived class instance

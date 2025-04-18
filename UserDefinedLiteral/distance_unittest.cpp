@@ -9,12 +9,11 @@
  *
  */
 
-#include <iostream>
-
 #include "distance.hpp"
 
-int main()
-{
+#include <iostream>
+
+int main() {
     // Must have a decimal point to bind to the operator we defined!
     Distance d{402.0_km};                                           // construct using kilometers
     std::cout << "Kilometers in d: " << d.get_kilometers() << "\n"; // 402

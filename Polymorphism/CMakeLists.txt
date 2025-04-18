@@ -11,5 +11,6 @@ add_executable(animal
     "animal.hpp"
     "animal.cpp"
 )
+
 add_executable(polygon "polygon.cpp")
 add_executable(pet "pet.cpp")

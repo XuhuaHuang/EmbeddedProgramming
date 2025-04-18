@@ -8,10 +8,10 @@
 
 #include <iostream>
 #include <string>
+
 #include "GamePromotion.hpp"
 
-int main(void)
-{
+int main(void) {
     // Testing base class Game
     // test default constructor
     std::cout << "\nTesting base class Game with default constructor" << "\n";
@@ -20,7 +20,7 @@ int main(void)
 
     // testing overloaded constructor with initial name
     std::cout << "\nTesting base class Game with overloaded constructor" << "\n";
-    Game myGame2 { "Hide and Seek" };
+    Game myGame2{"Hide and Seek"};
     std::cout << "Name for myGame2 = " << myGame2.getName() << "\n";
 
     // testing Game class printInfo function

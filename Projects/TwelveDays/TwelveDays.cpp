@@ -7,22 +7,19 @@
  *********************************************************************/
 
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 namespace data {
-    const std::vector<std::string> days{
-        "first", "second", "third", "fourth",
-        "fifth", "sixth", "seventh", "eighth",
-        "ninth", "tenth", "eleventh", "twelfth"
-    };
+const std::vector<std::string> days{"first",   "second", "third", "fourth", "fifth",    "sixth",
+                                    "seventh", "eighth", "ninth", "tenth",  "eleventh", "twelfth"};
 }
 
 int main(void) {
     std::ios::sync_with_stdio(false);
     for (int days = 0; days < 12; ++days) {
         std::cout << "\nOn the " << data::days[days] << " day of Christmas, "
-            << "my true love sent to me : " << "\n";
+                  << "my true love sent to me : " << "\n";
 
         switch (days) {
         case 11:

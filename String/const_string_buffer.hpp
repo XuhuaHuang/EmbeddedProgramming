@@ -16,16 +16,14 @@
 
 #include <string_view>
 
-namespace util
-{
+namespace util {
 
-template<std::size_t N>
-struct buffer
-{
+template <std::size_t N>
+struct buffer {
     constexpr buffer() = default;
 
-    constexpr char const* begin() const { return data; }
-    constexpr char const* end() const { return data + N; }
+    constexpr const char* begin() const { return data; }
+    constexpr const char* end() const { return data + N; }
 
     constexpr operator std::basic_string_view<char>() const { return std::basic_string_view<char>(begin(), end()); }
 

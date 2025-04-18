@@ -8,13 +8,12 @@
  *********************************************************************/
 /* clang-format on */
 
+#include "search_a_2d_matrix.hpp"
+
 #include <iostream>
 #include <vector>
 
-#include "search_a_2d_matrix.hpp"
-
-auto main(void) -> int
-{
+int main(void) {
     std::vector<std::vector<int>> matrix = {
         {1,  3,  5,  7 },
         {10, 11, 16, 20},

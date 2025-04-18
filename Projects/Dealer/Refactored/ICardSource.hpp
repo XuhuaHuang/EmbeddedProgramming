@@ -13,7 +13,7 @@
 
 class ICardSource {
 public:
-    virtual Card draw() = 0;
+    virtual Card draw()     = 0;
     virtual bool is_empty() = 0;
 };
 

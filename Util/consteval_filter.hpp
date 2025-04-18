@@ -6,13 +6,10 @@
 #include <utility>
 #include <vector>
 
-namespace util
-{
-namespace range
-{
+namespace util {
+namespace range {
 
-constexpr auto filter(auto t, auto fn)
-{
+constexpr auto filter(auto t, auto fn) {
     // get the vector of filtered elements
     constexpr auto r = [=] {
         return std::apply(
@@ -23,7 +20,8 @@ constexpr auto filter(auto t, auto fn)
                     return v;
                 };
             },
-            t());
+            t()
+        );
     }();
 
     // convert the vector to a tuple

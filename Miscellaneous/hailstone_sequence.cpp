@@ -17,15 +17,13 @@
 #endif
 
 // funtion used to print vector with template
-template<typename T>
-void printVector(std::vector<T> vector)
-{
+template <typename T>
+void printVector(std::vector<T> vector) {
     std::cout << "\n[fn][printVector]The content of received vector is listed: "
               << "\n";
 
     typename std::vector<T>::iterator iter;
-    for (iter = vector.begin(); iter < vector.end(); iter++)
-    {
+    for (iter = vector.begin(); iter < vector.end(); iter++) {
         std::cout << *iter << "\n";
     }
 
@@ -35,8 +33,7 @@ void printVector(std::vector<T> vector)
     return;
 }
 
-int main(void)
-{
+int main(void) {
     int              element;
     int              count    = 1;
     std::vector<int> sequence = {};
@@ -46,15 +43,13 @@ int main(void)
               << "Please enter the first element of the Hailstone sequence: ";
     std::cin >> element;
 
-    if (element > 1)
-    {
+    if (element > 1) {
         std::cout << "\n"
                   << "Generating Hailstone sequence..."
                   << "\n"
                   << "\n";
 
-        do
-        {
+        do {
             (element % 2) ? element = 3 * element + 1 : element /= 2;
             // output current count and value
             std::cout << "Current count: " << count << ", Element: " << element << "\n";
@@ -67,16 +62,12 @@ int main(void)
         std::cout << "\nFinished generating sequence."
                   << "\n"
                   << "Steps used to generate sequence: " << count - 1 << "\n";
-    }
-    else if (element == 1)
-    {
+    } else if (element == 1) {
         std::cout << "Error! { 1 } is already a Hailstone sequence!"
                   << "\n"
                   << "Please try again!"
                   << "\n";
-    }
-    else
-    {
+    } else {
         std::cout << "Unable to recognize input. Fatal error."
                   << "\n"
                   << "Aborting..."

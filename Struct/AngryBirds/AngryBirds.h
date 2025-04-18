@@ -9,8 +9,7 @@
 #define PI 3.14159365359
 #define G 9.81
 
-typedef struct AngryBirds
-{
+typedef struct AngryBirds {
     double initVel;
     double angle;
     double iniHeight;

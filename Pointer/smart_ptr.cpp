@@ -10,34 +10,26 @@
  * \date   May 2021
  *********************************************************************/
 
-#include <memory>
 #include <iostream>
+#include <memory>
 
-class Entity
-{
+class Entity {
 public:
-    Entity() {
-        std::cout << "[DFCONST]Creating Entity..." << "\n";
-    }
+    Entity() { std::cout << "[DFCONST]Creating Entity..." << "\n"; }
 
-    ~Entity() {
-        std::cout << "[DFDEST]Destroying Entity..." << "\n";
-    }
+    ~Entity() { std::cout << "[DFDEST]Destroying Entity..." << "\n"; }
 
-    void printEntity() {
-        std::cout << "[fn]Printing Entity..." << "\n";
-    }
+    void printEntity() { std::cout << "[fn]Printing Entity..." << "\n"; }
 };
 
-int main(void)
-{
+int main(void) {
     /**
      * Create a new scope and verify the output in the terminal.
      * Expecting constructor, destructor get called sequentially.
-     * \return 
+     * \return
      */
-    { 
-        std::unique_ptr<Entity> entity_ptr(new Entity()); // not exception safe 
+    {
+        std::unique_ptr<Entity> entity_ptr(new Entity()); // not exception safe
         // better approach: make_unique<Entity>
         // equivalent to: std::unique_ptr<Entity> entity_ptr = std::make_unique<Entity>();
         entity_ptr->printEntity(); // using pointer as how normally it is used
@@ -45,7 +37,7 @@ int main(void)
 
     // share_ptr uses reference count approach to determine when to delete the pointer
     std::shared_ptr<Entity> sharedEntity = std::make_shared<Entity>();
-    std::weak_ptr<Entity> weakEntity = sharedEntity; // does not increase reference count
+    std::weak_ptr<Entity>   weakEntity   = sharedEntity; // does not increase reference count
 
     std::cin.get();
     return 0;

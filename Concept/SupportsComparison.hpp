@@ -15,7 +15,7 @@
 
 #include <concepts>
 
-template<typename T>
+template <typename T>
 concept SupportsComparison = requires (T t) { t <=> t; };
 
 #endif

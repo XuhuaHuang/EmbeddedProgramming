@@ -14,14 +14,13 @@
 #ifndef LAMBDA_DERIVATIVE_HPP
 #define LAMBDA_DERIVATIVE_HPP
 
-namespace util
-{
-namespace lambda_derivative
-{
+namespace helper {
+namespace lambda_derivative {
 
 using float32_t = std::float_t;
 
 } // namespace lambda_derivative
-} // namespace util
+} // namespace helper
+
 
 #endif // !LAMBDA_DERIVATIVE_HPP

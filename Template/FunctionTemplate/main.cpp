@@ -7,9 +7,10 @@
  *********************************************************************/
 
 #include <iostream>
+
 #include "max.hpp"
 
-auto main(void) -> int {
+int main(void) {
     // implicit template instanciation
     // T is deducted to int
     // same for std::vector

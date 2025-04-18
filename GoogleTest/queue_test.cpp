@@ -6,9 +6,10 @@
  * \date   November 14, 2022
  *********************************************************************/
 
-#include <iostream>
-#include <stdlib.h>
 #include <gtest/gtest.h>
+#include <stdlib.h>
+
+#include <iostream>
 
 /**
  * Test fixtures: using the same data configuration for multiple tests
@@ -33,7 +34,7 @@
 #define Q_SIZE 10
 #endif
 
-//template<typename T>
+// template<typename T>
 class Queue {
 public:
     Queue(int size = Q_SIZE);
@@ -43,23 +44,24 @@ public:
     int* Dequeue(); // returns NULL if the queue is empty
 
     size_t size() const { return count; }
-    bool isEmpty() { return size() == 0; }
-    bool isFull() { return size() == capacity; }
+    bool   isEmpty() { return size() == 0; }
+    bool   isFull() { return size() == capacity; }
+
 private:
-    int* arr;        // array to store Queue element
-    int capacity;    // maximum capacity of the queue
-    int front;       // front element (if any)
-    int rear;        // last element (if any)
+    int*   arr;      // array to store Queue element
+    int    capacity; // maximum capacity of the queue
+    int    front;    // front element (if any)
+    int    rear;     // last element (if any)
     size_t count;
 };
 
 /* Queue class implementation */
 Queue::Queue(int size) {
-    arr = new int[size];
+    arr      = new int[size];
     capacity = size;
-    front = 0;
-    rear = -1;
-    count = 0;
+    front    = 0;
+    rear     = -1;
+    count    = 0;
 }
 
 void Queue::Enqueue(const int item) {
@@ -67,10 +69,9 @@ void Queue::Enqueue(const int item) {
     if (isFull()) {
         std::cout << "Overflow occurred. Program Terminated." << "\n";
         exit(EXIT_FAILURE);
-    }
-    else {
+    } else {
         std::cout << "Inserting " << item << "\n";
-        rear = (rear + 1) % capacity;
+        rear      = (rear + 1) % capacity;
         arr[rear] = item;
         count++;
     }
@@ -80,8 +81,7 @@ int* Queue::Dequeue() {
     if (isEmpty()) {
         std::cout << "Underflow occurred. Queue is empty." << "\n";
         return nullptr;
-    }
-    else {
+    } else {
         int* value = &arr[front];
         std::cout << "Removing " << arr[front] << "\n";
         front = (front + 1) % capacity;

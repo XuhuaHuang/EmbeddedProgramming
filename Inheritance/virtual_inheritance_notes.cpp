@@ -17,36 +17,29 @@
 #include <boost/ut.hpp>
 #include <tuple>
 
-template<class... Ts>
-struct interface
-{
+template <class... Ts>
+struct interface {
 public:
-    template<class T>
-    const T& on(T) const
-    {
+    template <class T>
+    const T& on(T) const {
         return std::get<T>(vs);
     }
 
 protected:
     constexpr explicit interface(auto&&... args)
-        : vs(args...)
-    {
-    }
+        : vs(args...) {}
 
 private:
     std::tuple<Ts...> vs;
 };
 
-template<auto... Vs>
-struct implementation final : interface<decltype(Vs)...>
-{
+template <auto... Vs>
+struct implementation final : interface<decltype(Vs)...> {
     constexpr explicit implementation()
-        : interface<decltype(Vs)...>(Vs...) {
-    }
+        : interface<decltype(Vs)...>(Vs...) {}
 };
 
-int main()
-{
+int main() {
     using namespace boost::ut;
 
     "virtual type_list interface empty"_test = [] {

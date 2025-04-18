@@ -10,11 +10,11 @@
  */
 
 #include "animal.hpp"
+
 #include <iostream>
 #include <string>
 
-int main(void)
-{
+int main(void) {
     Animal myAnimal;
     Pig    myPig;
     Dog    myDog;

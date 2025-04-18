@@ -14,29 +14,23 @@
 
 #include "binary_tree_node.hpp"
 
-class Solution
-{
+class Solution {
 public:
-    vector<int> preorderTraversal(TreeNode* root)
-    {
+    vector<int> preorderTraversal(TreeNode* root) {
         vector<int> ans;
-        if (root == NULL)
-        {
+        if (root == NULL) {
             return ans;
         }
         stack<TreeNode*> s;
         s.push(root);
-        while (!s.empty())
-        {
+        while (!s.empty()) {
             TreeNode* temp = s.top();
             ans.push_back(temp->val);
             s.pop();
-            if (temp->right != NULL)
-            {
+            if (temp->right != NULL) {
                 s.push(temp->right);
             }
-            if (temp->left != NULL)
-            {
+            if (temp->left != NULL) {
                 s.push(temp->left);
             }
         }

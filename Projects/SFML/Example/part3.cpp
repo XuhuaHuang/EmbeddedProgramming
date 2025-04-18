@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
 
-int main()
-{
+int main() {
     // Make a window that is 800 by 200 pixels
     // And has the title "Hello from SFML"
     sf::RenderWindow window(sf::VideoMode(800, 200), "Hello from SFML");
@@ -28,13 +27,11 @@ int main()
 
 
     // This "while" loop goes round and round- perhaps forever
-    while (window.isOpen())
-    {
+    while (window.isOpen()) {
         // The next 6 lines of code detect if the window is closed
         // And then shuts down the program
         sf::Event event;
-        while (window.pollEvent(event))
-        {
+        while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 // Someone closed the window- bye
                 window.close();

@@ -15,14 +15,12 @@
 #include <iterator>
 
 auto print_seq = [](auto rem, auto first, auto last) {
-    for (std::cout << rem; first != last; std::cout << *first++ << " ")
-    {
+    for (std::cout << rem; first != last; std::cout << *first++ << " ") {
     }
     std::cout << "\n";
 };
 
-int main()
-{
+int main() {
     std::array v{1, 2, 3, 4, 5, 6, 7, 8, 9};
 
     auto is_even = [](int i) { return i % 2 == 0; };

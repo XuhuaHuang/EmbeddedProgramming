@@ -13,8 +13,7 @@
 
 #include <iostream>
 
-struct kwarg
-{
+struct kwarg {
     kwarg() = delete;
     constexpr inline kwarg(const char* rhs) { kw = rhs; }
     constexpr inline kwarg(const std::string_view& rhs) { kw = rhs; }
@@ -29,34 +28,27 @@ private:
     std::string_view kw;
 };
 
-struct Arg
-{
+struct Arg {
     int i = 1;
 
     Arg(int _i)
-        : i{_i}
-    {
-    }
+        : i{_i} {}
 
-    int getArg() &&
-    {
+    int getArg() && {
         std::cout << "In member function int getArg() &&"
                   << "\n";
         return i;
     }
 
-    int& getArg() &
-    {
+    int& getArg() & {
         std::cout << "In member function int& getArg() &"
                   << "\n";
         return i;
     }
 };
 
-namespace experimental
-{
-struct Arg
-{
+namespace experimental {
+struct Arg {
     int i = 1;
 
     inline int getArg(this Arg& arg) { return arg.i; }
@@ -65,8 +57,7 @@ struct Arg
 };
 } // namespace experimental
 
-int main(void)
-{
+int main(void) {
     Arg g1{5};                                   /* instanciation with innitializer_list */
     std::cout << g1.getArg() << "\n";            /* expecting int& getArg() & */
     std::cout << std::move(g1).getArg() << "\n"; /* expecting int getArg() && */

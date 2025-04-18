@@ -12,8 +12,8 @@
 
 #include "../basics.hpp"
 
-auto main(void) -> int {
-    std::vector<bool> test{ true, true, true, false };
+int main(void) {
+    std::vector<bool> test{true, true, true, false};
 
     std::cout << std::boolalpha << util::math::any(test) << "\n";
     std::cout << std::boolalpha << util::math::all(test) << "\n";

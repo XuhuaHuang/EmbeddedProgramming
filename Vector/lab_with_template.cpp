@@ -15,15 +15,13 @@
 #include <string>
 #include <vector>
 
-void squareAndPrint(int x)
-{
+void squareAndPrint(int x) {
     std::cout << "Squared: " << (x * x) << "\n";
     return;
 }
 
-template<class T>
-void printVector(const std::vector<T>& argVector)
-{
+template <class T>
+void printVector(const std::vector<T>& argVector) {
     std::cout << "\n[fn]The content of this vector is listed: "
               << "\n";
 
@@ -36,9 +34,8 @@ void printVector(const std::vector<T>& argVector)
     return;
 }
 
-template<class T>
-void palindrome(const std::vector<T>& vectorT)
-{
+template <class T>
+void palindrome(const std::vector<T>& vectorT) {
     printVector<T>(vectorT); // print the original/received vector
 
     std::vector<T> vectorTCopy = vectorT;                 // create a copy of it
@@ -54,8 +51,7 @@ void palindrome(const std::vector<T>& vectorT)
     return;
 }
 
-int main(void)
-{
+int main(void) {
     std::random_device rd;
     std::mt19937       g(rd());
 

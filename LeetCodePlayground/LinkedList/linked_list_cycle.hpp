@@ -2,11 +2,9 @@
 
 #include "linked_list_node.hpp"
 
-class Solution
-{
+class Solution {
 public:
-    bool hasCycle(ListNode* head)
-    {
+    bool hasCycle(ListNode* head) {
         // if head is NULL then return false;
         if (head == NULL)
             return false;
@@ -17,15 +15,13 @@ public:
 
         // till fast and fast-> next not reaches NULL
         // we will increment fast by 2 step and slow by 1 step
-        while (fast != NULL && fast->next != NULL)
-        {
+        while (fast != NULL && fast->next != NULL) {
             fast = fast->next->next;
             slow = slow->next;
 
             // at the point if fast and slow are at same address
             // this means linked list has a cycle in it.
-            if (fast == slow)
-            {
+            if (fast == slow) {
                 return true;
             }
         }

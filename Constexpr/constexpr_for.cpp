@@ -11,11 +11,9 @@
 
 #include <iostream>
 
-constexpr int factorial(int n)
-{
+constexpr int factorial(int n) {
     int result = 1;
-    for (int i = 1; i <= n; ++i)
-    {
+    for (int i = 1; i <= n; ++i) {
         result *= i;
     }
     return result;
@@ -23,8 +21,7 @@ constexpr int factorial(int n)
 
 constexpr int f = factorial(5);
 
-int main()
-{
+int main() {
     static_assert(f == 120, "Factorial of 5 should be 120");
     return 0;
 }

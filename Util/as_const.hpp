@@ -14,14 +14,11 @@
 #ifndef AS_CONST_HPP
 #define AS_CONST_HPP
 
-namespace util
-{
-namespace type_safety
-{
+namespace util {
+namespace type_safety {
 
-template<typename T>
-constexpr inline const T& as_const(const T& t) noexcept
-{
+template <typename T>
+constexpr inline const T& as_const(const T& t) noexcept {
     return t;
 }
 

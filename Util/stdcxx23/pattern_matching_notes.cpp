@@ -8,33 +8,24 @@
 #include <boost/ut.hpp>
 #include <tuple>
 
-int main()
-{
+int main() {
     using namespace boost::ut;
 
     "pattern matching - integral"_test = [value = 42u] { expect(value == inspect(value) { _ = > 42; }); };
 
     "pattern matching - enum"_test     = [] {
-        enum class op
-        {
-            Add,
-            Sub,
-            Mul,
-            Div
-        };
+        enum class op { Add, Sub, Mul, Div };
 
         const auto inspect_expr = [](const std::size_t value) {
-            return inspect(value)
-            {
+            return inspect(value) {
                 '+' = > op::Add;
                 '-' = > op::Sub;
                 '*' = > op::Mul;
                 '/' = > op::Div;
-                _   = > !
-                {
+                _   = > !{
                     throw 0;
                 }
-            };
+            }
         };
 
         expect(op::Add == inspect_expr('+'));
@@ -46,12 +37,11 @@ int main()
 
     "pattern matching - tuple"_test = [] {
         const auto inspect_expr = [](const std::tuple<int, int>& value) {
-            return inspect(value)
-            {
+            return inspect(value) {
                 [0, _] = > 0;
                 [_, 0] = > 0;
                 [x, y] = > x + y;
-            };
+            }
         };
 
         expect(0_i == inspect_expr(std::tuple{0, 2}));

@@ -5,19 +5,17 @@
 #include <type_traits>
 #include <typeinfo>
 
-constexpr auto sum(auto... ts)
-{
+constexpr auto sum(auto... ts) {
     return (ts + ...);
 }
 
-[[nodiscard]] constexpr auto call(auto... ts)
-{
+[[nodiscard]]
+constexpr auto call(auto... ts) {
     using T = typename std::common_type_t<decltype(ts)...>;
     return std::invoke_r<T>(sum<decltype(ts)...>, ts...);
 }
 
-int main()
-{
+int main() {
     static_assert(6 == call(1, 2, 3));
     static_assert(typeid(int) == typeid(call(1, 2, 3)));
 

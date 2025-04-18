@@ -31,8 +31,7 @@
 #include <string>
 #include <tuple>
 
-std::tuple<int, int> findGreaterSmaller(int num1, int num2)
-{
+std::tuple<int, int> findGreaterSmaller(int num1, int num2) {
     if (num1 < num2)
         return std::make_tuple(num1, num2);
     else if (num1 > num2)
@@ -41,8 +40,7 @@ std::tuple<int, int> findGreaterSmaller(int num1, int num2)
         return std::make_tuple(0, 0);
 }
 
-int main(void)
-{
+int main(void) {
     int num1, num2;
     std::cout << "Enter the first number of two to compare: ";
     std::cin >> num1;
@@ -55,17 +53,17 @@ int main(void)
     /**
      * 'findGreaterSmaller' is the name of the function
      * function argument: int, int
-     * 
+     *
      * return type: tuple<int, int>
      * tie() function groups int min and max together to be a tuple
      * to receive result of the function
-     * 
+     *
      * after variables in tuples are assigned value
-     * variables can be accessed individually 
+     * variables can be accessed individually
      */
 
     std::cout << "The greater number is: " << max << "\n"
-         << "The smaller number is: " << min << "\n";
+              << "The smaller number is: " << min << "\n";
 
     return 0;
 }

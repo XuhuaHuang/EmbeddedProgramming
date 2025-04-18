@@ -1,12 +1,9 @@
 #pragma once
 
-namespace util
-{
-namespace type_safety
-{
+namespace util {
+namespace type_safety {
 
-struct movable
-{
+struct movable {
     constexpr movable()                                     = delete;
     constexpr movable(const movable&)                       = delete;
 
@@ -17,8 +14,7 @@ struct movable
     constexpr auto operator==(const movable&) const -> bool = delete;
 };
 
-struct not_movable
-{
+struct not_movable {
     consteval not_movable()                                      = default;
     consteval not_movable(const not_movable&)                    = default;
 
@@ -29,8 +25,7 @@ struct not_movable
     constexpr auto operator==(const not_movable&) const -> bool  = default;
 };
 
-struct copyable
-{
+struct copyable {
     constexpr copyable()                                     = delete;
 
     consteval copyable(const copyable&)                      = default;
@@ -41,8 +36,7 @@ struct copyable
     constexpr auto operator==(const copyable&) const -> bool = delete;
 };
 
-struct not_copyable
-{
+struct not_copyable {
     constexpr not_copyable()                                       = default;
 
     consteval not_copyable(const not_copyable&)                    = delete;
@@ -53,8 +47,7 @@ struct not_copyable
     constexpr auto operator==(const not_copyable&) const -> bool   = default;
 };
 
-struct not_semiregular
-{
+struct not_semiregular {
     constexpr not_semiregular()                                          = delete;
     constexpr not_semiregular(const not_semiregular&)                    = delete;
     constexpr not_semiregular(not_semiregular&&)                         = delete;
@@ -64,8 +57,7 @@ struct not_semiregular
     constexpr auto operator==(const not_semiregular&) const -> bool      = default;
 };
 
-struct semiregular
-{
+struct semiregular {
     constexpr semiregular()                                      = default;
     constexpr semiregular(const semiregular&)                    = default;
     constexpr semiregular(semiregular&&)                         = default;
@@ -75,8 +67,7 @@ struct semiregular
     constexpr auto operator==(const semiregular&) const -> bool  = delete;
 };
 
-struct not_regular
-{
+struct not_regular {
     constexpr not_regular()                                      = delete;
     constexpr not_regular(const not_regular&)                    = delete;
     constexpr not_regular(not_regular&&)                         = delete;
@@ -85,8 +76,7 @@ struct not_regular
     constexpr auto operator==(const not_regular&) const -> bool  = delete;
 };
 
-struct regular
-{
+struct regular {
     constexpr regular()                                     = default;
     constexpr regular(const regular&)                       = default;
     constexpr regular(regular&&)                            = default;

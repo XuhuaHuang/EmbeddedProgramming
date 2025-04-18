@@ -1,9 +1,9 @@
 #include "first_last_position_in_sorted_array.hpp"
+
 #include <iostream>
 #include <vector>
 
-auto main(void) -> int
-{
+int main(void) {
     Solution         solution;
     std::vector<int> nums{5, 7, 7, 8, 8, 10};
 
@@ -12,4 +12,4 @@ auto main(void) -> int
               << "\n";
 
     return EXIT_SUCCESS;
-};
+}

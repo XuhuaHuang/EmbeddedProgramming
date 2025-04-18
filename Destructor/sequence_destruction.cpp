@@ -10,29 +10,23 @@
 
 class Vehicle {
 public:
-    ~Vehicle() {
-        std::cout << "Vehicle" << "\n";
-    }
+    ~Vehicle() { std::cout << "Vehicle" << "\n"; }
 };
 
 class Engine {
 public:
-    ~Engine() {
-        std::cout << "Engine" << "\n";
-    }
+    ~Engine() { std::cout << "Engine" << "\n"; }
 };
 
 class Truck : public Vehicle {
 public:
-    ~Truck() {
-        std::cout << "Truck" << "\n";
-    }
+    ~Truck() { std::cout << "Truck" << "\n"; }
+
 private:
     Engine engine;
 };
 
-int main()
-{
+int main() {
     Truck truck;
     /**
      * `truck` goes out of the scope
@@ -43,4 +37,4 @@ int main()
      */
 
     return 0;
- }
+}

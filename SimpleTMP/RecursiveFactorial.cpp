@@ -20,20 +20,16 @@
 
 // general case: the value of Factorial<n> is
 // n times the value of Factorial<n-1>
-template<unsigned int n>
+template <unsigned int n>
 struct Factorial {
-    enum {
-        value = n * Factorial<n-1>::value
-    };
+    enum { value = n * Factorial<n - 1>::value };
 };
 
 // special case: the value of Factorial<0> is 1
 // using partial template specilization
-template<>
+template <>
 struct Factorial<0> {
-    enum {
-        value = 1
-    };
+    enum { value = 1 };
 };
 
 int main(void) {

@@ -9,15 +9,13 @@
 
 #pragma once
 
-class Time
-{
+class Time {
 private:
     int hour;
     int minute;
     int second;
 
 public:
-
     // set functions
     void setHour(int userHour); // definition of set functions follow with validation
     void setMinute(int userMinute);
@@ -40,15 +38,13 @@ public:
 };
 
 
-class Date
-{
+class Date {
 private:
     int year;
     int month;
     int day;
 
 public:
-
     // set functions:
     void setMonth(int userMonth);
     void setDay(int userDay);

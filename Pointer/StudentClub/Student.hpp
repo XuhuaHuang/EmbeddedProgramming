@@ -23,15 +23,14 @@
 
 #include <string>
 
-class Student
-{
+class Student {
 public:
-    Student(); // default constructor
+    Student();                                                          // default constructor
     Student(std::string student_name, std::string major_at_acceptance); // overloaded constructor
 
     // set and get functions
-    void setMajor(std::string new_major) { major = new_major; }
-    void setName(std::string new_name) { name = new_name; }
+    void        setMajor(std::string new_major) { major = new_major; }
+    void        setName(std::string new_name) { name = new_name; }
     std::string getMajor() { return major; }
     std::string getName() { return name; }
 
@@ -43,16 +42,16 @@ private:
 Student::Student() // default constructor
 {
     std::cout << "\n[DECONST]Creating an empty object of class \"Student\"." << "\n";
-    name = "";
+    name  = "";
     major = "";
 }
 
 Student::Student(std::string student_name, std::string major_at_acceptance) // overloaded constructor
 {
     std::cout << "\n[OLCONST]\"Student::Student(std::string, std::string)\" called by compiller" << "\n"
-        << "[OLCONST]Setting name to: " << student_name << "\n"
-        << "[OLCONST]Setting major to: " << major_at_acceptance << "\n";
-    name = student_name;
+              << "[OLCONST]Setting name to: " << student_name << "\n"
+              << "[OLCONST]Setting major to: " << major_at_acceptance << "\n";
+    name  = student_name;
     major = major_at_acceptance;
 }
 

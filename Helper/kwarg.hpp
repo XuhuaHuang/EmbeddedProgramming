@@ -18,13 +18,10 @@
 #include <array>
 #include <string_view>
 
-namespace helper
-{
-namespace mlcxx
-{
+namespace helper {
+namespace mlcxx {
 
-struct kwarg
-{
+struct kwarg {
     kwarg() = delete;
     explicit((true)) consteval inline kwarg(const char* rhs) { kw = rhs; }
     explicit((true)) consteval inline kwarg(const std::string_view& rhs) { kw = rhs; }

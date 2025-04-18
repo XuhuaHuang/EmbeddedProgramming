@@ -16,8 +16,8 @@
 #include <concepts>
 
 /* Templated concept to determine whether can call hash function on an object. */
-template<typename T>
-concept SupportsHashFunction = requires(T t) {
+template <typename T>
+concept SupportsHashFunction = requires (T t) {
     { std::hash<T>{}(t) } -> std::convertible_to<std::size_t>;
 };
 

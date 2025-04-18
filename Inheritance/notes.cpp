@@ -26,8 +26,7 @@
 #include <iostream>
 #include <string>
 
-class Pet
-{
+class Pet {
 private: // protected if tired of set*() and get*()
     std::string name;
     int         age;
@@ -46,8 +45,7 @@ public:
     int         getAge() const { return age; }
 };
 
-class Dog : public Pet
-{
+class Dog : public Pet {
 private:
     std::string breed;
 
@@ -63,8 +61,7 @@ public:
     std::string getBreed() const { return breed; }
 };
 
-class Cat : public Pet
-{
+class Cat : public Pet {
 private:
     int numLives;
 
@@ -78,8 +75,7 @@ public:
     int  getnumLives(void) const { return numLives; }
 };
 
-int main(void)
-{
+int main(void) {
     Pet pet1(5, "sander");                          // should call the overloaded constructor for Pet class
     Dog dog1("golden retriever", 5, "doggy doggy"); // calling overloaded constructor, should aged 35
     Cat cat1;
@@ -121,8 +117,7 @@ Dog::Dog() // default constructor for Dog class
  * 'string newbreed' is the new element preserved for class 'Dog'
  */
 Dog::Dog(std::string newbreed, int newage, std::string newname)
-    : Pet(newage, newname)
-{
+    : Pet(newage, newname) {
     setBreed(newbreed);
     setAge(getAge() * 7); // set the human perspective age
 }
@@ -139,7 +134,6 @@ Cat::Cat() // default constructor for Cat class
  * 'int newnumLives' is the new element preserved for class 'Cat'
  */
 Cat::Cat(int newnumLives, int newage, std::string newname)
-    : Pet(newage, newname)
-{
+    : Pet(newage, newname) {
     setnumLives(newnumLives);
 }

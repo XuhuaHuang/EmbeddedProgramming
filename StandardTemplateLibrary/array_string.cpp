@@ -6,15 +6,14 @@
  * \date   December 2020
  *********************************************************************/
 
-#include <iostream>
 #include <array>
+#include <iostream>
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
     // initialize String Array
-    std::string colour[4] = { "Blue", "Red", "Orange", "Yellow" };
+    std::string colour[4] = {"Blue", "Red", "Orange", "Yellow"};
 
     // print strings array
     for (int i = 0; i < 4; i++)
@@ -22,7 +21,7 @@ int main(void)
 
     // declaring vector of string type
     // values can be added here using initializer-list syntax
-    std::vector<std::string> colourVec{ "Blue", "Red", "Orange" };
+    std::vector<std::string> colourVec{"Blue", "Red", "Orange"};
 
     // strings can be added at any time with push_back
     colourVec.push_back("Yellow");
@@ -33,7 +32,7 @@ int main(void)
 
 
     // initialize templtized array
-    std::array<std::string, 4> colourArr{ "Blue", "Red", "Orange", "Yellow" };
+    std::array<std::string, 4> colourArr{"Blue", "Red", "Orange", "Yellow"};
 
     // print Strings stored in a templtized array
     for (int i = 0; i < 4; i++)

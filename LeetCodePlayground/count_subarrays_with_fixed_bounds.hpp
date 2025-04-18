@@ -1,36 +1,29 @@
 // https://leetcode.com/problems/count-subarrays-with-fixed-bounds
 
-class Solution
-{
+class Solution {
 public:
-    long long countSubarrays(vector<int>& nums, int minK, int maxK)
-    {
+    long long countSubarrays(vector<int>& nums, int minK, int maxK) {
         long res      = 0;
         bool minFound = false;
         bool maxFound = false;
 
         int start = 0, minStart = 0, maxStart = 0;
-        for (int i = 0; i < nums.size(); i++)
-        {
+        for (int i = 0; i < nums.size(); i++) {
             int num = nums[i];
-            if (num < minK || num > maxK)
-            {
+            if (num < minK || num > maxK) {
                 minFound = false;
                 maxFound = false;
                 start    = i + 1;
             }
-            if (num == minK)
-            {
+            if (num == minK) {
                 minFound = true;
                 minStart = i;
             }
-            if (num == maxK)
-            {
+            if (num == maxK) {
                 maxFound = true;
                 maxStart = i;
             }
-            if (minFound && maxFound)
-            {
+            if (minFound && maxFound) {
                 res += (min(minStart, maxStart) - start + 1);
             }
         }

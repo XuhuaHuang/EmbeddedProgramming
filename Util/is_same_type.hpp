@@ -17,8 +17,7 @@
 #include <typeinfo>
 #endif
 
-namespace util::type
-{
+namespace util::type {
 
 /**
  * Does the same thing as std::is_same<T, U>::value
@@ -26,9 +25,8 @@ namespace util::type
  * No compile time optimization; higher runtime cost.
  * Do not do this in projects.
  */
-template<typename T, typename U>
-constexpr inline bool is_same_type(const T& t, const U& u)
-{
+template <typename T, typename U>
+constexpr inline bool is_same_type(const T& t, const U& u) {
     return typeid(t).hash_code() == typeid(u).hash_code();
 }
 

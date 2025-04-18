@@ -8,9 +8,10 @@
  *********************************************************************/
 
 #include <iostream>
+
 #include "Calendar.hpp"
 
-auto main(void) -> int {
+int main(void) {
     Calendar calendar;
     calendar.print();
 

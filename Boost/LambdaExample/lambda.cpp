@@ -17,18 +17,16 @@
  * \date   September 2022
  *********************************************************************/
 
+#include <algorithm>
 #include <boost/lambda/lambda.hpp>
 #include <iostream>
 #include <iterator>
-#include <algorithm>
 
-auto main(void) -> int {
+int main(void) {
     using namespace boost::lambda;
     typedef std::istream_iterator<int> in;
 
-    std::for_each(
-        in(std::cin), in(), std::cout << (_1 * 3) << " "
-    );
+    std::for_each(in(std::cin), in(), std::cout << (_1 * 3) << " ");
 
     return EXIT_SUCCESS;
 }

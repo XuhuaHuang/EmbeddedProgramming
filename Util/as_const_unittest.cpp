@@ -16,8 +16,7 @@
 #include <type_traits>
 #include <utility>
 
-int main()
-{
+int main() {
     using util::type_safety::as_const;
 
     std::string mutable_str = "Hello World!";
@@ -34,8 +33,9 @@ int main()
 
     using ExprType = std::remove_reference_t<decltype(as_const(mutable_str))>;
 
-    static_assert(std::is_same_v<std::remove_const_t<ExprType>, std::string>,
-                  "ExprType should be some kind of string.");
+    static_assert(
+        std::is_same_v<std::remove_const_t<ExprType>, std::string>, "ExprType should be some kind of string."
+    );
 
     static_assert(!std::is_same_v<ExprType, std::string>, "ExprType shouldn't be a mutable string.");
 

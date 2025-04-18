@@ -20,37 +20,30 @@
 #include <ranges>
 #endif
 
-namespace util
-{
-namespace range
-{
+namespace util {
+namespace range {
 
 auto print_range(const std::ranges::range auto& range, bool newline = false) -> void;
 
-namespace detail
-{
+namespace detail {
 
-auto print(const std::ranges::range auto& value) -> void
-{
+auto print(const std::ranges::range auto& value) -> void {
     print_range(value, false);
 }
 
-auto print(const auto& value) -> void
-{
+auto print(const auto& value) -> void {
     std::cout << value;
 }
 
 } // namespace detail
 
-auto print_range(const std::ranges::range auto& range, bool newline) -> void
-{
+auto print_range(const std::ranges::range auto& range, bool newline) -> void {
     const auto begin = std::ranges::cbegin(range);
     const auto end   = std::ranges::cend(range);
 
     std::cout << '[';
 
-    for (auto&& i : std::ranges::subrange(begin, end - 1))
-    {
+    for (auto&& i : std::ranges::subrange(begin, end - 1)) {
         // std::cout << i << ",";
         detail::print(i);
         std::cout << ',';
@@ -60,8 +53,7 @@ auto print_range(const std::ranges::range auto& range, bool newline) -> void
     detail::print(*(end - 1));
     std::cout << ']';
 
-    if (newline)
-    {
+    if (newline) {
         std::cout << '\n';
     }
 }

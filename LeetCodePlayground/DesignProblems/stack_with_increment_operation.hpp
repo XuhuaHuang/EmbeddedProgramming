@@ -1,25 +1,20 @@
 // https://leetcode.com/problems/design-a-stack-with-increment-operation
 
-class CustomStack
-{
+class CustomStack {
 public:
     vector<int> arr;
     int         size;
 
     CustomStack(int maxSize) { size = maxSize; }
 
-    void push(int x)
-    {
-        if (arr.size() < size)
-        {
+    void push(int x) {
+        if (arr.size() < size) {
             arr.push_back(x);
         }
     }
 
-    int pop()
-    {
-        if (arr.size() == 0)
-        {
+    int pop() {
+        if (arr.size() == 0) {
             return -1;
         }
         int ans = arr.back();
@@ -27,11 +22,9 @@ public:
         return ans;
     }
 
-    void increment(int k, int val)
-    {
+    void increment(int k, int val) {
         k = min(k, (int)arr.size());
-        for (int i = 0; i < k; i++)
-        {
+        for (int i = 0; i < k; i++) {
             arr[i] += val;
         }
     }

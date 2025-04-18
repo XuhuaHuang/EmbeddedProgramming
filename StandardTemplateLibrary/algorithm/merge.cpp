@@ -19,8 +19,7 @@
 
 #include "Helper/generic_container.hpp"
 
-int main()
-{
+int main() {
     std::array<int, 5U> v1{
         {1, 3, 5, 7, -5}
     };
@@ -31,8 +30,7 @@ int main()
     using helper::generic_container::operator<<;
     std::cout << v1 << "\n";
     std::cout << v2 << "\n";
-    if (not std::is_sorted(v1.begin(), v1.end()))
-    {
+    if (not std::is_sorted(v1.begin(), v1.end())) {
         std::sort(std::begin(v1), std::end(v1), std::less<int>());
     }
     std::cout << v1 << "\n";

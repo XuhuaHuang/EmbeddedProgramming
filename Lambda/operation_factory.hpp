@@ -24,10 +24,10 @@
 enum class Op { ADD, MUL };
 
 std::function<int(int, int)> OperationFactory(Op op) {
-    switch(op) {
-        case Op::ADD:
+    switch (op) {
+    case Op::ADD:
         return [](int a, int b) { return a + b; };
-        case Op::MUL:
+    case Op::MUL:
         return std::multiplies<int>();
     }
 }

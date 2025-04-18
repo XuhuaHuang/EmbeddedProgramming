@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   timer.cpp
  * \brief  Boost V1 timer, the new cpu_timer is added in V2.
@@ -12,19 +13,22 @@
  * \author Xuhua Huang
  * \date   September 19, 2022
  *********************************************************************/
+// clang-format on
+
+#ifndef BOOST_TIMER_ENABLE_DEPRECATED
+#define BOOST_TIMER_ENABLE_DEPRECATED
+#include <boost/timer.hpp>
+#endif
 
 #include <iostream>
-#include <boost/timer.hpp>
 
-auto main(void) -> int {
-
+int main(void) {
     /* boost::timer */
     boost::timer t;
 
     std::cout << "Max timespan: " << t.elapsed_max() / 3600 << "h" << "\n"
-        << "Min timespan: " << t.elapsed_min() << "s" << "\n"
-        << "Time elapsed: " << t.elapsed() << "s" << "\n";
+              << "Min timespan: " << t.elapsed_min() << "s" << "\n"
+              << "Time elapsed: " << t.elapsed() << "s" << "\n";
 
-    system("pause");
-    return EXIT_SUCCESS;
+    return 0;
 }

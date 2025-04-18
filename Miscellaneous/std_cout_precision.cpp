@@ -8,8 +8,7 @@
 
 #include <iostream>
 
-int main(void)
-{
+int main(void) {
     int numPrecision = 2;
 
     std::cout.precision(numPrecision);

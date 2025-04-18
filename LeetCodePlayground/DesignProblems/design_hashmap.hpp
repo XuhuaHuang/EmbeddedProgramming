@@ -7,11 +7,9 @@ static const int _ = []() {
     return 0;
 }();
 
-class LinkedList
-{
+class LinkedList {
 private:
-    class node
-    {
+    class node {
     public:
         int   key;
         int   value;
@@ -19,51 +17,38 @@ private:
         node(int k = 0, int v = 0, node* nextptr = NULL)
             : key(k)
             , value(v)
-            , next(nextptr)
-        {
-        }
+            , next(nextptr) {}
     };
 
     node* head;
     node* tail;
 
-    void deleteHead()
-    {
-        if ((head == tail) && (head == NULL))
-        {
+    void deleteHead() {
+        if ((head == tail) && (head == NULL)) {
             return;
         }
 
         node* delNode = head;
-        if ((head == tail) && (head != NULL))
-        {
+        if ((head == tail) && (head != NULL)) {
             head = tail = NULL;
-        }
-        else
-        {
+        } else {
             head = head->next;
         }
 
         delete delNode;
     }
 
-    void deleteTail()
-    {
-        if ((head == tail) && (tail == NULL))
-        {
+    void deleteTail() {
+        if ((head == tail) && (tail == NULL)) {
             return;
         }
 
         node* delNode = tail;
-        if ((head == tail) && (tail != NULL))
-        {
+        if ((head == tail) && (tail != NULL)) {
             head = tail = NULL;
-        }
-        else
-        {
+        } else {
             node* curr = head;
-            while (curr->next != delNode)
-            {
+            while (curr->next != delNode) {
                 curr = curr->next;
             }
 
@@ -73,13 +58,10 @@ private:
         delete delNode;
     }
 
-    node* getNode(int key)
-    {
+    node* getNode(int key) {
         node* curr = head;
-        while (curr)
-        {
-            if (curr->key == key)
-            {
+        while (curr) {
+            if (curr->key == key) {
                 return curr;
             }
             curr = curr->next;
@@ -88,30 +70,25 @@ private:
     }
 
 public:
-    LinkedList()
-    {
+    LinkedList() {
         head = NULL;
         tail = NULL;
     }
 
-    int getKeyValue(int key)
-    {
+    int getKeyValue(int key) {
         node* addr = getNode(key);
         return (addr != NULL ? addr->value : -1);
     }
 
-    void addNode(int key, int value)
-    {
+    void addNode(int key, int value) {
         node* addr = getNode(key);
-        if (addr != NULL)
-        {
+        if (addr != NULL) {
             addr->value = value;
             return;
         }
 
         node* newNode = new node(key, value);
-        if ((head == tail) && (tail == NULL))
-        {
+        if ((head == tail) && (tail == NULL)) {
             head = tail = newNode;
             return;
         }
@@ -120,41 +97,32 @@ public:
         tail       = newNode;
     }
 
-    void deleteNode(int key)
-    {
-        if ((head == tail) && (head == NULL))
-        {
+    void deleteNode(int key) {
+        if ((head == tail) && (head == NULL)) {
             return;
         }
         node* prevNode = head;
-        if (prevNode->key == key)
-        {
+        if (prevNode->key == key) {
             deleteHead();
             return;
         }
 
         bool found = false;
-        while (prevNode->next)
-        {
-            if ((prevNode->next)->key == key)
-            {
+        while (prevNode->next) {
+            if ((prevNode->next)->key == key) {
                 found = true;
                 break;
             }
             prevNode = prevNode->next;
         }
 
-        if (!found)
-        {
+        if (!found) {
             return;
         }
 
-        if (prevNode->next == tail)
-        {
+        if (prevNode->next == tail) {
             deleteTail();
-        }
-        else
-        {
+        } else {
             node* delNode  = prevNode->next;
             prevNode->next = delNode->next;
             delNode->next  = NULL;
@@ -164,16 +132,14 @@ public:
 };
 
 
-class MyHashMap : protected LinkedList
-{
+class MyHashMap : protected LinkedList {
 private:
     LinkedList* buckets;
 
 public:
     int tsize;
 
-    MyHashMap(int _tsize = 823)
-    {
+    MyHashMap(int _tsize = 823) {
         tsize   = _tsize;
         buckets = new LinkedList[tsize];
     }

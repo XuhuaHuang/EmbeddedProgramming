@@ -10,8 +10,7 @@
 
 #include <iostream>
 
-class Fraction
-{
+class Fraction {
 private:
     int num;
     int den;
@@ -21,25 +20,19 @@ public:
 
     constexpr Fraction(int n, int d)
         : num(n)
-        , den(d)
-    {
-    }
+        , den(d) {}
 
     constexpr Fraction(const Fraction& rhs) = default;
-    virtual ~Fraction() = default;
+    virtual ~Fraction()                     = default;
 
     constexpr const int getnum() const { return this->num; }
     constexpr const int getden() const { return this->den; }
 
-    // conversion operator: return float value of fraction 
-    constexpr operator float() const
-    {
-        return float(getnum()) / float(getden());
-    }
+    // conversion operator: return float value of fraction
+    constexpr operator float() const { return float(getnum()) / float(getden()); }
 };
 
-int main(void)
-{
+int main(void) {
     Fraction f(2, 5); // numerator = 2, denominator = 5
 
     float val = f; // float(val) is overloaded

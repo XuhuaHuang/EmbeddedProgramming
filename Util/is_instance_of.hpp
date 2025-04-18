@@ -17,15 +17,12 @@
 
 #include <iostream>
 
-namespace util
-{
-namespace type
-{
+namespace util {
+namespace type {
 
 /* Template to determine the type of parsed object. */
-template<typename Base, typename T>
-inline bool is_instance_of(const T&)
-{
+template <typename Base, typename T>
+inline bool is_instance_of(const T&) {
     return std::is_base_of<Base, T>::value;
 }
 

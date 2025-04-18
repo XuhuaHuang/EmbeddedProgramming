@@ -18,19 +18,14 @@
 #include <expected>
 #include <iostream>
 
-enum class error
-{
-    compile_time_error,
-    runtime_error
-};
+enum class error { compile_time_error, runtime_error };
 
-[[nodiscard]] auto unexpected_runtime_error() -> std::expected<int, error>
-{
+[[nodiscard]]
+auto unexpected_runtime_error() -> std::expected<int, error> {
     return std::unexpected(error::runtime_error);
 }
 
-int main()
-{
+int main() {
     const auto e = unexpected_runtime_error();
 
     e.and_then([](const auto& e) -> std::expected<int, error> {

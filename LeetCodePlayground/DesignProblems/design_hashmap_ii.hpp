@@ -5,9 +5,8 @@
 #include <utility>
 #include <vector>
 
-template<typename KeyType, typename ValueType>
-class HashNode
-{
+template <typename KeyType, typename ValueType>
+class HashNode {
 public:
     KeyType                       key;
     ValueType                     value;
@@ -15,21 +14,16 @@ public:
     HashNode(const KeyType& key, const ValueType& value)
         : key(key)
         , value(value)
-        , next(nullptr)
-    {
-    }
-    ~HashNode()
-    {
-        if (next != nullptr)
-        {
+        , next(nullptr) {}
+    ~HashNode() {
+        if (next != nullptr) {
             delete next;
         }
     }
 };
 
-template<typename KeyType, typename ValueType, typename Hash = std::hash<KeyType>>
-class HashMap
-{
+template <typename KeyType, typename ValueType, typename Hash = std::hash<KeyType>>
+class HashMap {
 public:
     using key_type        = KeyType;
     using mapped_type     = ValueType;
@@ -49,9 +43,7 @@ public:
     HashMap(size_type bucket_count = 10, const hasher& hash_fn = hasher())
         : buckets(bucket_count)
         , num_elements(0)
-        , hash_function(hash_fn)
-    {
-    }
+        , hash_function(hash_fn) {}
 
     ~HashMap() { clear(); }
 
@@ -59,12 +51,9 @@ public:
 
     bool empty() const { return num_elements == 0; }
 
-    void clear()
-    {
-        for (auto& bucket : buckets)
-        {
-            for (auto& node : bucket)
-            {
+    void clear() {
+        for (auto& bucket : buckets) {
+            for (auto& node : bucket) {
                 delete node;
             }
             bucket.clear();
@@ -72,14 +61,11 @@ public:
         num_elements = 0;
     }
 
-    void insert(const value_type& value)
-    {
+    void insert(const value_type& value) {
         const KeyType& key          = value.first;
         size_type      bucket_index = hash_function(key) % buckets.size();
-        for (auto& node : buckets[bucket_index])
-        {
-            if (node->key == key)
-            {
+        for (auto& node : buckets[bucket_index]) {
+            if (node->key == key) {
                 node->value = value.second;
                 return;
             }
@@ -89,27 +75,23 @@ public:
         ++num_elements;
     }
 
-    void erase(const KeyType& key)
-    {
+    void erase(const KeyType& key) {
         size_type bucket_index = hash_function(key) % buckets.size();
         auto&     bucket       = buckets[bucket_index];
-        auto      iter         = std::find_if(
-            bucket.begin(), bucket.end(), [&](const HashNode<KeyType, ValueType>* node) { return node->key == key; });
-        if (iter != bucket.end())
-        {
+        auto      iter = std::find_if(bucket.begin(), bucket.end(), [&](const HashNode<KeyType, ValueType>* node) {
+            return node->key == key;
+        });
+        if (iter != bucket.end()) {
             delete *iter;
             bucket.erase(iter);
             --num_elements;
         }
     }
 
-    ValueType& operator[](const KeyType& key)
-    {
+    ValueType& operator[](const KeyType& key) {
         size_type bucket_index = hash_function(key) % buckets.size();
-        for (auto& node : buckets[bucket_index])
-        {
-            if (node->key == key)
-            {
+        for (auto& node : buckets[bucket_index]) {
+            if (node->key == key) {
                 return node->value;
             }
         }
@@ -119,13 +101,10 @@ public:
         return node->value;
     }
 
-    const ValueType& at(const KeyType& key) const
-    {
+    const ValueType& at(const KeyType& key) const {
         size_type bucket_index = hash_function(key) % buckets.size();
-        for (const auto& node : buckets[bucket_index])
-        {
-            if (node->key == key)
-            {
+        for (const auto& node : buckets[bucket_index]) {
+            if (node->key == key) {
                 return node->value;
             }
         }

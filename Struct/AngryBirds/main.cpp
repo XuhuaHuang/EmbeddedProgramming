@@ -8,10 +8,10 @@
  *********************************************************************/
 
 #include <iostream>
+
 #include "AngryBirds.h"
 
-int main(void)
-{
+int main(void) {
     AngryBirds bird; // declare a variable belongs to this structure
 
     double initVelocity;
@@ -19,11 +19,11 @@ int main(void)
     double initHeight; // these three variable must be provided
 
     // these variables are going to be calculated
-    //double vx;
-    //double vy;
-    //double timeofFlight;
-    //double distance;
-    //double maximumHeight;
+    // double vx;
+    // double vy;
+    // double timeofFlight;
+    // double distance;
+    // double maximumHeight;
 
     std::cout << "\nInitializing..." << "\n";
     initialize(&bird);

@@ -2,27 +2,22 @@
 
 #include "binary_tree_node.hpp"
 
-class Solution
-{
-    template<typename T>
+class Solution {
+    template <typename T>
     using queue = std::queue<T>;
 
 public:
-    bool isCompleteTree(TreeNode* root)
-    {
+    bool isCompleteTree(TreeNode* root) {
         queue<TreeNode*> q;
         q.push(root);
         int i = 0, f = 0;
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             auto node = q.front();
             q.pop();
-            if (f && node != NULL)
-            {
+            if (f && node != NULL) {
                 return false;
             }
-            if (node == NULL)
-            {
+            if (node == NULL) {
                 f = 1;
                 continue;
             }

@@ -9,36 +9,32 @@
 #include <iostream>
 #include <string>
 
-class Schedule
-{
+class Schedule {
 public:
     // set and get functions
-    void setCourseName(std::string userCourseName) { courseName = userCourseName; }
+    void        setCourseName(std::string userCourseName) { courseName = userCourseName; }
     std::string getCourseName() { return courseName; }
 
     void setStudentID(int userStudentID) { studentID = userStudentID; }
-    int getStudentID() { return studentID; }
+    int  getStudentID() { return studentID; }
 
     // other function prototype
     void setInfo(std::string userCourseName = "Unknown", int userStudentID = 0);
     void printSchedule() {
-        std::cout << "\nCourse " << courseName
-            << " is assigned to student " << studentID << "." << "\n";
+        std::cout << "\nCourse " << courseName << " is assigned to student " << studentID << "." << "\n";
     }
 
 private:
     std::string courseName;
-    int studentID;
+    int         studentID;
 };
 
-void Schedule::setInfo(std::string userCourseName, int userStudentID)
-{
+void Schedule::setInfo(std::string userCourseName, int userStudentID) {
     setCourseName(userCourseName);
     setStudentID(userStudentID);
 }
 
-int main(void)
-{
+int main(void) {
     // test case 1
     // pass setInfo() both courseName and studentID
     Schedule fall2020;

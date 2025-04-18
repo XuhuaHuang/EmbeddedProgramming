@@ -9,9 +9,10 @@
  *
  */
 
+#include <stdlib.h>
+
 #include <iostream>
 #include <stack>
-#include <stdlib.h>
 #include <string>
 
 /* Create a stack containing all the brackets need matching */
@@ -19,8 +20,7 @@ std::stack<std::string> brackets;
 
 const std::string brackets_need_matching{"[[{{()}}]]"};
 
-namespace algo
-{
+namespace algo {
 
 using Status = bool;
 
@@ -30,22 +30,16 @@ using Status = bool;
  * @param sequence The string containing brackets to check.
  * @return true if all brackets are matched correctly, false otherwise.
  */
-Status match_brackets(const std::string& sequence)
-{
+Status match_brackets(const std::string& sequence) {
     std::stack<char> brackets;
 
-    for (const char bracket : sequence)
-    {
-        if (bracket == '[' || bracket == '{' || bracket == '(')
-        {
+    for (const char bracket : sequence) {
+        if (bracket == '[' || bracket == '{' || bracket == '(') {
             // Push opening brackets onto the stack
             brackets.push(bracket);
-        }
-        else if (bracket == ']' || bracket == '}' || bracket == ')')
-        {
+        } else if (bracket == ']' || bracket == '}' || bracket == ')') {
             // Ensure the stack is not empty
-            if (brackets.empty())
-            {
+            if (brackets.empty()) {
                 std::cerr << "Unmatched closing bracket: " << bracket << "\n";
                 return false;
             }
@@ -53,24 +47,20 @@ Status match_brackets(const std::string& sequence)
             // Retrieve the top bracket from the stack
             char top = brackets.top();
             // Check for mismatched brackets
-            if ((bracket == ']' && top != '[') || (bracket == '}' && top != '{') || (bracket == ')' && top != '('))
-            {
+            if ((bracket == ']' && top != '[') || (bracket == '}' && top != '{') || (bracket == ')' && top != '(')) {
                 std::cerr << "Mismatched bracket: " << bracket << "\n";
                 return false;
             }
             // Pop the matching opening bracket
             brackets.pop();
-        }
-        else
-        {
+        } else {
             std::cerr << "Invalid character: " << bracket << "\n";
             return false;
         }
     }
 
     // Ensure no unmatched opening brackets remain
-    if (!brackets.empty())
-    {
+    if (!brackets.empty()) {
         std::cerr << "Unmatched opening brackets remain in the stack.\n";
         return false;
     }
@@ -91,15 +81,11 @@ Status match_brackets(const std::string& sequence)
  * @return int Returns EXIT_SUCCESS if all brackets are matched correctly,
  * otherwise returns EXIT_FAILURE.
  */
-int main()
-{
-    if (algo::match_brackets(brackets_need_matching))
-    {
+int main() {
+    if (algo::match_brackets(brackets_need_matching)) {
         std::cout << "All brackets matched successfully!\n";
         return EXIT_SUCCESS;
-    }
-    else
-    {
+    } else {
         return EXIT_FAILURE;
     }
 }

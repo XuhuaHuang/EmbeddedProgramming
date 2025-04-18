@@ -10,7 +10,7 @@
  *
  * For any matrices A and B that can multiplied, det(AB) == det(A)det(B).
  *
- * @copyright ueg (c) 2023
+ * @copyright Copyright (c) 2023
  *
  */
 
@@ -22,11 +22,14 @@
 #include <concepts>
 #include <type_traits>
 
-template<typename T>
+namespace robotics {
+template <typename T>
 [[nodiscard]]
-inline constexpr T det(const matrix_t<T, 1, 1>& M) noexcept
-{
+constexpr inline T det(const matrix_t<T, 1, 1>& M) noexcept {
     return M[0][0];
 }
+
+
+} // namespace robotics
 
 #endif // !MATRIX_DETERMINANT_HPP

@@ -22,8 +22,7 @@
 
 #include <string>
 
-class String
-{
+class String {
 public:
     String(const char* const ch); // Declare constructor
     ~String();                    // and destructor.
@@ -33,8 +32,7 @@ private:
 };
 
 // Define the constructor.
-String::String(const char* const ch)
-{
+String::String(const char* const ch) {
     sizeOfText = strlen(ch) + 1;
 
     // Dynamically allocate the correct amount of memory.
@@ -46,15 +44,13 @@ String::String(const char* const ch)
 }
 
 // Define the destructor.
-String::~String()
-{
+String::~String() {
     // Deallocate the memory that was previously reserved
     //  for this string.
     delete[] _text;
 }
 
-int main(void)
-{
+int main(void) {
     String str("Hello, world!");
     return 0;
 }

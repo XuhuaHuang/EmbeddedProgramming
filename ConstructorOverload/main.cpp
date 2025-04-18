@@ -9,12 +9,11 @@
 
 #include <iostream>
 
-#include "TIme.hpp"
-#include "Rectangle.hpp"
 #include "Point.hpp"
+#include "Rectangle.hpp"
+#include "TIme.hpp"
 
-int main(void)
-{
+int main(void) {
     int choice;
     std::cout << "Which one is the case you want to test?" << "\n";
     std::cout << "\tEnter 1 for time.\n\tEnter 2 for rectangle.\n\tEnter 3 for point." << "\n";
@@ -44,13 +43,13 @@ int main(void)
 
         // test cases and print function
         userTime.setTime(12, 34); // valid hour, minute; should call Time::setTime(int , int)
-        userTime.printTime(); // 12:34:00
+        userTime.printTime();     // 12:34:00
 
         userTime.setTime(25, 34); // invalid hour and valid minute; should call Time::setTime(int, int)
-        userTime.printTime(); // 00:34:00
+        userTime.printTime();     // 00:34:00
 
-        userTime.setTime(12, 60); // valid hour and invalid minute; should call Time::setTime(int, int)	
-        userTime.printTime(); // 12:00:00
+        userTime.setTime(12, 60); // valid hour and invalid minute; should call Time::setTime(int, int)
+        userTime.printTime();     // 12:00:00
 
         userTime.setTime(23); // valid hour; should call Time::setTime(int userHour);
         userTime.printTime(); // 23:00:00
@@ -67,13 +66,12 @@ int main(void)
 
         Time time4(12); // 12:00:00
         time4.printTime();
-    }
-    else if (choice == 2) // Rectangle main
+    } else if (choice == 2) // Rectangle main
     {
         Rectangle object1;
         std::cout << "A rectangle has been automatically created for you." << "\n";
         std::cout << "The length of the object is: " << object1.getlength() << "\n"; // prints 0
-        std::cout << "The width of the object is: " << object1.getwidth() << "\n"; // prints 0
+        std::cout << "The width of the object is: " << object1.getwidth() << "\n";   // prints 0
 
         std::cout << "\nWould you like to initialize it yourself?" << "\n";
         std::cout << "Enter 1 for yes or anything else to quit." << "\n";
@@ -93,21 +91,21 @@ int main(void)
 
             Rectangle object2(userlength, userwidth); // object2 is created HERE with overloaded constructor
             std::cout << "The length of the object is: " << object2.getlength() << "\n"; // prints length
-            std::cout << "The width of the object is: " << object2.getwidth() << "\n"; // prints width
+            std::cout << "The width of the object is: " << object2.getwidth() << "\n";   // prints width
 
             object2.calcArea(object2.getlength(), object2.getwidth()); // area is calculated
-            std::cout << "The area of the rectangle you just initialized is: " << object2.getarea() << "\n"; // prints the area
+            std::cout << "The area of the rectangle you just initialized is: " << object2.getarea()
+                      << "\n"; // prints the area
 
             object2.calcPerimeter(object2.getlength(), object2.getwidth()); // area is calculated
-            std::cout << "The perimeter of the rectangle you just initialized is: " << object2.getperimeter() << "\n"; // prints the perimeter
+            std::cout << "The perimeter of the rectangle you just initialized is: " << object2.getperimeter()
+                      << "\n"; // prints the perimeter
         } // end if
-        else
-        {
+        else {
             std::cout << "Have a nice day." << "\n";
         } // end else
 
-    }
-    else if (choice == 3) // point main
+    } else if (choice == 3) // point main
     {
         Point number1; // calling the default constructor
         std::cout << number1.getx() << "\n";
@@ -116,8 +114,7 @@ int main(void)
         Point number2(10, 10); // calling the overloaded constructor
         std::cout << number2.getx() << "\n";
         std::cout << number2.gety() << "\n";
-    }
-    else { // other inputs, considered as invalid
+    } else { // other inputs, considered as invalid
         std::cout << "see ya. xD" << "\n";
     }
 

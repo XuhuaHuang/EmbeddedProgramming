@@ -1,11 +1,12 @@
 #include <tuple>
 
-[[nodiscard]] constexpr auto first_and_last(auto first, auto last)
-{
+[[nodiscard]]
+constexpr auto first_and_last(auto first, auto last) {
     return std::tuple{first, last};
 }
 
-[[nodiscard]] constexpr auto first_and_last(auto... args)
+[[nodiscard]]
+constexpr auto first_and_last(auto... args)
     requires (sizeof...(args) >= 2)
 {
     auto [first, ... ts] = std::tuple{args...};
@@ -13,8 +14,7 @@
     return std::tuple{first, std::get<sizeof...(ts) - 1>(tail)};
 }
 
-int main()
-{
+int main() {
     using namespace boost::ut;
 
     "first and last"_test = [] {

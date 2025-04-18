@@ -9,16 +9,14 @@
 #include <cmath>
 #include <iostream>
 
-int main(void)
-{
+int main(void) {
     // add num 1-100 using while loop
     std::cout << "Adding number 1-100 with while loop."
               << "\n";
     int sum      = 0;
     int numtoAdd = 0;
 
-    while (numtoAdd < 101)
-    {
+    while (numtoAdd < 101) {
         sum += numtoAdd;
         // sum = sum + numtoAdd;
         numtoAdd++;
@@ -31,8 +29,7 @@ int main(void)
               << "\n";
     long long product       = 1;
     int       numtoMultiply = 1;
-    while (numtoMultiply < 21)
-    {
+    while (numtoMultiply < 21) {
         product *= numtoMultiply;
         numtoMultiply++;
     }
@@ -61,8 +58,7 @@ int main(void)
     */
 
     // with do-whil loop:
-    do
-    {
+    do {
         userInput /= 10;
         numDigits++;
     } while (userInput);
@@ -86,8 +82,7 @@ int main(void)
     double term   = 0.0; // i_th term = sign / index
     double sign   = 1.0;
 
-    for (int i = 1; i <= numFraction; i++)
-    {
+    for (int i = 1; i <= numFraction; i++) {
         term = sign / numFraction;
         result += term;
         sign *= -1;
@@ -95,8 +90,7 @@ int main(void)
     std::cout << "With " << numFraction << " number of fractions, the result of the series is: " << result << "\n";
 
     // output all the even number within the range of 1-100
-    for (int i = 1; i <= 100; i++)
-    {
+    for (int i = 1; i <= 100; i++) {
         if (i % 2 == 0)
             std::cout << i << " is an even numer"
                       << "\n";
@@ -111,10 +105,8 @@ int main(void)
     int numCh;
     std::cin >> numCh;
 
-    for (int i = 0; i < numCh; i++)
-    {
-        for (int j = 0; j < (i + 1); j++)
-        {
+    for (int i = 0; i < numCh; i++) {
+        for (int j = 0; j < (i + 1); j++) {
             std::cout << userCh;
         }
         std::cout << "\n";

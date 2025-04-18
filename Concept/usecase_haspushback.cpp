@@ -6,15 +6,13 @@
  * \date   November 15, 2022
  *********************************************************************/
 
-#include "HasPushBack.hpp"
-#include <vector>
 #include <set>
+#include <vector>
+
+#include "HasPushBack.hpp"
 
 namespace {
 
-    void coll_append(HasPushBack auto& coll, const auto& val) {
-        coll.push_back(val);
-        return;
     }
 
     /* Ad-hoc style HasInsert concept implementation */

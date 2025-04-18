@@ -12,9 +12,10 @@
  *********************************************************************/
 // clang-format on
 
+#include <stdlib.h>
+
 #include <algorithm>
 #include <iostream>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -32,13 +33,11 @@
  * 2) any of a and b is multiple of 60.
  */
 
-bool is_multiple_of_60(const int num)
-{
+bool is_multiple_of_60(const int num) {
     return num % 60 == 0;
 }
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     using namespace util::vector;
 
     std::vector<int> input = {30, 60, 90, 120};
@@ -48,19 +47,13 @@ int main(int argc, char** argv)
     int              count = 0;
     std::vector<int> result;
 
-    for (int i = 0; i < 4; ++i)
-    {
-        if (is_multiple_of_60(input[i]))
-        {
+    for (int i = 0; i < 4; ++i) {
+        if (is_multiple_of_60(input[i])) {
             count++;
             result.push_back(input[i]);
-        }
-        else
-        {
-            for (int j = 1; j <= input.size(); ++j)
-            {
-                if (is_multiple_of_60(input[i] + input[j]) == true)
-                {
+        } else {
+            for (int j = 1; j <= input.size(); ++j) {
+                if (is_multiple_of_60(input[i] + input[j]) == true) {
                     count++;
                     result.push_back(input[i] + input[j]);
                 }

@@ -11,17 +11,15 @@
 
 #include <dlib/data_io.h>
 #include <dlib/dnn.h>
+
 #include <iostream>
 
 // using namespace std;
 using namespace dlib;
 
-int main(int argc, char** argv)
-try
-{
+int main(int argc, char** argv) try {
     // This example is going to run on the MNIST dataset.
-    if (argc != 2)
-    {
+    if (argc != 2) {
         std::cout << "This example needs the MNIST dataset to run!"
                   << "\n";
         std::cout << "You can get MNIST from http://yann.lecun.com/exdb/mnist/"
@@ -65,19 +63,12 @@ try
     using net_type = loss_multiclass_log<fc<
         10,
         relu<fc<
-            84,
-            relu<fc<
-                120,
-                max_pool<2,
-                         2,
-                         2,
-                         2,
-                         relu<con<16,
-                                  5,
-                                  5,
-                                  1,
-                                  1,
-                                  max_pool<2, 2, 2, 2, relu<con<6, 5, 5, 1, 1, input<matrix<unsigned char>>>>>>>>>>>>>>;
+            84, relu<fc<
+                    120, max_pool<
+                             2, 2, 2, 2,
+                             relu<con<
+                                 16, 5, 5, 1, 1,
+                                 max_pool<2, 2, 2, 2, relu<con<6, 5, 5, 1, 1, input<matrix<unsigned char>>>>>>>>>>>>>>;
     // This net_type defines the entire network architecture.  For example, the block
     // relu<fc<84,SUBNET>> means we take the output from the subnetwork, pass it through a
     // fully connected layer with 84 outputs, then apply ReLU.  Similarly, a block of
@@ -129,8 +120,7 @@ try
     int                        num_right        = 0;
     int                        num_wrong        = 0;
     // And then let's see if it classified them correctly.
-    for (size_t i = 0; i < training_images.size(); ++i)
-    {
+    for (size_t i = 0; i < training_images.size(); ++i) {
         if (predicted_labels[i] == training_labels[i])
             ++num_right;
         else
@@ -145,8 +135,7 @@ try
     predicted_labels = net(testing_images);
     num_right        = 0;
     num_wrong        = 0;
-    for (size_t i = 0; i < testing_images.size(); ++i)
-    {
+    for (size_t i = 0; i < testing_images.size(); ++i) {
         if (predicted_labels[i] == testing_labels[i])
             ++num_right;
         else
@@ -161,8 +150,6 @@ try
     // something with the network in another tool.  For example, you could use dlib's
     // tools/convert_dlib_nets_to_caffe to convert the network to a caffe model.
     net_to_xml(net, "lenet.xml");
-}
-catch (std::exception& e)
-{
+} catch (std::exception& e) {
     std::cout << e.what() << "\n";
 }

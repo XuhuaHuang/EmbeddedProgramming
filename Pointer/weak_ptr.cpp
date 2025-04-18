@@ -4,36 +4,36 @@
  * @brief Demonstration of weak_ptr feature in C++11.
  * @version 0.1
  * @date 2021-11-26
- * 
+ *
  * To compile on Windows:
  * $ g++ -o weak_ptr.exe .\weak_ptr.cpp -std=c++11
  * $ .\weak_ptr.exe
- * 
+ *
  * @copyright Copyright (c) 2021
- * 
+ *
  */
+
+#include <stdlib.h>
 
 #include <iostream>
 #include <memory>
-#include <stdlib.h>
 
 #if __cplusplus < 201103L
-    #error "Should use C++ 11 implementation!"
+#error "Should use C++ 11 implementation!"
 #endif
 
 void check_weak_ptr(std::weak_ptr<int>& wp) {
     /* std::weak_ptr::lock() returns a rvalue of std::shared_ptr object. */
     std::shared_ptr<int> sp = wp.lock();
     // if the memory wp points to is no longer valid, it returns nullptr.
-    
+
     /* Check the content of sp. */
     if (sp != nullptr) {
         std::cout << "Pointer is valid: " << *sp << "\n";
-    } 
-    else {
+    } else {
         std::cout << "Pointer is invalid." << "\n";
     }
-    
+
     /* Empty return statement for consistency of the control flow. */
     return;
 }

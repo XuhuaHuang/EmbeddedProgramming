@@ -15,23 +15,18 @@
 #include <iostream>
 #include <type_traits>
 
-template<typename T>
-void print_array_info(const T& arr)
-{
+template <typename T>
+void print_array_info(const T& arr) {
     // std::is_array<T>::value
     // std::is_array_v<T>
-    if constexpr (std::is_array_v<T>)
-    {
+    if constexpr (std::is_array_v<T>) {
         std::cout << "Array of size " << std::extent_v<T> << "\n";
-    }
-    else
-    {
+    } else {
         std::cout << "Not an array" << "\n";
     }
 }
 
-int main()
-{
+int main() {
     int arr[5]  = {1, 2, 3, 4, 5};
     int not_arr = 5;
 

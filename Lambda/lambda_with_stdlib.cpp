@@ -24,19 +24,16 @@
 
 #include "../Helper/container_ordering.hpp"
 
-struct Person
-{
+struct Person {
 public:
     constexpr Person() noexcept(std::is_nothrow_constructible_v<std::string>) = default;
 
-    constexpr explicit Person(const std::string&  first_name,
-                              const std::string&  last_name,
-                              const std::uint32_t age) noexcept(std::is_nothrow_copy_constructible_v<std::string>)
+    constexpr explicit Person(
+        const std::string& first_name, const std::string& last_name, const std::uint32_t age
+    ) noexcept(std::is_nothrow_copy_constructible_v<std::string>)
         : first_name_(first_name)
         , last_name_(last_name)
-        , age_(age)
-    {
-    }
+        , age_(age) {}
 
     // clang-format off
     template<typename Self>
@@ -57,8 +54,7 @@ public:
 
     friend constexpr inline auto operator<=>(const Person& lhs, const Person& rhs) = default;
 
-    inline bool operator==(const Person& rhs) const
-    {
+    inline bool operator==(const Person& rhs) const {
         return (firstname() == rhs.firstname()) && (lastname() == rhs.lastname()) && (age() == rhs.age());
     }
 
@@ -68,14 +64,12 @@ private:
     std::uint32_t age_;
 };
 
-inline std::ostream& operator<<(std::ostream& os, const Person& person) noexcept
-{
+inline std::ostream& operator<<(std::ostream& os, const Person& person) noexcept {
     os << person.firstname() << " " << person.lastname() << " of age " << person.age();
     return os;
 }
 
-inline std::ostream& operator<<(std::ostream& os, const std::vector<Person>& people) noexcept
-{
+inline std::ostream& operator<<(std::ostream& os, const std::vector<Person>& people) noexcept {
     for (const auto& person : people)
         os << person << "\n";
     return os;
@@ -85,31 +79,26 @@ auto compare_people = [](const Person& lhs, const Person& rhs) {
     return ((lhs.age() < rhs.age()) && (lhs.firstname() < rhs.firstname()) && (lhs.lastname() < rhs.lastname()));
 };
 
-namespace std
-{
+namespace std {
 
-template<>
-struct tuple_size<Person>
-{
+template <>
+struct tuple_size<Person> {
     static constexpr size_t value = 3;
 };
 
-template<size_t I>
-struct tuple_element<I, Person>
-{
+template <size_t I>
+struct tuple_element<I, Person> {
     using type = string;
 };
 
-template<>
-struct tuple_element<2, Person>
-{
+template <>
+struct tuple_element<2, Person> {
     using type = uint32_t;
 };
 
-template<size_t I>
+template <size_t I>
     requires (I < tuple_size<Person>::value)
-decltype(auto) get(Person& person)
-{
+decltype(auto) get(Person& person) {
     if constexpr (I == 0)
         return person.firstname();
     else if constexpr (I == 1)
@@ -118,10 +107,9 @@ decltype(auto) get(Person& person)
         return person.age();
 }
 
-template<size_t I>
+template <size_t I>
     requires (I < tuple_size<Person>::value)
-decltype(auto) get(const Person& person)
-{
+decltype(auto) get(const Person& person) {
     if constexpr (I == 0)
         return person.firstname();
     else if constexpr (I == 1)
@@ -130,10 +118,9 @@ decltype(auto) get(const Person& person)
         return person.age();
 }
 
-template<size_t I>
+template <size_t I>
     requires (I < tuple_size<Person>::value)
-decltype(auto) get(Person&& person)
-{
+decltype(auto) get(Person&& person) {
     if constexpr (I == 0)
         return person.firstname();
     else if constexpr (I == 1)
@@ -144,8 +131,7 @@ decltype(auto) get(Person&& person)
 
 } // namespace std
 
-int main(void)
-{
+int main(void) {
     static_assert(std::tuple_size<Person>::value == 3);
     static_assert(std::is_same<std::tuple_element<0U, Person>::type, std::string>::value);
     static_assert(std::is_same<std::tuple_element<1U, Person>::type, std::string>::value);

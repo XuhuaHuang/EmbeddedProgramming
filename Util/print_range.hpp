@@ -19,34 +19,26 @@
 #include <ranges>
 #endif
 
-namespace util
-{
-namespace range
-{
+namespace util {
+namespace range {
 
-void print_range(std::ranges::viewable_range auto&& range, bool need_delim = false, size_t depth = 0)
-{
+void print_range(std::ranges::viewable_range auto&& range, bool need_delim = false, size_t depth = 0) {
     std::cout << "[";
 
     bool first_token = false;
 
-    for (auto& v : range)
-    {
-        if (first_token && need_delim)
-        {
+    for (auto& v : range) {
+        if (first_token && need_delim) {
             std::cout << ", ";
         }
 
         // continue to recursively call current function
         // if it is still a range
         // or else print it as a normal element
-        if constexpr (requires { print_range(v); })
-        {
-            if (first_token)
-            {
+        if constexpr (requires { print_range(v); }) {
+            if (first_token) {
                 std::cout << "\n";
-                for (auto d = 0; d < depth + 1; ++d)
-                {
+                for (auto d = 0; d < depth + 1; ++d) {
                     std::cout << " ";
                 }
             }
@@ -54,8 +46,7 @@ void print_range(std::ranges::viewable_range auto&& range, bool need_delim = fal
         }
         // require overloaded operator
         // might be neccessary for a range of customized objects
-        else if constexpr (requires operator<<(std::ostream& out, v)->std::ostream&)
-        {
+        else if constexpr (requires operator<<(std::ostream& out, v)->std::ostream&) {
             std::cout << v; // single dimension range
         }
 

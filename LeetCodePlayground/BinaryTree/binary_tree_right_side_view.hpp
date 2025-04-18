@@ -1,19 +1,15 @@
 // https://leetcode.com/problems/binary-tree-right-side-view
 
-class Solution
-{
+class Solution {
 public:
-    inline void solve(TreeNode* root, vector<int>& ans, int level)
-    {
+    inline void solve(TreeNode* root, vector<int>& ans, int level) {
         // base case
-        if (root == NULL)
-        {
+        if (root == NULL) {
             return;
         }
 
         // we entered a new level
-        if (level == ans.size())
-        {
+        if (level == ans.size()) {
             ans.push_back(root->val);
         }
 
@@ -21,8 +17,7 @@ public:
         solve(root->left, ans, level + 1);
     }
 
-    vector<int> rightSideView(TreeNode* root)
-    {
+    vector<int> rightSideView(TreeNode* root) {
         vector<int> ans;
         int         level = 0;
 

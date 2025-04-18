@@ -11,8 +11,7 @@
 #ifndef DATE_HPP
 #define DATE_HPP
 
-class Date
-{
+class Date {
 private:
     int year;
     int month;
@@ -33,51 +32,38 @@ public:
     int getYear() { return year; }
 };
 
-Date::Date(int userYear, int userMonth, int userDay)
-{
+Date::Date(int userYear, int userMonth, int userDay) {
     setYear(userYear);
     setMonth(userMonth);
     setDay(userDay);
 }
 
-void Date::setYear(int userYear)
-{
-    if (userYear >= 1900)
-    {
+void Date::setYear(int userYear) {
+    if (userYear >= 1900) {
         year = userYear;
-    }
-    else
-    {
+    } else {
         std::cout << "\n[fn]Invalid value. Setting year to 1900" << "\n";
         year = 1900;
     }
     return;
 }
 
-void Date::setMonth(int userMonth)
-{
-    if ((userMonth > 0) && (userMonth <= 12))
-    {
+void Date::setMonth(int userMonth) {
+    if ((userMonth > 0) && (userMonth <= 12)) {
         month = userMonth;
-    }
-    else
-    {
-        //std::cout << "Invalid month value. Setting month to 1." << "\n";
+    } else {
+        // std::cout << "Invalid month value. Setting month to 1." << "\n";
         month = 1;
     }
 
     return;
 }
 
-void Date::setDay(int userDay)
-{
-    if ((userDay > 0) && (userDay <= 31))
-    {
+void Date::setDay(int userDay) {
+    if ((userDay > 0) && (userDay <= 31)) {
         day = userDay;
-    }
-    else
-    {
-        //std::cout << "Invalid day value. Setting day to 1." << "\n";
+    } else {
+        // std::cout << "Invalid day value. Setting day to 1." << "\n";
         day = 1;
     }
 

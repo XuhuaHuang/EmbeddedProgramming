@@ -21,67 +21,65 @@
 #endif
 
 /**
-* preprocessing directive below requires gcc 12.0 and standard C++23
-* https://en.cppreference.com/w/cpp/preprocessor/conditional
-*/
-//#ifndef _IOSTREAM_
-//#include <iostream>
-//#elifndef _STRING_
-//#include <string>
-//#endif
+ * preprocessing directive below requires gcc 12.0 and standard C++23
+ * https://en.cppreference.com/w/cpp/preprocessor/conditional
+ */
+// #ifndef _IOSTREAM_
+// #include <iostream>
+// #elifndef _STRING_
+// #include <string>
+// #endif
 
 namespace util {
-    namespace interface {
+namespace interface {
 
-        class Uncopyable;
+class Uncopyable;
 
-        template<typename T>
-        class Comparable
-        {
-        public:
-            Comparable() = default;
-            virtual ~Comparable() = default;
-        protected:
-            virtual bool operator< (const Comparable&) = 0;
-            virtual bool operator<=(const Comparable&) = 0;
-            virtual bool operator==(const Comparable&) = 0;
-            virtual bool operator> (const Comparable&) = 0;
-            virtual bool operator>=(const Comparable&) = 0;
-        };
+template <typename T>
+class Comparable {
+public:
+    Comparable()          = default;
+    virtual ~Comparable() = default;
 
-        class Printable
-        {
-        public:
-            inline virtual std::string getClassName() = 0;
-            inline virtual std::string getClassName() const = 0;
-            virtual ~Printable() = default;
-        };
+protected:
+    virtual bool operator<(const Comparable&)  = 0;
+    virtual bool operator<=(const Comparable&) = 0;
+    virtual bool operator==(const Comparable&) = 0;
+    virtual bool operator>(const Comparable&)  = 0;
+    virtual bool operator>=(const Comparable&) = 0;
+};
 
-        inline void print_class_name(Printable* const printable) {
-            std::cout << "util::interface::print_class_name(): "
-                << __FILE__ << " " << __LINE__ << printable->getClassName() << "\n";
-        }
+class Printable {
+public:
+    inline virtual std::string getClassName()       = 0;
+    inline virtual std::string getClassName() const = 0;
+    virtual ~Printable()                            = default;
+};
 
-        class Uncopyable
-        {
-        protected:
-            // allow construction and destruction of derived class objects
-            Uncopyable() = default;
-            virtual ~Uncopyable() = default;
+inline void print_class_name(Printable* const printable) {
+    std::cout << "util::interface::print_class_name(): " << __FILE__ << " " << __LINE__ << printable->getClassName()
+              << "\n";
+}
 
-        private:
-            // compiler sees these function, will attempt to call
-            // declared as private, will not be called succesfully
-            Uncopyable(const Uncopyable&) {};
-            Uncopyable(Uncopyable&&) noexcept {};
-            Uncopyable(const Uncopyable&&) noexcept {};
-            Uncopyable& operator=(const Uncopyable&) {};
-            Uncopyable& operator=(Uncopyable&&) noexcept {};
-            Uncopyable& operator=(const Uncopyable&&) noexcept {};
-            bool operator==(const Uncopyable&) {};
-        };
+class Uncopyable {
+protected:
+    // allow construction and destruction of derived class objects
+    Uncopyable()          = default;
+    virtual ~Uncopyable() = default;
 
-    } // end util::interface
-} // end util
+private:
+    // compiler sees these function, will attempt to call
+    // declared as private, will not be called succesfully
+    Uncopyable(const Uncopyable&) {}
+    Uncopyable(Uncopyable&&) noexcept {}
+    Uncopyable(const Uncopyable&&) noexcept {}
+    Uncopyable& operator=(const Uncopyable&) {}
+    Uncopyable& operator=(Uncopyable&&) noexcept {}
+    Uncopyable& operator=(const Uncopyable&&) noexcept {}
+    bool        operator==(const Uncopyable&) {}
+};
+
+} // namespace interface
+} // namespace util
 
 #endif // INTERFACE_HPP

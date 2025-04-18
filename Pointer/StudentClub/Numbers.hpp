@@ -20,26 +20,25 @@
 #include <iostream>
 #endif
 
-class Numbers
-{
+class Numbers {
 public:
     // set and get functions:
     void setSize(int newSize) { size = newSize; }
-    int getSize() { return size; }
+    int  getSize() { return size; }
 
-    void setPtrNum(double* newPtrNum) { ptrNumber = newPtrNum; }
+    void    setPtrNum(double* newPtrNum) { ptrNumber = newPtrNum; }
     double* getPtrNum() { return ptrNumber; }
 
     // overloaded constructor and destructor:
     Numbers(int sizeOfArray); // overloaded constructor
     ~Numbers();
 
-    void store(int arrayIndex, double numToAdd);
+    void   store(int arrayIndex, double numToAdd);
     double retrieve(int arrayIndex);
     double average();
 
 private:
-    int size;
+    int     size;
     double* ptrNumber;
 };
 
@@ -49,12 +48,11 @@ Numbers::Numbers(int sizeofArray) // overloaded constructor with signed std::cou
     ptrNumber = new double[getSize()];
 
     std::cout << "\n[OLCONST]\"Numbers::Numbers(int) is called by compiller." << "\n"
-        << "[OLCONST]Size of array noe set to: " << getSize() << "\n"
-        << "[OLCONST]Pointer to array initialized." << "\n";
+              << "[OLCONST]Size of array noe set to: " << getSize() << "\n"
+              << "[OLCONST]Pointer to array initialized." << "\n";
 }
 
-Numbers::~Numbers()
-{
+Numbers::~Numbers() {
     std::cout << "\n[DEST]Destructing...Deleting array pointer..." << "\n";
 
     delete ptrNumber;
@@ -62,31 +60,27 @@ Numbers::~Numbers()
     std::cout << "[DEST]Done. Array pointer erased." << "\n";
 }
 
-void Numbers::store(int arrayIndex, double numToAdd)
-{
+void Numbers::store(int arrayIndex, double numToAdd) {
     *(ptrNumber + arrayIndex) = numToAdd;
 
     std::cout << "\n[fn]New element added to index: " << arrayIndex << "\n"
-        << "[fn]Content of added element: " << numToAdd << "\n";
+              << "[fn]Content of added element: " << numToAdd << "\n";
 
     return;
 }
 
-double Numbers::retrieve(int arrayIndex)
-{
+double Numbers::retrieve(int arrayIndex) {
     double value = *(ptrNumber + arrayIndex);
 
     std::cout << "\n[fn]Retreiving element at index: " << arrayIndex << "\n"
-        << "[fn]Content of retreived element: " << value << "\n";
+              << "[fn]Content of retreived element: " << value << "\n";
 
     return value;
 }
 
-double Numbers::average()
-{
+double Numbers::average() {
     double sum = 0;
-    for (int i = 0; i < getSize(); i++)
-    {
+    for (int i = 0; i < getSize(); i++) {
         std::cout << "\n[fn]Retrieving element indexed: " << i << " from the average() function";
         sum += retrieve(i);
     }
@@ -96,4 +90,3 @@ double Numbers::average()
 }
 
 #endif
-

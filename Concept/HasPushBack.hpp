@@ -15,9 +15,7 @@
 
 #include <concepts>
 
-template<typename Container>
-concept HasPushBack = requires (Container c, typename Container::value_type v) {
-    c.push_back(v);
-};
+template <typename Container>
+concept HasPushBack = requires (Container c, typename Container::value_type v) { c.push_back(v); };
 
 #endif

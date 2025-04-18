@@ -12,24 +12,22 @@
  *********************************************************************/
 // clang-format on
 
-#include <iostream>
 #include <math.h>
 
-int main(void)
-{
+#include <iostream>
+
+int main(void) {
     int current{1}; // current = previous + secondPrevious
     int previous{1};
     int secondPrevious{1};
 
     std::cout << previous << " " << current << " ";
 
-    for (int i = 3; i <= 25; i++)
-    {
+    for (int i = 3; i <= 25; i++) {
         current = previous + secondPrevious;
         std::cout << current << " ";
 
-        if (i % 5 == 0)
-        {
+        if (i % 5 == 0) {
             std::cout << "\n";
         }
 

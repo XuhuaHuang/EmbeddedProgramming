@@ -9,19 +9,17 @@
  *
  */
 
+#include <gtest/gtest.h>
+
+#include <algorithm>
+#include <valarray>
+
 #include "array_transcend.hpp"
 #include "gos.hpp"
 
-#include <algorithm>
-#include <gtest/gtest.h>
-#include <valarray>
-
-namespace helper
-{
-namespace array_transcend
-{
-namespace test
-{
+namespace helper {
+namespace array_transcend {
+namespace test {
 
 } // namespace test
 } // namespace array_transcend

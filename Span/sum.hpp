@@ -14,10 +14,8 @@
 
 #include <numeric>
 
-namespace util
-{
-namespace span
-{
+namespace util {
+namespace span {
 
 // clang-format off
 constexpr auto sum = []([[maybe_unused]] auto s) -> auto {

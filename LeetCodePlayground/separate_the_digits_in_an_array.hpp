@@ -1,16 +1,12 @@
 // https://leetcode.com/problems/separate-the-digits-in-an-array/
 
-class Solution
-{
+class Solution {
 public:
-    vector<int> separateDigits(vector<int>& nums)
-    {
+    vector<int> separateDigits(vector<int>& nums) {
         vector<int> ans;
-        for (const int num : nums)
-        {
+        for (const int num : nums) {
             string tmp = to_string(num);
-            for (const char s : tmp)
-            {
+            for (const char s : tmp) {
                 ans.push_back(s - '0');
             }
         }

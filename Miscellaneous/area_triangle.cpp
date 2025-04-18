@@ -12,8 +12,7 @@
 #include <cmath>
 #include <iostream>
 
-int main(void)
-{
+int main(void) {
     double a = 0, b = 0, c = 0;
     std::cout << "Please enter the length of the first side of the triangle: ";
     std::cin >> a;

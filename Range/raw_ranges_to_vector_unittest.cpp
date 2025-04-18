@@ -1,9 +1,8 @@
-// g++ .\raw_ranges_to_vector_unittest.cpp -I"D:/include/ut/include" -std=c++2b -o enumerate_unittest.exe -Wall -Wextra -O3 -Wno-pragma-once-outside-header
+// g++ .\raw_ranges_to_vector_unittest.cpp -I"D:/include/ut/include" -std=c++2b -o enumerate_unittest.exe -Wall -Wextra
+// -O3 -Wno-pragma-once-outside-header
 
 #include "boost/ut.hpp"
 // https://github.com/boost-ext/ut
-#include "raw_ranges_to_vector.hpp"
-
 #include <list>
 #include <range/v3/range.hpp>
 #include <range/v3/view/iota.hpp>
@@ -13,8 +12,9 @@
 #include <utility>
 #include <vector>
 
-int main()
-{
+#include "raw_ranges_to_vector.hpp"
+
+int main() {
     using boost::ut::operator""_test;
     using boost::ut::expect;
 

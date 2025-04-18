@@ -6,29 +6,28 @@
  * \date   September 2020
  *********************************************************************/
 
-#include <iostream>
-#include <cmath>
 #include "AngryBirds.hpp"
 
-void AngryBirds::initialize()
-{
-    initVel = 0.0;
-    angle = 0.0;
+#include <cmath>
+#include <iostream>
+
+void AngryBirds::initialize() {
+    initVel    = 0.0;
+    angle      = 0.0;
     initHeight = 0.0;
 
-    horiVel = 0.0;
-    vertiVel = 0.0;
+    horiVel    = 0.0;
+    vertiVel   = 0.0;
 
     travelTime = 0.0;
-    distance = 0.0;
-    maxHeight = 0.0;
+    distance   = 0.0;
+    maxHeight  = 0.0;
 
     return;
 }
 
 
-void AngryBirds::printParameter()
-{
+void AngryBirds::printParameter() {
     std::cout << "\nTrajectory information provided is listed as the following:\n" << "\n";
     std::cout << "The initial velocity set is: " << getVel() << " m/s." << "\n";
     std::cout << "The angle of the trajectory motion (in degrees) is: " << getAngle() << " degrees." << "\n";
@@ -45,35 +44,30 @@ void AngryBirds::printParameter()
 }
 
 
-void AngryBirds::calcVx()
-{
+void AngryBirds::calcVx() {
     setVx(getVel() * cos(getAngle() * PI / 180));
     return;
 }
 
-void AngryBirds::calcVy()
-{
+void AngryBirds::calcVy() {
     setVy(getVel() * sin(getAngle() * PI / 180));
     return;
 }
 
 
-void AngryBirds::calcT()
-{
+void AngryBirds::calcT() {
     setTime((1 / G) * (getVy() + sqrt(pow(getVy(), 2) + 2 * G * getinitHeight())));
     return;
 }
 
 
-void AngryBirds::calcRange()
-{
+void AngryBirds::calcRange() {
     setDistance(getVx() * ((1 / G) * (getVy() + sqrt(pow(getVy(), 2) + 2 * G * getinitHeight()))));
     return;
 }
 
 
-void AngryBirds::calcHmax()
-{
+void AngryBirds::calcHmax() {
     setHeight(getinitHeight() + pow(getVy(), 2) / (2 * G));
     return;
 }

@@ -18,8 +18,7 @@
 
 #include "Helper/generic_container.hpp"
 
-int main()
-{
+int main() {
     using helper::generic_container::operator<<;
 
     std::vector<int> v{5, 10, 6, 4, 3, 2, 6, 7, 9, 3};
@@ -38,6 +37,6 @@ int main()
     std::cout << "The second largest element is " << v[1] << "\n";
     std::cout << "The largest element is " << v[0] << "\n";
     std::cout << v << "\n";
-    
+
     return 0;
 }

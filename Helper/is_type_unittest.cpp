@@ -9,12 +9,11 @@
  *
  */
 
+#include "is_type.hpp"
+
 #include <iostream>
 #include <type_traits>
 
-#include "is_type.hpp"
-
-int main(void)
-{
+int main(void) {
     return 0;
 }

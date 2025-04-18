@@ -17,11 +17,11 @@
  *********************************************************************/
 // clang-format on
 
-#include <iostream>
 #include <math.h>
 
-int main(void)
-{
+#include <iostream>
+
+int main(void) {
     double total = 0;
     double payed = 0;
 
@@ -39,13 +39,13 @@ int main(void)
     int num25Cents = 0;
     int num50Cents = 0;
 
-    for (int i = 0; i < exchange / 0.10; i++)                                  // enumerate 10Cents
+    for (int i = 0; i < exchange / 0.10; i++) // enumerate 10Cents
     {
-        for (int j = 0; j < exchange / 0.15; j++)                              // enumerate 15Cents
+        for (int j = 0; j < exchange / 0.15; j++) // enumerate 15Cents
         {
-            for (int k = 0; k < exchange / 0.25; k++)                          // enumerate 25Cents
+            for (int k = 0; k < exchange / 0.25; k++) // enumerate 25Cents
             {
-                for (int l = 0; l < exchange / 0.50; l++)                      // enumerate 50Cents
+                for (int l = 0; l < exchange / 0.50; l++) // enumerate 50Cents
                 {
                     if ((i * 0.1 + j * 0.15 + k * 0.25 + l * 0.50 == exchange) // if adds up to desired exchange
                         && (i != 0) && (j != 0) && (k != 0) && (l != 0))       // each kind of coin must present once

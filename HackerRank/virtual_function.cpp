@@ -8,30 +8,24 @@
  * \date   October 2021
  *********************************************************************/
 
+#include <algorithm>
 #include <cmath>
 #include <cstdio>
-#include <vector>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
-class Person
-{
+class Person {
 public:
     std::string name;
-    int age;
+    int         age;
 
-    virtual void getdata(void) {
-        std::cin >> this->name >> this->age;
-    }
+    virtual void getdata(void) { std::cin >> this->name >> this->age; }
 
-    virtual void putdata(void) {
-        std::cout << this->name << " " << this->age;
-    }
+    virtual void putdata(void) { std::cout << this->name << " " << this->age; }
 };
 
-class Professor : public Person
-{
+class Professor : public Person {
 public:
     int publications;
     int cur_id;
@@ -56,8 +50,7 @@ public:
 
 int Professor::count = 0;
 
-class Student : public Person
-{
+class Student : public Person {
 public:
     int marks[7]; // trailing "\n" character
     int cur_id;
@@ -68,7 +61,7 @@ public:
     Student() {
         count++;
         this->cur_id = count;
-        sum = 0;
+        sum          = 0;
     }
 
     void getdata(void) override {
@@ -88,7 +81,6 @@ public:
 int Student::count = 0;
 
 int main() {
-
     int n, val;
     std::cin >> n; // The number of objects that is going to be created.
     // Person* per[n];
@@ -96,17 +88,15 @@ int main() {
     per.resize(n);
 
     for (int i = 0; i < n; i++) {
-
         std::cin >> val;
         if (val == 1) {
             // If val is 1 current object is of type Professor
             per[i] = new Professor();
 
-        }
-        else per[i] = new Student(); // Else the current object is of type Student
+        } else
+            per[i] = new Student(); // Else the current object is of type Student
 
         per[i]->getdata(); // Get the data from the user.
-
     }
 
     for (int i = 0; i < n; i++)

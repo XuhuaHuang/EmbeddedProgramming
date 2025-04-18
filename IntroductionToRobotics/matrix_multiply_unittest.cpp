@@ -1,22 +1,31 @@
-/// @file matrix_multiply_unittest.cpp
-// g++ matrix_multiply_unittest.cpp -std=c++2b -o matrix_multiply_unittest -Wall -Wextra -O3
-// -Wno-pragma-once-outside-header
-// ./matrix_multiply_unittest
-// rm matrix_multiply_unittest
-
-#include <array>
-#include <iostream>
+/**
+ * @file matrix_multiply_unittest.cpp
+ * @author Xuhua Huang
+ * @brief g++ matrix_multiply_unittest.cpp -std=c++2b -o matrix_multiply_unittest -Wall -Wextra -O3
+ * -Wno-pragma-once-outside-header
+ * ./matrix_multiply_unittest
+ * rm matrix_multiply_unittest
+ *
+ * @version 0.1
+ * @date 2023-08-27
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
 
 #include "matrix_multiply.hpp"
 
-int main()
-{
+#include <array>
+#include <cassert>
+#include <iostream>
+
+int main() {
+    using namespace robotics;
     // A is a matrix of 3 by 2
     constexpr std::array<std::array<int, 2>, 3> A = {
         {{1, 2}, {3, 4}, {5, 6}}
     };
     std::cout << A << "\n";
-
 
     // B is a matrix of 2 by 3
     constexpr std::array<std::array<int, 3>, 2> B = {

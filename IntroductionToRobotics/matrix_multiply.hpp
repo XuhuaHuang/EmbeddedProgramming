@@ -10,7 +10,7 @@
  *
  * Special clang-format option: BreakAfterAttributes: Always
  *
- * @copyright ueg (c) 2023
+ * @copyright Copyright (c) 2023
  *
  */
 
@@ -25,28 +25,21 @@
 
 #include "matrix_constraint.hpp"
 
-#if defined(_MSC_VER)
-// Microsoft Visual C++
-#define INLINE inline __forceinline
-#elif defined(__GNUC__) || defined(__clang__)
-// GCC or Clang
-#define INLINE __attribute__((always_inline)) inline
-#else
-// Default fallback
-#define INLINE inline
-#endif
+/// @namespace robotics
+/// @brief Namespace for robotics-related functions and types.
+namespace robotics {
 
 /// @brief Using declaration to represent a row vector
 /// @tparam T Individual element type
 /// @tparam N Number of columns in the only row
-template<typename T, std::size_t N>
+template <typename T, std::size_t N>
     requires std::is_arithmetic_v<T>
 using row_vector_t = std::array<std::array<T, N>, 1U>;
 
 /// @brief Using declaration to represent a column vector
 /// @tparam T Individual element type
 /// @tparam N Number of rows, each row has 1 element
-template<typename T, std::size_t N>
+template <typename T, std::size_t N>
     requires std::is_arithmetic_v<T>
 using col_vector_t = std::array<std::array<T, 1U>, N>;
 
@@ -57,16 +50,15 @@ concept is_matrix_multiplicable_type = requires (T lhs, T rhs) {
 
 /// @brief Function to multiply 2 matrices
 /// @details Requires std::array of arithmetic type
-///
 /// @param [in] A LHS matrix of size M by N
 /// @param [in] B RHS matrix of size N by P
 /// @return Result matrix of size M by P
 template<typename T, std::size_t M, std::size_t N, std::size_t P>
     requires is_matrix_multiplicable_type<T>
 [[nodiscard]]
-INLINE constexpr auto matrix_multiply(
-    const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B
-) -> std::array<std::array<T, P>, M>;
+constexpr inline auto
+matrix_multiply(const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B)
+    -> std::array<std::array<T, P>, M>;
 
 /// @brief Function to multiply a matrix with a scalar
 /// @tparam T Individual element type
@@ -75,16 +67,13 @@ INLINE constexpr auto matrix_multiply(
 /// @param A matrix of size M by N
 /// @param scalar scalar to be multiplied with matrix A
 /// @return matrix of size M by N
-template<typename T, std::size_t M, std::size_t N>
-    requires is_matrix_multiplicable_type<T>
+template <typename T, std::size_t M, std::size_t N>
+    requires is_matrix_multipliable_type<T>
 [[nodiscard]]
-INLINE constexpr auto matrix_multiply(const matrix_t<T, M, N>& A, const T& scalar) -> matrix_t<T, M, N>
-{
+constexpr inline auto matrix_multiply(const matrix_t<T, M, N>& A, const T& scalar) -> matrix_t<T, M, N> {
     matrix_t<T, M, N> result{};
-    for (std::size_t row = 0; row < M; ++row)
-    {
-        for (std::size_t col = 0; col < N; ++col)
-        {
+    for (std::size_t row = 0; row < M; ++row) {
+        for (std::size_t col = 0; col < N; ++col) {
             result[row][col] = A[row][col] * scalar;
         }
     }
@@ -98,11 +87,10 @@ INLINE constexpr auto matrix_multiply(const matrix_t<T, M, N>& A, const T& scala
 /// @param scalar scalar to be multiplied with matrix A
 /// @param A matrix of size M by N
 /// @return matrix of size M by N
-template<typename T, std::size_t M, std::size_t N>
-    requires is_matrix_multiplicable_type<T>
+template <typename T, std::size_t M, std::size_t N>
+    requires is_matrix_multipliable_type<T>
 [[nodiscard]]
-constexpr auto matrix_multiply(const T& scalar, const matrix_t<T, M, N>& A) -> matrix_t<T, M, N>
-{
+constexpr inline auto matrix_multiply(const T& scalar, const matrix_t<T, M, N>& A) -> matrix_t<T, M, N> {
     return matrix_multiply(A, scalar);
 }
 
@@ -114,25 +102,22 @@ constexpr auto matrix_multiply(const T& scalar, const matrix_t<T, M, N>& A) -> m
 /// @param A LHS matrix of size M by N
 /// @param B RHS matrix of size N by P
 /// @return Result matrix of size M by P
-template<typename T, size_t M, size_t N, size_t P>
-    requires is_matrix_multiplicable_type<T>
+template <typename T, size_t M, size_t N, size_t P>
+    requires is_matrix_multipliable_type<T>
 [[nodiscard]]
-constexpr auto operator*(const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B)
-    -> std::array<std::array<T, P>, M>
-{
+constexpr inline auto operator*(const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B)
+    -> std::array<std::array<T, P>, M> {
     return matrix_multiply(A, B);
 }
 
 /// @brief Alias struct to function matrix_multiply
 /// This struct defines a functor matmul which provides overloaded function call operators
 /// for performing matrix multiplication and scalar-matrix multiplication.
-struct matmul
-{
-    template<typename T, std::size_t M, std::size_t N, std::size_t P>
+struct matmul {
+    template <typename T, std::size_t M, std::size_t N, std::size_t P>
     [[nodiscard]]
     constexpr auto operator()(const std::array<std::array<T, N>, M>& A, const std::array<std::array<T, P>, N>& B) const
-        -> std::array<std::array<T, P>, M>
-    {
+        -> std::array<std::array<T, P>, M> {
         return matrix_multiply(A, B);
     }
 };
@@ -146,9 +131,9 @@ using dotprod = matmul;
 /// @param os Mutable reference of output stream object
 /// @param A Constant reference of a std::array object
 /// @return Modified output stream object with contents concatenated
-template<typename T, std::size_t N>
-    requires std::is_arithmetic<T>::value
-INLINE std::ostream& operator<<(std::ostream& os, const std::array<T, N>& A);
+template <typename T, std::size_t N>
+    requires std::is_arithmetic_v<T>
+inline std::ostream& operator<<(std::ostream& os, const std::array<T, N>& A);
 
 /// @brief Operator << overload to print a matrix to output stream
 /// @tparam T Individual element type
@@ -157,9 +142,11 @@ INLINE std::ostream& operator<<(std::ostream& os, const std::array<T, N>& A);
 /// @param os Mutable reference of output stream object
 /// @param A Constant reference of an array of arrays
 /// @return Modified output stream object with contents concatenated
-template<typename T, std::size_t M, std::size_t N>
-    requires std::is_arithmetic<T>::value
-INLINE std::ostream& operator<<(std::ostream& os, const std::array<std::array<T, N>, M>& A);
+template <typename T, std::size_t M, std::size_t N>
+    requires std::is_arithmetic_v<T>
+inline std::ostream& operator<<(std::ostream& os, const std::array<std::array<T, N>, M>& A);
+
+} // namespace robotics
 
 #include "matrix_multiply.inl"
 

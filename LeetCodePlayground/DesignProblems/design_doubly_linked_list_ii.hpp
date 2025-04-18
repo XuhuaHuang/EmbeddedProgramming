@@ -2,57 +2,46 @@
 #include <iostream>
 #include <iterator>
 
-template<typename T>
-class DoublyLinkedList
-{
+template <typename T>
+class DoublyLinkedList {
 public:
-    struct Node
-    {
+    struct Node {
         T     data;
         Node* prev;
         Node* next;
         Node(const T& data, Node* prev = nullptr, Node* next = nullptr)
             : data(data)
             , prev(prev)
-            , next(next)
-        {
-        }
+            , next(next) {}
     };
 
-    class iterator : public std::iterator<std::bidirectional_iterator_tag, T>
-    {
+    class iterator : public std::iterator<std::bidirectional_iterator_tag, T> {
     public:
         explicit iterator(Node* node)
-            : node_(node)
-        {
-        }
+            : node_(node) {}
         iterator(const iterator&)            = default;
         iterator& operator=(const iterator&) = default;
         ~iterator()                          = default;
 
-        iterator& operator++()
-        {
+        iterator& operator++() {
             node_ = node_->next;
             return *this;
         }
 
-        iterator operator++(int)
-        {
+        iterator operator++(int) {
             iterator tmp(*this);
-                     operator++();
+            operator++();
             return tmp;
         }
 
-        iterator& operator--()
-        {
+        iterator& operator--() {
             node_ = node_->prev;
             return *this;
         }
 
-        iterator operator--(int)
-        {
+        iterator operator--(int) {
             iterator tmp(*this);
-                     operator--();
+            operator--();
             return tmp;
         }
 
@@ -69,109 +58,81 @@ public:
     DoublyLinkedList()
         : head(nullptr)
         , tail(nullptr)
-        , size(0)
-    {
-    }
+        , size(0) {}
 
-    ~DoublyLinkedList()
-    {
+    ~DoublyLinkedList() {
         Node* curr = head;
-        while (curr)
-        {
+        while (curr) {
             Node* next = curr->next;
             delete curr;
             curr = next;
         }
     }
 
-    void push_front(const T& data)
-    {
+    void push_front(const T& data) {
         Node* new_node = new Node(data, nullptr, head);
-        if (head)
-        {
+        if (head) {
             head->prev = new_node;
         }
         head = new_node;
-        if (!tail)
-        {
+        if (!tail) {
             tail = new_node;
         }
         ++size;
     }
 
-    void push_back(const T& data)
-    {
+    void push_back(const T& data) {
         Node* new_node = new Node(data, tail, nullptr);
-        if (tail)
-        {
+        if (tail) {
             tail->next = new_node;
         }
         tail = new_node;
-        if (!head)
-        {
+        if (!head) {
             head = new_node;
         }
         ++size;
     }
 
-    void insert_after(Node* node, const T& data)
-    {
-        if (!node)
-        {
+    void insert_after(Node* node, const T& data) {
+        if (!node) {
             return;
         }
         Node* new_node = new Node(data, node, node->next);
         node->next     = new_node;
-        if (new_node->next)
-        {
+        if (new_node->next) {
             new_node->next->prev = new_node;
-        }
-        else
-        {
+        } else {
             tail = new_node;
         }
         ++size;
     }
 
-    void insert_before(Node* node, const T& data)
-    {
-        if (!node)
-        {
+    void insert_before(Node* node, const T& data) {
+        if (!node) {
             return;
         }
         Node* new_node = new Node(data, node->prev, node);
         node->prev     = new_node;
-        if (new_node->prev)
-        {
+        if (new_node->prev) {
             new_node->prev->next = new_node;
-        }
-        else
-        {
+        } else {
             head = new_node;
         }
         ++size;
     }
 
-    void remove(Node* node)
-    {
-        if (!node)
-        {
+    void remove(Node* node) {
+        if (!node) {
             return;
         }
-        if (node->prev)
-        {
+        if (node->prev) {
             node->prev->next = node->next;
-        }
-        else
-        {
+        } else {
             head = node->next;
         }
-        if (node->next)
-        {
+        if (node->next) {
             node->next->prev = node->prev;
-        }
-        else
-        {
+        } else {
             tail = node->prev;
         }
         delete node;

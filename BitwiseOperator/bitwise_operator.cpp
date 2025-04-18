@@ -8,13 +8,11 @@
 
 #include <iostream>
 
-void print(const int value)
-{
+void print(const int value) {
     std::cout << value << "\n";
 }
 
-int main(void)
-{
+int main(void) {
     unsigned int a = 5;
     // Debug -> Windows -> Memory -> Memory1
     // OR Ctrl + Alt+ M, 1

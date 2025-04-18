@@ -13,10 +13,10 @@
  */
 
 #include "movable.hpp"
+
 #include <concepts>
 
-int main()
-{
+int main() {
     using namespace util::type_safety;
 
     static_assert(not std::movable<not_movable>);

@@ -1,12 +1,12 @@
-#include <iostream>
 #include <stdlib.h>
 
-#include "ICardSource.hpp"
+#include <iostream>
+
 #include "Card.hpp"
 #include "Client.hpp"
 #include "Deck.hpp"
+#include "ICardSource.hpp"
 
-auto main(void) -> int {
-
+int main(void) {
     return EXIT_SUCCESS;
 }

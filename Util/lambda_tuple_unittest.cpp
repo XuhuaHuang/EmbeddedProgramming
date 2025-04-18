@@ -12,10 +12,10 @@
  */
 
 #include "lambda_tuple.hpp"
+
 #include <iostream>
 
-int main()
-{
+int main() {
     using util::type::get;
     using util::type::tuple;
 

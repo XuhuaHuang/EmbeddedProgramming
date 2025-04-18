@@ -14,8 +14,7 @@
 #include <cstdlib>
 #include <limits>
 
-int main()
-{
+int main() {
     const char* s = "Hello";
 
     std::printf("Strings:\n");     // same as std::puts("Strings:");
@@ -37,7 +36,7 @@ int main()
     std::printf("\tPadding:\t%05.2f %.2f %5.2f\n", 1.5, 1.5, 1.5);
     std::printf("\tScientific:\t%E %e\n", 1.5, 1.5);
     std::printf("\tHexadecimal:\t%a %A\n", 1.5, 1.5);
-    std::printf("\tSpecial values:\t0/0=%g 1/0=%g\n", 0.0 / 0.0, 1.0 / 0.0);
+    // std::printf("\tSpecial values:\t0/0=%g 1/0=%g\n", 0.0 / 0.0, 1.0 / 0.0);
 
     std::printf("Variable width control:\n");
     std::printf("\tright-justified variable width: '%*c'\n", 5, 'x');
@@ -48,5 +47,5 @@ int main()
     std::uint32_t val = std::numeric_limits<std::uint32_t>::max();
     std::printf("\tLargest 32-bit value is %" PRIu32 " or %#" PRIx32 "\n", val, val);
 
-    return EXIT_SUCCESS;
+    return 0;
 }

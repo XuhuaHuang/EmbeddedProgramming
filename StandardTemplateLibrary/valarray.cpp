@@ -6,11 +6,11 @@
  * \date   December 31, 2022
  *********************************************************************/
 
+#include <cmath>
 #include <iostream>
 #include <valarray>
-#include <cmath>
 
-template<typename T>
+template <typename T>
 inline void print_valarray(const std::valarray<T>& arr) {
     for (const T elem : arr) {
         std::cout << elem << ", ";
@@ -20,8 +20,8 @@ inline void print_valarray(const std::valarray<T>& arr) {
 }
 
 auto main() -> int {
-    std::valarray<double> array1{ 1.0, 2.0, 3.0, 4.0, 5.0 };
-    std::valarray<double> array2{ 5.0, 4.0, 3.0, 2.0, 1.0 };
+    std::valarray<double> array1{1.0, 2.0, 3.0, 4.0, 5.0};
+    std::valarray<double> array2{5.0, 4.0, 3.0, 2.0, 1.0};
 
     // element-wise addition
     std::valarray<double> sum = array1 + array2;

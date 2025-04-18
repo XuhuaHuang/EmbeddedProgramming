@@ -24,7 +24,9 @@ int main(void)
 size_t numDigits(int number)
 {
     std::size_t digitsCount = 1;
-    while ((number /= 10) != 0) { ++digitsCount; }
+    while ((number /= 10) != 0) {
+        ++digitsCount;
+    }
 
     return digitsCount;
 }

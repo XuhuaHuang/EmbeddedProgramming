@@ -10,23 +10,18 @@
 
 #include <iostream>
 
-class GreaterSmaller
-{
+class GreaterSmaller {
 public:
     int greater, smaller;
 };
 
 // function takes two integers value and returns an object of class "GreaterSmaller"
-GreaterSmaller findGreaterSmaller(int a, int b)
-{
+GreaterSmaller findGreaterSmaller(int a, int b) {
     GreaterSmaller result{};
-    if (a > b)
-    {
+    if (a > b) {
         result.greater = a;
         result.smaller = b;
-    }
-    else
-    {
+    } else {
         result.greater = b;
         result.smaller = a;
     }
@@ -35,8 +30,7 @@ GreaterSmaller findGreaterSmaller(int a, int b)
 }
 
 // Driver code
-int main()
-{
+int main() {
     int num1, num2;
 
     std::cout << "Enter the first number of two to compare: ";

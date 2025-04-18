@@ -7,13 +7,12 @@
  * \date   November 14, 2020
  *********************************************************************/
 
-#include <iostream>
 #include <windows.h>
 
-int main(void)
-{
-    for (int fly = 0; fly < 10; fly++)
-    {
+#include <iostream>
+
+int main(void) {
+    for (int fly = 0; fly < 10; fly++) {
         std::cout << "v^  ";
         Sleep(500);
         std::cout << "-^  ";

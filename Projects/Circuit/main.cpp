@@ -12,11 +12,11 @@
  *********************************************************************/
 // clang-format on
 
-#include "circuit.hpp"
 #include <windows.h>
 
-int main(void)
-{
+#include "circuit.hpp"
+
+int main(void) {
     // Testing class 'COMPONENT'
     // creating an object named 'component1'
     COMPONENT component1;      // testing default constructor

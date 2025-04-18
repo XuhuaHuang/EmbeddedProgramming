@@ -10,15 +10,16 @@
  *********************************************************************/
 
 #include <stdlib.h>
+
 #include <iostream>
 #include <type_traits>
 
 // variable template
 // to provide shorter access to value
-template<char c>
-constexpr bool is_digit = (c >='0' && c <= '9');
+template <char c>
+constexpr bool is_digit = (c >= '0' && c <= '9');
 
-auto main(void) -> int {
+int main(void) {
     // compile-time assertions
     static_assert(std::is_integral<int>::value);
     static_assert(!std::is_integral<float>::value);
@@ -33,7 +34,7 @@ auto main(void) -> int {
     static_assert(std::is_same_v<typename std::remove_const<int>::type, int>);
     static_assert(std::is_same_v<typename std::add_const<int>::type, const int>);
     static_assert(std::is_same_v<typename std::add_pointer<int**>::type, int***>);
-    static_assert(std::is_same_v<typename std::decay<int[3][4]>::type, int(*)[4]>);
+    static_assert(std::is_same_v<typename std::decay<int[3][4]>::type, int (*)[4]>);
 
     return EXIT_SUCCESS;
 }

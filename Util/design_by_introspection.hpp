@@ -1,12 +1,12 @@
 /**
  * @file design_by_introspection.hpp
  * @author Xuhua Huang
- * @brief 
+ * @brief
  * @version 0.1
  * @date 2023-03-29
- * 
+ *
  * @copyright ueg (c) 2023
- * 
+ *
  */
 
 // clang-format off

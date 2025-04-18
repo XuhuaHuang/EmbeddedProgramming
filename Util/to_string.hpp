@@ -15,10 +15,8 @@
 #include <type_traits>
 #endif // !_TYPE_TRAITS_
 
-namespace util
-{
-namespace type
-{
+namespace util {
+namespace type {
 
 // clang-format off
 template<stdext::fixed_string Str>

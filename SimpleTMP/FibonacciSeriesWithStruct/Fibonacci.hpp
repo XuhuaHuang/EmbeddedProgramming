@@ -9,19 +9,19 @@
 #ifndef FIBONACCI_HPP
 #define FIBONACCI_HPP
 
-template<size_t N>
+template <size_t N>
 struct Fibonacci {
-    constexpr static size_t value = Fibonacci<N-1>::value + Fibonacci<N-2>::value;
+    static constexpr size_t value = Fibonacci<N - 1>::value + Fibonacci<N - 2>::value;
 };
 
-template<>
+template <>
 struct Fibonacci<0> {
-    constexpr static size_t value = 0;
+    static constexpr size_t value = 0;
 };
 
-template<>
+template <>
 struct Fibonacci<1> {
-    constexpr static size_t value = 1;
+    static constexpr size_t value = 1;
 };
 
 #endif

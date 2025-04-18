@@ -19,8 +19,7 @@
 #include <string>
 #include <vector>
 
-int main()
-{
+int main() {
     using namespace boost::ut;
     using namespace std::literals::string_literals;
 
@@ -28,18 +27,26 @@ int main()
     expect("[0x1, 0x2, 0x3]"s == std::format("{::#x}", std::vector{1, 2, 3}));
     expect("[*1*, *2*, *3*]"s == std::format("{::*^3}", std::vector{1, 2, 3}));
     expect("Q L"s == std::format("{:s}", std::string{'Q', ' ', 'L'}));
-    expect(R"(["a", "bc"])"s
-           == std::format("{::?s}",
-                          std::vector{
-                              std::vector{'a'},
-                              std::vector{'b', 'c'}
-    }));
-    expect("[[97], [98, 99]]"s
-           == std::format("{:::d}",
-                          std::vector{
-                              std::vector{'a'},
-                              std::vector{'b', 'c'}
-    }));
+    expect(
+        R"(["a", "bc"])"s
+        == std::format(
+            "{::?s}",
+            std::vector{
+                std::vector{'a'},
+                std::vector{'b', 'c'}
+    }
+        )
+    );
+    expect(
+        "[[97], [98, 99]]"s
+        == std::format(
+            "{:::d}",
+            std::vector{
+                std::vector{'a'},
+                std::vector{'b', 'c'}
+    }
+        )
+    );
 
     return 0;
 }

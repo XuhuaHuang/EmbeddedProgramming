@@ -2,11 +2,9 @@
 
 #include "linked_list_node.hpp"
 
-class Solution
-{
+class Solution {
 public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2)
-    {
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
         // if list1 happen to be NULL
         // we will simply return list2.
         if (list1 == NULL)
@@ -18,27 +16,20 @@ public:
             return list1;
 
         ListNode* ptr = list1;
-        if (list1->val > list2->val)
-        {
+        if (list1->val > list2->val) {
             ptr   = list2;
             list2 = list2->next;
-        }
-        else
-        {
+        } else {
             list1 = list1->next;
         }
         ListNode* curr = ptr;
 
         // till one of the list doesn't reaches NULL
-        while (list1 && list2)
-        {
-            if (list1->val < list2->val)
-            {
+        while (list1 && list2) {
+            if (list1->val < list2->val) {
                 curr->next = list1;
                 list1      = list1->next;
-            }
-            else
-            {
+            } else {
                 curr->next = list2;
                 list2      = list2->next;
             }

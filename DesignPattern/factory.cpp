@@ -6,33 +6,31 @@
  * \date   December 03, 2022
  *********************************************************************/
 
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 #include <memory>
-#include <stdio.h>
 
 class IAbstract {
 protected:
-    IAbstract() = default;
+    IAbstract()          = default;
     virtual ~IAbstract() = default;
+
 public:
     virtual void execute() = 0;
 };
 
 class Impl : public IAbstract {
 public:
-    Impl() = default;
+    Impl()                   = default;
     virtual ~Impl() override = default;
-    virtual void execute() override {
-        std::cout << std::quoted("Impl::execute()") << "\n";
-    }
+    virtual void execute() override { std::cout << std::quoted("Impl::execute()") << "\n"; }
 };
 
 std::shared_ptr<IAbstract> create_impl() {
     return std::make_shared<Impl>();
 }
 
-auto main(void) -> int {
+int main(void) {
     std::shared_ptr<IAbstract> pImpl = create_impl();
     pImpl->execute();
 

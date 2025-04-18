@@ -8,8 +8,9 @@
 
 #define GLEW_STATIC
 
-#include <GL\glew.h>
 #include <GLFW\glfw3.h>
+#include <GL\glew.h>
+
 #include <iostream>
 
 constexpr int numVAOs = 1;
@@ -19,13 +20,12 @@ GLuint vao[numVAOs];
 
 GLuint createShaderProgram(void) {
     /* Vertex Shader Source with GLSL syntax */
-    const char* vshaderSource = \
-        "#version 430 \n"
-        "void main(void) \n"
-        "{gl_Position = vec4(0.0, 0.0, 0.0, 1.0);}";
+    const char* vshaderSource = "#version 430 \n"
+                                "void main(void) \n"
+                                "{gl_Position = vec4(0.0, 0.0, 0.0, 1.0);}";
 
     /* Fragement Shader Source with GLSL syntax */
-    const char* fshaderSource = \
+    const char* fshaderSource =
         "#version 430 \n"
         "out vec4 color; \n"
         "void main(void) \n"
@@ -36,7 +36,7 @@ GLuint createShaderProgram(void) {
      * 1. Create preliminary shaders.
      * 2. Attach shader source from const char* variables.
      * 3. Compile shders.
-     * \return 
+     * \return
      */
     GLuint vShader = glCreateShader(GL_VERTEX_SHADER);
     GLuint fShader = glCreateShader(GL_FRAGMENT_SHADER);

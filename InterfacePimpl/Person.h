@@ -20,8 +20,7 @@ class Date {};
 class Address {};
 
 /* Person interface. */
-class Person
-{
+class Person {
 public:
     virtual ~Person() {}
 
@@ -29,17 +28,15 @@ public:
      * It is impossible to instantiate an instance for this interface;
      * however, its child classes have to have access to a so-called `factory` function.
      */
-    virtual std::string name() const = 0;
+    virtual std::string name() const      = 0;
     virtual std::string birthDate() const = 0;
-    virtual std::string address() const = 0;
+    virtual std::string address() const   = 0;
 
     /* Factory function to be used by child classes. */
     /* Declared static for syntax `Person::createPerson()`. */
-    static std::shared_ptr<Person> createPerson(
-        const std::string& name,
-        const Date& birthday,
-        const Address& addr
-    ) { return std::make_shared<Person>(); }
+    static std::shared_ptr<Person> createPerson(const std::string& name, const Date& birthday, const Address& addr) {
+        return std::make_shared<Person>();
+    }
 
 private:
     /**
@@ -50,8 +47,8 @@ private:
 
     /* Data attributes for Person */
     std::string _name;
-    Date _birthday;
-    Address _address;
+    Date        _birthday;
+    Address     _address;
 };
 
 /** REMEMBER: derive class write factory functions

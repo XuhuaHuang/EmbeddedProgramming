@@ -1,16 +1,12 @@
-#include "pch.h"
 #include "CppUnitTest.h"
+#include "pch.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace UnitTest
-{
-    TEST_CLASS(UnitTest)
-    {
+namespace UnitTest {
+TEST_CLASS(UnitTest){
     public:
 
-        TEST_METHOD(TestMethod1)
-        {
-        }
-    };
+        TEST_METHOD(TestMethod1){}
+};
 }

@@ -2,21 +2,17 @@
 
 #include <set>
 
-class Solution
-{
-    template<typename T>
-    using set = std:set<T>;
+class Solution {
+    template <typename T>
+    using set = std : set<T>;
 
 public:
-    bool isValidSudoku(vector<vector<char>>& board)
-    {
+    bool isValidSudoku(vector<vector<char>>& board) {
         set<char> row[9];
         set<char> col[9];
         set<char> box[9];
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-            {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
                 char ch = board[i][j];
                 if (ch == '.')
                     continue;

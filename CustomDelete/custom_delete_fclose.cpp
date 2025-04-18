@@ -14,21 +14,21 @@
  * \date   December 01, 2022
  *********************************************************************/
 
-#include <iostream>
 #include <stdio.h>
+
+#include <iostream>
 #include <memory>
 
 struct fclose_deleter {
     // type of Deleter must have an operator()(T*)
-    void operator()(FILE* fp) const {
-        fclose(fp);
-    }
+    void operator()(FILE* fp) const { fclose(fp); }
 };
 
-auto main(void) -> int {
+int main(void) {
     using unique_file = std::unique_ptr<FILE, fclose_deleter>;
     // creating an inner svope for demonstration purpose
-    char* buffer {}; size_t N = 0;
+    char*  buffer{};
+    size_t N = 0;
     {
         unique_file fp(fopen("./CMakeLists.txt", "r"));
         fread(buffer, 1, N, fp.get());

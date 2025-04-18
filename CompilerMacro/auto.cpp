@@ -1,20 +1,21 @@
 /**
  * @file auto.cpp
  * @author Xuhua Huang
- * @brief Demonstration of a macro - compiler version dependant 
+ * @brief Demonstration of a macro - compiler version dependant
  * @version 0.1
  * @date 2021-11-07
- * 
+ *
  * Command to compile and run on Windows:
  * $ g++ -o auto.exe .\auto.cpp -std=c++11
  * $ .\auto
- * 
+ *
  * @copyright Copyright (c) 2021
- * 
+ *
  */
 
-#include <iostream>
 #include <stdlib.h>
+
+#include <iostream>
 
 /**
  * @brief Theorectically, Max_cpp11 macro should be faster.
@@ -24,19 +25,19 @@
 #if __cplusplus < 201103L
 #define Max_cpp0x(a, b) ((a) > (b)) ? (a) : (b)
 #elif __cplusplus >= 201103L
-#define Max_cpp11(a, b) ({      \
-    auto _a = (a);              \
-    auto _b = (b);              \
-    (_a > _b) ? _a : _b;        \
-})
+#define Max_cpp11(a, b)                                                                                                \
+    ({                                                                                                                 \
+        auto _a = (a);                                                                                                 \
+        auto _b = (b);                                                                                                 \
+        (_a > _b) ? _a : _b;                                                                                           \
+    })
 #endif
 
 int main(void) {
-
 #if __cplusplus < 201103L
-    int max1 = Max_cpp0x(1*2*3*4, 5+6+7+8);
+    int max1 = Max_cpp0x(1 * 2 * 3 * 4, 5 + 6 + 7 + 8);
 #elif __cplusplus >= 201103L
-    int max2 = Max_cpp11(1*2*3*4, 5+6+7+8);
+    int max2 = Max_cpp11(1 * 2 * 3 * 4, 5 + 6 + 7 + 8);
 #endif
 
     system("pause");

@@ -4,27 +4,22 @@
 #include <stack>
 #include <string>
 
-class TextEditor
-{
+class TextEditor {
     std::stack<char> left;
     std::stack<char> right;
 
 public:
     TextEditor() {}
 
-    void addText(string text)
-    {
-        for (auto& c : text)
-        {
+    void addText(string text) {
+        for (auto& c : text) {
             left.push(c);
         }
     }
 
-    int deleteText(int k)
-    {
+    int deleteText(int k) {
         int cnt = 0;
-        while (!left.empty() and k > 0)
-        {
+        while (!left.empty() and k > 0) {
             left.pop();
             cnt++;
             k--;
@@ -32,10 +27,8 @@ public:
         return cnt;
     }
 
-    std::string cursorLeft(int k)
-    {
-        while (!left.empty() and k > 0)
-        {
+    std::string cursorLeft(int k) {
+        while (!left.empty() and k > 0) {
             char c = left.top();
             left.pop();
             right.push(c);
@@ -44,10 +37,8 @@ public:
         return cursorShiftString();
     }
 
-    std::string cursorRight(int k)
-    {
-        while (!right.empty() and k > 0)
-        {
+    std::string cursorRight(int k) {
+        while (!right.empty() and k > 0) {
             char c = right.top();
             right.pop();
             left.push(c);
@@ -56,20 +47,17 @@ public:
         return cursorShiftString();
     }
 
-    std::string cursorShiftString()
-    {
+    std::string cursorShiftString() {
         std::string rtn = "";
         int         cnt = 10;
-        while (!left.empty() and cnt > 0)
-        {
+        while (!left.empty() and cnt > 0) {
             char c = left.top();
             left.pop();
             rtn += c;
             cnt--;
         }
         std::reverse(rtn.begin(), rtn.end());
-        for (int i = 0; i < rtn.size(); i++)
-        {
+        for (int i = 0; i < rtn.size(); i++) {
             left.push(rtn[i]);
         }
         return rtn;

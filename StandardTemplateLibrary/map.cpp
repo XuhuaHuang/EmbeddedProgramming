@@ -9,43 +9,41 @@
  *********************************************************************/
 
 #include <stdlib.h>
+
+#include <algorithm>
 #include <iostream>
 #include <map>
-#include <algorithm>
 
 std::map<std::string, int> employees = {
-    {"John", 3},
-    {"Jill", 4},
-    {"Rick", 5},
+    {"John",   3},
+    {"Jill",   4},
+    {"Rick",   5},
     {"Elaine", 6}
 };
 
 std::map<std::string, char> template_demo = {
     {"Apple", 'A'},
-    {"Beta", 'B'},
-    {"Cat", 'C'},
-    {"Dog", 'D'}
+    {"Beta",  'B'},
+    {"Cat",   'C'},
+    {"Dog",   'D'}
 };
 
-void print(const std::pair<std::string, int>& employee)
-{
+void print(const std::pair<std::string, int>& employee) {
     if (employee.second < 5)
         std::cout << employee.first << "\n";
 }
 
 /* Provide template function to print any map. */
 namespace {
-    template<typename T, typename U>
-    void printMap(std::map<T, U> mp)
-    {
-        // `typename` is essential in the following for loop
-        for (typename std::map<T, U>::iterator itr = mp.begin(); itr != mp.end(); ++itr)
-            std::cout << "Key: " << itr->first << ", value: " << itr->second << "\n";
-    }
+template <typename T, typename U>
+void printMap(std::map<T, U> mp) {
+    // `typename` is essential in the following for loop
+    for (typename std::map<T, U>::iterator itr = mp.begin(); itr != mp.end(); ++itr)
+        std::cout << "Key: " << itr->first << ", value: " << itr->second << "\n";
 }
+} // namespace
 
-int main(void)
-{
+int main(void) {
     /* Create a map to map ASCII character and decimal. */
     std::map<char, int> mpASCII = {
         {'C', 67}, // each element is a pair
@@ -53,8 +51,7 @@ int main(void)
         {'I', 73}  // pair.second method
     };
 
-    std::cout << mpASCII['C'] << "\n"
-        << mpASCII['F'] << "\n";
+    std::cout << mpASCII['C'] << "\n" << mpASCII['F'] << "\n";
 
     /* Insert a key and corresponding value. */
     // Informal way of inserting: mpASCII['U'] = 85;
@@ -63,8 +60,7 @@ int main(void)
     std::cout << mpASCII['U'] << "\n";
 
     /* Access element in a pair using first/second index. */
-    std::cout << std::pair<char, int>('U', 85).first << "\n"
-        << std::pair<char, int>('U', 85).second << "\n";
+    std::cout << std::pair<char, int>('U', 85).first << "\n" << std::pair<char, int>('U', 85).second << "\n";
 
     /* Erase an element in the map. */
     // Emptying a map: map.clear()
@@ -73,31 +69,27 @@ int main(void)
     mpASCII.erase('C'); // the first element of the map is removed
 
     /* Iterate through a map. */
-    for (std::map<char, int>::iterator itr = mpASCII.begin(); itr != mpASCII.end(); ++itr)
-    {
+    for (std::map<char, int>::iterator itr = mpASCII.begin(); itr != mpASCII.end(); ++itr) {
         std::cout << "Key: " << itr->first << ", Value: " << itr->second << "\n";
     }
 
     /* More map example. */
     /* Map the times a character shows up in a string. */
-    std::string test = "Hello world my name is Xuhua Huang";
+    std::string         test     = "Hello world my name is Xuhua Huang";
     std::map<char, int> charFreq = {};
 
-    for (int i = 0; i < test.length(); ++i)
-    {
+    for (int i = 0; i < test.length(); ++i) {
         char elem = test[i];
 
         // map.find() returns an iterator
         // returns map.end() if not found
-        if (charFreq.find(elem) == charFreq.end())
-        {
+        if (charFreq.find(elem) == charFreq.end()) {
             charFreq[elem] = 0;
         }
         charFreq[elem]++;
     }
 
-    for (std::map<char, int>::iterator itr = charFreq.begin(); itr != charFreq.end(); ++itr)
-    {
+    for (std::map<char, int>::iterator itr = charFreq.begin(); itr != charFreq.end(); ++itr) {
         std::cout << "Character: \"" << itr->first << "\", Occupancy: " << itr->second << "\n";
     }
 

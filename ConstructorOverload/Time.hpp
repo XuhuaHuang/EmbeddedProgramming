@@ -13,8 +13,7 @@
 #include <iostream>
 #endif
 
-class Time
-{
+class Time {
 private:
     int hour;
     int minute;
@@ -40,7 +39,7 @@ public:
     void setTime(int userHour);
 
     // default and overloaded constructor
-    Time(); // default
+    Time();              // default
     Time(int, int, int); // overloaded
     Time(int, int);
     Time(int);
@@ -53,22 +52,20 @@ Time::Time() // default constructor
     setSecond(0);
 }
 
-Time::Time(int h, int m, int s)  // object3(h,m,s )
+Time::Time(int h, int m, int s) // object3(h,m,s )
 {
     setHour(h); // calls the set functions with verification
     setMinute(m);
     setSecond(s);
 }
 
-Time::Time(int h, int m)
-{
+Time::Time(int h, int m) {
     setHour(h);
     setMinute(m);
     setSecond(0); // set second to 0 by default
 }
 
-Time::Time(int h)
-{
+Time::Time(int h) {
     setHour(h);
     setMinute(0); // set minute to 0 by default
     setSecond(0); // set second to 0 by default
@@ -76,17 +73,12 @@ Time::Time(int h)
 
 void Time::setHour(int userHour) // hour should be valid form 0 to 23
 {
-    if ((userHour >= 0) && (userHour <= 23))
-    {
+    if ((userHour >= 0) && (userHour <= 23)) {
         hour = userHour;
-    }
-    else if (userHour == 24)
-    {
+    } else if (userHour == 24) {
         std::cout << "Do you mean 0 a.m.? It is automatically set to 0 a.m." << "\n";
         hour = 0;
-    }
-    else
-    {
+    } else {
         std::cout << "Invalid value " << userHour << "\n";
         hour = 0;
     }
@@ -96,12 +88,9 @@ void Time::setHour(int userHour) // hour should be valid form 0 to 23
 
 void Time::setMinute(int userMinute) // minute should be valid from 0 to 59
 {
-    if ((userMinute >= 0) && (userMinute <= 59))
-    {
+    if ((userMinute >= 0) && (userMinute <= 59)) {
         minute = userMinute;
-    }
-    else
-    {
+    } else {
         std::cout << "Invalid value " << userMinute << "\n";
         minute = 0;
     }
@@ -111,12 +100,9 @@ void Time::setMinute(int userMinute) // minute should be valid from 0 to 59
 
 void Time::setSecond(int userSecond) // second should be valid form 0 to 59
 {
-    if ((userSecond >= 0) && (userSecond <= 59))
-    {
+    if ((userSecond >= 0) && (userSecond <= 59)) {
         second = userSecond;
-    }
-    else
-    {
+    } else {
         std::cout << "Invalid value " << userSecond << "\n";
         second = 0;
     }
@@ -152,8 +138,7 @@ void Time::setTime(int userHour) // overloaded function #2
     return;
 }
 
-void Time::printTime()
-{
+void Time::printTime() {
     // using get functions to get value with verification
     std::cout << getHour() << ":" << getMinute() << ":" << getSecond() << "\n";
 

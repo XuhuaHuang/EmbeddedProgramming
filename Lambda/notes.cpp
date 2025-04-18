@@ -15,14 +15,13 @@
  * \date   March 2021
  *********************************************************************/
 
-#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <functional>
+#include <iostream>
+#include <vector>
 
 // lambda expression with function pointer
-void ForEach(const std::vector<int>& values, void(*func)(int))
-{
+void ForEach(const std::vector<int>& values, void (*func)(int)) {
     /**
      * void(*function)(int)
      * void - return type of function "func"
@@ -39,22 +38,21 @@ void ForEach(const std::vector<int>& values, void(*func)(int))
     return;
 }
 
-int main(void)
-{
-    std::vector<int> values = { 1, 2, 3, 4, 5 };
+int main(void) {
+    std::vector<int> values = {1, 2, 3, 4, 5};
 
     // lambda
     // call function ForEach(vector, void(*)()) with lambda expression
     // lambda is essentially a throw-away function that's only used once
-    ForEach(values,
+    ForEach(
+        values,
         // lambda expression begins
-        [](int value) {
-            std::cout << "Value: " << value << "\n";
-        } // end of lambda expression
+        [](int value) { std::cout << "Value: " << value << "\n"; } // end of lambda expression
     );
 
     std::cout << "\nSorting with lambda expression" << "\n";
-    sort(values.begin(), values.end(),
+    sort(
+        values.begin(), values.end(),
         // lambda expression begins
         [&values](const int left, const int right) {
             return (left > right); // descending order
@@ -74,8 +72,8 @@ int main(void)
     // -> trailing return type: -> void
     [&m, n](int a) mutable -> void {
         std::cout << "\nInside of lambda"
-            << "\nBefore operation: m = " << m << ", n = " << n << ", a = " << a << "\n";
-        m = ++n + a;  // perform operation
+                  << "\nBefore operation: m = " << m << ", n = " << n << ", a = " << a << "\n";
+        m = ++n + a; // perform operation
         std::cout << "After operation: m = " << m << ", n = " << n << ", a = " << a << "\n";
     }(4); // 4 is assigned to int a
     // "int a" went out of scope, thus it is no longer valid

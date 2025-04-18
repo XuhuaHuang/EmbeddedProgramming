@@ -13,14 +13,11 @@
 #include <new>
 #include <optional>
 
-template<typename T, std::size_t Size>
-class inplace_vector
-{
+template <typename T, std::size_t Size>
+class inplace_vector {
 public:
-    constexpr T& push_back(const T& t)
-    {
-        if (size_ == Size)
-        {
+    constexpr T& push_back(const T& t) {
+        if (size_ == Size) {
             throw std::bad_alloc();
         }
         return arr_[size_++].emplace(t);

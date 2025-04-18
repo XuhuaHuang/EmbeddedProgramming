@@ -11,43 +11,36 @@
 #include <thread>
 
 /**
-* std::thread threadObj(<CALLBACK>);
-*
-* std::thread accepts the following:
-* 1) function pointer
-* 2) function objects
-* 3) lambda functions
-*/
+ * std::thread threadObj(<CALLBACK>);
+ *
+ * std::thread accepts the following:
+ * 1) function pointer
+ * 2) function objects
+ * 3) lambda functions
+ */
 
-void threadFn()
-{
-    for (int i = 0; i < 10; ++i)
-    {
+void threadFn() {
+    for (int i = 0; i < 10; ++i) {
         std::cout << "\nFunction named \"threadFn\" executing..." << "\n";
     }
 }
 
 /* Class definition used to create objects used to create thread */
-class DisplayThread
-{
+class DisplayThread {
 public:
-    void operator()()
-    {
-        for (int i = 0; i < 10; ++i)
-        {
+    void operator()() {
+        for (int i = 0; i < 10; ++i) {
             std::cout << "\nOverloaded operator \"DisplayThread::operator()()\" executing..." << "\n";
         }
     }
 };
 
-void printFromMainThread()
-{
+void printFromMainThread() {
     for (int i = 0; i < 10; ++i)
         std::cout << "\nPrinting from main thread..." << "\n";
 }
 
-int main(void)
-{
+int main(void) {
     /* Create a thread with function pointer */
     std::thread threadFnPtr(threadFn); // threadFn is parsed as a function pointer
 
@@ -61,12 +54,10 @@ int main(void)
     threadFnObj.join();
 
     /* Create a thread with lambda */
-    std::thread threadLambda(
-        []() {
-            for (int i = 0; i < 10; ++i)
-                std::cout << "\nLambda executing..." << "\n";
-        }
-    );
+    std::thread threadLambda([]() {
+        for (int i = 0; i < 10; ++i)
+            std::cout << "\nLambda executing..." << "\n";
+    });
 
     printFromMainThread();
     threadLambda.join();

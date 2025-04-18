@@ -12,13 +12,14 @@
 #define CLIENT_HPP
 
 #include <vector>
+
 #include "Card.hpp"
 #include "ICardSource.hpp"
 
 class Client {
 public:
     static std::vector<Card> draw_cards(ICardSource* src, int num) {
-        std::vector<Card> cards {};
+        std::vector<Card> cards{};
         for (int i = 0; i < num && !src->is_empty(); i++) {
             cards.push_back(src->draw());
         }

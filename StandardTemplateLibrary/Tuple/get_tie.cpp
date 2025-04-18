@@ -1,14 +1,12 @@
 #include <iostream>
+#include <stdexcept>
 #include <string>
 #include <tuple>
-#include <stdexcept>
 
 // tuple<double, char, string> is the return type
 // getStudentByID is the name of the function with argument 'ID'
-std::tuple<double, char, std::string> getStudentByID(int ID)
-{
-    switch (ID)
-    {
+std::tuple<double, char, std::string> getStudentByID(int ID) {
+    switch (ID) {
     case 1:
         return std::make_tuple(3.8, 'A', "Lisa Simpon");
         break;
@@ -23,8 +21,7 @@ std::tuple<double, char, std::string> getStudentByID(int ID)
     }
 }
 
-int main(void)
-{
+int main(void) {
     // with 'auto'
     auto student1 = getStudentByID(1);
     // auto keyword
@@ -34,12 +31,14 @@ int main(void)
     // index<0>	 <1>   <2>
 
     std::cout << "ID: 1" << "\n"
-         << "GPA: " << std::get<0>(student1) << "\n"
-         << "Grade: " << std::get<1>(student1) << "\n"
-         << "Name: " << std::get<2>(student1) << "\n";
+              << "GPA: " << std::get<0>(student1) << "\n"
+              << "Grade: " << std::get<1>(student1) << "\n"
+              << "Name: " << std::get<2>(student1) << "\n";
 
     // with tie() function
-    double gpa2; char grade2; std::string name2;
+    double      gpa2;
+    char        grade2;
+    std::string name2;
     std::tie(gpa2, grade2, name2) = getStudentByID(2);
     // case2: return make_tuple(2.9, 'C', "Milhouse Van Houten");
     // gpa2 = 2.9	grade2 = C	name2 = Milhouse Van Houten
@@ -47,13 +46,13 @@ int main(void)
     // the returned tuple from the function
 
     std::cout << "ID: 2" << "\n"
-         << "GPA: " << gpa2 << "\n"
-         << "Grade: " << grade2 << "\n"
-         << "Name: " << name2 << "\n";
-    
+              << "GPA: " << gpa2 << "\n"
+              << "Grade: " << grade2 << "\n"
+              << "Name: " << name2 << "\n";
+
     std::cout << "Making new tuples for fun" << "\n";
     int a, b;
-    std::tie(a, b) = std::tuple<int, int> { 1,-1 };
+    std::tie(a, b) = std::tuple<int, int>{1, -1};
     std::cout << a << " , " << b << "\n";
 
     auto intT = std::make_tuple(2, -2);

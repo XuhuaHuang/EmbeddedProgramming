@@ -25,8 +25,7 @@ float estimate       = initial_state;
 float error_estimate = initial_estimate;
 
 /// @brief Kalman filter function
-auto kalman_filter(const float measurement) -> void
-{
+auto kalman_filter(const float measurement) -> void {
     // Prediction
     float prediction       = state;
     float prediction_error = error_estimate + process_noise;
@@ -40,13 +39,11 @@ auto kalman_filter(const float measurement) -> void
     return;
 }
 
-int main()
-{
+int main() {
     // Simulated measurements
     float measurements[] = {1.2, 1.6, 2.0, 1.8, 2.2};
 
-    for (int i = 0; i < sizeof(measurements) / sizeof(measurements[0]); i++)
-    {
+    for (int i = 0; i < sizeof(measurements) / sizeof(measurements[0]); i++) {
         float measurement = measurements[i];
         kalman_filter(measurement);
 

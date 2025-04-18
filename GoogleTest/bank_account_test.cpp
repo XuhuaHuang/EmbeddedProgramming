@@ -6,17 +6,19 @@
  * \date   November 14, 2022
  *********************************************************************/
 
-#include <iostream>
 #include <gtest/gtest.h>
+
+#include <iostream>
 
 #define STDTEST std::cout << "\033[32m[---TEST---]\033[m "
 
-class BankAccount
-{
+class BankAccount {
 public:
     // default and overloaded constructor:
-    BankAccount() : balance(0.00) {}
-    explicit BankAccount(const double initBalance) : balance(initBalance) {}
+    BankAccount()
+        : balance(0.00) {}
+    explicit BankAccount(const double initBalance)
+        : balance(initBalance) {}
 
     // get function for variable 'balance'
     double getBalance() { return balance; }
@@ -37,8 +39,7 @@ private:
     friend struct WithdrawAccountTest;
 };
 
-void BankAccount::credit(const double& deposit)
-{
+void BankAccount::credit(const double& deposit) {
     std::cout.precision(2);
 
     setBalance(getBalance() + deposit); // add deposit to current balance
@@ -49,20 +50,16 @@ void BankAccount::credit(const double& deposit)
     return;
 }
 
-bool BankAccount::debit(const double& withdraw)
-{
+bool BankAccount::debit(const double& withdraw) {
     STDTEST << "[fn]This line indicates function \"Account::debit(double)\" is called." << "\n";
 
     bool withdrawSuccess = false;
 
-    if (getBalance() - withdraw > 0.0)
-    {
+    if (getBalance() - withdraw > 0.0) {
         STDTEST << "[fn]Withdraw successfully, account balance is recalculated." << "\n";
         setBalance(getBalance() - withdraw);
         withdrawSuccess = true;
-    }
-    else
-    {
+    } else {
         STDTEST << "[fn]Error! Debit amount exceeded account balance." << "\n";
         STDTEST << "[fn]Account balance remains unchanged." << "\n";
     }
@@ -72,77 +69,59 @@ bool BankAccount::debit(const double& withdraw)
     return withdrawSuccess;
 }
 
-class BankAccountTest : public ::testing::Test
-{
+class BankAccountTest : public ::testing::Test {
 protected:
     BankAccount* account;
-public:
-    BankAccountTest() {
-        account = new BankAccount();
-    }
 
-    virtual ~BankAccountTest() {
-        delete account;
-    }
+public:
+    BankAccountTest() { account = new BankAccount(); }
+
+    virtual ~BankAccountTest() { delete account; }
 };
 
 /* Independent AccountTest instance */
-TEST(AccountTest, BankAccountInitEmpty)
-{
+TEST(AccountTest, BankAccountInitEmpty) {
     BankAccount testAcct;
     EXPECT_EQ(0, testAcct.getBalance());
 }
 
 /* Using predefined BankAccountTest class test suite */
-TEST_F(BankAccountTest, BankAccountInitEmpty_Test)
-{
+TEST_F(BankAccountTest, BankAccountInitEmpty_Test) {
     EXPECT_EQ(0, account->getBalance());
 }
 
-TEST_F(BankAccountTest, CanDepositMoney)
-{
+TEST_F(BankAccountTest, CanDepositMoney) {
     account->credit(100.00);
     EXPECT_EQ(100.00, account->getBalance());
 }
 
-TEST_F(BankAccountTest, CanWithDrawMoney)
-{
+TEST_F(BankAccountTest, CanWithDrawMoney) {
     account->credit(100.00);
     EXPECT_EQ(100.00, account->getBalance());
 }
 
 /* Creating test fixtures reusing struct with parameterization */
-struct AccountState
-{
+struct AccountState {
 public:
     double initialBalance;
     double withdrawAmount;
     double finalBalance;
-    bool withdrawSuccess;
+    bool   withdrawSuccess;
 
     // define an overloaded operator for user-friendly output
-    friend std::ostream& operator<<(std::ostream& os, const AccountState& acctState)
-    {
-        return os
-            << "Initial balance: " << acctState.initialBalance
-            << "Withdraw amount: " << acctState.withdrawAmount
-            << "Final balance: " << acctState.finalBalance
-            << "Withdraw success:" << acctState.withdrawSuccess;
+    friend std::ostream& operator<<(std::ostream& os, const AccountState& acctState) {
+        return os << "Initial balance: " << acctState.initialBalance << "Withdraw amount: " << acctState.withdrawAmount
+                  << "Final balance: " << acctState.finalBalance << "Withdraw success:" << acctState.withdrawSuccess;
     }
 };
 
-struct WithdrawAccountTest : public BankAccountTest, ::testing::WithParamInterface<AccountState>
-{
-    WithdrawAccountTest()
-    {
-        account->setBalance(GetParam().initialBalance);
-    }
+struct WithdrawAccountTest : public BankAccountTest, ::testing::WithParamInterface<AccountState> {
+    WithdrawAccountTest() { account->setBalance(GetParam().initialBalance); }
 };
 
-TEST_P(WithdrawAccountTest, FinalBalance)
-{
+TEST_P(WithdrawAccountTest, FinalBalance) {
     auto acctState = GetParam();
-    bool success = account->debit(acctState.withdrawAmount);
+    bool success   = account->debit(acctState.withdrawAmount);
 
     EXPECT_EQ(acctState.finalBalance, account->getBalance());
     EXPECT_EQ(acctState.withdrawSuccess, success);
@@ -150,17 +129,11 @@ TEST_P(WithdrawAccountTest, FinalBalance)
 
 /* Parameterized test */
 INSTANTIATE_TEST_SUITE_P(
-    Default,
-    WithdrawAccountTest,
-    testing::Values(
-        AccountState{ 100, 50, 50, true },
-        AccountState{ 100, 200, 100, false }
-    )
+    Default, WithdrawAccountTest, testing::Values(AccountState{100, 50, 50, true}, AccountState{100, 200, 100, false})
 );
 
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

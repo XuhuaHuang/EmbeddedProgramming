@@ -12,7 +12,6 @@
 
 #include "projectile_motion.hpp"
 
-auto main(void) -> int
-{
+int main(void) {
     return EXIT_SUCCESS;
 }

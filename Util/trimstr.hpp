@@ -18,12 +18,10 @@
 #endif
 #endif
 
-inline constexpr auto trim_front = std::views::drop_while(::isspace);
-inline constexpr auto trim_back = std::views::reverse
-    | std::views::drop_while(::isspace)
-    | std::views::reverse;
+constexpr inline auto trim_front  = std::views::drop_while(::isspace);
+constexpr inline auto trim_back   = std::views::reverse | std::views::drop_while(::isspace) | std::views::reverse;
 
-inline constexpr auto trim_spaces = trim_front | trim_back;
+constexpr inline auto trim_spaces = trim_front | trim_back;
 
 std::string trim_str(const std::string& str) {
     // std::rangesnext::to in C++23 proposal

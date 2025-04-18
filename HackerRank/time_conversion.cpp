@@ -13,8 +13,9 @@
  * \date   October 2021
  *********************************************************************/
 
-#include <iostream>
 #include <stdlib.h>
+
+#include <iostream>
 #include <string>
 
 /*
@@ -29,14 +30,11 @@ std::string timeConversion(std::string s) {
     if (s.find("AM") != std::string::npos && stoi(s.substr(0, 2)) == 12) {
         result = s.erase(8, 2);
         result = s.replace(0, 2, "00");
-    }
-    else if (s.find("PM") != std::string::npos && stoi(s.substr(0, 2)) == 12) {
+    } else if (s.find("PM") != std::string::npos && stoi(s.substr(0, 2)) == 12) {
         result = s.erase(8, 2);
-    }
-    else if (s.find("AM") != std::string::npos) {
+    } else if (s.find("AM") != std::string::npos) {
         result = s.erase(8, 2);
-    }
-    else if (s.find("PM") != std::string::npos) {
+    } else if (s.find("PM") != std::string::npos) {
         result = s.erase(8, 2);
         result = s.replace(0, 2, std::to_string((stoi(s.substr(0, 2)) + 12)));
     }
@@ -44,8 +42,7 @@ std::string timeConversion(std::string s) {
     return result;
 }
 
-int main()
-{
+int main() {
     std::string s;
     std::getline(std::cin, s); // get the 12-hour format time from the user
 

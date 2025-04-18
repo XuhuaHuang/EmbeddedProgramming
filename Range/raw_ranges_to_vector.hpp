@@ -14,25 +14,22 @@
 #include <ranges>
 #include <vector>
 
-namespace test::ranges
-{
+namespace test::ranges {
 
-[[nodiscard]] constexpr auto to_vector(std::ranges::range auto range)
-{
+[[nodiscard]]
+constexpr auto to_vector(std::ranges::range auto range) {
     return range | ::std::ranges::to<std::vector>();
 }
 
 } // namespace test::ranges
 
-namespace test::stl
-{
+namespace test::stl {
 
-[[nodiscard]] constexpr auto to_vector(std::ranges::range auto range)
-{
+[[nodiscard]]
+constexpr auto to_vector(std::ranges::range auto range) {
     using value_type = std::remove_cvref_t<decltype(*std::ranges::begin(range))>;
     std::vector<value_type> output{};
-    if constexpr (requires { std::size(range); })
-    {
+    if constexpr (requires { std::size(range); }) {
         output.reserve(std::size(range));
     }
     std::ranges::copy(std::ranges::begin(range), std::ranges::end(range), std::back_inserter(output));

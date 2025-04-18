@@ -2,8 +2,7 @@
 #include <iostream>
 
 // Base class
-class Animal
-{
+class Animal {
 public:
     void animalSound() { std::cout << "The animal makes a sound." << "\n"; }
 };

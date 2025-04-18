@@ -13,8 +13,7 @@
 #include <iostream>
 #endif
 
-class Point
-{
+class Point {
 private:
     int x;
     int y;
@@ -28,8 +27,8 @@ public:
     int getx() { return x; }
     int gety() { return y; }
 
-    //constructor
-    Point(); // no return type NOT even "void"
+    // constructor
+    Point();                     // no return type NOT even "void"
     Point(int initX, int initY); // overload constructor prototype
 };
 
@@ -39,8 +38,7 @@ Point::Point() // default cinstructor // constructors always have the same name 
     sety(0);
 }
 
-Point::Point(int initX, int initY)
-{
+Point::Point(int initX, int initY) {
     setx(initX);
     sety(initY);
 }

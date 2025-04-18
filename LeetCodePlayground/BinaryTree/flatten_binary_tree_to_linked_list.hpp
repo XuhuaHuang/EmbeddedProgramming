@@ -14,20 +14,15 @@
 
 #include "binary_tree_node.hpp"
 
-class Solution
-{
+class Solution {
 public:
-    void flatten(TreeNode* root)
-    {
+    void flatten(TreeNode* root) {
         TreeNode* now = root;
-        while (now)
-        {
-            if (now->left)
-            {
+        while (now) {
+            if (now->left) {
                 // find current node's prenode that links to current node's right subtree
                 TreeNode* pre = now->left;
-                while (pre->right)
-                {
+                while (pre->right) {
                     pre = pre->right;
                 }
                 pre->right = now->right;

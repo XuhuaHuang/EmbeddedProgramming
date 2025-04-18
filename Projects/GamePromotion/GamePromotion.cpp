@@ -8,10 +8,8 @@
 
 #include <iostream>
 #include <string>
-#include "GamePromotion.hpp"
 
-void VideoGame::printInfo(void)
-{
+void VideoGame::printInfo(void) {
     std::cout << "\n[fn][VideoGame]Invoking Game::printInfo()" << "\n";
     Game::printInfo();
 
@@ -21,8 +19,7 @@ void VideoGame::printInfo(void)
     return;
 }
 
-void BoardGame::printInfo()
-{
+void BoardGame::printInfo() {
     std::cout << "\n[fn][BoardGame]Invoking Game::printInfo()" << "\n";
     Game::printInfo();
 
@@ -30,8 +27,7 @@ void BoardGame::printInfo()
     std::cout << "[fn][BoardGame]Max number of players = " << getMaxNumPlayers() << "\n";
 }
 
-Promotion::Promotion()
-{
+Promotion::Promotion() {
     VideoGame vg;
     setVideoGame(vg);
 
@@ -39,8 +35,7 @@ Promotion::Promotion()
     setBoardGame(ptrBG);
 }
 
-void Promotion::PrintInfo()
-{
+void Promotion::PrintInfo() {
     std::cout << "\n[fn][Promotion]VideoGame on promotion: " << "\n";
     getVideoGame().printInfo();
 

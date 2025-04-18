@@ -15,16 +15,14 @@
 #include <iostream>
 #include <string>
 
-class Pet
-{
+class Pet {
 protected: // X.H. changed the keyword to 'protected'
     std::string name;
     int         age;
 
 public:
     // default and overloaded constructors
-    Pet()
-    {
+    Pet() {
         setAge(0);
         setName("");
     }
@@ -47,8 +45,7 @@ private:
 
 public:
     // default and overloaded constructor
-    Dog()
-    {
+    Dog() {
         setAge(getAge() * 7); // access to class Pet is granted
     }
 
@@ -77,8 +74,7 @@ public:
     void setAge(int newage) override { age = newage; }
 };
 
-int main(void)
-{
+int main(void) {
     Pet  myPet; // created a 'Pet' object
     Pet* ptrPet = &myPet;
     // create a pointer of class 'Pet'

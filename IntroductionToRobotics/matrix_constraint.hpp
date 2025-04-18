@@ -21,20 +21,18 @@
 #include <ranges>
 #include <vector>
 
+namespace robotics {
 
-namespace robotics
-{
-
-template<typename T, std::size_t M, std::size_t N>
+template <typename T, std::size_t M, std::size_t N>
 concept matrix = requires (std::array<std::array<T, N>, M> matrix) {
     { matrix.size() } -> std::convertible_to<size_t>;
     { matrix[0].size() } -> std::convertible_to<size_t>;
 };
 
-template<typename R, typename T>
+template <typename R, typename T>
 concept weak_matrix = std::convertible_to<std::ranges::range_reference_t<std::ranges::range_reference_t<R>>, T>;
 
-template<typename T>
+template <typename T>
 concept random_access_container = requires (T container) {
     typename T::value_type;
     typename T::iterator;
@@ -57,7 +55,7 @@ concept random_access_container = requires (T container) {
 };
 
 // Concept to constrain a 2D matrix
-template<typename T>
+template <typename T>
 concept random_access_matrix =
     random_access_container<T> && random_access_container<typename T::value_type> && requires (T mat) {
         // Optional: Add additional constraints like ensuring the matrix has

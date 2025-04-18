@@ -23,8 +23,7 @@ void palindrome(std::vector<int>);
 void palindrome(std::vector<std::string>);
 void palindrome(std::vector<char>);
 
-int main(void)
-{
+int main(void) {
     std::random_device rd;
     std::mt19937       g(rd());
 
@@ -202,14 +201,12 @@ int main(void)
 }
 
 
-void printIntVector(std::vector<int> intv)
-{
+void printIntVector(std::vector<int> intv) {
     std::vector<int>::const_iterator iterint;
     std::cout << "The content of this integer std::vector is listed: "
               << "\n";
 
-    for (iterint = intv.begin(); iterint < intv.end(); iterint++)
-    {
+    for (iterint = intv.begin(); iterint < intv.end(); iterint++) {
         std::cout << *iterint << "\n";
     } // end for
 
@@ -217,14 +214,12 @@ void printIntVector(std::vector<int> intv)
               << "\n";
 }
 
-void printCharVector(std::vector<char> charv)
-{
+void printCharVector(std::vector<char> charv) {
     std::vector<char>::const_iterator iterchar;
     std::cout << "The content of this character std::vector is listed: "
               << "\n";
 
-    for (iterchar = charv.begin(); iterchar < charv.end(); iterchar++)
-    {
+    for (iterchar = charv.begin(); iterchar < charv.end(); iterchar++) {
         std::cout << *iterchar << "\n"; // print v3 using std::vectors
     } // end for
 
@@ -232,14 +227,12 @@ void printCharVector(std::vector<char> charv)
               << "\n";
 }
 
-void squareAndPrint(int x)
-{
+void squareAndPrint(int x) {
     std::cout << "Squared: " << (x * x) << "\n"; // x^2 did NOT work not sure why
     return;
 }
 
-void palindrome(std::vector<int> vint)
-{
+void palindrome(std::vector<int> vint) {
     std::vector<int> vintCopy = vint; // copy to a new std::vector for comparison
     reverse(vintCopy.begin(), vintCopy.end());
 
@@ -252,8 +245,7 @@ void palindrome(std::vector<int> vint)
     return;
 }
 
-void palindrome(std::vector<std::string> vString)
-{
+void palindrome(std::vector<std::string> vString) {
     std::vector<std::string> vStringCopy = vString; // copy to a new std::vector for comparison
     // std::cout << vstd::stringCopy.at(0) << "\n"; // test
     std::reverse(vStringCopy.begin(), vStringCopy.end());
@@ -268,8 +260,7 @@ void palindrome(std::vector<std::string> vString)
     return;
 }
 
-void palindrome(std::vector<char> vchar)
-{
+void palindrome(std::vector<char> vchar) {
     std::vector<char> vcharCopy = vchar;
     reverse(vcharCopy.begin(), vcharCopy.end());
 

@@ -12,37 +12,35 @@
  */
 
 consteval decltype(auto) foo(auto t) {
-  if constexpr (requires{ t.foo; }) {
-    return t.foo;
-  } else {
-    return 0;
-  }
+    if constexpr (requires { t.foo; }) {
+        return t.foo;
+    } else {
+        return 0;
+    }
 }
 
-template<>
-inline consteval int foo<__anon_14_11>(__anon_14_11 t)
-{
-  if constexpr(true) {
-    return t.foo;
-  }
-}
-
-
-template<>
-inline consteval int foo<__anon_17_11>(__anon_17_11 t)
-{
-  if constexpr(false) {
-  } else /* constexpr */ {
-    return 0;
-  }
+template <>
+inline consteval int foo<__anon_14_11>(__anon_14_11 t) {
+    if constexpr (true) {
+        return t.foo;
+    }
 }
 
 
-constexpr struct __anon_14_11  /* size: 4, align: 4 */
+template <>
+inline consteval int foo<__anon_17_11>(__anon_17_11 t) {
+    if constexpr (false) {
+    } else /* constexpr */ {
+        return 0;
+    }
+}
+
+
+constexpr struct __anon_14_11 /* size: 4, align: 4 */
 {
-  int foo{42};                    /* offset: 0, size: 4 */
-  // inline constexpr __anon_14_11() noexcept = default;
-  // inline constexpr __anon_14_11(const __anon_14_11 &) noexcept = default;
+    int foo{42}; /* offset: 0, size: 4 */
+                 // inline constexpr __anon_14_11() noexcept = default;
+                 // inline constexpr __anon_14_11(const __anon_14_11 &) noexcept = default;
 };
 
 constexpr const __anon_14_11 f = __anon_14_11();
@@ -50,11 +48,11 @@ constexpr const __anon_14_11 f = __anon_14_11();
 /* PASSED: static_assert(42 == foo(__anon_14_11(f))); */
 
 
-constexpr struct __anon_17_11  /* size: 4, align: 4 */
+constexpr struct __anon_17_11 /* size: 4, align: 4 */
 {
-  int bar{42};                    /* offset: 0, size: 4 */
-  // inline constexpr __anon_17_11() noexcept = default;
-  // inline constexpr __anon_17_11(const __anon_17_11 &) noexcept = default;
+    int bar{42}; /* offset: 0, size: 4 */
+                 // inline constexpr __anon_17_11() noexcept = default;
+                 // inline constexpr __anon_17_11(const __anon_17_11 &) noexcept = default;
 };
 
 constexpr const __anon_17_11 b = __anon_17_11();

@@ -13,8 +13,7 @@
 
 // class Printable only contains a pure virtual function that
 // acts like an interface keyword in other programming languages
-class Printable
-{
+class Printable {
 public:
     // create an interface that every derived class has to implement
     // pure virtual function
@@ -26,33 +25,34 @@ inline void printClassName(Printable* const obj) {
     std::cout << "Print class name: " << obj->getClassName() << "\n";
 }
 
-class Entity : public Printable
-{
+class Entity : public Printable {
 private:
     std::string className;
+
 public:
     // implement defined interface
     std::string getClassName() override { return "Entity : public Printable"; }
 };
 
-class User : public Entity
-{
+class User : public Entity {
 private:
     std::string firstName;
     std::string lastName;
+
 public:
     // implement defined interface
     std::string getClassName() override { return "User : public Entity"; }
 
     // constructor with member initialization list
-    User(std::string fn, std::string ln) : firstName(fn), lastName(ln) {}
+    User(std::string fn, std::string ln)
+        : firstName(fn)
+        , lastName(ln) {}
 
     // get function
     std::string getUserName() { return firstName + lastName; }
 };
 
-int main(void)
-{
+int main(void) {
     Entity* e = new Entity();
     printClassName(e);
 

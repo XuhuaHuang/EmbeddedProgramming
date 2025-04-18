@@ -18,16 +18,13 @@
  * };
  */
 
-class NestedIterator
-{
-    template<typename T>
+class NestedIterator {
+    template <typename T>
     using vector = std::vector<T>;
 
 public:
-    NestedIterator(vector<NestedInteger>& nestedList)
-    {
-        for (auto x : nestedList)
-        {
+    NestedIterator(vector<NestedInteger>& nestedList) {
+        for (auto x : nestedList) {
             makeFlat(x);
         }
     }
@@ -37,17 +34,11 @@ public:
     inline bool hasNext() { return i < flat.size(); }
 
 private:
-
-    inline void makeFlat(NestedInteger x)
-    {
-        if (x.isInteger())
-        {
+    inline void makeFlat(NestedInteger x) {
+        if (x.isInteger()) {
             flat.push_back(x.getInteger());
-        }
-        else
-        {
-            for (auto y : x.getList())
-            {
+        } else {
+            for (auto y : x.getList()) {
                 makeFlat(y);
             }
         }

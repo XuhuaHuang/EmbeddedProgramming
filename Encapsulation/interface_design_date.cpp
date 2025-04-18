@@ -13,14 +13,11 @@
 #include <string>
 
 /* define structures offer explicit conversion constructor */
-class Month
-{
+class Month {
 public:
     // get function
-    std::string getMonth() const
-    {
-        switch (_month)
-        {
+    std::string getMonth() const {
+        switch (_month) {
         case 1:
             return "Jan";
         case 2:
@@ -72,25 +69,18 @@ private:
     /* prevent creation of other Month values */
     /* with private constructor */
     explicit Month(int m)
-        : _month(m)
-    {
-    }
+        : _month(m) {}
     int _month;
 };
 
-struct Day
-{
+struct Day {
     int getDay() const { return _day; }
     /* default and overloaded constructor with explicit conversion */
     explicit Day() = default;
-    explicit Day(int d)
-    {
-        if (d > 0 && d <= 31)
-        {
+    explicit Day(int d) {
+        if (d > 0 && d <= 31) {
             _day = d;
-        }
-        else
-        {
+        } else {
             _day = 0;
         }
     }
@@ -99,19 +89,14 @@ private:
     int _day;
 };
 
-struct Year
-{
+struct Year {
     int getYear() const { return _year; }
     /* default and overloaded constructor with explicit conversion */
     explicit Year() { _year = 2000; }
-    explicit Year(int y)
-    {
-        if (y > 1900 && y <= 2100)
-        {
+    explicit Year(int y) {
+        if (y > 1900 && y <= 2100) {
             _year = y;
-        }
-        else
-        {
+        } else {
             _year = 1900;
         }
     }
@@ -120,8 +105,7 @@ private:
     int _year;
 };
 
-class Date
-{
+class Date {
 public:
     // default constructor with member initialization list
     Date() = default;
@@ -137,8 +121,7 @@ private:
     Year  year;
 };
 
-Date::Date(const Month& m, const Day& d, const Year& y)
-{
+Date::Date(const Month& m, const Day& d, const Year& y) {
     // invoking compiler generated copy constructor
     month = Month(m);
     if (m.getMonth() == "Feb" && d.getDay() <= 29)
@@ -148,15 +131,13 @@ Date::Date(const Month& m, const Day& d, const Year& y)
     year = Year(y);
 }
 
-void Date::printDate()
-{
+void Date::printDate() {
     std::cout << "[fn][Date::printDate()]"
               << "\n"
               << this->month.getMonth() << " " << this->day.getDay() << ", " << this->year.getYear() << "\n";
 }
 
-int main(void)
-{
+int main(void) {
     Date myDate(Month::Mar(), Day(8), Year(2021));
     myDate.printDate();
 

@@ -13,18 +13,16 @@
 #include <string>
 #include <vector>
 
-void greetUser(std::string userName)
-{
+void greetUser(std::string userName) {
     std::cout << "Hello, " << userName << "\n";
 }
 
 
-void ForEach(const std::vector<int>& contents, void (*fn)(int))
-{
+void ForEach(const std::vector<int>& contents, void (*fn)(int)) {
     /**
      * receive a vector and perform dedicated action to it
      * by calling parsed function fn(int)
-     * 
+     *
      * \param contents: a constant reference to a vector of type int
      * \param fn: a function pointer of return type void and parameter list int
      * 		  In modern C++, this function pointer is usually replaced by lambda
@@ -33,18 +31,16 @@ void ForEach(const std::vector<int>& contents, void (*fn)(int))
         fn(content);
 }
 
-void printValue(const int value)
-{
+void printValue(const int value) {
     /**
      * function to print an integer
-     * 
+     *
      * \param value: constant copy of an int
      */
     std::cout << "[fn][void printValue(int)]Content: " << value << "\n";
 }
 
-int main(void)
-{
+int main(void) {
     typedef void (*voidStringFn)(std::string);
     /**
      * define a type
@@ -53,12 +49,12 @@ int main(void)
      * \return void
      */
 
-     /**
-      * instantiate an instance of function pointer type "voidStringFn"
-      * function pointer name: greetUserFnPtr
-      * type: voidStringFn - returns void, takes a std::string
-      * function pointer content: address of function signatured "greetUser"
-      */
+    /**
+     * instantiate an instance of function pointer type "voidStringFn"
+     * function pointer name: greetUserFnPtr
+     * type: voidStringFn - returns void, takes a std::string
+     * function pointer content: address of function signatured "greetUser"
+     */
     voidStringFn greetUserFnPtr = &greetUser;
 
     /**
@@ -67,14 +63,16 @@ int main(void)
      */
     greetUserFnPtr("Lanfeng Jin");
 
-    std::vector<int> values = { 1, 2, 3, 4, 5 };
+    std::vector<int> values = {1, 2, 3, 4, 5};
     ForEach(values, &printValue);
-    
+
     /* using Lambda to act as a function pointer */
-    ForEach(values, [](int value) { // start lambda
-        // capture all integers in scope by copying
-        // no trailing return
-        std::cout << "[lambda][&](int value)Value: " << value << "\n";
+    ForEach(
+        values,
+        [](int value) { // start lambda
+            // capture all integers in scope by copying
+            // no trailing return
+            std::cout << "[lambda][&](int value)Value: " << value << "\n";
         } // end lambda
     );
 

@@ -1,26 +1,17 @@
 // https://leetcode.com/problems/median-of-two-sorted-arrays
 
-class Solution
-{
+class Solution {
 public:
-    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2)
-    {
-        if (nums1.size() == 0 && nums2.size() == 0)
-        {
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        if (nums1.size() == 0 && nums2.size() == 0) {
             return 0.0F;
-        }
-        else if (nums1.size() == 0 && nums2.size() != 0)
-        {
+        } else if (nums1.size() == 0 && nums2.size() != 0) {
             int n = nums2.size();
             return n % 2 ? nums2[n / 2] : (nums2[n / 2 - 1] + nums2[n / 2]) / 2.0;
-        }
-        else if (nums1.size() != 0 && nums2.size() == 0)
-        {
+        } else if (nums1.size() != 0 && nums2.size() == 0) {
             int n = nums1.size();
             return n % 2 ? nums1[n / 2] : (nums1[n / 2 - 1] + nums1[n / 2]) / 2.0;
-        }
-        else if (nums1.size() != 0 && nums2.size() != 0)
-        {
+        } else if (nums1.size() != 0 && nums2.size() != 0) {
             vector<int> v;
 
             // store the array in the new array
@@ -37,9 +28,7 @@ public:
             int n = v.size();
 
             return n % 2 ? v[n / 2] : (v[n / 2 - 1] + v[n / 2]) / 2.0;
-        }
-        else
-        {
+        } else {
             return 0.0F;
         }
     }

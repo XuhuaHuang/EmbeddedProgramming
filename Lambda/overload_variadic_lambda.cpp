@@ -1,17 +1,15 @@
 #include <iostream>
 #include <variant>
 
-template<typename... Ts>
-struct overload : Ts...
-{
+template <typename... Ts>
+struct overload : Ts... {
     using Ts::operator()...;
 }
 
-template<typename... Ts>
+template <typename... Ts>
 overload(Ts...) -> overload<Ts...>;
 
-int main()
-{
+int main() {
     // clang-format off
     auto f = overload{
         [](int i) {

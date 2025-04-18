@@ -1,14 +1,14 @@
-#include "ball.h"
-#include "bat.h"
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
 #include <sstream>
 
+#include "ball.h"
+#include "bat.h"
+
 using namespace sf;
 
 // This is where our game starts from
-int main()
-{
+int main() {
     int windowWidth  = 1024;
     int windowHeight = 768;
     // Make a window that is 1024 by 768 pixels
@@ -44,13 +44,11 @@ int main()
     // Choose a color
     hud.setFillColor(sf::Color::Green); // X.H. changed color from "White" to "Green"
 
-    while (window.isOpen())
-    {
+    while (window.isOpen()) {
         // Handle the player input
 
         Event event;
-        while (window.pollEvent(event))
-        {
+        while (window.pollEvent(event)) {
             if (event.type == Event::Closed) // Someone closed the window- bye
                 window.close();
         }
@@ -58,14 +56,10 @@ int main()
         if (Keyboard::isKeyPressed(Keyboard::Left)) // move left...
         {
             bat.moveLeft();
-        }
-        else if (Keyboard::isKeyPressed(Keyboard::Right))
-        {
+        } else if (Keyboard::isKeyPressed(Keyboard::Right)) {
             // move right...
             bat.moveRight();
-        }
-        else if (Keyboard::isKeyPressed(sf::Keyboard::Escape))
-        {
+        } else if (Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
             // quit...
             // Someone closed the window- bye
             window.close();
@@ -73,8 +67,7 @@ int main()
 
         // Update the frame
         // Handle ball hitting the bottom
-        if (ball.getPosition().top > windowHeight)
-        {
+        if (ball.getPosition().top > windowHeight) {
             // reverse the ball direction
             ball.hitBottom();
 
@@ -82,8 +75,7 @@ int main()
             lives--;
 
             // Check for zero lives
-            if (lives < 1)
-            {
+            if (lives < 1) {
                 // reset the score
                 score = 0;
                 // reset the lives
@@ -92,22 +84,19 @@ int main()
         }
 
         // Handle ball hitting top
-        if (ball.getPosition().top < 0)
-        {
+        if (ball.getPosition().top < 0) {
             ball.reboundBatOrTop();
             // Add a point to the players score
             score++;
         }
 
         // Handle ball hitting sides
-        if (ball.getPosition().left < 0 || ball.getPosition().left + 10 > windowWidth)
-        {
+        if (ball.getPosition().left < 0 || ball.getPosition().left + 10 > windowWidth) {
             ball.reboundSides();
         }
 
         // Has the ball hit the bat?
-        if (ball.getPosition().intersects(bat.getPosition()))
-        {
+        if (ball.getPosition().intersects(bat.getPosition())) {
             // Hit detected so reverse the ball and score a point
             ball.reboundBatOrTop();
         }

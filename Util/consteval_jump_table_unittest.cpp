@@ -1,8 +1,7 @@
 
 #include "consteval_jump_table.hpp"
 
-int main(void)
-{
+int main(void) {
     using util::data_structure::dispatch;
 
     static_assert(1 == dispatch(1));

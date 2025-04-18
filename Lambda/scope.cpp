@@ -4,30 +4,32 @@
  * @brief Capture by value and capture by reference demonstration
  * @version 0.1
  * @date 2022-01-06
- * 
+ *
  * To compile and run:
  * $ g++ -o scope.exe .\scope.cpp -std=c++11
  * ./scope
- * 
+ *
  * @copyright Copyright (c) 2022
- * 
+ *
  */
 
-#include <iostream>
 #include <stdlib.h>
+
 #include <functional>
+#include <iostream>
 
 int main(void) {
     int x = 5, y = 10;
 
     std::cout << "Outside the lambda:" << "\n"
-        << "Address of x in lambda: " << &x << ", value of x: " << x << "\n"
-        << "Address of y in lambda: " << &y << ", value of y: " << y << "\n" << "\n";
+              << "Address of x in lambda: " << &x << ", value of x: " << x << "\n"
+              << "Address of y in lambda: " << &y << ", value of y: " << y << "\n"
+              << "\n";
 
     auto test_lambda_capture = [x, &y]() mutable -> void {
         std::cout << "Inside the lambda:" << "\n"
-            << "Address of x in lambda: " << &x << ", value of x: " << x << "\n"
-            << "Address of y in lambda: " << &y << ", value of y: " << y << "\n";
+                  << "Address of x in lambda: " << &x << ", value of x: " << x << "\n"
+                  << "Address of y in lambda: " << &y << ", value of y: " << y << "\n";
 
         x += 1;
         y += 2;

@@ -9,8 +9,9 @@
  * \date   March 06, 2021
  *********************************************************************/
 
-#include <iostream>
 #include <math.h>
+
+#include <iostream>
 
 // function prototype:
 // recursion:
@@ -20,8 +21,7 @@ int summation(int n);
 void staticGlobalValTest();
 // end of function prototype
 
-int main(void)
-{
+int main(void) {
     /**
      * recursion: a function calls itself deirectly inside of the defiition
      * other: calling itself indirectly.
@@ -54,8 +54,7 @@ int main(void)
     return 0;
 }
 
-int multiRecursion(int k)
-{
+int multiRecursion(int k) {
     /**
      * can be avoided with proper manipulation with loops
      * logic for the following function 'multiRecursion'
@@ -71,20 +70,17 @@ int multiRecursion(int k)
      */
     int result = 0;
 
-    if (k > 0)
-    {
+    if (k > 0) {
         result = k + multiRecursion(k - 1);
         std::cout << "Variable \"K\" is: " << k << "\n"
                   << "Variable \"result\" is: " << result << "\n";
-    }
-    else
+    } else
         result = 0;
 
     return result;
 }
 
-int summation(int n)
-{
+int summation(int n) {
     /**
      * recursion
      * n + (n - 1) + (n - 2) + (n - 3) + ... + 3 + 2 + 1
@@ -99,8 +95,7 @@ int summation(int n)
     return sum;
 }
 
-void staticGlobalValTest()
-{
+void staticGlobalValTest() {
     /**
      * keyword "static" allocates the memory for the variable and never erases it
      * nonStaticVal is of type 'auto' allocation of memory

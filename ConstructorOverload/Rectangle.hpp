@@ -39,33 +39,30 @@ public:
     constexpr Rectangle(int, int);
     constexpr int calcArea(int, int);
     constexpr int calcPerimeter(int, int);
-
 };
 
 constexpr Rectangle::Rectangle() // default constructor the main will call when creating an object
     : length(0)
     , width(0)
     , area(0)
-    , perimeter(0)
-{
+    , perimeter(0) {
 }
 
 constexpr Rectangle::Rectangle(int inilength, int iniwidth) // overloaded with two arguments passed from the main
     : length(inilength)
     , width(iniwidth)
     , area(inilength * iniwidth)
-    , perimeter((inilength + iniwidth) * 2)
-{
+    , perimeter((inilength + iniwidth) * 2) {
 }
 
-[[gnu::const]] constexpr int Rectangle::calcArea(int inilength, int iniwidth)
-{
+[[gnu::const]]
+constexpr int Rectangle::calcArea(int inilength, int iniwidth) {
     int area = inilength * iniwidth;
     return area;
 }
 
-[[gnu::const]] constexpr int Rectangle::calcPerimeter(int inilength, int iniwidth)
-{
+[[gnu::const]]
+constexpr int Rectangle::calcPerimeter(int inilength, int iniwidth) {
     int perimeter = (inilength + iniwidth) * 2;
     return perimeter;
 }

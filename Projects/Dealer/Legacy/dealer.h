@@ -10,8 +10,7 @@
 #include <string>
 #include <vector>
 
-class Card
-{
+class Card {
 private:
     int face;
     int suit;
@@ -36,19 +35,18 @@ public:
     Card();
     Card(int useriniface, int userinisuit);
 
-    // print card function prototype 
+    // print card function prototype
     void printCard();
 };
 
-class Deck
-{
+class Deck {
 private:
     std::vector<Card> deck;
-    int currentCard;
+    int               currentCard;
 
 public:
     // get and set function for int currentCard
-    int getcurrentCard() { return currentCard; }
+    int  getcurrentCard() { return currentCard; }
     void setcurrentCard(int usercurrentCard) { currentCard = usercurrentCard; }
 
     // default and overloaded constructor:
@@ -62,13 +60,12 @@ public:
     void printCards();
 };
 
-class Hand
-{
+class Hand {
 private:
     std::vector<Card> hand;
 
 public:
-    Hand() = default;
+    Hand()          = default;
     virtual ~Hand() = default;
 
     void addCard(Card cardToAdd);

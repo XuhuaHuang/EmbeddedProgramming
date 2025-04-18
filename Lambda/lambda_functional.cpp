@@ -7,14 +7,13 @@
  * \date   March 2021
  *********************************************************************/
 
-#include <iostream>
 #include <algorithm>
-#include <vector>
 #include <functional>
+#include <iostream>
+#include <vector>
 
-template<class T>
-void printVector(std::vector<T> argVector)
-{
+template <class T>
+void printVector(std::vector<T> argVector) {
     std::cout << "\n[fn]The content of this vector is listed: " << "\n";
 
     typename std::vector<T>::iterator iter; // keyword 'typename' is required for iterator
@@ -27,14 +26,12 @@ void printVector(std::vector<T> argVector)
 
 // const std::vector<int>& values - an integer vector passed by reference
 // const std::function<void(int)>& func - function pointer, returns void, takes an integer argument
-void ForEach(const std::vector<int>& values, const std::function<void(int)>& func)
-{
+void ForEach(const std::vector<int>& values, const std::function<void(int)>& func) {
     for (int value : values)
         func(value);
 }
 
-int main(void)
-{
+int main(void) {
     /* define the size of the vector */
     static const int vectorSize = 10;
 
@@ -46,8 +43,7 @@ int main(void)
 
     int randomNum;
     /* generate random number between 1 and 10 and add to vector */
-    for (int i = 0; i < vectorSize; i++)
-    {
+    for (int i = 0; i < vectorSize; i++) {
         randomNum = rand() % 10 + 1;
         values.push_back(randomNum);
     }
@@ -55,17 +51,13 @@ int main(void)
     // printVector(values); // uncomment this line to see the content of the vector
 
     /* create a lambda */
-    auto print_int_val = [&](int value) {
-        std::cout << "Printing with lambda: " << value << "\n";
-    };
+    auto print_int_val = [&](int value) { std::cout << "Printing with lambda: " << value << "\n"; };
 
     /* call ForEach and pass lambda as a function pointer */
     ForEach(values, print_int_val);
 
     /* std::find_if() */
-    auto iter = std::find_if(values.begin(), values.end(),
-        [](int value) -> int { return value > 3; }
-    );
+    auto iter = std::find_if(values.begin(), values.end(), [](int value) -> int { return value > 3; });
 
     std::cout << "\nThe first element that's greater than 3 has a value of: " << *iter << "\n";
 

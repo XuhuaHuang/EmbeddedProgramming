@@ -22,25 +22,24 @@
 #endif
 
 namespace util {
-    namespace vector {
+namespace vector {
 
-        /* Template to print a std::vector with O(n). */
-        /* For sanity, using constant reference instead of iterators. */
-        template<typename T>
-        static void print_vec(const std::vector<T>& arg_vec) {
-            DEBUG("\n[fn]util::vector::print_vec");
+/* Template to print a std::vector with O(n). */
+/* For sanity, using constant reference instead of iterators. */
+template <typename T>
+static void print_vec(const std::vector<T>& arg_vec) {
+    DEBUG("\n[fn]util::vector::print_vec");
 
-            /* Loop through the vector with range-based for loop. */
-            for (const T& t : arg_vec)
-            {
-                std::cout << t << ", ";
-            }
+    /* Loop through the vector with range-based for loop. */
+    for (const T& t : arg_vec) {
+        std::cout << t << ", ";
+    }
 
-            DEBUG("\n[fn]Finished printing vector.");
-            return; // add empty return statement for consistency.
-        }
+    DEBUG("\n[fn]Finished printing vector.");
+    return; // add empty return statement for consistency.
+}
 
-    } // end util::vector
-} // end util
+} // namespace vector
+} // namespace util
 
 #endif

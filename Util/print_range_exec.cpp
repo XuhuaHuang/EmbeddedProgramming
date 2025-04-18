@@ -12,11 +12,11 @@
  *
  */
 
-#include "print_range.inl"
 #include <vector>
 
-auto main() -> int
-{
+#include "print_range.inl"
+
+auto main() -> int {
     std::vector<std::vector<int>> v{
         {1, 2, 3},
         {2, 4, 6},
