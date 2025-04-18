@@ -11,8 +11,7 @@
 
 size_t numDigits(int number);
 
-int main(void)
-{
+int main(void) {
     for (int i = 0; i <= 100; ++i) {
         std::cout << "The number of digit of number " << i << " is: " << numDigits(i) << "\n";
     }
@@ -21,8 +20,7 @@ int main(void)
     return 0;
 }
 
-size_t numDigits(int number)
-{
+size_t numDigits(int number) {
     std::size_t digitsCount = 1;
     while ((number /= 10) != 0) {
         ++digitsCount;

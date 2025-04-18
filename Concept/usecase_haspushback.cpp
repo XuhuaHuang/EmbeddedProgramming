@@ -13,22 +13,23 @@
 
 namespace {
 
-    }
-
-    /* Ad-hoc style HasInsert concept implementation */
-    template<typename Coll>
-    concept HasInsert = requires (Coll & c, typename Coll::value_type val) {
-        c.insert(val);
-    };
-
-    void coll_append(::HasInsert auto& coll, const auto& val) {
-        coll.insert(val);
-        return;
-    }
+void coll_append(HasPushBack auto& coll, const auto& val) {
+    coll.push_back(val);
+    return;
 }
-auto main(void) -> int {
-    std::vector<int> v{ 0, 1 };
-    std::set<int> s{ 0, 1 };
+
+/* Ad-hoc style HasInsert concept implementation */
+template <typename Coll>
+concept HasInsert = requires (Coll& c, typename Coll::value_type val) { c.insert(val); };
+
+void coll_append(::HasInsert auto& coll, const auto& val) {
+    coll.insert(val);
+    return;
+}
+} // namespace
+int main(void) {
+    std::vector<int> v{0, 1};
+    std::set<int>    s{0, 1};
 
     ::coll_append(v, 2); // calls coll_append(HasPushBack ...) variant
     ::coll_append(s, 2); // calls coll_append(HasInsert ...) variant

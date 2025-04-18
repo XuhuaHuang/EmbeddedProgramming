@@ -2,10 +2,14 @@ cmake_minimum_required(VERSION 3.20)
 
 project("sfml_cmake" LANGUAGES CXX)
 
+cmake_policy(SET CMP0135 NEW)
+
 include(FetchContent)
 FetchContent_Declare(SFML
     GIT_REPOSITORY https://github.com/SFML/SFML.git
-    GIT_TAG 2.6.x)
+    GIT_TAG 2.6.x
+    DOWNLOAD_EXTRACT_TIMESTAMP TRUE
+)
 FetchContent_MakeAvailable(SFML)
 
 add_executable(sfml_cmake "Example/main.cpp")

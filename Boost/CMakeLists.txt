@@ -1,25 +1,24 @@
 cmake_minimum_required(VERSION 3.20)
 
-# ┌──────────────────────────────────────────────────────────────────┐
-# │  Projects Settings                                               │
-# └──────────────────────────────────────────────────────────────────┘
-project("boost"
+project("boost_examples"
     VERSION 1.0.0
     DESCRIPTION "Examples on using boost library"
     LANGUAGES CXX
 )
 
-# ┌──────────────────────────────────────────────────────────────────┐
-# │  CXX Standard Requirements                                       │
-# └──────────────────────────────────────────────────────────────────┘
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+find_package(Boost REQUIRED)
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
+include_directories(${Boost_INCLUDE_DIRS})
 
-# ┌──────────────────────────────────────────────────────────────────┐
-# │  Sub-directories with CMake                                      │
-# └──────────────────────────────────────────────────────────────────┘
+add_subdirectory("Assign")
 add_subdirectory("Common")
+add_subdirectory("ComparablePoint")
+add_subdirectory("CurrentFunctionMacro")
+add_subdirectory("Fusion")
 add_subdirectory("LambdaExample")
+add_subdirectory("LinearRegression")
+add_subdirectory("MultiArray")
+add_subdirectory("Proto")
+add_subdirectory("StringRef")
 add_subdirectory("TimeDate")
+add_subdirectory("TypeIndex")

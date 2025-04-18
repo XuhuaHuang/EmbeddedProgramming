@@ -9,19 +9,16 @@
  * \date   September 2022
  *********************************************************************/
 
-#include <iostream>
-#include <boost/version.hpp>
 #include <boost/config.hpp>
+#include <boost/version.hpp>
+#include <iostream>
 
-auto main(void) -> int {
+int main(void) {
     /* boost/version.hpp */
-    std::cout << BOOST_VERSION << "\n"
-        << BOOST_LIB_VERSION << "\n";
+    std::cout << BOOST_VERSION << "\n" << BOOST_LIB_VERSION << "\n";
 
     /* boost/config.hpp */
-    std::cout << BOOST_PLATFORM << "\n"
-        << BOOST_COMPILER << "\n"
-        << BOOST_STDLIB << "\n";
+    std::cout << BOOST_PLATFORM << "\n" << BOOST_COMPILER << "\n" << BOOST_STDLIB << "\n";
 
     /*std::cin.get();*/
     system("pause");

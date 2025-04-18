@@ -8,11 +8,9 @@
             "includePath": [
                 "${env.INCLUDE}",
                 "${workspaceRoot}\\**",
-                "C:\\boost\\boost_1_81_0\\**",
-                "C:\\boost\\boost_1_81_0\\boost\\**",
-                "C:\\boost\\boost_1_82_0\\**",
-                "C:\\boost\\boost_1_82_0\\boost\\**",
-                "C:\\boost\\ut\\include"
+                "D:\\include\\boost_1_82_0\\**",
+                "D:\\include\\boost_1_82_0\\boost\\**",
+                "D:\\include\\ut\\include"
             ],
             "defines": [
                 "WIN32",

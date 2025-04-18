@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   progress_timer.cpp
  * \brief  boost_progress inherits from boost::timer
@@ -14,29 +15,15 @@
  * \author Xuhua Huang
  * \date   September 19, 2022
  *********************************************************************/
+// clang-format on
 
+#include <boost/timer/progress_display.hpp>
 #include <iostream>
 #include <sstream>
-#include <boost/progress.hpp>
 
-auto main(void) -> int {
-    /* boost::progress_timer */
-    boost::progress_timer t;
-    std::cout << t.elapsed() << "\n";
+int main(void) {
+    boost::timer::progress_display prog{100};
+    std::cout << prog.count() << "\n";
 
-    /**
-     * The destructor of the class boost:progress_timer also allows
-     * outputting to other output stream than std::cout (default option).
-     * For example, std::ofstream, std::ostringstream.
-     * Or we can use cout.rdbuf() to redirect the buffer output.
-     */
-    std::stringstream ss;
-    {
-        boost::progress_timer t(ss);
-    }
-    std::cout << ss.str() << "\n";
-
-    system("pause");
-    return EXIT_SUCCESS;
+    return 0;
 }
-

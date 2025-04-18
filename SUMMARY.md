@@ -2,7 +2,7 @@
 
 [Project Overview](README.md)
 
-# Core C++ Notes
+# Basics
 
 - [Destructor]()
 - [Interface]()
@@ -13,7 +13,7 @@
 - [Standard Template Library](docs/algorithms/quick-algorithm-lookup.md)
 - [Template](Template/README.md)
 
-# C++20 Notes
+# Advanced
 
 - [Range](docs/range-views-pipelines.md)
 - [Structural Binding]()

@@ -39,3 +39,14 @@ struct integral_constant {
     }
 };
 ```
+
+## `gtest_lambda_derivative.lib`
+To see the content of such library files, consider using `dumpbin` from `MSVC` toolchain.
+
+For example:
+```ps
+cd Helper
+cmake . -Bbuild
+cd Helper\build\Debug
+dumpbin /EXPORTS /out:gtest_lambda_derivative.txt gtest_lambda_derivative.lib
+```
