@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   unions_align.cpp
  * \brief  contains notes and examples on unions
@@ -9,6 +10,7 @@
  * \author Xuhua Huang
  * \date   June 2021
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
 
@@ -32,11 +34,8 @@ struct Vector4D {
     };
 };
 
-void printVector2D(const Vector2D& vector) {
-    std::cout << __func__ << "\n"
-              << "Printing struct Vector2D, x: " << vector.x << ", y: " << vector.y << "\n";
-
-    return;
+void print_vector2d(const Vector2D& vector) {
+    std::cout << __func__ << ", x: " << vector.x << ", y: " << vector.y << "\n";
 }
 
 int main(void) {
@@ -49,17 +48,18 @@ int main(void) {
     */
 
     Vector4D vector = {1.0f, 2.0f, 3.0f, 4.0f};
-    printVector2D(vector.v1); // retrieving member in the second anonymous struct
+    print_vector2d(vector.v1); // retrieving member in the second anonymous struct
     // 1.0 and 2.0
-    printVector2D(vector.v2);
+    print_vector2d(vector.v2);
     // 3.0 and 4.0
 
-    /* Change elements in the first anonymous struct
+    /**
+     * Change elements in the first anonymous struct
      * and verify change in the second anonymous struct
      */
     vector.z = 16.0f;
-    printVector2D(vector.v1); // nothing changes here, prints 1.0 and 2.0
-    printVector2D(vector.v2); // 16.0 and 4.0
+    print_vector2d(vector.v1); // nothing changes here, prints 1.0 and 2.0
+    print_vector2d(vector.v2); // 16.0 and 4.0
     // memory address of float z is aligned with Vector2D v2.x [first element in v2]
 
     return 0;
