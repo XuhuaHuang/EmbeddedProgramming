@@ -15,7 +15,13 @@
 
 typedef uint32_t (*lut_fn_t)(uint32_t);
 
-// Function to generate a LUT dynamically
+/**
+ * @brief Generate a lookup table (LUT) for a given function.
+ *
+ * @param size Size of the LUT.
+ * @param func Function to compute LUT values.
+ * @return uint32_t* Pointer to the generated LUT or NULL on failure.
+ */
 uint32_t* generate_lut(size_t size, lut_fn_t func) {
     uint32_t* table = malloc(size * sizeof(uint32_t));
     if (table == NULL) {
@@ -28,7 +34,12 @@ uint32_t* generate_lut(size_t size, lut_fn_t func) {
     return table;
 }
 
-// Example transformation function
+/**
+ * @brief Compute the cube of a number.
+ *
+ * @param x Input number.
+ * @return uint32_t Cube of the input number.
+ */
 uint32_t cube(uint32_t x) {
     return x * x * x;
 }
