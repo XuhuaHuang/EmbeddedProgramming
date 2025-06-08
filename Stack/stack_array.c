@@ -14,57 +14,59 @@
 #include <stdio.h>
 
 #define MAX_STACK_SIZE 10
-#define EMPTY (-1)
 #define STACK_EMPTY INT_MIN
 
-int stack[MAX_STACK_SIZE];
-int top = EMPTY;
+typedef struct {
+    int data[MAX_STACK_SIZE];
+    int top;
+} stack_t;
 
-bool is_empty() {
-    return top == EMPTY;
+void stack_init(stack_t* s) {
+    s->top = -1;
 }
 
-bool is_full() {
-    return top == MAX_STACK_SIZE - 1;
+bool stack_is_empty(const stack_t* s) {
+    return s->top == -1;
 }
 
-bool push(int value) {
-    if (is_full()) {
+bool stack_is_full(const stack_t* s) {
+    return s->top == MAX_STACK_SIZE - 1;
+}
+
+bool stack_push(stack_t* s, int value) {
+    if (stack_is_full(s)) {
         return false;
     }
-    stack[++top] = value;
+    s->data[++s->top] = value;
     return true;
 }
 
-int pop() {
-    if (is_empty()) {
-        return STACK_EMPTY;
+bool stack_pop(stack_t* s, int* out) {
+    if (stack_is_empty(s)) {
+        return false;
     }
-    int result = stack[top];
-    top--;
-    return result;
+    *out = s->data[s->top--];
+    return true;
 }
 
-int main(int argc, char const *argv[])
-{
-    int value;
+int main(void) {
+    stack_t s;
+    stack_init(&s);
 
-    // Test push
-    for (int i = 0; i < 12; i++) {
-        if (push(i)) {
-            printf("Pushed %d onto stack\n", i);
+    for (int i = 0; i < 12; ++i) {
+        if (stack_push(&s, i)) {
+            printf("Pushed %d\n", i);
         } else {
-            printf("Stack is full, could not push %d\n", i);
+            printf("Stack full, could not push %d\n", i);
         }
     }
 
-    // Test pop
-    for (int i = 0; i < 12; i++) {
-        value = pop();
-        if (value != STACK_EMPTY) {
-            printf("Popped %d from stack\n", value);
+    int value;
+    for (int i = 0; i < 12; ++i) {
+        if (stack_pop(&s, &value)) {
+            printf("Popped %d\n", value);
         } else {
-            printf("Stack is empty, could not pop\n");
+            printf("Stack empty, could not pop\n");
         }
     }
 
