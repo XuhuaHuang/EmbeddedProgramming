@@ -13,10 +13,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef uint32_t (*lut_func_t)(uint32_t);
+typedef uint32_t (*lut_fn_t)(uint32_t);
 
 // Function to generate a LUT dynamically
-uint32_t* generate_lut(size_t size, lut_func_t func) {
+uint32_t* generate_lut(size_t size, lut_fn_t func) {
     uint32_t* table = malloc(size * sizeof(uint32_t));
     if (table == NULL) {
         return NULL;
