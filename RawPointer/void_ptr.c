@@ -1,31 +1,32 @@
+// clang-format off
 /*****************************************************************//**
  * \file   void_ptr.c
  * \brief  Let's look into the void!
  * 
  * (void*) are strictly pointers, but without type information.
  * They are simply 8-byte pointers on a 64-bit machine pointing to memory addresses.
- * It's the same type that malloc(), calloc(), realloc() and reallocarray() returns.
+ * It's the same type that malloc(), calloc(), realloc() and realloc() returns.
  * Without type information, pointer arithmetic are undefined.
  * 
  * \author Xuhua Huang
  * \date   December 08, 2022
  *********************************************************************/
+// clang-format on
 
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(void) {
-
     void* vp;
-    int* ip;
+    int*  ip;
 
     /* print out the size of pointers */
     printf("sizeof(void*) -> %zu\n", sizeof(vp));
     printf("sizeof(int*) -> %zu\n", sizeof(ip));
 
     int x = 0xFEEDBEEF;
-    ip = &x;
-    vp = ip;
+    ip    = &x;
+    vp    = ip;
 
     /* print out the address of both p and ip */
     printf("vp -> %p\n", vp);
@@ -45,9 +46,8 @@ int main(void) {
     /* c and cpp differ with the following lines */
     // int* ip2 = malloc(sizeof(int)); // error in cpp, requires explicit conversion
     // prefer the explicit conversion for portability and readability
-    int *ip2 = (int*)malloc(sizeof(int));
+    int* ip2 = (int*)malloc(sizeof(int));
     free(ip2);
 
-    system("pause");
     return EXIT_SUCCESS;
 }
