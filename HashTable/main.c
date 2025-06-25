@@ -15,13 +15,11 @@
  *
  */
 
+#include <stdbool.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdint.h>
-#include <stdbool.h>
-
-
 
 #ifndef MAX_NAME
 #define MAX_NAME 256
@@ -42,19 +40,19 @@
  */
 typedef struct CPerson {
     char name[MAX_NAME];
-    int age;
+    int  age;
 } CPerson;
 
 /**
  * @brief Create hash function.
  * @return unsigned int
  */
-unsigned int hash(const char* const name) {                 /* constant pointer object and constant content */
-    int length = strnlen(name, MAX_NAME);
-    unsigned int hash_value = 0;                            /* variable to store the sum of ASCII codes */
-    for(int i = 0; i < length; ++i) {
+unsigned int hash(const char* const name) { /* constant pointer object and constant content */
+    int          length     = strnlen(name, MAX_NAME);
+    unsigned int hash_value = 0; /* variable to store the sum of ASCII codes */
+    for (int i = 0; i < length; ++i) {
         hash_value += name[i];
-        hash_value = (hash_value * name[i]) % TABLE_SIZE;   /* make sure the value fits in the table */
+        hash_value = (hash_value * name[i]) % TABLE_SIZE; /* make sure the value fits in the table */
     }
 
     return hash_value;
@@ -92,8 +90,7 @@ void print_table() {
         } else if (hash_table[i] == DELETED_NODE) {
             printf("\t%i\t---<deleted>\n", i);
 
-        }
-        else {
+        } else {
             printf("\t%i\t%s\n", i, hash_table[i]->name);
         }
     }
@@ -115,7 +112,7 @@ bool insert_to_table(const CPerson* const ptr) {
     int index = hash(ptr->name);
     /* check for slot availability. */
     for (int i = 0; i < TABLE_SIZE; ++i) {
-        int try_to_locate = (i + index) % TABLE_SIZE;   /* best case: person is allocated when i=0*/
+        int try_to_locate = (i + index) % TABLE_SIZE; /* best case: person is allocated when i=0 */
         if (hash_table[try_to_locate] == NULL) {
             hash_table[try_to_locate] = ptr;
             return true;
@@ -133,7 +130,7 @@ bool insert_to_table(const CPerson* const ptr) {
 CPerson* hash_table_lookup(const char* const name) {
     int index = hash(name);
     for (int i = 0; i < TABLE_SIZE; ++i) {
-        int try_to_locate = (i + index) % TABLE_SIZE;   /* best case: result is found when i=0. */
+        int try_to_locate = (i + index) % TABLE_SIZE; /* best case: result is found when i=0. */
         if (hash_table[try_to_locate] == NULL) {
             return NULL;
         }
@@ -156,32 +153,31 @@ CPerson* hash_table_lookup(const char* const name) {
 CPerson* del_from_table(const char* const name) {
     int index = hash(name);
     for (int i = 0; i < TABLE_SIZE; ++i) {
-        int try_to_locate = (i + index) % TABLE_SIZE;       /* best case: result is found when i=0. */
-        if (hash_table[try_to_locate] == NULL) {            /* indexed slot is empty. */
+        int try_to_locate = (i + index) % TABLE_SIZE; /* best case: result is found when i=0. */
+        if (hash_table[try_to_locate] == NULL) {      /* indexed slot is empty. */
             return NULL;
         }
-        if (hash_table[try_to_locate] == DELETED_NODE) {    /* indexed slot has been deleted. */
+        if (hash_table[try_to_locate] == DELETED_NODE) { /* indexed slot has been deleted. */
             continue;
         }
-        if(strncmp(hash_table[try_to_locate]->name, name, TABLE_SIZE) == 0) {
-            CPerson* temp = hash_table[try_to_locate];      /* obtain a temporary copy to return */
-            hash_table[try_to_locate] = DELETED_NODE;       /* mark the returned hash table element as deleted */
-            return temp;                                    /* compiler optimization */
+        if (strncmp(hash_table[try_to_locate]->name, name, TABLE_SIZE) == 0) {
+            CPerson* temp             = hash_table[try_to_locate]; /* obtain a temporary copy to return */
+            hash_table[try_to_locate] = DELETED_NODE;              /* mark the returned hash table element as deleted */
+            return temp;                                           /* compiler optimization */
         }
     }
     return NULL;
 }
 
 int main(void) {
-
     /* create and initialize a hash table. */
     init_hash_table();
-    print_table();  /* expecting empty hash table. */
+    print_table(); /* expecting empty hash table. */
 
     /* create multiple CPerson object with list initialization. */
-    CPerson jacob = { .name="Jacob", .age=40 };
-    CPerson andy = { .name="Andy", .age=20 };
-    CPerson liam = { .name="Liam", .age=34 };
+    CPerson jacob = {.name = "Jacob", .age = 40};
+    CPerson andy  = {.name = "Andy", .age = 20};
+    CPerson liam  = {.name = "Liam", .age = 34};
 
     /* insert people to the hash table. */
     insert_to_table(&jacob);
