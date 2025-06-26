@@ -1,5 +1,16 @@
 # `Eigen/Dense`
 
+| **BLAS Function** | **P1673 Function** | **Description** |
+| --- | --- | --- |
+| DSCAL | `scale` | Multiplication of a vector **v** by a scalar **α** |
+| DCOPY | `copy` | Copy a vector to another vector |
+| DAXPY | `add` | Calculates **αx + y**, vectors **x** & **y**, scalar **α** |
+| DDOT | `dot` | Dot (inner) product of two vectors |
+| DNRM2 | `vector_norm2` | Euclidean norm of a vector |
+| DGEMV | `matrix_vector_product` | Calculates **αA**x + **βy**, matrix **A**, vector **y**, scalars **α** & **β** |
+| DSYMV | `symmetric_matrix_vector_product` | Same as `matrix_vector_product` but where **A** is symmetric |
+| DGEMM | `matrix_product` | Calculates **αAB + βC**, for matrices **A**, **B**, & **C**, and scalars **α** & **β** |
+
 ```cpp
 #include <algorithm>
 #include <random>
