@@ -11,11 +11,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifndef QUEUE_EMPTY
 #define QUEUE_EMPTY INT_MIN
+#endif // !QUEUE_EMPTY
 
 /**
  * @brief The compiler will treat "queue"
- * as in incomplete type.
+ * as an incomplete type.
  * queue is an opaque data type.
  */
 typedef struct _queue queue;
@@ -30,4 +32,4 @@ bool   q_full(queue* q);
 bool   q_endqueue(queue* q, int value);
 int    q_dequeue(queue* q);
 
-#endif
+#endif  //!QUEUE_H

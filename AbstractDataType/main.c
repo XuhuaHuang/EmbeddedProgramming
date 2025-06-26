@@ -2,8 +2,13 @@
  * @file main.c
  * @author Xuhua Huang
  * @brief To compile and run the demo, execute the following:
- * $ cd .\AbstractDataTypes\
+ * $ cd .\AbstractDataType\
  * $ mingw32-make all
+ * 
+ * or alternatively with CMake:
+ * $ cd .\AbstractDataType\
+ * $ cmake -S . -B build
+ * $ cmake --build build --config Debug --verbose
  *
  * @version 0.1
  * @date 2022-11-07
@@ -15,10 +20,11 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "queue.h"
 
 int main(void) {
-    queue *q = q_create(5);
+    queue* q = q_create(5);
 
     q_endqueue(q, 23);
     q_endqueue(q, 34);
