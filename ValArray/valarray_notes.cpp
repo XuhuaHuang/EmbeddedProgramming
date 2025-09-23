@@ -17,7 +17,6 @@
 
 #include <cassert>
 #include <cstdint>
-#include <cxxabi.h>
 #include <iostream>
 #include <memory>
 #include <span>
@@ -25,6 +24,18 @@
 #include <type_traits>
 #include <typeinfo>
 #include <valarray>
+
+#if defined(__GNUC__)
+#include <cxxabi.h>
+
+template <typename T> [[nodiscard]] std::string type_name() {
+  int status = 0;
+  std::unique_ptr<char, void (*)(void *)> res{
+      abi::__cxa_demangle(typeid(T).name(), nullptr, nullptr, &status),
+      std::free};
+  return (status == 0) ? res.get() : typeid(T).name();
+}
+#endif
 
 #ifndef log
 #define log std::cout << __LINE__ << ": " << std::boolalpha
@@ -50,14 +61,6 @@ template <>
 inline std::ostream &
 operator<<(std::ostream &os,
            const std::valarray<std::uint8_t> &values) noexcept = delete;
-
-template <typename T> std::string type_name() {
-  int status = 0;
-  std::unique_ptr<char, void (*)(void *)> res{
-      abi::__cxa_demangle(typeid(T).name(), nullptr, nullptr, &status),
-      std::free};
-  return (status == 0) ? res.get() : typeid(T).name();
-}
 
 int main() {
   static_assert(std::is_arithmetic_v<std::uint8_t>);
@@ -100,8 +103,11 @@ int main() {
   log << "v4 is of type std::valarray<int>: "
       << std::is_same_v<decltype(v4), std::valarray<int>> << "\n";
   log << typeid(v4).name() << "\n";
+#if defined(__GNUC__)
   log << type_name<decltype(v4)>() << "\n";
-  // log << v4 << "\n";
+#elif defined(_MSC_VER)
+  log << v4 << "\n";
+#endif
 
   // increment the value in v
   v += 1;
@@ -128,7 +134,9 @@ int main() {
   // s[2 + 2 + 2] == s[6] = 7
   std::slice s{2, 3, 2};
   log << typeid(s).name() << "\n"; // class std::slice
+#if defined(__GNUC__)
   log << type_name<decltype(s)>() << "\n";
+#endif
 
   // use the slice to create a new valarray
   std::valarray<int> result = v[s];
