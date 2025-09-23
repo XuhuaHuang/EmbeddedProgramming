@@ -102,7 +102,7 @@ int main() {
   auto v4 = v3.apply([](int x) -> int { return x / 2; });
   log << "v4 is of type std::valarray<int>: "
       << std::is_same_v<decltype(v4), std::valarray<int>> << "\n";
-  log << typeid(v4).name() << "\n";
+  log << typeid(v4).name() << "\n";  // class std::valarray<int>
 #if defined(__GNUC__)
   log << type_name<decltype(v4)>() << "\n";
 #elif defined(_MSC_VER)
