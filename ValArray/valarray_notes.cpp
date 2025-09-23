@@ -74,11 +74,11 @@ int main() {
   log << val << "\n";
   log << val.size() << "\n";
   val.resize(1);
-  val[0] = 3.14;
+  val[0] = 3.14F;
   log << val << "\n";
 
   val.resize(2);
-  val[1] = 2.71;
+  val[1] = 2.71F;
   log << val << "\n";
 
   // create a valarray of size 5, initialized with values 0, 1, 2, 3, 4
@@ -102,7 +102,7 @@ int main() {
   auto v4 = v3.apply([](int x) -> int { return x / 2; });
   log << "v4 is of type std::valarray<int>: "
       << std::is_same_v<decltype(v4), std::valarray<int>> << "\n";
-  log << typeid(v4).name() << "\n";  // class std::valarray<int>
+  log << typeid(v4).name() << "\n"; // class std::valarray<int>
 #if defined(__GNUC__)
   log << type_name<decltype(v4)>() << "\n";
 #elif defined(_MSC_VER)
