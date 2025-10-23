@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project("embedded_prog" LANGUAGES C CXX)
+project("embedded-prog" LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

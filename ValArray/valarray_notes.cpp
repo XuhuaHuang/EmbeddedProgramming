@@ -28,7 +28,9 @@
 #if defined(__GNUC__)
 #include <cxxabi.h>
 
-template <typename T> [[nodiscard]] std::string type_name() {
+template <typename T>
+[[nodiscard]]
+std::string type_name() {
   int status = 0;
   std::unique_ptr<char, void (*)(void *)> res{
       abi::__cxa_demangle(typeid(T).name(), nullptr, nullptr, &status),
