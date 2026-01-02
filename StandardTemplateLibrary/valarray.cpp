@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   valarray.cpp
  * \brief  
@@ -17,6 +18,18 @@ inline void print_valarray(const std::valarray<T>& arr) {
     }
     std::cout << "\n";
     return;
+}
+
+template <typename T>
+std::ostream& operator<<(std::ostream& os, const std::valarray<T>& arr) {
+    bool first = true;
+    for (const T& elem : arr) {
+        if (!first) os << ", ";
+        os << elem;
+        first = false;
+    }
+    os << "\n";
+    return os;
 }
 
 auto main() -> int {

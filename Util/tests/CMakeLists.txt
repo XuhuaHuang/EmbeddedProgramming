@@ -5,6 +5,11 @@ project("utility_unittest" LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_C_STANDARD 17)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
 get_filename_component(UTIL_ROOT ../ ABSOLUTE)
 include_directories(${UTIL_ROOT})
 
@@ -21,7 +26,8 @@ cmake_policy(SET CMP0135 NEW)
 include(FetchContent)
 FetchContent_Declare(
     googletest
-    URL https://github.com/google/googletest/archive/refs/tags/v1.16.0.zip
+    # URL https://github.com/google/googletest/archive/refs/tags/v1.16.0.zip
+    URL https://github.com/google/googletest/archive/refs/heads/main.zip
     DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 
