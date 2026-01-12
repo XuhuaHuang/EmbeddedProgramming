@@ -23,43 +23,40 @@
  */
 class HasPtrMem {
 public:
-    /* Default Constructor */
-    HasPtrMem()
-        : ptr(new int(0)) {
-        std::cout << __func__ << " at line: " << __LINE__ << "\n"
-                  << "Default Construct: " << ++n_cstr << "\n";
-    }
+  /* Default Constructor */
+  HasPtrMem() : ptr(new int(0)) {
+    std::cout << __func__ << " at line: " << __LINE__ << "\n"
+              << "Default Construct: " << ++n_cstr << "\n";
+  }
 
-    /* Copy Constructor */
-    HasPtrMem(const HasPtrMem& rhs)
-        : ptr(new int(*rhs.ptr)) {
-        std::cout << __func__ << " at line: " << __LINE__ << "\n"
-                  << "Copy Constructor: " << ++n_cptr << "\n";
-    }
+  /* Copy Constructor */
+  HasPtrMem(const HasPtrMem &rhs) : ptr(new int(*rhs.ptr)) {
+    std::cout << __func__ << " at line: " << __LINE__ << "\n"
+              << "Copy Constructor: " << ++n_cptr << "\n";
+  }
 
-    /* Move Constructor */
-    HasPtrMem(HasPtrMem&& rhs)
-        : ptr(rhs.ptr) {
-        rhs.ptr = nullptr; // void the right-hand-side object internal pointer
-        std::cout << __func__ << " at line: " << __LINE__ << "\n"
-                  << "Move Constructor: " << ++n_mvtr << "\n";
-    }
+  /* Move Constructor */
+  HasPtrMem(HasPtrMem &&rhs) : ptr(rhs.ptr) {
+    rhs.ptr = nullptr; // void the right-hand-side object internal pointer
+    std::cout << __func__ << " at line: " << __LINE__ << "\n"
+              << "Move Constructor: " << ++n_mvtr << "\n";
+  }
 
-    /* Destructor */
-    ~HasPtrMem() {
-        delete ptr;
-        std::cout << __func__ << " at line: " << __LINE__ << "\n"
-                  << "Destructor: " << ++n_dstr << "\n";
-    }
+  /* Destructor */
+  ~HasPtrMem() {
+    delete ptr;
+    std::cout << __func__ << " at line: " << __LINE__ << "\n"
+              << "Destructor: " << ++n_dstr << "\n";
+  }
 
-    /* Definition of static integer members. */
-    static int n_cstr; // number of times default constructor called
-    static int n_cptr; // number of times copy constructor called
-    static int n_mvtr; // number of times move constructor called
-    static int n_dstr; // number of times destructor called
-                       // private:
-    /* Member attribute - integer pointer. */
-    int* ptr;
+  /* Definition of static integer members. */
+  static int n_cstr; // number of times default constructor called
+  static int n_cptr; // number of times copy constructor called
+  static int n_mvtr; // number of times move constructor called
+  static int n_dstr; // number of times destructor called
+                     // private:
+  /* Member attribute - integer pointer. */
+  int *ptr;
 };
 
 /* Define static variables for class hasPtrMem */
@@ -69,17 +66,17 @@ int HasPtrMem::n_mvtr = 0;
 int HasPtrMem::n_dstr = 0;
 
 HasPtrMem getTemp() {
-    HasPtrMem temp;
-    std::cout << "Resource from " << __func__ << ": " << _HEX << temp.ptr << "\n";
+  HasPtrMem temp;
+  std::cout << "Resource from " << __func__ << ": " << _HEX << temp.ptr << "\n";
 
-    return temp;
+  return temp;
 }
 
 int main(void) {
-    HasPtrMem h = getTemp();
-    std::cout << "Resource from " << __func__ << ": " << _HEX << h.ptr << "\n";
+  HasPtrMem h = getTemp();
+  std::cout << "Resource from " << __func__ << ": " << _HEX << h.ptr << "\n";
 
-    // std::cin.get();
-    system("pause");
-    return 0;
+  // std::cin.get();
+  system("pause");
+  return 0;
 }
