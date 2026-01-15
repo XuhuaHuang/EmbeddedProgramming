@@ -51,6 +51,10 @@ int main(void) {
     *sp = 1;
     assert(*sp == 1);
     std::cout << "Value of shared pointer: " << *sp << "\n";
+
+    std::shared_ptr<int> sp2 = sp; // reference count increases to 2
+    std::cout << "Value of shared pointer 2: " << *sp2 << "\n";
+    assert(sp.use_count() == 2);
   }
   // share_ptr uses reference count approach to determine when to delete the
   // pointer
