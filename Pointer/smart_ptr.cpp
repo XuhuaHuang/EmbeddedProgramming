@@ -45,7 +45,7 @@ int main(void) {
     // when the reference count drops to zero, the pointer gets deleted
     // automatically
     std::shared_ptr<int> sp = nullptr;
-    sp = std::make_shared<int>(); // exception safe
+    sp                      = std::make_shared<int>(); // exception safe
     assert(sp != nullptr);
     assert(*sp == 0); // default initialized to 0
     *sp = 1;
@@ -56,11 +56,19 @@ int main(void) {
     std::cout << "Value of shared pointer 2: " << *sp2 << "\n";
     assert(sp.use_count() == 2);
   }
+
+  {
+    std::unique_ptr<int> up1 = std::make_unique<int>(42);
+    // std::unique_ptr<int> up2 = up1; // error: cannot copy
+    std::unique_ptr<int> up2 = std::move(up1); // transfer ownership
+    assert(up1 == nullptr);
+    assert(*up2 == 42);
+  }
+
   // share_ptr uses reference count approach to determine when to delete the
   // pointer
   std::shared_ptr<Entity> sharedEntity = std::make_shared<Entity>();
-  std::weak_ptr<Entity> weakEntity =
-      sharedEntity; // does not increase reference count
+  std::weak_ptr<Entity>   weakEntity   = sharedEntity; // does not increase reference count
 
   return 0;
 }
