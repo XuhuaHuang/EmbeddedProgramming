@@ -31,8 +31,7 @@ int main() {
   PROCESSENTRY32 pe32;
   pe32.dwSize = sizeof(PROCESSENTRY32);
 
-  std::cout << std::left << std::setw(30) << "Process Name" << " | " << "PID"
-            << std::endl;
+  std::cout << std::left << std::setw(30) << "Process Name" << " | " << "PID" << std::endl;
   std::cout << std::string(45, '-') << std::endl;
 
   // Retrieve information about the first process
@@ -48,8 +47,7 @@ int main() {
     std::wstring processName(pe32.szExeFile);
 
     // Use wcout for wide-character strings (Unicode)
-    std::wcout << std::left << std::setw(30) << processName << L" | "
-               << pe32.th32ProcessID << std::endl;
+    std::wcout << std::left << std::setw(30) << processName << L" | " << pe32.th32ProcessID << std::endl;
 
   } while (Process32Next(hSnapshot, &pe32));
 

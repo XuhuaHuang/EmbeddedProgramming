@@ -22,7 +22,7 @@ struct LambdaCallable {
   using result_type = std::invoke_result_t<LambdaCallable, Args...>;
 
   template <typename... Args>
-  constexpr auto operator()(Args &&...args) const -> result_type<Args...> {
+  constexpr auto operator()(Args&&... args) const -> result_type<Args...> {
     // Implementation of the callable behavior
     // For demonstration, we can just return a default-constructed value
     return result_type<Args...>{};
@@ -31,8 +31,7 @@ struct LambdaCallable {
 
 struct lambda {
   [[nodiscard]] [[gnu::always_inline]]
-  static constexpr auto operator()() noexcept
-      [[gnu::deprecated("Use generic lambdas instead.")]] -> LambdaCallable {
+  static constexpr auto operator()() noexcept [[gnu::deprecated("Use generic lambdas instead.")]] -> LambdaCallable {
     return LambdaCallable{};
   }
 };

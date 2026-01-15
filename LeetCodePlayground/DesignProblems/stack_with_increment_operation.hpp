@@ -5,7 +5,7 @@
 class CustomStack {
 public:
   std::vector<int> arr;
-  int size;
+  int              size;
 
   CustomStack(int maxSize) { size = maxSize; }
 

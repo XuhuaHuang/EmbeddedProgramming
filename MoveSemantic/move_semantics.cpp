@@ -24,19 +24,22 @@
 class HasPtrMem {
 public:
   /* Default Constructor */
-  HasPtrMem() : ptr(new int(0)) {
+  HasPtrMem()
+    : ptr(new int(0)) {
     std::cout << __func__ << " at line: " << __LINE__ << "\n"
               << "Default Construct: " << ++n_cstr << "\n";
   }
 
   /* Copy Constructor */
-  HasPtrMem(const HasPtrMem &rhs) : ptr(new int(*rhs.ptr)) {
+  HasPtrMem(const HasPtrMem& rhs)
+    : ptr(new int(*rhs.ptr)) {
     std::cout << __func__ << " at line: " << __LINE__ << "\n"
               << "Copy Constructor: " << ++n_cptr << "\n";
   }
 
   /* Move Constructor */
-  HasPtrMem(HasPtrMem &&rhs) : ptr(rhs.ptr) {
+  HasPtrMem(HasPtrMem&& rhs)
+    : ptr(rhs.ptr) {
     rhs.ptr = nullptr; // void the right-hand-side object internal pointer
     std::cout << __func__ << " at line: " << __LINE__ << "\n"
               << "Move Constructor: " << ++n_mvtr << "\n";
@@ -56,7 +59,7 @@ public:
   static int n_dstr; // number of times destructor called
                      // private:
   /* Member attribute - integer pointer. */
-  int *ptr;
+  int* ptr;
 };
 
 /* Define static variables for class hasPtrMem */
@@ -76,7 +79,5 @@ int main(void) {
   HasPtrMem h = getTemp();
   std::cout << "Resource from " << __func__ << ": " << _HEX << h.ptr << "\n";
 
-  // std::cin.get();
-  system("pause");
   return 0;
 }

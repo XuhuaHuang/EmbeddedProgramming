@@ -16,22 +16,23 @@
 
 class Entity {
 public:
-  Entity() : m_Name("") {}
-  Entity(const std::string &name) : m_Name(name) {}
-  Entity(std::string &&name) : m_Name(std::move(name)) {}
+  Entity()
+    : m_Name("") {}
+  Entity(const std::string& name)
+    : m_Name(name) {}
+  Entity(std::string&& name)
+    : m_Name(std::move(name)) {}
 
-  Entity(const Entity &) = default;
-  Entity(Entity &&) noexcept = default;
-  Entity &operator=(const Entity &) noexcept = default;
-  Entity &operator=(Entity &&) noexcept = default;
-  virtual ~Entity() = default;
+  Entity(const Entity&)                     = default;
+  Entity(Entity&&) noexcept                 = default;
+  Entity& operator=(const Entity&) noexcept = default;
+  Entity& operator=(Entity&&) noexcept      = default;
+  virtual ~Entity()                         = default;
 
-  void PrintName() {
-    std::cout << "Entity::PrintName(): m_Name = " << this->m_Name << "\n";
-  }
+  void PrintName() { std::cout << "Entity::PrintName(): m_Name = " << this->m_Name << "\n"; }
 
   std::string name(void) const { return this->m_Name; }
-  void name(const std::string &name) { m_Name = name; }
+  void        name(const std::string& name) { m_Name = name; }
 
 private:
   std::string m_Name;
@@ -51,7 +52,7 @@ int main(void) {
 
   // implcitly calls move constructor
   // source is converted to a pure rvalue (i.e. temporary variable)
-  std::string destination3{static_cast<std::string &&>(source)};
+  std::string destination3{static_cast<std::string&&>(source)};
   // equivalent to the following
   // std::string destination4 = std::move(source);
   // C26800: use of a moved from object

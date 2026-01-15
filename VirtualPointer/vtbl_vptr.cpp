@@ -8,8 +8,9 @@
  *********************************************************************/
 // clang-format on
 
-#include <iostream>
 #include <stdio.h>
+
+#include <iostream>
 
 /**
  * Function pointer type definition.
@@ -20,10 +21,10 @@ typedef void (*fn_ptr)();
 
 class Base {
 protected:
-  Base(const Base &) = default;
+  Base(const Base&) = default;
 
 public:
-  Base() = default;
+  Base()          = default;
   virtual ~Base() = default;
 
   virtual void fn1() { std::cout << "Base::fn1()" << "\n"; }
@@ -35,7 +36,8 @@ public:
 
 class Derived : public Base {
 public:
-  Derived() : Base() {}
+  Derived()
+    : Base() {}
   ~Derived() override = default;
 
   void fn1() override { std::cout << "Derived::fn1()" << "\n"; }
@@ -53,7 +55,7 @@ public:
  *
  * @return
  */
-fn_ptr get_vfn_ptr(void *obj, const unsigned long offset) {
+fn_ptr get_vfn_ptr(void* obj, const unsigned long offset) {
   /**
    * @brief access virtual table through vptr
    * each element in the virtual table (pointer to virtual functions) occupy 8
@@ -62,32 +64,31 @@ fn_ptr get_vfn_ptr(void *obj, const unsigned long offset) {
    */
   std::cout << "=======================" << "\n";
 
-  void *vptr_addr = (void *)*(unsigned long *)obj;
+  void* vptr_addr = (void*)*(unsigned long*)obj;
   printf("vptr_addr:%p\n", vptr_addr);
 
-  void *vfn_addr = (void *)*((unsigned long *)vptr_addr + offset);
+  void* vfn_addr = (void*)*((unsigned long*)vptr_addr + offset);
   printf("vfn_addr :%p\n", vfn_addr);
   return (fn_ptr)vfn_addr;
 }
 
 int main(void) {
-  Base base;
+  Base    base;
   Derived derived;
 
   // Base class pointer pointing to Derived class instance
-  Base *pBaseToDerived = new Derived();
+  Base* pBaseToDerived = new Derived();
 
   // Base class reference referencing Base class instance
-  Base &rBase = base;
+  Base& rBase = base;
 
   // Base class reference referencing Derived class instance
-  Base &rBaseToDerived = derived;
+  Base& rBaseToDerived = derived;
 
   std::cout << "Base object calling member function directly" << "\n";
   base.fn1();
 
-  std::cout << "Base class reference invoking Base class member function"
-            << "\n";
+  std::cout << "Base class reference invoking Base class member function" << "\n";
   rBase.fn1();
 
   std::cout << "Base class pointer pointing to Derived class instance, "

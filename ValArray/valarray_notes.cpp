@@ -32,9 +32,10 @@ template <typename T>
 [[nodiscard]]
 std::string type_name() {
   int status = 0;
-  std::unique_ptr<char, void (*)(void *)> res{
-      abi::__cxa_demangle(typeid(T).name(), nullptr, nullptr, &status),
-      std::free};
+
+  std::unique_ptr<char, void (*)(void*)> res{
+    abi::__cxa_demangle(typeid(T).name(), nullptr, nullptr, &status), std::free
+  };
   return (status == 0) ? res.get() : typeid(T).name();
 }
 #endif
@@ -44,13 +45,11 @@ std::string type_name() {
 #endif
 
 template <typename T>
-  requires std::is_arithmetic_v<T> && (!std::is_pointer_v<T>) &&
-           (!std::is_reference_v<T>)
-inline std::ostream &operator<<(std::ostream &os,
-                                const std::valarray<T> &values) noexcept {
+  requires std::is_arithmetic_v<T> && (!std::is_pointer_v<T>) && (!std::is_reference_v<T>)
+inline std::ostream& operator<<(std::ostream& os, const std::valarray<T>& values) noexcept {
   os << "[";
   if (values.size() >= 1) [[likely]] {
-    for (const T *it = std::begin(values); it < std::end(values) - 1; it++) {
+    for (const T* it = std::begin(values); it < std::end(values) - 1; it++) {
       os << *it << ", ";
     }
     os << values[values.size() - 1];
@@ -60,9 +59,7 @@ inline std::ostream &operator<<(std::ostream &os,
 }
 
 template <>
-inline std::ostream &
-operator<<(std::ostream &os,
-           const std::valarray<std::uint8_t> &values) noexcept = delete;
+inline std::ostream& operator<<(std::ostream& os, const std::valarray<std::uint8_t>& values) noexcept = delete;
 
 int main() {
   static_assert(std::is_arithmetic_v<std::uint8_t>);
@@ -90,20 +87,18 @@ int main() {
   log << v << "\n";
 
   // apply a function to each element of the valarray
-  auto f = [](int x) -> int { return x * x; };
+  auto          f  = [](int x) -> int { return x * x; };
   std::valarray v2 = std::valarray<int>(v.apply(f));
 
   log << v2 << "\n";
 
   // perform mathematical operations on the valarray
   std::valarray v3 = v + v2;
-  log << "v3 is of type std::valarray<int>: "
-      << std::is_same_v<decltype(v3), std::valarray<int>> << "\n";
+  log << "v3 is of type std::valarray<int>: " << std::is_same_v<decltype(v3), std::valarray<int>> << "\n";
   log << v3 << "\n";
 
   auto v4 = v3.apply([](int x) -> int { return x / 2; });
-  log << "v4 is of type std::valarray<int>: "
-      << std::is_same_v<decltype(v4), std::valarray<int>> << "\n";
+  log << "v4 is of type std::valarray<int>: " << std::is_same_v<decltype(v4), std::valarray<int>> << "\n";
   log << typeid(v4).name() << "\n"; // class std::valarray<int>
 #if defined(__GNUC__)
   log << type_name<decltype(v4)>() << "\n";

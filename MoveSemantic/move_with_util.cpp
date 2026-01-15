@@ -1,6 +1,6 @@
 // clang-format off
 /*****************************************************************//**
- * \file   learn_move.cpp
+ * \file   move_with_util.cpp
  * \brief  Move semantics in C++
  * Demonstrated using std::vector
  *
@@ -8,7 +8,7 @@
  * std::move_if_noexcept()
  *
  * Command used to compile this file:
- * g++ -o learn_move.exe learn_move.cpp -std=c++11
+ * g++ -o move_with_util.exe move_with_util.cpp -std=c++11
  *
  * \author Xuhua Huang
  * \date   October 2021
@@ -41,8 +41,9 @@ int main(void) {
 
   /* Verify element via printing. */
   std::cout << "The vector contains: " << "\n";
-  for (const std::string &str : str_vec)
+  for (const std::string& str : str_vec) {
     std::cout << str << "\t";
+  }
   std::cout << "\nEnd of the vector" << "\n";
 
   std::cout << "Attempting to access hello_str: " << hello_str << "\n"
@@ -54,6 +55,5 @@ int main(void) {
     util::vector::print_vec(str_vec);
   }
 
-  system("pause");
   return 0;
 }

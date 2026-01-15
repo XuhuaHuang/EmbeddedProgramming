@@ -28,8 +28,8 @@ std::generator<int> fibonacci_sequence(const int limit) {
     co_yield a;
 
     int next = a + b;
-    a = b;
-    b = next;
+    a        = b;
+    b        = next;
   }
   // Coroutine ends automatically when function exits
 }
@@ -48,8 +48,7 @@ int main() {
   std::cout << "Squared values:\n";
   auto square = [](int n) { return n * n; };
 
-  for (int num :
-       fibonacci_sequence(20) | std::ranges::views::transform(square)) {
+  for (int num : fibonacci_sequence(20) | std::ranges::views::transform(square)) {
     std::cout << num << " ";
   }
   std::cout << "\n";

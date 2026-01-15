@@ -15,7 +15,9 @@
 int n; // global scope
 
 // Procedure 'first' modifies the variable 'n' in its lexical scope
-void first() { n = 1; }
+void first() {
+  n = 1;
+}
 
 // Procedure 'second' has its own local 'n'
 void second() {

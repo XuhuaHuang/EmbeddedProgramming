@@ -44,6 +44,7 @@ struct stats_tracker {
 
 int main() {
   const std::array<int, 5> data{1, 2, 3, 4, 5};
+
   auto accumulator = [sum = 0](int value) mutable -> int {
     sum += value;
     return sum;
@@ -53,7 +54,7 @@ int main() {
   std::cout << accumulator(0) << "\n"; // Outputs: 15
 
   std::vector<int> items = {10, 20, 30};
-  stats_tracker tracker;
+  stats_tracker    tracker;
 
   // without std::ref
   // std::for_each makes a copy of 'tracker'. The copy updates its count to 3.

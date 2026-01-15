@@ -23,7 +23,7 @@
 #include <vector>
 
 // lambda expression with function pointer
-void ForEach(const std::vector<int> &values, void (*func)(int)) {
+void ForEach(const std::vector<int>& values, void (*func)(int)) {
   /**
    * void(*function)(int)
    * void - return type of function "func"
@@ -43,30 +43,30 @@ void ForEach(const std::vector<int> &values, void (*func)(int)) {
 int main(void) {
   std::vector<int> values = {1, 2, 3, 4, 5};
 
-  constexpr auto l = [][[]]([[]] auto) noexcept[[]] -> int { return 42; };
+  constexpr auto l        = [][[]]([[]] auto) noexcept[[]] -> int { return 42; };
   std::cout << "Lambda l returns: " << l() << "\n";
   std::cout << "\nUsing lambda expression with ForEach function" << "\n";
 
   // lambda
   // call function ForEach(vector, void(*)()) with lambda expression
   // lambda is essentially a throw-away function that's only used once
-  ForEach(values,
-          // lambda expression begins
-          [](int value) {
-            std::cout << "Value: " << value << "\n";
-          } // end of lambda expression
+  ForEach(
+    values,
+    // lambda expression begins
+    [](int value) { std::cout << "Value: " << value << "\n"; } // end of lambda expression
   );
 
   std::cout << "\nSorting with lambda expression" << "\n";
-  sort(values.begin(), values.end(),
-       // lambda expression begins
-       [&values](const int left, const int right) {
-         return (left > right); // descending order
-       } // end of lambda expression
+  sort(
+    values.begin(), values.end(),
+    // lambda expression begins
+    [&values](const int left, const int right) {
+      return (left > right); // descending order
+    } // end of lambda expression
   );
   std::cout << "Sorted. Printing items in \"vector<int> values\"" << "\n";
 
-  for (const auto &item : values)
+  for (const auto& item : values)
     std::cout << "Item: " << item << "\n";
 
   int m = 0;
@@ -77,11 +77,9 @@ int main(void) {
   // mutable keyword grants access to modify variable n
   // -> trailing return type: -> void
   [&m, n](int a) mutable -> void {
-    std::cout << "\nInside of lambda" << "\nBefore operation: m = " << m
-              << ", n = " << n << ", a = " << a << "\n";
+    std::cout << "\nInside of lambda" << "\nBefore operation: m = " << m << ", n = " << n << ", a = " << a << "\n";
     m = ++n + a; // perform operation
-    std::cout << "After operation: m = " << m << ", n = " << n << ", a = " << a
-              << "\n";
+    std::cout << "After operation: m = " << m << ", n = " << n << ", a = " << a << "\n";
   }(4); // 4 is assigned to int a
   // "int a" went out of scope, thus it is no longer valid
 

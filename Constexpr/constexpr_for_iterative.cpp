@@ -41,8 +41,7 @@ constexpr void for_each_constexpr(Fn f, Ts... xs) {
 int main() {
   // Generate factorials at compile time
   // with immediately invoked lambda expression
-  constexpr auto outputs =
-      [](void) -> std::array<unsigned long long, inputs.size()> {
+  constexpr auto outputs = [](void) -> std::array<unsigned long long, inputs.size()> {
     std::array<unsigned long long, inputs.size()> out{};
     for (std::size_t i = 0; i < inputs.size(); ++i) {
       out[i] = factorial(inputs[i]); // constexpr evaluated
@@ -52,9 +51,9 @@ int main() {
   ();
 
   // Runtime printing (the values were computed at compile time)
-  for_each_constexpr([](auto val) -> void { std::cout << val << "\n"; },
-                     outputs[0], outputs[1], outputs[2], outputs[3],
-                     outputs[4]);
+  for_each_constexpr(
+    [](auto val) -> void { std::cout << val << "\n"; }, outputs[0], outputs[1], outputs[2], outputs[3], outputs[4]
+  );
 
   return 0;
 }
