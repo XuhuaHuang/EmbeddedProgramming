@@ -13,6 +13,19 @@
 #include <cstdlib>
 #include <iostream>
 
+/**
+ * @brief C++ allows pointers without a specific data type associated with them
+ * These pointers are referred to as void pointers
+ * Void pointers are frequently used in C to create generic methods as
+ * they are not tied to particular data types
+ *
+ * @note Void pointers cannot be dereferenced
+ * They need to be explicitly cast to another pointer type before dereferencing
+ * Pointer arithmetic are not allowed on void pointers
+ * Some compilers permit pointer arithmetic with void pointers, however, assuming
+ * the size of void is 1 and so you are essentially working with a block of byte data
+ *
+ */
 int main() {
   std::nullptr_t np = nullptr;
   void*          vp = nullptr;

@@ -24,7 +24,7 @@ std::vector<int> generate_values(int start, int end) {
 }
 
 [[nodiscard]] [[gnu::always_inline]]
-auto get_data() -> std::vector<int> {
+inline auto get_data() -> std::vector<int> {
   return generate_values(2, 13);
 }
 
