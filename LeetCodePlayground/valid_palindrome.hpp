@@ -1,27 +1,26 @@
 // https://leetcode.com/problems/valid-palindrome
 
+#include <string>
+
 class Solution {
 public:
-    bool isPalindrome(string s) {
-        string str = "";
-        for (int i = 0; i < s.size(); i++) {
-            if (isalnum(s[i])) {
-                str += tolower(s[i]);
-            } else {
-                continue;
-            }
-        }
-        string copy = str;
-        reverse(str.begin(), str.end());
-        int i = 0;
-        int j = 0;
-        while (i < str.size() && j < copy.size()) {
-            if (str[i] != copy[j]) {
-                return false;
-            }
-            i++;
-            j++;
-        }
-        return true;
+  bool isPalindrome(std::string s) {
+    std::string str;
+    str.reserve(s.size());
+    for (size_t i = 0; i < s.size(); i++) {
+      if (isalnum(s[i])) {
+        str += std::tolower(static_cast<unsigned char>(s[i]));
+      }
     }
+    size_t left  = 0;
+    size_t right = str.size() - 1;
+    while (left < right) {
+      if (str[left] != str[right]) {
+        return false;
+      }
+      ++left;
+      --right;
+    }
+    return true;
+  }
 };
