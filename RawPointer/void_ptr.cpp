@@ -25,6 +25,7 @@
  * Some compilers permit pointer arithmetic with void pointers, however, assuming
  * the size of void is 1 and so you are essentially working with a block of byte data
  *
+ * @warning must be careful in casting, because the compiler will assume the programmers know what they are doing
  */
 int main() {
   std::nullptr_t np = nullptr;
