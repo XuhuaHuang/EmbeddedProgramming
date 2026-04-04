@@ -1,10 +1,12 @@
+// clang-format off
 /*****************************************************************//**
  * \file   TestWidget.h
- * \brief
+ * \brief  Declaration of the TestWidget class.
  *
  * \author Xuhua Huang
  * \date   February 11, 2021
  *********************************************************************/
+// clang-format on
 
 #ifndef TESTWIDGET_H
 #define TESTWIDGET_H
@@ -14,23 +16,24 @@
 #include <QWidget>
 
 class TestWidget : public QWidget {
-    Q_OBJECT
+  Q_OBJECT
 
 public:
-    // constructor includes a null pointer
-    TestWidget(QWidget* parent = nullptr);
+  // constructor includes a null pointer
+  TestWidget(QWidget* parent = nullptr);
 
-    // destructor
-    ~TestWidget() noexcept;
+  // destructor
+  ~TestWidget() noexcept;
 
 private:
-    // label
-    QLabel* label;
+  // label
+  QLabel* label;
+  QLabel* label2;
 
-    // layout manager
-    QVBoxLayout* vbox;
+  // layout manager
+  QVBoxLayout* vbox;
 
-    void showHyperlink(QLabel* const label);
+  void showHyperlink(QLabel* const label);
 };
 
 #endif // TESTWIDGET_H
