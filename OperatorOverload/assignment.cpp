@@ -8,8 +8,6 @@
  *********************************************************************/
 // clang-format on
 
-#include <iostream>
-
 /**
  * @class point
  * @brief A class representing a point in 2D space.
@@ -21,26 +19,26 @@
  */
 class point {
 public:
-    constexpr point()                 = default;
-    constexpr point(const point& rhs) = default;
-    virtual ~point()                  = default;
+  point()                           = default;
+  constexpr point(const point& rhs) = default;
+  virtual ~point()                  = default;
 
-    int _x;
-    int _y;
+  int _x;
+  int _y;
 
-    point& operator=(const point&);
+  point& operator=(const point&);
 };
 
 point& point::operator=(const point& otherPoint) {
-    _x = otherPoint._x;
-    _y = otherPoint._y;
+  _x = otherPoint._x;
+  _y = otherPoint._y;
 
-    return *this;
+  return *this;
 }
 
 int main(void) {
-    point ptr1, ptr2;
-    ptr1 = ptr2;
+  point p1, p2;
+  p1 = p2;
 
-    return 0;
+  return 0;
 }
