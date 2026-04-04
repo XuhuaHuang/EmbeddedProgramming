@@ -11,6 +11,8 @@
 
 #include <iostream>
 
+class square_t; // forward declaration
+
 class rectangle_t {
 private:
   int width{0};
@@ -46,12 +48,35 @@ public:
   rectangle_t double_in_size() const noexcept {
     return rectangle_t(width * 2, height * 2);
   }
+
+  void convert(const square_t& sq) noexcept;
+};
+
+class square_t {
+  friend class rectangle_t; // allow rectangle_t to access private data
+
+private:
+  int side{0};
+
+public:
+  explicit constexpr inline square_t(int s)
+    : side(s) {}
+
+  [[nodiscard]]
+  int get_side() const noexcept {
+    return side;
+  }
 };
 
 // Optional: keep a free function wrapper if needed
 [[nodiscard]]
 rectangle_t double_in_size(const rectangle_t& rect) noexcept {
   return rect.double_in_size();
+}
+
+void rectangle_t::convert(const square_t& sq) noexcept {
+  width  = sq.side;
+  height = sq.side;
 }
 
 int main() {
@@ -61,6 +86,13 @@ int main() {
   r1 = double_in_size(r2);
 
   std::cout << r1.area() << std::endl;
+
+  rectangle_t rect;
+  square_t    sqr(4);
+
+  rect.convert(sqr);
+
+  std::cout << __LINE__ << ": " << rect.area() << std::endl;
 
   return 0;
 }
