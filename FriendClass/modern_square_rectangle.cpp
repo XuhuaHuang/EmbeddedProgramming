@@ -50,6 +50,8 @@ public:
   }
 
   void convert(const square_t& sq) noexcept;
+
+  friend std::ostream& operator<<(std::ostream& os, const rectangle_t& rect);
 };
 
 class square_t {
@@ -79,12 +81,20 @@ void rectangle_t::convert(const square_t& sq) noexcept {
   height = sq.side;
 }
 
+std::ostream& operator<<(std::ostream& os, const rectangle_t& rect) {
+  os << rect.width << " x " << rect.height;
+  return os;
+}
+
 int main() {
   rectangle_t r1;
   rectangle_t r2(2, 3);
 
+  std::cout << "Original rectangle: " << r2 << std::endl;
+
   r1 = double_in_size(r2);
 
+  std::cout << __LINE__ << ": " << r1 << std::endl;
   std::cout << r1.area() << std::endl;
 
   rectangle_t rect;
@@ -92,6 +102,7 @@ int main() {
 
   rect.convert(sqr);
 
+  std::cout << __LINE__ << ": " << rect << std::endl;
   std::cout << __LINE__ << ": " << rect.area() << std::endl;
 
   return 0;
