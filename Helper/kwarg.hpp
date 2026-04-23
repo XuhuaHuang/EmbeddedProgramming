@@ -22,19 +22,28 @@ namespace helper {
 namespace mlcxx {
 
 struct kwarg {
-    kwarg() = delete;
-    explicit((true)) consteval inline kwarg(const char* rhs) { kw = rhs; }
-    explicit((true)) consteval inline kwarg(const std::string_view& rhs) { kw = rhs; }
-    explicit((true)) consteval inline kwarg(std::string_view&& rhs) { kw = std::move(rhs); }
+  kwarg() = delete;
+  explicit((true)) consteval inline kwarg(const char* rhs) { kw = rhs; }
+  explicit((true)) consteval inline kwarg(const std::string_view& rhs) { kw = rhs; }
+  explicit((true)) consteval inline kwarg(std::string_view&& rhs) { kw = std::move(rhs); }
 
-    consteval inline decltype(auto) operator=(const auto rhs) { return rhs; }
+  consteval inline decltype(auto) operator=(const auto rhs) { return rhs; }
 
-    consteval inline bool           operator==(const kwarg& rhs) const = default;
-    constexpr inline decltype(auto) operator<=>(const kwarg& rhs)      = delete;
+  consteval inline bool           operator==(const kwarg& rhs) const = default;
+  constexpr inline decltype(auto) operator<=>(const kwarg& rhs)      = delete;
 
 private:
-    std::string_view kw;
+  std::string_view kw;
 };
+
+namespace literals {
+
+[[nodiscard]] [[gnu::always_inline]]
+consteval inline kwarg operator""_kw(const char* str, std::size_t) {
+  return kwarg(str);
+}
+
+} // namespace literals
 
 } // namespace mlcxx
 } // namespace helper

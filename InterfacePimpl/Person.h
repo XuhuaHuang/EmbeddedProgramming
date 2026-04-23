@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   Person.h
  * \brief  Contains pure virtual functions for an interface `Person`
@@ -5,13 +6,14 @@
  * \author Xuhua Huang
  * \date   September 2021
  *********************************************************************/
+// clang-format on
 
 #pragma once
-
 #ifndef PERSON_H
 #define PERSON_H
 
 #include <iostream>
+#include <memory>
 #include <string>
 
 /* Use forward declaration to provide class interfaces. */
@@ -22,33 +24,33 @@ class Address {};
 /* Person interface. */
 class Person {
 public:
-    virtual ~Person() {}
+  virtual ~Person() {}
 
-    /**
-     * It is impossible to instantiate an instance for this interface;
-     * however, its child classes have to have access to a so-called `factory` function.
-     */
-    virtual std::string name() const      = 0;
-    virtual std::string birthDate() const = 0;
-    virtual std::string address() const   = 0;
+  /**
+   * It is impossible to instantiate an instance for this interface;
+   * however, its child classes have to have access to a so-called `factory` function.
+   */
+  virtual std::string name() const      = 0;
+  virtual std::string birthDate() const = 0;
+  virtual std::string address() const   = 0;
 
-    /* Factory function to be used by child classes. */
-    /* Declared static for syntax `Person::createPerson()`. */
-    static std::shared_ptr<Person> createPerson(const std::string& name, const Date& birthday, const Address& addr) {
-        return std::make_shared<Person>();
-    }
+  /* Factory function to be used by child classes. */
+  /* Declared static for syntax `Person::createPerson()`. */
+  static std::shared_ptr<Person> createPerson(const std::string& name, const Date& birthday, const Address& addr) {
+    return std::make_shared<Person>();
+  }
 
 private:
-    /**
-     * Private constructor and copy constructor.
-     */
-    Person() {}
-    Person(const Person&) {}
+  /**
+   * Private constructor and copy constructor.
+   */
+  Person() {}
+  Person(const Person&) {}
 
-    /* Data attributes for Person */
-    std::string _name;
-    Date        _birthday;
-    Address     _address;
+  /* Data attributes for Person */
+  std::string _name;
+  Date        _birthday;
+  Address     _address;
 };
 
 /** REMEMBER: derive class write factory functions
@@ -65,4 +67,4 @@ private:
  *           << ptrPerson->birthDate()
  *           << ptrPerson->address();
  */
-#endif
+#endif // !PERSON_H
