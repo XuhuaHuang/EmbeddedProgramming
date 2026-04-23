@@ -1,3 +1,6 @@
+// clang++ -std=c++17 singleton.cpp -o singleton
+// clang-format -i singleton.cpp
+// clang-format off
 /*****************************************************************//**
  * \file   singleton.cpp
  * \brief  contains notes and example on singletons design pattern
@@ -7,26 +10,27 @@
  * \author Xuhua Huang
  * \date   June 2021
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
 
 class Singleton {
 public:
-    // to prevent having additional copy of the instance
-    // mark copy constructor as delete, required C++ 17
-    Singleton(const Singleton& instance) = delete;
+  // to prevent having additional copy of the instance
+  // mark copy constructor as delete, required C++ 17
+  Singleton(const Singleton& instance) = delete;
 
-    static Singleton& getInstance() { return s_Instance; }
+  static Singleton& getInstance() { return s_Instance; }
 
-    void printInstance() { std::cout << "Singleton::printInstance()" << "\n"; }
+  void printInstance() { std::cout << "Singleton::printInstance()" << "\n"; }
 
 private:
-    // private constructor to restrict instantiation of class
-    Singleton() {}
+  // private constructor to restrict instantiation of class
+  Singleton() {}
 
-    float m_Member_data = 0.0f;
+  float m_Member_data = 0.0f;
 
-    static Singleton s_Instance;
+  static Singleton s_Instance;
 };
 
 /* Definition of static member */
@@ -35,51 +39,51 @@ Singleton Singleton::s_Instance;
 /* Example: random number generator class */
 class Random {
 public:
-    Random(const Random& instance) = delete;
+  Random(const Random& instance) = delete;
 
-    /* When using the static keyword, get through class as if they are namespaces
-     * In this case, Random::getInstance()
-     * see line 87
-     */
-    static Random& getInstance() {
-        static Random s_Instance; // in static memory, application lifetime
-        return s_Instance;
-    }
+  /**
+   * When using the static keyword, get through class as if they are namespaces
+   * In this case, Random::getInstance()
+   * see line 87
+   */
+  static Random& getInstance() {
+    static Random s_Instance; // in static memory, application lifetime
+    return s_Instance;
+  }
 
-    float getRandom() { return m_Random_float; }
+  float getRandom() { return m_Random_float; }
 
 private:
-    Random() {}
+  Random() {}
 
-    // replace the value of this member with a random number generator
-    float m_Random_float = 1.00f;
+  // replace the value of this member with a random number generator
+  float m_Random_float = 1.00f;
 
-    // static Random s_Instance; // moved to line 51
+  // static Random s_Instance; // moved to line 51
 };
 
 /* [Original] definition of static member */
 // Random Random::s_Instance; // moved to line 51
-
 int main(void) {
-    /**
-     * use public function inside singleton class to get instance
-     * and call function to print out instance
-     *
-     * mis-use case:
-     * Singleton my_instance = Singleton::getInstance(); // additional copy
-     * my_instance.printInstance();
-     */
-    Singleton::getInstance().printInstance();
+  /**
+   * use public function inside singleton class to get instance
+   * and call function to print out instance
+   *
+   * mis-use case:
+   * Singleton my_instance = Singleton::getInstance(); // additional copy
+   * my_instance.printInstance();
+   */
+  Singleton::getInstance().printInstance();
 
-    /**
-     * Teat cases for class Random.
-     */
-    float myRandomFloat = Random::getInstance().getRandom();
-    printf("%.2f\n", myRandomFloat); // 1.00
+  /**
+   * Teat cases for class Random.
+   */
+  float myRandomFloat = Random::getInstance().getRandom();
+  printf("%.2f\n", myRandomFloat); // 1.00
 
-    // another use case
-    auto& random = Random::getInstance();
-    printf("%.2f\n", random.getRandom()); // 1.00
+  // another use case
+  auto& random = Random::getInstance();
+  printf("%.2f\n", random.getRandom()); // 1.00
 
-    return 0;
+  return 0;
 }

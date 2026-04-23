@@ -15,14 +15,14 @@
 #include "Person.h"
 
 int main(void) {
-    std::string name;
-    Date        dateOfBirth;
-    Address     liveAddr;
+  std::string name;
+  Date        dateOfBirth;
+  Address     liveAddr;
 
-    // creating an object that implements the `Person` interface
-    std::shared_ptr<Person> ptrPerson(Person::createPerson(name, dateOfBirth, liveAddr));
-    // accessing info of such person using const getters
-    std::cout << ptrPerson->name() << ptrPerson->birthDate() << ptrPerson->address();
+  // creating an object that implements the `Person` interface
+  std::shared_ptr<Person> ptrPerson(Person::createPerson(name, dateOfBirth, liveAddr));
+  // accessing info of such person using const getters
+  std::cout << ptrPerson->name() << ptrPerson->birthDate() << ptrPerson->address();
 
-    return 0;
+  return 0;
 }

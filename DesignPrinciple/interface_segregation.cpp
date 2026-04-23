@@ -2,7 +2,7 @@
 
 class door_t {
 public:
-  virtual ~door_t()            = default;
+  virtual ~door_t() = default;
 
   virtual void lock()          = 0;
   virtual void unlock()        = 0;
