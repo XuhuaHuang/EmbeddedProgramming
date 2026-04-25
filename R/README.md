@@ -386,3 +386,90 @@ sample_correlation_stable <- function(x, y) {
 - Use `browser()` function to set breakpoints.
 - Use `print()` or `cat()` to display intermediate values for debugging.
 - Do not use `print()` in return statements of functions, just use `return(return_object)`.
+
+## QQ Plot and Normality Test
+
+### Quantile
+
+A quantile is a value that divides a dataset into intervals containing equal proportions of the data.
+
+Sort the given data from smallest to largest, a quantile tells you the value below which a certain percentage of the data falls. For example, the 25th percentile (or first quartile) is the value below which 25% of the data falls.
+
+For a dataset of size `n`, the `p`-th quantile is roughly the value at the position `p * (n - 1) + 1` in the sorted data. If this position is not an integer, you can interpolate between the two nearest values.
+
+If the data is normally distributed, the points in a QQ plot will approximately lie on a straight line. Deviations from this line indicate departures from normality.
+
+### QQ Plot
+
+A QQ plot (quantile-quantile plot) is a graphical tool to assess if a dataset follows a particular distribution, such as the normal distribution (most commonly seen). It plots the quantiles of the dataset against the quantiles of the theoretical distribution.
+
+A Q–Q plot is straight because quantiles transform linearly under affine transformations, and the plot is literally visualizing that relationship.
+
+```r
+x <- rnorm(100)
+y <- rnorm(100, mean = 2)
+
+qqplot(x, y)
+abline(0, 1, col = "blue")
+```
+
+### `R` Graphics
+
+- `plot`, `hist`, `boxplot`, `qqplot`, `pairs`
+- `xlab`, `ylab`, `sub`, `main`, `xlim`, `ylim`
+
+Symbol Options:
+
+- `lty` line type: `1` solid, `2` dashed, `3` dotted, `4` dotdash, `5` longdash, `6` twodash
+- `lwd` line width: `1` default, `2` double, etc
+- `mkh` marker height (in): `mkh = 0.5`
+- `pch` marker type: `pch = "*"` for star, `pch = 16` for filled circle, `pch = 17` for filled triangle, etc
+- `col` colour type: `col = "blue"`
+- `cex` character expansion: `cex = 1.5` to increase size by 50%
+- `type` plot type: `type = "p"` for points, `type = "l"` for lines, `type = "b"` for both, etc
+
+Plot Layout:
+
+- Multiple figures on one plot: `par(mfrow = c(2, 2))` for 2 rows and 2 columns
+- Split screen: `split.screen(figs=c(2, 1))` for 2 rows and 1 column
+- `close.screen(all=T))` to close all split screens
+
+## Graphics with Expressions
+
+```r
+x <- seq(-1, 1, length.out = 100)
+y <- sqrt(1 - x^2)
+
+plot(x, y,
+     type = "l",
+     main = expression(y == sqrt(1 - x^2)),
+     xlab = "x",
+     ylab = "y")
+```
+
+```r
+x <- seq(-1, 1, length.out = 100)
+
+y1 <- sqrt(1 - x^2)
+alpha <- 0.5
+beta <- 1
+y2 <- alpha + beta * x
+
+plot(x, y1,
+     type = "l",
+     col = "blue",
+     ylim = range(c(y1, y2)),
+     main = "Two Functions",
+     xlab = "x",
+     ylab = "y")
+
+lines(x, y2, col = "red")
+
+legend("topright",
+       legend = c(
+         expression(y == sqrt(1 - x^2)),
+         expression(y == alpha + beta * x)
+       ),
+       col = c("blue", "red"),
+       lty = 1)
+```
