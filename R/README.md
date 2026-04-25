@@ -216,6 +216,42 @@ which(x > 3)  # returns c(4, 5)
 
 Vectorized logical operations and logical indexes are extremely useful to compare, find, replace data elements.
 
+Write functions in `R` to turn repeated, complex, or parameterized logic into reusable, modular, and reliable building blocks. Eliminate repetition, abstraction, modularity, reproducibility, encapsulation, vectorized design, code clarity and readability.
+
+Big computation job can be broken into many small jobs which can be executed by a sequences of R functions either in sequential or in parallel.
+
+Before any real computation, should use some procedures to check inputs: checking data type, data coercing, logical testing, etc.
+
 - Domain: arguments lists
 - Function body: expressions that define the function
 - Range: return values
+
+If the end of the function body is not an explicit `return` statement, the value of the last evaluated expression is returned.
+
+### Variable Number of Arguments
+
+- `...` in a function argument list is used to specify that an arbitrary number of arguments are to be passed to a function within the body of the function.
+- `list(...)` to capture the variable arguments as a list
+
+### Required and Optional Arguments
+
+- Required arguments are those arguments for which the function definition provides neither a default value nor instructions on what to do if the argument is missing. All other arguments are optional.
+
+### Testing Argument Lists
+
+- `is.type(x)` to check if an argument is of a specific type, `is.vector`, `is.matrix`, `is.data.frame`, `is.integer`, `is.double`, `is.character`
+- `as.type(x)` to convert an argument to a specific type, `as.vector`, `as.matrix`, `as.data.frame`, `as.integer`, `as.double`, `as.character`
+
+### Logical Operators
+
+- `&` vectorized AND
+- `|` vectorized OR
+- `&&` control flow AND
+- `||` control flow OR
+
+### Error Handling
+
+- `stop("error message")` to throw an error and stop execution
+- `warning("warning message")` to throw a warning and continue execution
+- `try(expr)` to execute an expression and catch any errors without stopping execution
+- `tryCatch(expr, error = function(e) { ... })` to execute an expression and handle errors with a custom function
