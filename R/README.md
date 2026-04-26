@@ -754,3 +754,63 @@ int main() {
   std::cout << "Estimate: " << estimate << "\n";
 }
 ```
+
+## Bootstrap Method
+
+Bootstrap is a resampling technique that can be used to make statistical inferences.
+
+For given a specific sample x, one can use `sample(x, replace=TRUE)` to generate a resampling called `x∗` (a bootstrap sample).
+
+- Assume unknown population distribution `F`
+- Assume unknown parameter `theta`
+- estimator `theta_hat = T(X)`
+
+Setup:
+```r
+set.seed(251407053)
+
+n <- 50
+true_mu <- 10
+
+x <- rnorm(n, mean = true_mu, sd = 2)  # To be replaced with real dataset
+
+theta_hat <- mean(x)   # estimator T(X)
+theta_hat
+```
+
+Bootstrap resampling:
+
+```r
+B <- 10000  # number of bootstrap samples
+
+bootstrap_stats <- replicate(B, {
+
+  x_star <- sample(x, size = n, replace = TRUE)
+
+  mean(x_star)  # T(X*)
+})
+```
+
+Bootstrap variance estimate:
+
+```r
+boot_var <- var(bootstrap_stats)
+boot_var
+```
+
+Bootstrap bias estimate:
+
+```r
+boot_bias <- mean(bootstrap_stats) - theta_hat
+boot_bias
+```
+
+Bootstrap confidence interval:
+
+```r
+alpha <- 0.05
+
+ci <- quantile(bootstrap_stats, probs = c(alpha/2, 1 - alpha/2))
+ci
+```
+
