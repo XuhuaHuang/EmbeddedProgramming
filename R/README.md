@@ -473,3 +473,56 @@ legend("topright",
        col = c("blue", "red"),
        lty = 1)
 ```
+
+## Express a Statistical Model with `R`
+
+- Use factor or ordered to represent categorical variables
+- Use `lm` for linear regression, `glm` for generalized linear models
+- `~` operator means "is modeled by": `Gas ~ Temp`
+- `+` operator means "add another term": `Gas ~ Temp + Insul`
+- `:` operator means "have an interactive term": `Gas ~ Temp + Insul + Temp:Insul`
+- `*` operator means "have both main and interactive terms": `Gas ~ Temp * Insul` is equivalent to `Gas ~ Temp + Insul + Temp:Insul`
+- `-l` means "remove or exclude term": `Gas ~ Temp + Insul -l`
+- `^` operator means "limit depth of interaction": `Gas ~ (Temp + Insul)^2` is equivalent to `Gas ~ Temp + Insul + Temp:Insul`
+- `%in%` operator means "nesting": `effect ~ teacher + school + teacher %in% school` means that the effect is modeled by teacher and school, but teachers are nested within schools
+- `/` operator means "main effect and nesting": `effect ~ school + teacher/school` is equivalent to `effect ~ teacher + school + teacher %in% school`
+
+## Common Arguments to Modeling Functions
+
+- `data` to specify the data frame containing the variables
+- L.H.S of `~`: dependent variable (response variable)
+- R.H.S of `~`: independent variables (predictor variables)
+- `.`: include all other variables in the `data.frame` as predictors 
+    - `lm(Gas ~ ., data = whiteside)`
+    - `lm(Gas ~ . ^2, data = whiteside)`
+- Subset argument `subset = Gas > 2 & Gas < 5`
+- Weights argument `weights = 1 / (Temp^2)` to give more weight to observations with smaller `Temp` values
+- `na.action` to specify how to handle missing values, e.g., `na.omit` to exclude rows with missing values
+    - `na.fail` to throw an error if there are missing values
+    - `na.exclude` to exclude missing values from the analysis but keep them in the residuals and fitted values
+    - `na.include` to include missing values in the analysis, treating them as a separate category
+
+## Random Number Generation (RNG)
+
+- `set.seed` to set the seed for reproducibility
+- A key element of a Monte Carlo simulation requires a good quality of RNG
+- More specifically, one needs a good uniform or normal RNG
+- Almost all other distributions can be implemented by using uniform RNG as a source
+- How to generate a random number without a computer (pre-computer age)?
+    - Lottery 649
+    - A book with pre-printed "random numbers"
+    - Drawbacks: slow, limited quantity, not reproducible
+- "True" RNG
+    - Quantum mechanics: quantum unpredictability leads to true RNG
+    - Physical phenomena without quantum mechanics
+    - Thermal noise from resistors; later 1999 Intel CPUs contain such circuit
+    - Atmospheric noise detected by radio receiver
+
+### Mersenne-Twister RNG (R’s default RNG)
+
+- Pseudorandom number generator developed in 1997 by Matsumoto and Nishimura
+- Period: 2^19937 − 1
+- Seed: a 624-dimensional set of 32-bit integers plus a current position in that set
+- The Mersenne Twister is designed with Monte Carlo simulations and other statistical simulations in mind
+- For non-parallel RNG, this is probably the best RNG
+- http://en.wikipedia.org/wiki/Mersenne_twister
