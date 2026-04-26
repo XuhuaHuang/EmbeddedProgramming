@@ -605,3 +605,33 @@ rejection_sample_vec <- function(n, f, M, r_m, batch_size = 10000) {
 }
 ```
 
+## Statistical Monte Carlo Simulation
+
+### Why do we need simulation?
+- Imitate the real world
+- Test a statistical theory
+- Compute hard problems
+
+### Typical Statistical Inference
+- Sample: `x = (x1, x2, ..., xn)` taken from an unknown distribution
+- Statistic `T(x)` estimates some unknown parameter `theta`
+- Inferences: Find the distribution of `T(x)` to make inferences about `theta`
+
+### Typical Simulation Procedure
+- DGP (Data Generating Process): need to produce data x, need to know the population distribution and noise distribution
+    - Choose a distribution as close to the real distribution as possible
+    - Monte Carlo generate data from the **known** distribution
+    - Use `arima.sim` to generate data
+- Model: a specific model under consideration
+    - ARMA, Markov Chain, stochastic process, regression etc.
+    - For a given `x` and a `theta`, `model(x, theta)` returns specific values
+- Estimation: use model data to estimate `theta`
+    - An estimation procedure has been given
+    - Carefully plan out and carry out computation
+    - Further breakdown computation task if needed
+    - Keep track of computing issues, such as mis-convergence, boundary issues, computation error, rounding error, prefer `warning()` function
+- Start the loop and carry out real simulation
+    - Use `print` function to indicate progress
+    - Output partial results to a file
+    - Prefer `replicate` and `apply` function
+- Analyze simulation results
