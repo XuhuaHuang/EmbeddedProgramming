@@ -635,3 +635,122 @@ rejection_sample_vec <- function(n, f, M, r_m, batch_size = 10000) {
     - Output partial results to a file
     - Prefer `replicate` and `apply` function
 - Analyze simulation results
+
+### Statistical Monte Carlo Simulation Example
+
+The key idea is that if you repeatedly sample data and construct intervals the same way, about 95% of those intervals will contain the true mean `μ`.
+
+Let `Xi​∼N(μ=10,σ=2)`, true mean `μ=10`
+
+- Repeat sampling `K` times
+- Compute confidence intervals
+- Check coverage
+
+Setup:
+
+```r
+set.seed(251407053)
+
+# true population parameters
+mu_true <- 10
+sigma <- 2
+
+# simulation settings
+n <- 50        # sample size
+K <- 10000     # number of repetitions
+
+# store results
+contains_mu <- logical(K)
+```
+
+Simulation loop:
+
+```r
+for (k in 1:K) {
+
+  # DGP: generate sample
+  x <- rnorm(n, mean = mu_true, sd = sigma)
+
+  # estimate
+  x_bar <- mean(x)
+  s <- sd(x)
+
+  # 95% confidence interval (z approximation as in your notes)
+  margin <- 1.96 * s / sqrt(n)
+  lower <- x_bar - margin
+  upper <- x_bar + margin
+
+  # check if interval contains true mean
+  contains_mu[k] <- (lower <= mu_true && mu_true <= upper)
+}
+```
+
+Simulation result:
+
+```r
+# Monte Carlo estimate of coverage
+coverage <- mean(contains_mu)
+coverage
+```
+
+With `replicate`:
+
+```r
+set.seed(123)
+
+mu_true <- 10
+sigma <- 2
+n <- 50
+K <- 10000
+
+contains_mu <- replicate(K, {
+
+  # DGP
+  x <- rnorm(n, mean = mu_true, sd = sigma)
+
+  # estimator
+  x_bar <- mean(x)
+  s <- sd(x)
+
+  # CI
+  margin <- 1.96 * s / sqrt(n)
+  lower <- x_bar - margin
+  upper <- x_bar + margin
+
+  # return logical result
+  (lower <= mu_true && mu_true <= upper)
+})
+
+mean(contains_mu)
+```
+
+## Monte Carlo Integration
+
+Monte Carlo integration estimates the average value of a function by sampling inputs uniformly (randomly probing) and averaging outputs (heights).
+
+Since `U` is uniform over `[0,1]`, sampling `g(U)` evaluates the function at uniformly distributed points. Averaging these values approximates the expected value `E[g(U)]`, which equals the integral. Because the interval has length 1, this expectation represents the average height of the function, which is equal to the area under the curve.
+
+Law of Large Numbers: As the number of independent random samples increases, the sample average converges to the true expected value (population mean).
+
+```cpp
+#include <iostream>
+#include <random>
+
+int main() {
+  std::mt19937 rng(std::random_device{}());
+
+  std::uniform_real_distribution<double> dist(0.0, 1.0);
+
+  const int n   = 1'000'000;
+  double    sum = 0.0;
+
+  for (int i = 0; i < n; ++i) {
+    double u = dist(rng);
+    sum += u * u;
+  }
+
+  double estimate = sum / n;
+
+  std::cout << "Estimate: " << estimate << "\n";
+}
+```
