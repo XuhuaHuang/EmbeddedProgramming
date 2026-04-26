@@ -814,3 +814,30 @@ ci <- quantile(bootstrap_stats, probs = c(alpha/2, 1 - alpha/2))
 ci
 ```
 
+## Numerical Optimization
+
+A systematic search for the best configuration of variables under constraints, using iterative numerical methods when closed-form solutions are unavailable.
+
+- No closed-form solution exists, or solution is too expensive analytically
+- Use iterative algorithms (gradient descent, stochastic optimization, evolutionary) to find the solution
+- Least Square (LS) regression
+- Maximum Likelihood Estimation (MLE)
+- Least Absolute Deviation (LAD) regression
+
+| Method | Loss function           | Closed form?  | Why optimization is needed        |
+| ------ | ----------------------- | ------------- | --------------------------------- |
+| LS     | squared error           | sometimes yes | scalability / numerical stability |
+| MLE    | negative log-likelihood | usually no    | nonlinear models                  |
+| LAD    | absolute error          | no            | non-smooth objective              |
+
+Numerical optimization is the backbone of modern statistics because most estimators are defined implicitly as solutions to optimization problems, and these solutions are rarely analytically tractable in realistic models.
+
+### Find Roots
+
+In general, an optimization problem can be converted to find roots provided that the function involved is smooth enough
+
+- There are Newton method, bi-section method, etc
+- One can use R function `uniroot` to find one-dim root
+- One can use R function `polyroot` to find roots of a polynomial
+
+
