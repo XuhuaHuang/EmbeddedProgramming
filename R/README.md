@@ -170,11 +170,21 @@ z <- x + y  # z will be c(11, 22, 13)
 - module division: `%%`, `%/%`
 - `%*%`: matrix multiplication, `crossprod`
 - outer product: `outer`
-- `t`: transpose
+- trace: `mat.trace <- function(x) sum(diag(x))`
+- `t`: transpose `t(x)`
 - `solve`: inverse of a matrix, or solution of linear equations
+
+### Attributes for a Matrix
+
+- `length`
+- `dim`
+- `dimnames`
+- `colnames`, `rownames`
+- `mode`/`class`
 
 ### Indexing and Subsetting
 
+- `x[1, 2]`, `x[1,]`, `x[ ,2]`
 - `data[['name']] = NULL` to remove a column from a `data.frame`
 - `data$colname` to access a column in a `data.frame`
 
