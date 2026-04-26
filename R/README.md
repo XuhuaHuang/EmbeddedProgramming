@@ -536,3 +536,72 @@ Since a RNG normally uses a deterministic algorithm, its randomness property is 
     - `R` function `ks.test`
     - Try: `x = seq(0, 1, length = 10000)`
 - The longest runs of head
+
+### Generating Non-uniform Distributions
+
+- Use `R` built-in RNG functions such as `rpois`, `rexp`, `rgama`, `rbinom` etc.
+- How to generate nonstandard distributions?
+- Inversion method
+    - Let `F(x)` be the C.D.F of a random variable `X`. Its inverse function (quantile function) is defined `Q(t) = F^{-1}(t) = inf{x: F(x) >= t}`
+    - In principle if `Q(t)` has a closed form, inversion method is the best way to generate required random numbers
+    - Distributions: `Exp`, `Cauchy`, `Geometric`, `Pareto`, `Logistic`, `Extreme Value`, `Weibull` etc.
+    - Normal distribution has no closed form for `Q(t)`
+    - There are other ways to generate normal sample exactly
+    - `Box-Muller` normal RNG uses 2 independent uniform `[0, 1]` to generate 2 independent normal; computation is costly (sin, cos, log, sqrt)
+    - Rejection method
+    - `R` and `Matlab` use highly refined numerical approximation of `Q(t)`
+- Random variables are functions of random variables
+    - `Z` is normal, then `exp(Z)` is log-normal
+- Rejection method
+    - density of interest: `f(x), a <= x <= b`
+    - A known function: `M(x) >= f(x), a <= x <= b`
+    - algorithm: let `m(x) = M(x) / (integral of M over [a, b])`
+    - step 1: Generate `T` with the density function `m(x)`
+    - step 2: Generate `U` of `unif[0, 1]`. If `M(T) * U <= f(T)` then `X = T` else go to step 1
+
+```r
+rejection_sample <- function(n, f, M, r_m) {
+  samples <- numeric(n)
+  count <- 0
+  
+  while (count < n) {
+    # Step 1: sample T ~ m(x)
+    T <- r_m(1)
+    
+    # Step 2: sample U ~ Uniform(0,1)
+    U <- runif(1)
+    
+    # Accept or reject
+    if (M(T) * U <= f(T)) {
+      count <- count + 1
+      samples[count] <- T
+    }
+  }
+  
+  return(samples)
+}
+```
+
+```r
+rejection_sample_vec <- function(n, f, M, r_m, batch_size = 10000) {
+  samples <- numeric(0)
+  
+  while (length(samples) < n) {
+    # Step 1: generate a batch of proposals
+    T <- r_m(batch_size)
+    
+    # Step 2: generate uniforms
+    U <- runif(batch_size)
+    
+    # Step 3: vectorized acceptance test
+    accept <- (M(T) * U) <= f(T)
+    
+    # Keep accepted samples
+    samples <- c(samples, T[accept])
+  }
+  
+  # Trim to exactly n samples
+  samples[1:n]
+}
+```
+
