@@ -521,8 +521,18 @@ legend("topright",
 ### Mersenne-Twister RNG (R’s default RNG)
 
 - Pseudorandom number generator developed in 1997 by Matsumoto and Nishimura
-- Period: 2^19937 − 1
+- Period: `2^19937 − 1`
+- Pseudo-RNG is good as long as it has an extremely long period (cycle)
 - Seed: a 624-dimensional set of 32-bit integers plus a current position in that set
 - The Mersenne Twister is designed with Monte Carlo simulations and other statistical simulations in mind
 - For non-parallel RNG, this is probably the best RNG
 - http://en.wikipedia.org/wiki/Mersenne_twister
+
+### Quality of RNG
+
+Since a RNG normally uses a deterministic algorithm, its randomness property is important.
+
+- Kolmogorov-Smirnov test: Goodness-of-fit test; test uniform distribution
+    - `R` function `ks.test`
+    - Try: `x = seq(0, 1, length = 10000)`
+- The longest runs of head
