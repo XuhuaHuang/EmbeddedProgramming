@@ -7,6 +7,7 @@ install.packages("ggplot2")
 ```
 
 ## Statistical Computing
+
 - Statistics → modeling, inference, probability
 - Computer Science → algorithms, efficiency
 - Data → storage, processing, transformation
@@ -19,28 +20,36 @@ Statistical computing is the use of computational methods to perform statistical
 ## Main Components of Statistical Computing
 
 1. Data Manipulation
+
 ```r
 subset(cars, speed > 10)
 ```
-2. Programming
+
+1. Programming
+
 ```r
 square <- function(x) {
   x^2
 }
 ```
-3. Graphics
+
+1. Graphics
+
 ```r
 plot(cars)
 ```
 
 ## Object-Oriented Nature of `R`
+
 ```r
 class(cars)
 summary(cars)
 plot(cars)
 
 ```
+
 - Regression Example
+
 ```r
 out <- lm(dist ~ speed, data = cars)
 class(out)
@@ -49,6 +58,7 @@ plot(out)
 ```
 
 ## Command Line Options and Helps
+
 - `-save` or `-no-save`
 - `-restore` or `-no-restore`
 
@@ -69,6 +79,7 @@ A complete expression is any typed expression that falls into one of the followi
 - Grouping statements
 
 ## `R` Sessions
+
 `setwd` and `getwd`
 
 Use `?Syntax` to find operator syntax
@@ -81,6 +92,7 @@ All objects created in command line (`RStudio` calls it console) are saved
 in `.GlobalEnv`.
 
 `R` treats everything as an object
+
 - data objects
 - function objects
 - list objects
@@ -102,6 +114,7 @@ rm(list = ls())
 ```
 
 ### Class, Type of Length of an Object
+
 ```r
 class(cars)
 typeof(cars)
@@ -114,44 +127,44 @@ dim(cars)
 ## `R` Data Objects
 
 - Vectors
-    - **Simplest** data object starting at index `1`
-    - **Ordered** set of values (numeric or character)
-    - `scan`, `c`, `rep`, `:`, `seq`
-    - `length`, `mode`, `class`, `names`
-    - conversion operations: `as.integer`, `as.double`
-    - verification operations: `is.integer`, `is.double`, `is.character`
-    - statistics: `max`, `min`, `mean`, `var`, `sd`
-    - mathematics: `sum`, `rank`, `order`, `round`, `floor`, `ceiling`, `abs`, `sqrt`, `exp`, `sin`, `sign`, `log`, `prod`
+  - **Simplest** data object starting at index `1`
+  - **Ordered** set of values (numeric or character)
+  - `scan`, `c`, `rep`, `:`, `seq`
+  - `length`, `mode`, `class`, `names`
+  - conversion operations: `as.integer`, `as.double`
+  - verification operations: `is.integer`, `is.double`, `is.character`
+  - statistics: `max`, `min`, `mean`, `var`, `sd`
+  - mathematics: `sum`, `rank`, `order`, `round`, `floor`, `ceiling`, `abs`, `sqrt`, `exp`, `sin`, `sign`, `log`, `prod`
 
 - Matrices
-    - **Two-dimensional** data object
-    - `matrix`, `rbind`, `cbind`
-    - `length`, `dim`, `dimnames`, `nrow`, `ncol`
-    - indexing: `A[i, j]`, `x[1, 2:3]`, `x[1:2, 3]`, `x[1,]`, `x[, 2]`
-    - arithmetic: `+`, `-`, `*`, `/`
-    - matrix algebra: `%*%`, `t`, `solve`
+  - **Two-dimensional** data object
+  - `matrix`, `rbind`, `cbind`
+  - `length`, `dim`, `dimnames`, `nrow`, `ncol`
+  - indexing: `A[i, j]`, `x[1, 2:3]`, `x[1:2, 3]`, `x[1,]`, `x[, 2]`
+  - arithmetic: `+`, `-`, `*`, `/`
+  - matrix algebra: `%*%`, `t`, `solve`
 
 - `data.frame`
-    - **Tabular** data object (all objects have the same length)
-    - `data.frame`, `read.table`, `read.csv`, `as.data.frame`, `cbind`, `rbind`, `merge`
-    - `nrow`, `ncol`, `names`, `str`
-    - `is.data.frame`, `is.matrix`
-    - `length`, `mode`, `class`, `names`, `attributes`, `row.names`
-    - indexing: `df[i, j]`, `df$colname`, `df[["colname"]]`
+  - **Tabular** data object (all objects have the same length)
+  - `data.frame`, `read.table`, `read.csv`, `as.data.frame`, `cbind`, `rbind`, `merge`
+  - `nrow`, `ncol`, `names`, `str`
+  - `is.data.frame`, `is.matrix`
+  - `length`, `mode`, `class`, `names`, `attributes`, `row.names`
+  - indexing: `df[i, j]`, `df$colname`, `df[["colname"]]`
 
 - Arrays
-    - **Multi-dimensional** homogeneous data object (all objects have the same type)
-    - `list`
-    - `array`, `as.array`
-    - `dim`, `dimnames`
-    - indexing: `A[i, j, k]`
+  - **Multi-dimensional** homogeneous data object (all objects have the same type)
+  - `list`
+  - `array`, `as.array`
+  - `dim`, `dimnames`
+  - indexing: `A[i, j, k]`
 
 - Lists
-    - **Heterogeneous** data object (different types of objects)
-    - `list`, `as.list`
-    - `length`, `mode`, `class`, `attributes`
-    - `names`, `str`
-    - indexing: `L[[i]]`, `L$name`
+  - **Heterogeneous** data object (different types of objects)
+  - `list`, `as.list`
+  - `length`, `mode`, `class`, `attributes`
+  - `names`, `str`
+  - indexing: `L[[i]]`, `L$name`
 
 ## Recycling Rule
 
@@ -502,15 +515,15 @@ legend("topright",
 - `data` to specify the data frame containing the variables
 - L.H.S of `~`: dependent variable (response variable)
 - R.H.S of `~`: independent variables (predictor variables)
-- `.`: include all other variables in the `data.frame` as predictors 
-    - `lm(Gas ~ ., data = whiteside)`
-    - `lm(Gas ~ . ^2, data = whiteside)`
+- `.`: include all other variables in the `data.frame` as predictors
+  - `lm(Gas ~ ., data = whiteside)`
+  - `lm(Gas ~ . ^2, data = whiteside)`
 - Subset argument `subset = Gas > 2 & Gas < 5`
 - Weights argument `weights = 1 / (Temp^2)` to give more weight to observations with smaller `Temp` values
 - `na.action` to specify how to handle missing values, e.g., `na.omit` to exclude rows with missing values
-    - `na.fail` to throw an error if there are missing values
-    - `na.exclude` to exclude missing values from the analysis but keep them in the residuals and fitted values
-    - `na.include` to include missing values in the analysis, treating them as a separate category
+  - `na.fail` to throw an error if there are missing values
+  - `na.exclude` to exclude missing values from the analysis but keep them in the residuals and fitted values
+  - `na.include` to include missing values in the analysis, treating them as a separate category
 
 ## Random Number Generation (RNG)
 
@@ -519,14 +532,14 @@ legend("topright",
 - More specifically, one needs a good uniform or normal RNG
 - Almost all other distributions can be implemented by using uniform RNG as a source
 - How to generate a random number without a computer (pre-computer age)?
-    - Lottery 649
-    - A book with pre-printed "random numbers"
-    - Drawbacks: slow, limited quantity, not reproducible
+  - Lottery 649
+  - A book with pre-printed "random numbers"
+  - Drawbacks: slow, limited quantity, not reproducible
 - "True" RNG
-    - Quantum mechanics: quantum unpredictability leads to true RNG
-    - Physical phenomena without quantum mechanics
-    - Thermal noise from resistors; later 1999 Intel CPUs contain such circuit
-    - Atmospheric noise detected by radio receiver
+  - Quantum mechanics: quantum unpredictability leads to true RNG
+  - Physical phenomena without quantum mechanics
+  - Thermal noise from resistors; later 1999 Intel CPUs contain such circuit
+  - Atmospheric noise detected by radio receiver
 
 ### Mersenne-Twister RNG (R’s default RNG)
 
@@ -536,15 +549,15 @@ legend("topright",
 - Seed: a 624-dimensional set of 32-bit integers plus a current position in that set
 - The Mersenne Twister is designed with Monte Carlo simulations and other statistical simulations in mind
 - For non-parallel RNG, this is probably the best RNG
-- http://en.wikipedia.org/wiki/Mersenne_twister
+- <http://en.wikipedia.org/wiki/Mersenne_twister>
 
 ### Quality of RNG
 
 Since a RNG normally uses a deterministic algorithm, its randomness property is important.
 
 - Kolmogorov-Smirnov test: Goodness-of-fit test; test uniform distribution
-    - `R` function `ks.test`
-    - Try: `x = seq(0, 1, length = 10000)`
+  - `R` function `ks.test`
+  - Try: `x = seq(0, 1, length = 10000)`
 - The longest runs of head
 
 ### Generating Non-uniform Distributions
@@ -552,22 +565,22 @@ Since a RNG normally uses a deterministic algorithm, its randomness property is 
 - Use `R` built-in RNG functions such as `rpois`, `rexp`, `rgama`, `rbinom` etc.
 - How to generate nonstandard distributions?
 - Inversion method
-    - Let `F(x)` be the C.D.F of a random variable `X`. Its inverse function (quantile function) is defined `Q(t) = F^{-1}(t) = inf{x: F(x) >= t}`
-    - In principle if `Q(t)` has a closed form, inversion method is the best way to generate required random numbers
-    - Distributions: `Exp`, `Cauchy`, `Geometric`, `Pareto`, `Logistic`, `Extreme Value`, `Weibull` etc.
-    - Normal distribution has no closed form for `Q(t)`
-    - There are other ways to generate normal sample exactly
-    - `Box-Muller` normal RNG uses 2 independent uniform `[0, 1]` to generate 2 independent normal; computation is costly (sin, cos, log, sqrt)
-    - Rejection method
-    - `R` and `Matlab` use highly refined numerical approximation of `Q(t)`
+  - Let `F(x)` be the C.D.F of a random variable `X`. Its inverse function (quantile function) is defined `Q(t) = F^{-1}(t) = inf{x: F(x) >= t}`
+  - In principle if `Q(t)` has a closed form, inversion method is the best way to generate required random numbers
+  - Distributions: `Exp`, `Cauchy`, `Geometric`, `Pareto`, `Logistic`, `Extreme Value`, `Weibull` etc.
+  - Normal distribution has no closed form for `Q(t)`
+  - There are other ways to generate normal sample exactly
+  - `Box-Muller` normal RNG uses 2 independent uniform `[0, 1]` to generate 2 independent normal; computation is costly (sin, cos, log, sqrt)
+  - Rejection method
+  - `R` and `Matlab` use highly refined numerical approximation of `Q(t)`
 - Random variables are functions of random variables
-    - `Z` is normal, then `exp(Z)` is log-normal
+  - `Z` is normal, then `exp(Z)` is log-normal
 - Rejection method
-    - density of interest: `f(x), a <= x <= b`
-    - A known function: `M(x) >= f(x), a <= x <= b`
-    - algorithm: let `m(x) = M(x) / (integral of M over [a, b])`
-    - step 1: Generate `T` with the density function `m(x)`
-    - step 2: Generate `U` of `unif[0, 1]`. If `M(T) * U <= f(T)` then `X = T` else go to step 1
+  - density of interest: `f(x), a <= x <= b`
+  - A known function: `M(x) >= f(x), a <= x <= b`
+  - algorithm: let `m(x) = M(x) / (integral of M over [a, b])`
+  - step 1: Generate `T` with the density function `m(x)`
+  - step 2: Generate `U` of `unif[0, 1]`. If `M(T) * U <= f(T)` then `X = T` else go to step 1
 
 ```r
 rejection_sample <- function(n, f, M, r_m) {
@@ -618,32 +631,35 @@ rejection_sample_vec <- function(n, f, M, r_m, batch_size = 10000) {
 ## Statistical Monte Carlo Simulation
 
 ### Why do we need simulation?
+
 - Imitate the real world
 - Test a statistical theory
 - Compute hard problems
 
 ### Typical Statistical Inference
+
 - Sample: `x = (x1, x2, ..., xn)` taken from an unknown distribution
 - Statistic `T(x)` estimates some unknown parameter `theta`
 - Inferences: Find the distribution of `T(x)` to make inferences about `theta`
 
 ### Typical Simulation Procedure
+
 - DGP (Data Generating Process): need to produce data x, need to know the population distribution and noise distribution
-    - Choose a distribution as close to the real distribution as possible
-    - Monte Carlo generate data from the **known** distribution
-    - Use `arima.sim` to generate data
+  - Choose a distribution as close to the real distribution as possible
+  - Monte Carlo generate data from the **known** distribution
+  - Use `arima.sim` to generate data
 - Model: a specific model under consideration
-    - ARMA, Markov Chain, stochastic process, regression etc.
-    - For a given `x` and a `theta`, `model(x, theta)` returns specific values
+  - ARMA, Markov Chain, stochastic process, regression etc.
+  - For a given `x` and a `theta`, `model(x, theta)` returns specific values
 - Estimation: use model data to estimate `theta`
-    - An estimation procedure has been given
-    - Carefully plan out and carry out computation
-    - Further breakdown computation task if needed
-    - Keep track of computing issues, such as mis-convergence, boundary issues, computation error, rounding error, prefer `warning()` function
+  - An estimation procedure has been given
+  - Carefully plan out and carry out computation
+  - Further breakdown computation task if needed
+  - Keep track of computing issues, such as mis-convergence, boundary issues, computation error, rounding error, prefer `warning()` function
 - Start the loop and carry out real simulation
-    - Use `print` function to indicate progress
-    - Output partial results to a file
-    - Prefer `replicate` and `apply` function
+  - Use `print` function to indicate progress
+  - Output partial results to a file
+  - Prefer `replicate` and `apply` function
 - Analyze simulation results
 
 ### Statistical Monte Carlo Simulation Example
@@ -776,6 +792,7 @@ For given a specific sample x, one can use `sample(x, replace=TRUE)` to generate
 - estimator `theta_hat = T(X)`
 
 Setup:
+
 ```r
 set.seed(251407053)
 
@@ -850,4 +867,64 @@ In general, an optimization problem can be converted to find roots provided that
 - One can use R function `uniroot` to find one-dim root
 - One can use R function `polyroot` to find roots of a polynomial
 
+## Eigenvalues and Eigenvectors in `R`
 
+`Av=λv`
+
+```r
+A <- matrix(c(4, 2,
+              1, 3), nrow = 2, byrow = TRUE)
+
+eig <- eigen(A)
+
+eig$values      # eigenvalues
+eig$vectors     # eigenvectors (columns)
+```
+
+```r
+A <- matrix(c(2, 1,
+              1, 2), 2, 2)
+
+eigen(A, symmetric = TRUE)
+```
+
+## Matrix Decomposition
+
+### Single Value Decomposition (SVD)
+
+`A = UΣV^{T}`
+
+```r
+A <- matrix(rnorm(9), 3, 3)
+
+svd_res <- svd(A)
+
+svd_res$u      # U
+svd_res$d      # singular values (diagonal of Sigma)
+svd_res$v      # V
+```
+
+Reconstruct matrix:
+
+```r
+U <- svd_res$u
+D <- diag(svd_res$d)
+V <- svd_res$v
+
+A_reconstructed <- U %*% D %*% t(V)
+```
+
+### LU Decomposition
+
+```r
+library(Matrix)
+
+A <- Matrix(matrix(c(4, 3,
+                     6, 3), 2, 2))
+
+lu_res <- lu(A)
+
+lu_res@L
+lu_res@U
+lu_res@P
+```
