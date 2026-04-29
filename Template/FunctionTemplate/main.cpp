@@ -13,7 +13,7 @@
 #include "max.hpp"
 
 int main(void) {
-  // implicit template instanciation
+  // implicit template instantiation
   // T is deducted to int
   // same for std::vector
   // std::vector v { 1, 2 };
