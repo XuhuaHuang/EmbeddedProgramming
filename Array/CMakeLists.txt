@@ -12,8 +12,12 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Adding multiple executable to the project
 # Right-click on each item to set as start-up project
-add_executable(array "array.c")
-add_executable(matrix "matrix.c")
+add_executable(array
+    array.c
+)
+add_executable(matrix
+    matrix.c
+)
 
 add_executable(iterable_array
     iterable_array.cpp
