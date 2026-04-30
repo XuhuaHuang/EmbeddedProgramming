@@ -1,0 +1,6 @@
+function(add_gtest target)
+    add_executable(${target} ${ARGN})
+    target_include_directories(${target} PRIVATE ${GTEST_INCLUDE_DIRS})
+    target_link_libraries(${target} GTest::gtest_main)
+    gtest_discover_tests(${target})
+endfunction()
