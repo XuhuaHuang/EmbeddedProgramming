@@ -1,3 +1,4 @@
+// clang-format off
 /*****************************************************************//**
  * \file   FibonacciSeries.cpp
  * \brief  Using variadic template to implement a series generator.
@@ -5,6 +6,7 @@
  * \author Xuhua Huang
  * \date   November 2022
  *********************************************************************/
+// clang-format on
 
 #include <iostream>
 #include <limits>
@@ -31,11 +33,11 @@ template <size_t N>
 constexpr double golden_ratio = fibonacci<N + 1> * 1.0 / fibonacci<N>;
 
 int main(void) {
-    std::cout << "fibonacci<10>: " << fibonacci<10> << "\n";
+  std::cout << "fibonacci<10>: " << fibonacci<10> << "\n";
 
-    std::cout.precision(std::numeric_limits<double>::max_digits10);
-    std::cout << "golden_ratio<20>: " << golden_ratio<20> << "\n";
-    std::cout << "golden_ratio<50>: " << golden_ratio<50> << "\n";
+  std::cout.precision(std::numeric_limits<double>::max_digits10);
+  std::cout << "golden_ratio<20>: " << golden_ratio<20> << "\n";
+  std::cout << "golden_ratio<50>: " << golden_ratio<50> << "\n";
 
-    return EXIT_SUCCESS;
+  return 0;
 }
