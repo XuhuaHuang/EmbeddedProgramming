@@ -16,23 +16,22 @@
 #include <stdlib.h>
 
 int main(void) {
+  unsigned width;
+  int      number = 256;
+  /* ask user for field width. */
+  printf("Please enter field width: ");
+  scanf("%d", &width);
+  printf("The number is: %*d", width, number);
 
-    unsigned width;
-    int number = 256;
-    /* ask user for field width. */
-    printf("Please enter field width: ");
-    scanf("%d", &width);
-    printf("The number is: %*d", width, number);
+  unsigned precision;
+  double   weight = 242.66;
+  /* number of digits before and after the decimal points. */
+  printf("\nNow please enter a width and precision: ");
+  scanf("%d %d", &width, &precision);
+  printf("Weight = %*.*f\n", width, precision, weight);
 
-    unsigned precision;
-    double weight = 242.66;
-    /* number of digits before and after the decimal points. */
-    printf("\nNow please enter a width and precision: ");
-    scanf("%d %d", &width, &precision);
-    printf("Weight = %*.*f\n", width, precision, weight);
+  printf("Done\n");
 
-    printf("Done\n");
-
-    system("pause");
-    return 0;
+  system("pause");
+  return 0;
 }
