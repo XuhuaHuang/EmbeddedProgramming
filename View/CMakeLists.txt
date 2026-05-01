@@ -7,4 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-add_executable(view_notes "views_notes.cpp")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+add_executable(view_notes
+    views_notes.cpp
+)
