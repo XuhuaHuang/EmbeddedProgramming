@@ -8,7 +8,7 @@
   "configurePresets": [
     {
       "name": "x86_64-linux-gnu-debug",
-      "displayName": "GCC 14.3.0 x86_64-linux-gnu",
+      "displayName": "GCC 14.3.0 x86_64-linux-gnu Debug",
       "description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
       "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
@@ -20,7 +20,7 @@
     },
     {
       "name": "x86_64-linux-gnu-release",
-      "displayName": "GCC 14.3.0 x86_64-linux-gnu",
+      "displayName": "GCC 14.3.0 x86_64-linux-gnu Release",
       "description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
       "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
@@ -32,7 +32,7 @@
     },
     {
       "name": "x86_64-w64-mingw64-debug",
-      "displayName": "GCC MinGW x86_64-w64",
+      "displayName": "GCC MinGW x86_64-w64 Debug",
       "description": "Using compilers: C = msys64/mingw64/bin/gcc, CXX = msys64/mingw64/bin/g++",
       "generator": "MinGW Makefiles",
       "binaryDir": "${sourceDir}/build/${presetName}",
@@ -63,13 +63,13 @@
     {
       "name": "x86_64-linux-gnu-debug",
       "description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
-      "displayName": "GCC 14.3.0 x86_64-linux-gnu",
+      "displayName": "GCC 14.3.0 x86_64-linux-gnu Debug",
       "configurePreset": "x86_64-linux-gnu-debug"
     },
     {
       "name": "x86_64-linux-gnu-release",
       "description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
-      "displayName": "GCC 14.3.0 x86_64-linux-gnu",
+      "displayName": "GCC 14.3.0 x86_64-linux-gnu Release",
       "configurePreset": "x86_64-linux-gnu-release"
     },
     {
