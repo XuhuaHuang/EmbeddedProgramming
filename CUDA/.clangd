@@ -1,0 +1,6 @@
+# .clangd
+CompileFlags:
+  Add:
+    - "-I/usr/include"
+    - "-I/usr/local/include"
+    - "-I/usr/local/cuda/include"
