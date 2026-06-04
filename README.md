@@ -8,6 +8,7 @@ $$\int_b^d study \,dt= life$$
 
 ```cpp
 #include <❤>
+std::cout << std::hex << std::showbase << std::internal << std::uppercase << std::setfill('0') << std::setw(8)
 ```
 
 <!-- Link Definitions for Wakatime -->
@@ -36,6 +37,7 @@ For your comfort, some of the files have required compilation command documented
     - [`ObjectiveC`](#objectivec)
     - [`Projects`](#projects)
   - [References](#references)
+    - [**More Information**](#more-information)
     - [**Commonly Used Command in `CMake`**](#commonly-used-command-in-cmake)
 
 ## **Special Thanks** ❤
@@ -54,57 +56,57 @@ Heritage College, Gatineau, Quebec, Canada
 <img src="Settings/images/c_logo.png" alt="An image for C Language" width="100"/><img src="Settings/images/cpp_logo.png" alt="An image for C++" width="100"/>   <img src="Settings/images/mingw_logo.png" alt="An image for MinGW" width="110"/>
 
 ```C++
-class person
-{
+#pragma once
+
+#include <string>
+#include <utility>
+
+class person {
 public:
-    explicit person() = default;
+  person() = default;
 
-    explicit person(const std::string& fn, const std::string& ln)
-        : first(fn)
-        , last(ln)
-    {
-    }
+  person(std::string first_name, std::string last_name)
+    : first(std::move(first_name))
+    , last(std::move(last_name)) {}
 
-    explicit person(std::string&& fn, std::string&& ln)
-        : first(std::move(fn))
-        , last(std::move(ln))
-    {
-    }
+  [[nodiscard]]
+  std::string& first_name() {
+    return first;
+  }
 
-    person(const person& rhs)                = default;
-    person& operator=(const person&)         = default;
+  [[nodiscard]]
+  const std::string& first_name() const {
+    return first;
+  }
 
-    person(person&& rhs) noexcept            = default;
-    person& operator=(person&& rhs) noexcept = default;
+  [[nodiscard]]
+  std::string& last_name() {
+    return last;
+  }
 
-    virtual ~person() noexcept               = default;
-
-    [[nodiscard]] inline std::string& first_name() { return first; }
-    inline const std::string&         first_name() const { return first; }
-
-    [[nodiscard]] inline std::string& last_name() { return last; }
-    inline const std::string&         last_name() const { return last; }
+  [[nodiscard]]
+  const std::string& last_name() const {
+    return last;
+  }
 
 private:
-    std::string first;
-    std::string last;
+  std::string first;
+  std::string last;
 };
 
 template<typename T>
 concept printable = requires(T t) {
-    { std::cout << t } -> std::convertible_to<std::ostream&>;
+  { std::cout << t } -> std::convertible_to<std::ostream&>;
 }
 
-struct print
-{
-    constexpr print() = default;
+struct print {
+  constexpr print() = default;
 
-    template <typename T>
-        requires printable<T>
-    inline constexpr void operator()(T const& t) const
-    {
-        std::cout << t << "\n";
-    }
+  template <typename T>
+    requires printable<T>
+  constexpr inline void operator()(const T& t) const {
+    std::cout << t << "\n";
+  }
 };
 ```
 
@@ -145,55 +147,35 @@ g++ --version
 
 ## **Repository Directories**
 
-If you already have a configured `CMake` for your operating system, simple change to the directory with such `CMakeLists.txt` and run:<br>
-
-```Bash
-cmake .
-```
-
-or
-
-```Bash
-cmake ./CMakeLists.txt
-```
-
-For example, change to directory `./DesignPatterns`:
-
-```Bash
-cd ./DesignPatterns
-cmake ./CMakeLists.txt
-```
+If you already have installed `CMake` on your operating system, simple change to the directory in which a `CMakeLists.txt` is provided then run:<br>
 
 The convention is to create a folder dedicated to `CMake` files, for example, `build` or `bin`:
 
 ```Bash
-cd ./DesignPatterns
-mkdir build
-cd build
-cmake ../CMakeLists.txt -G "Visual Studio 17 2022"
+cd DesignPatterns
+cmake -B build -S . -G "Visual Studio 17 2022"
 ```
 
 To build with popular `Ninja` or `MinGW` generator:
 
 ```Bash
 # With Ninja generator
-cmake ../CMakeLists.txt -G "Ninja"
+cmake -B build -S . -G "Ninja"
 # With MinGW generator
-cmake ../CMakeLists.txt -G "MinGW Makefiles"
+cmake -B build -S . -G "MinGW Makefiles"
 ```
 
 To build the repository and run tests:
 ```Bash
-cmake . -Bbuild
-cd build
-cmake --build .
+cmake . -B build
+cmake --build build
 ctest --verbose
 ```
 
 ### [`Util`](./Util/)
 
 Functionality provided by separate module. A namespace `util` is created to better manage the functions.<br>
-Tests and `GoogleTest` are located within the `Util/tests` folder.
+Tests and `GoogleTest` are located within the `GoogleTests` folder.
 
 ```C++
 namespace util {
@@ -236,6 +218,9 @@ Contains projects carried along the coursework and includes some personal projec
 For example, building a terminal progress bar for visual effects and working with `OpenGL` library in `C++`.
 
 ## References
+
+### **More Information**
+- [Project Documentation](https://deepwiki.com/XuhuaHuang/EmbeddedProgramming)
 
 ### **Commonly Used Command in `CMake`**
 
