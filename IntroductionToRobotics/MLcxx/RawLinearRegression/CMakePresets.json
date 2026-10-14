@@ -1,0 +1,119 @@
+{
+  "version": 2,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "BUILD_TESTING": "ON",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "release_base",
+      "hidden": true,
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "sanitizer_base",
+      "hidden": true,
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "RAW_LINEAR_REGRESSION_ENABLE_SANITIZERS": "ON"
+      }
+    },
+    {
+      "name": "gcc_release",
+      "inherits": "release_base",
+      "displayName": "GCC Release",
+      "description": "Select GCC through CXX, or retain the Dev Container compiler environment."
+    },
+    {
+      "name": "clang_release",
+      "inherits": "release_base",
+      "displayName": "Clang Release",
+      "description": "Select Clang through CXX before the first configure."
+    },
+    {
+      "name": "gcc_sanitizer",
+      "inherits": "sanitizer_base",
+      "displayName": "GCC ASan and UBSan",
+      "description": "Select GCC through CXX, or retain the Dev Container compiler environment."
+    },
+    {
+      "name": "clang_sanitizer",
+      "inherits": "sanitizer_base",
+      "displayName": "Clang ASan and UBSan",
+      "description": "Select Clang through CXX before the first configure."
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "gcc_release",
+      "configurePreset": "gcc_release"
+    },
+    {
+      "name": "clang_release",
+      "configurePreset": "clang_release"
+    },
+    {
+      "name": "gcc_sanitizer",
+      "configurePreset": "gcc_sanitizer"
+    },
+    {
+      "name": "clang_sanitizer",
+      "configurePreset": "clang_sanitizer"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "test_base",
+      "hidden": true,
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    },
+    {
+      "name": "gcc_release",
+      "inherits": "test_base",
+      "configurePreset": "gcc_release"
+    },
+    {
+      "name": "clang_release",
+      "inherits": "test_base",
+      "configurePreset": "clang_release"
+    },
+    {
+      "name": "gcc_sanitizer",
+      "inherits": "test_base",
+      "configurePreset": "gcc_sanitizer",
+      "environment": {
+        "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      }
+    },
+    {
+      "name": "clang_sanitizer",
+      "inherits": "test_base",
+      "configurePreset": "clang_sanitizer",
+      "environment": {
+        "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      }
+    }
+  ]
+}

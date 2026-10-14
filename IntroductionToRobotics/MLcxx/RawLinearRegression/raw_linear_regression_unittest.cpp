@@ -86,6 +86,100 @@ void stored_slope_with_large_intercept() {
   check_near(model(1.0) - model(0.0), 0.0, 0.0, "rounded predictions");
 }
 
+void covariance_with_explicit_centers() {
+  const std::array<double, 2> x{1.0, 3.0};
+  const std::array<double, 2> y{2.0, 4.0};
+  check_near(covariance(x, y, 0.0, 0.0), 7.0, 0.0, "covariance honors supplied centers");
+  check_near(covariance(x, y, mean(x), mean(y)), 1.0, 0.0, "covariance with sample means");
+}
+
+void adjacent_offset_intercept() {
+  const std::array<double, 2> x{1e16, 1e16 + 2.0};
+  const std::array<double, 2> y{1.0, 2.0};
+  check_near(calculate_slope(x, y, mean(x), mean(y)), 0.5, 0.0, "slope with rounded absolute mean");
+  const auto model = simple_ordinary_least_squares(x, y);
+  check_near(get<1>(model), 0.5, 0.0, "adjacent-offset slope");
+  check_near(get<0>(model), -4999999999999999.0, 0.0, "adjacent-offset intercept");
+  check_near(model(x[0]), 1.0, 0.0, "adjacent-offset first prediction");
+  check_near(model(x[1]), 2.0, 0.0, "adjacent-offset second prediction");
+}
+
+void decimal_constant_independent_variable() {
+  const std::array<double, 3> x{0.1, 0.1, 0.1};
+  const std::array<double, 3> y{2.0, 3.0, 4.0};
+  const auto x_mean = mean(x);
+  const auto y_mean = mean(y);
+  check_near(x_mean, 0.1, 0.0, "constant decimal mean");
+  check_near(covariance(x, x, x_mean, x_mean), 0.0, 0.0, "constant decimal variance");
+  check_near(covariance(x, y, x_mean, y_mean), 0.0, 0.0, "constant decimal covariance");
+  expect_domain_error([&] { (void)calculate_slope(x, y, x_mean, y_mean); }, "constant decimal slope");
+  expect_domain_error(
+    [&] { (void)calculate_slope(x, y, 0.10000000000000002, y_mean); }, "constant decimal slope with rounded mean"
+  );
+  expect_domain_error([&] { (void)simple_ordinary_least_squares(x, y); }, "constant decimal fit");
+}
+
+void shifted_offset_and_sample_order() {
+  const std::array<double, 3> x{1e16 + 2.0, 1e16 + 4.0, 1e16 + 6.0};
+  const std::array<double, 3> y{0.0, 1.0, 2.0};
+  const auto x_mean = mean(x);
+  const auto y_mean = mean(y);
+  check_near(x_mean, 1e16 + 4.0, 0.0, "shifted-offset mean");
+  check_near(covariance(x, x, x_mean, x_mean), 8.0 / 3.0, 1e-12, "shifted-offset variance");
+  check_near(covariance(x, y, x_mean, y_mean), 4.0 / 3.0, 1e-12, "shifted-offset covariance");
+  check_near(calculate_slope(x, y, x_mean, y_mean), 0.5, 1e-14, "shifted-offset helper slope");
+  const auto model = simple_ordinary_least_squares(x, y);
+  check_near(get<1>(model), 0.5, 1e-14, "shifted-offset fit slope");
+  check_near(get<0>(model), -5000000000000001.0, 0.0, "shifted-offset intercept");
+  check_near(model(x[0]), 0.0, 1e-12, "shifted-offset first prediction");
+
+  const std::array<double, 3> reversed_x{x[2], x[1], x[0]};
+  const std::array<double, 3> reversed_y{y[2], y[1], y[0]};
+  const auto reversed_model = simple_ordinary_least_squares(reversed_x, reversed_y);
+  check_near(get<1>(reversed_model), get<1>(model), 1e-14, "sample-order invariant slope");
+  check_near(get<0>(reversed_model), get<0>(model), 0.0, "sample-order invariant intercept");
+}
+
+void scaled_tiny_independent_values() {
+  const std::array<double, 3> x{0.0, 1e-200, 2e-200};
+  const std::array<double, 3> y{0.0, 1.0, 2.0};
+  // The variance underflows double, but the ratio Sxy/Sxx has a finite slope.
+  check_near(calculate_slope(x, y, mean(x), mean(y)), 1e200, 1e188, "tiny-scale helper slope");
+  const auto model = simple_ordinary_least_squares(x, y);
+  check_near(get<1>(model), 1e200, 1e188, "tiny-scale fit slope");
+  check_near(get<0>(model), 0.0, 1e-12, "tiny-scale intercept");
+  check_near(model(1e-200), 1.0, 1e-12, "tiny-scale middle prediction");
+  check_near(model(2e-200), 2.0, 1e-12, "tiny-scale last prediction");
+}
+
+void mixed_precision_and_range_types() {
+  const std::vector<double> x{1e16, 1e16 + 2.0};
+  const std::valarray<long double> y{0.0L, 1.0L};
+  const auto model = simple_ordinary_least_squares(x, y);
+  static_assert(std::same_as<decltype(get<1>(model)), long double>);
+  check_near(get<1>(model), 0.5L, 0.0, "mixed-precision slope");
+  check_near(get<0>(model), -5000000000000000.0L, 0.0, "mixed-precision intercept");
+  check_near(model(x[0]), 0.0L, 0.0, "mixed-precision first prediction");
+  check_near(model(x[1]), 1.0L, 0.0, "mixed-precision second prediction");
+}
+
+void finite_mean_without_sum_overflow() {
+  const auto maximum = std::numeric_limits<double>::max();
+  check_near(mean(std::array<double, 2>{maximum, maximum}), maximum, 0.0, "finite maximum mean");
+  check_near(mean(std::array<double, 2>{maximum, -maximum}), 0.0, 0.0, "balanced extreme mean");
+}
+
+void cancelling_mean_and_sample_order() {
+  const std::array<std::array<double, 3>, 3> permutations{{
+    {1e16, 1.0, -1e16},
+    {-1e16, 1.0, 1e16},
+    {1e16, -1e16, 1.0},
+  }};
+  for (const auto& samples : permutations) {
+    check_near(mean(samples), 1.0 / 3.0, 1e-15, "cancelling mean independent of sample order");
+  }
+}
+
 void four_observation_example() {
   const std::array<double, 4> x{1.0, 3.0, 7.0, 12.0};
   const std::array<double, 4> y{8.0, 13.0, 26.0, 35.0};
@@ -206,6 +300,8 @@ void fitted_model_equality() {
   const auto                  different = simple_ordinary_least_squares(x, shifted_y);
   check(first == same, "equal fitted coefficients");
   check(!(first == different), "different fitted coefficients");
+  check(first < different, "fitted-model ordering compares coefficients");
+  check(!(different < first), "fitted-model ordering is asymmetric");
 }
 
 struct comparable_callable_t {
@@ -255,6 +351,14 @@ int main() {
     {"basic regression and population covariance", basic_regression                    },
     {"double precision with large offsets",        double_precision_with_large_offsets },
     {"stored slope with large intercept",          stored_slope_with_large_intercept   },
+    {"covariance with explicit centers",           covariance_with_explicit_centers    },
+    {"adjacent offset intercept",                  adjacent_offset_intercept           },
+    {"constant decimal independent variable",     decimal_constant_independent_variable},
+    {"shifted offset and sample order",            shifted_offset_and_sample_order     },
+    {"scaled tiny independent values",             scaled_tiny_independent_values      },
+    {"mixed precision and range types",            mixed_precision_and_range_types     },
+    {"finite mean without sum overflow",           finite_mean_without_sum_overflow    },
+    {"cancelling mean and sample order",            cancelling_mean_and_sample_order    },
     {"four observation example",                   four_observation_example            },
     {"integer and negative valarray means",        integer_valarray_means              },
     {"valarray regression",                        valarray_regression                 },

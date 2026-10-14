@@ -7,6 +7,7 @@
 #ifndef RAW_LINEAR_REGRESSION_HPP
 #define RAW_LINEAR_REGRESSION_HPP
 
+#include <algorithm>
 #include <array>
 #include <cmath>
 #include <compare>
@@ -35,28 +36,148 @@ template <typename range_t>
 concept arithmetic_range = std::ranges::sized_range<const range_t> && std::ranges::forward_range<const range_t>
                            && std::is_arithmetic_v<std::ranges::range_value_t<const range_t>>;
 
-template <arithmetic_range range_t>
-[[nodiscard]]
-inline auto mean(const range_t& data) {
-  using real_t     = regression_real_t<std::ranges::range_value_t<const range_t>>;
-  const auto count = std::ranges::size(data);
-  if (count < 2) {
-    throw std::domain_error("At least 2 samples are required to perform a linear regression.");
+namespace regression_detail {
+
+template <std::floating_point real_t>
+struct compensated_sum_t {
+  real_t sum{};
+  real_t correction{};
+
+  void add(real_t value) noexcept {
+    const auto next = sum + value;
+    correction += std::abs(sum) >= std::abs(value)
+                    ? (sum - next) + value
+                    : (value - next) + sum;
+    sum = next;
   }
 
-  real_t sum{};
+  [[nodiscard]] real_t value() const noexcept { return sum + correction; }
+};
+
+template <std::floating_point real_t>
+struct axis_scale_t {
+  real_t minimum;
+  real_t maximum;
+  int exponent;
+};
+
+// Power-of-two scaling preserves nearby representable values without overflowing.
+template <std::floating_point real_t, arithmetic_range range_t>
+[[nodiscard]] auto sample_scale(const range_t& data, real_t extra_value = real_t{0}) {
+  if (std::ranges::size(data) < 2) {
+    throw std::domain_error("At least 2 samples are required to perform a linear regression.");
+  }
+  if (!std::isfinite(extra_value)) {
+    throw std::domain_error("Regression means must be finite.");
+  }
+  auto minimum = std::numeric_limits<real_t>::max();
+  auto maximum = std::numeric_limits<real_t>::lowest();
+  auto magnitude = std::abs(extra_value);
   for (const auto value : data) {
     const auto sample = static_cast<real_t>(value);
     if (!std::isfinite(sample)) {
       throw std::domain_error("Regression samples must be finite.");
     }
-    sum += sample;
+    minimum = std::min(minimum, sample);
+    maximum = std::max(maximum, sample);
+    magnitude = std::max(magnitude, std::abs(sample));
   }
-  const auto result = sum / static_cast<real_t>(count);
+  int exponent{};
+  (void)std::frexp(magnitude, &exponent);
+  return axis_scale_t<real_t>{minimum, maximum, exponent};
+}
+
+template <std::floating_point real_t>
+[[nodiscard]] real_t checked_scale(real_t value, int exponent, const char* message) {
+  const auto result = std::scalbn(value, exponent);
   if (!std::isfinite(result)) {
-    throw std::domain_error("The sample mean is not finite.");
+    throw std::domain_error(message);
   }
   return result;
+}
+
+template <std::floating_point real_t>
+struct axis_statistics_t {
+  int exponent;
+  bool constant;
+  real_t origin;
+  real_t deviation_mean;
+};
+
+template <std::floating_point real_t, arithmetic_range range_t>
+[[nodiscard]] auto centered_axis(const range_t& data, real_t origin) {
+  const auto scale = sample_scale<real_t>(data);
+  if (!std::isfinite(origin)) {
+    throw std::domain_error("Regression means must be finite.");
+  }
+  // Supplied means are centering hints. Keep the origin in the sample range.
+  origin = std::clamp(origin, scale.minimum, scale.maximum);
+  const auto normalized_origin = std::scalbn(origin, -scale.exponent);
+  compensated_sum_t<real_t> deviations;
+  for (const auto value : data) {
+    deviations.add(std::scalbn(static_cast<real_t>(value), -scale.exponent) - normalized_origin);
+  }
+  return axis_statistics_t<real_t>{
+    scale.exponent, scale.minimum == scale.maximum, normalized_origin,
+    deviations.value() / static_cast<real_t>(std::ranges::size(data))};
+}
+
+template <std::floating_point real_t>
+struct fit_statistics_t {
+  axis_statistics_t<real_t> x;
+  axis_statistics_t<real_t> y;
+  real_t normalized_slope;
+};
+
+template <std::floating_point real_t, arithmetic_range x_range_t, arithmetic_range y_range_t>
+[[nodiscard]] auto centered_fit(
+  const x_range_t& x, const y_range_t& y, real_t x_origin, real_t y_origin
+) {
+  if (std::ranges::size(x) != std::ranges::size(y)) {
+    throw std::domain_error("The independent and dependent variables must have the same number of samples.");
+  }
+  const auto x_statistics = centered_axis<real_t>(x, x_origin);
+  const auto y_statistics = centered_axis<real_t>(y, y_origin);
+  if (x_statistics.constant) {
+    throw std::domain_error("Cannot fit a line when all independent samples are equal.");
+  }
+
+  compensated_sum_t<real_t> sxx;
+  compensated_sum_t<real_t> sxy;
+  auto y_iterator = std::ranges::begin(y);
+  for (const auto x_value : x) {
+    const auto x_deviation =
+      (std::scalbn(static_cast<real_t>(x_value), -x_statistics.exponent) - x_statistics.origin)
+      - x_statistics.deviation_mean;
+    const auto y_deviation =
+      (std::scalbn(static_cast<real_t>(*y_iterator++), -y_statistics.exponent) - y_statistics.origin)
+      - y_statistics.deviation_mean;
+    sxx.add(x_deviation * x_deviation);
+    sxy.add(x_deviation * y_deviation);
+  }
+  if (sxx.value() == real_t{0}) {
+    throw std::domain_error("The independent sample variation cannot be represented.");
+  }
+  return fit_statistics_t<real_t>{x_statistics, y_statistics, sxy.value() / sxx.value()};
+}
+
+} // namespace regression_detail
+
+template <arithmetic_range range_t>
+[[nodiscard]]
+inline auto mean(const range_t& data) {
+  using real_t = regression_real_t<std::ranges::range_value_t<const range_t>>;
+  const auto scale = regression_detail::sample_scale<real_t>(data);
+  regression_detail::compensated_sum_t<real_t> sum;
+  for (const auto value : data) {
+    sum.add(std::scalbn(static_cast<real_t>(value), -scale.exponent));
+  }
+  auto normalized_mean = sum.value() / static_cast<real_t>(std::ranges::size(data));
+  // Rounding must not move a finite mean beyond the observed sample bounds.
+  normalized_mean = std::clamp(
+    normalized_mean, std::scalbn(scale.minimum, -scale.exponent),
+    std::scalbn(scale.maximum, -scale.exponent));
+  return regression_detail::checked_scale(normalized_mean, scale.exponent, "The sample mean is not finite.");
 }
 
 template <arithmetic_range x_range_t, arithmetic_range y_range_t, typename x_mean_t, typename y_mean_t>
@@ -64,50 +185,41 @@ template <arithmetic_range x_range_t, arithmetic_range y_range_t, typename x_mea
 [[nodiscard]]
 inline auto covariance(const x_range_t& x, const y_range_t& y, x_mean_t x_mean, y_mean_t y_mean) {
   using real_t = regression_real_t<
-    std::ranges::range_value_t<const x_range_t>, std::ranges::range_value_t<const y_range_t>, x_mean_t, y_mean_t>;
-  const auto count = std::ranges::size(x);
-  if (count != std::ranges::size(y)) {
+    std::ranges::range_value_t<const x_range_t>, std::ranges::range_value_t<const y_range_t>,
+    x_mean_t, y_mean_t>;
+  if (std::ranges::size(x) != std::ranges::size(y)) {
     throw std::domain_error("The independent and dependent variables must have the same number of samples.");
   }
-  if (count < 2) {
-    throw std::domain_error("At least 2 samples are required to perform a linear regression.");
-  }
-  if (!std::isfinite(static_cast<real_t>(x_mean)) || !std::isfinite(static_cast<real_t>(y_mean))) {
-    throw std::domain_error("Regression means must be finite.");
-  }
-
-  real_t sum{};
-  auto   y_iterator = std::ranges::begin(y);
+  const auto x_scale = regression_detail::sample_scale<real_t>(x, static_cast<real_t>(x_mean));
+  const auto y_scale = regression_detail::sample_scale<real_t>(y, static_cast<real_t>(y_mean));
+  const auto x_center = std::scalbn(static_cast<real_t>(x_mean), -x_scale.exponent);
+  const auto y_center = std::scalbn(static_cast<real_t>(y_mean), -y_scale.exponent);
+  regression_detail::compensated_sum_t<real_t> sum;
+  auto y_iterator = std::ranges::begin(y);
   for (const auto x_value : x) {
-    const auto x_sample = static_cast<real_t>(x_value);
-    const auto y_sample = static_cast<real_t>(*y_iterator++);
-    if (!std::isfinite(x_sample) || !std::isfinite(y_sample)) {
-      throw std::domain_error("Regression samples must be finite.");
-    }
-    sum += (x_sample - static_cast<real_t>(x_mean)) * (y_sample - static_cast<real_t>(y_mean));
+    const auto x_deviation = std::scalbn(static_cast<real_t>(x_value), -x_scale.exponent) - x_center;
+    const auto y_deviation = std::scalbn(static_cast<real_t>(*y_iterator++), -y_scale.exponent) - y_center;
+    sum.add(x_deviation * y_deviation);
   }
-  // Population covariance: both factors of n cancel in Sxy / Sxx.
-  const auto result = sum / static_cast<real_t>(count);
-  if (!std::isfinite(result)) {
-    throw std::domain_error("The sample covariance is not finite.");
-  }
-  return result;
+  // Population covariance around the explicitly supplied centers.
+  return regression_detail::checked_scale(
+    sum.value() / static_cast<real_t>(std::ranges::size(x)), x_scale.exponent + y_scale.exponent,
+    "The sample covariance is not finite.");
 }
 
 template <arithmetic_range x_range_t, arithmetic_range y_range_t, typename x_mean_t, typename y_mean_t>
   requires std::is_arithmetic_v<x_mean_t> && std::is_arithmetic_v<y_mean_t>
 [[nodiscard]]
 inline auto calculate_slope(const x_range_t& x, const y_range_t& y, x_mean_t x_mean, y_mean_t y_mean) {
-  const auto numerator   = covariance(x, y, x_mean, y_mean);
-  const auto denominator = covariance(x, x, x_mean, x_mean);
-  if (denominator == 0) {
-    throw std::domain_error("Cannot fit a line when all independent samples are equal.");
-  }
-  const auto result = numerator / denominator;
-  if (!std::isfinite(result)) {
-    throw std::domain_error("The regression slope is not finite.");
-  }
-  return result;
+  using real_t = regression_real_t<
+    std::ranges::range_value_t<const x_range_t>, std::ranges::range_value_t<const y_range_t>,
+    x_mean_t, y_mean_t>;
+  // Recenter residuals so a rounded supplied mean cannot bias Sxx or Sxy.
+  const auto statistics = regression_detail::centered_fit<real_t>(
+    x, y, static_cast<real_t>(x_mean), static_cast<real_t>(y_mean));
+  return regression_detail::checked_scale(
+    statistics.normalized_slope, statistics.y.exponent - statistics.x.exponent,
+    "The regression slope is not finite.");
 }
 
 template <typename slope_value_t, typename x_mean_t, typename y_mean_t>
@@ -178,9 +290,12 @@ concept random_access_container = arithmetic_range<container_t> && std::ranges::
 
 template <random_access_container x_container_t, random_access_container y_container_t>
 struct linreg_t {
-  using x_value_t             = std::ranges::range_value_t<const x_container_t>;
-  using y_value_t             = std::ranges::range_value_t<const y_container_t>;
-  using value_t               = std::common_type_t<x_value_t, y_value_t>;
+  using x_value_t = std::ranges::range_value_t<const x_container_t>;
+  using y_value_t = std::ranges::range_value_t<const y_container_t>;
+  using value_t   = std::common_type_t<x_value_t, y_value_t>;
+  using X = x_container_t; // Legacy container aliases.
+  using Y = y_container_t;
+
   using internal_index_type_t = indexing::internal_index_type_t;
   using InternalIndexType     = internal_index_type_t;
   template <internal_index_type_t index_type>
@@ -257,7 +372,7 @@ struct affine_function_t {
 
   [[nodiscard]]
   constexpr real_t operator()(real_t value) const noexcept {
-    return slope * value + intercept;
+    return std::fma(slope, value, intercept);
   }
 
   constexpr bool operator==(const affine_function_t&) const  = default;
@@ -433,14 +548,23 @@ inline auto simple_ordinary_least_squares(const x_range_t& x, const y_range_t& y
   if (std::ranges::size(x) != std::ranges::size(y)) {
     throw std::domain_error("The independent and dependent variables must have the same number of samples.");
   }
-  const auto x_mean    = mean(x);
-  const auto y_mean    = mean(y);
-  const auto slope     = calculate_slope(x, y, x_mean, y_mean);
-  const auto intercept = calculate_intercept(slope, x_mean, y_mean);
-  using real_t         = std::remove_cv_t<decltype(slope)>;
-  return lambda_linreg_t<affine_function_t<real_t>, real_t>{
-    affine_function_t<real_t>{slope, intercept}
-  };
+  if (std::ranges::size(x) < 2) {
+    throw std::domain_error("At least 2 samples are required to perform a linear regression.");
+  }
+  using real_t = regression_real_t<
+    std::ranges::range_value_t<const x_range_t>, std::ranges::range_value_t<const y_range_t>>;
+  const auto statistics = regression_detail::centered_fit<real_t>(
+    x, y, static_cast<real_t>(*std::ranges::begin(x)), static_cast<real_t>(*std::ranges::begin(y)));
+  const auto slope = regression_detail::checked_scale(
+    statistics.normalized_slope, statistics.y.exponent - statistics.x.exponent,
+    "The regression slope is not finite.");
+  // Derive the intercept from the same centered coordinates, not rounded absolute means.
+  const auto normalized_intercept =
+    std::fma(-statistics.normalized_slope, statistics.x.origin, statistics.y.origin)
+    + std::fma(-statistics.normalized_slope, statistics.x.deviation_mean, statistics.y.deviation_mean);
+  const auto intercept = regression_detail::checked_scale(
+    normalized_intercept, statistics.y.exponent, "The regression intercept is not finite.");
+  return lambda_linreg_t<affine_function_t<real_t>, real_t>{affine_function_t<real_t>{slope, intercept}};
 }
 
 template <typename function_t>
