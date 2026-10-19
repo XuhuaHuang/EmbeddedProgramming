@@ -1,0 +1,826 @@
+{
+  "id": "0x6005d6a78718",
+  "kind": "TranslationUnitDecl",
+  "loc": {},
+  "range": {
+    "begin": {},
+    "end": {}
+  },
+  "inner": [
+    {
+      "id": "0x6005d6a78f88",
+      "kind": "TypedefDecl",
+      "loc": {},
+      "range": {
+        "begin": {},
+        "end": {}
+      },
+      "isImplicit": true,
+      "name": "__int128_t",
+      "type": {
+        "qualType": "__int128"
+      },
+      "inner": [
+        {
+          "id": "0x6005d6a78ce0",
+          "kind": "BuiltinType",
+          "type": {
+            "qualType": "__int128"
+          }
+        }
+      ]
+    },
+    {
+      "id": "0x6005d6a78ff8",
+      "kind": "TypedefDecl",
+      "loc": {},
+      "range": {
+        "begin": {},
+        "end": {}
+      },
+      "isImplicit": true,
+      "name": "__uint128_t",
+      "type": {
+        "qualType": "unsigned __int128"
+      },
+      "inner": [
+        {
+          "id": "0x6005d6a78d00",
+          "kind": "BuiltinType",
+          "type": {
+            "qualType": "unsigned __int128"
+          }
+        }
+      ]
+    },
+    {
+      "id": "0x6005d6a79370",
+      "kind": "TypedefDecl",
+      "loc": {},
+      "range": {
+        "begin": {},
+        "end": {}
+      },
+      "isImplicit": true,
+      "name": "__NSConstantString",
+      "type": {
+        "qualType": "__NSConstantString_tag"
+      },
+      "inner": [
+        {
+          "id": "0x6005d6a790e0",
+          "kind": "RecordType",
+          "type": {
+            "qualType": "__NSConstantString_tag"
+          },
+          "decl": {
+            "id": "0x6005d6a79050",
+            "kind": "CXXRecordDecl",
+            "name": "__NSConstantString_tag"
+          }
+        }
+      ]
+    },
+    {
+      "id": "0x6005d6a79418",
+      "kind": "TypedefDecl",
+      "loc": {},
+      "range": {
+        "begin": {},
+        "end": {}
+      },
+      "isImplicit": true,
+      "name": "__builtin_ms_va_list",
+      "type": {
+        "qualType": "char *"
+      },
+      "inner": [
+        {
+          "id": "0x6005d6a793d0",
+          "kind": "PointerType",
+          "type": {
+            "qualType": "char *"
+          },
+          "inner": [
+            {
+              "id": "0x6005d6a787c0",
+              "kind": "BuiltinType",
+              "type": {
+                "qualType": "char"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0x6005d6ac21c0",
+      "kind": "TypedefDecl",
+      "loc": {},
+      "range": {
+        "begin": {},
+        "end": {}
+      },
+      "isImplicit": true,
+      "name": "__builtin_va_list",
+      "type": {
+        "qualType": "__va_list_tag[1]"
+      },
+      "inner": [
+        {
+          "id": "0x6005d6ac2160",
+          "kind": "ConstantArrayType",
+          "type": {
+            "qualType": "__va_list_tag[1]"
+          },
+          "size": 1,
+          "inner": [
+            {
+              "id": "0x6005d6a79500",
+              "kind": "RecordType",
+              "type": {
+                "qualType": "__va_list_tag"
+              },
+              "decl": {
+                "id": "0x6005d6a79470",
+                "kind": "CXXRecordDecl",
+                "name": "__va_list_tag"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0x6005d6ac2338",
+      "kind": "FunctionDecl",
+      "loc": {
+        "offset": 144,
+        "file": "test.cc",
+        "line": 6,
+        "col": 5,
+        "tokLen": 1
+      },
+      "range": {
+        "begin": {
+          "offset": 140,
+          "col": 1,
+          "tokLen": 3
+        },
+        "end": {
+          "offset": 197,
+          "line": 9,
+          "col": 1,
+          "tokLen": 1
+        }
+      },
+      "name": "f",
+      "mangledName": "_Z1fi",
+      "type": {
+        "qualType": "int (int)"
+      },
+      "inner": [
+        {
+          "id": "0x6005d6ac2260",
+          "kind": "ParmVarDecl",
+          "loc": {
+            "offset": 150,
+            "line": 6,
+            "col": 11,
+            "tokLen": 1
+          },
+          "range": {
+            "begin": {
+              "offset": 146,
+              "col": 7,
+              "tokLen": 3
+            },
+            "end": {
+              "offset": 150,
+              "col": 11,
+              "tokLen": 1
+            }
+          },
+          "isUsed": true,
+          "name": "x",
+          "type": {
+            "qualType": "int"
+          }
+        },
+        {
+          "id": "0x6005d6ac25a8",
+          "kind": "CompoundStmt",
+          "range": {
+            "begin": {
+              "offset": 153,
+              "col": 14,
+              "tokLen": 1
+            },
+            "end": {
+              "offset": 197,
+              "line": 9,
+              "col": 1,
+              "tokLen": 1
+            }
+          },
+          "inner": [
+            {
+              "id": "0x6005d6ac2548",
+              "kind": "DeclStmt",
+              "range": {
+                "begin": {
+                  "offset": 157,
+                  "line": 7,
+                  "col": 3,
+                  "tokLen": 3
+                },
+                "end": {
+                  "offset": 178,
+                  "col": 24,
+                  "tokLen": 1
+                }
+              },
+              "inner": [
+                {
+                  "id": "0x6005d6ac2448",
+                  "kind": "VarDecl",
+                  "loc": {
+                    "offset": 161,
+                    "col": 7,
+                    "tokLen": 6
+                  },
+                  "range": {
+                    "begin": {
+                      "offset": 157,
+                      "col": 3,
+                      "tokLen": 3
+                    },
+                    "end": {
+                      "offset": 177,
+                      "col": 23,
+                      "tokLen": 1
+                    }
+                  },
+                  "isUsed": true,
+                  "name": "result",
+                  "type": {
+                    "qualType": "int"
+                  },
+                  "init": "c",
+                  "inner": [
+                    {
+                      "id": "0x6005d6ac2528",
+                      "kind": "ParenExpr",
+                      "range": {
+                        "begin": {
+                          "offset": 170,
+                          "col": 16,
+                          "tokLen": 1
+                        },
+                        "end": {
+                          "offset": 177,
+                          "col": 23,
+                          "tokLen": 1
+                        }
+                      },
+                      "type": {
+                        "qualType": "int"
+                      },
+                      "valueCategory": "prvalue",
+                      "inner": [
+                        {
+                          "id": "0x6005d6ac2508",
+                          "kind": "BinaryOperator",
+                          "range": {
+                            "begin": {
+                              "offset": 171,
+                              "col": 17,
+                              "tokLen": 1
+                            },
+                            "end": {
+                              "offset": 175,
+                              "col": 21,
+                              "tokLen": 2
+                            }
+                          },
+                          "type": {
+                            "qualType": "int"
+                          },
+                          "valueCategory": "prvalue",
+                          "opcode": "/",
+                          "inner": [
+                            {
+                              "id": "0x6005d6ac24f0",
+                              "kind": "ImplicitCastExpr",
+                              "range": {
+                                "begin": {
+                                  "offset": 171,
+                                  "col": 17,
+                                  "tokLen": 1
+                                },
+                                "end": {
+                                  "offset": 171,
+                                  "col": 17,
+                                  "tokLen": 1
+                                }
+                              },
+                              "type": {
+                                "qualType": "int"
+                              },
+                              "valueCategory": "prvalue",
+                              "castKind": "LValueToRValue",
+                              "inner": [
+                                {
+                                  "id": "0x6005d6ac24b0",
+                                  "kind": "DeclRefExpr",
+                                  "range": {
+                                    "begin": {
+                                      "offset": 171,
+                                      "col": 17,
+                                      "tokLen": 1
+                                    },
+                                    "end": {
+                                      "offset": 171,
+                                      "col": 17,
+                                      "tokLen": 1
+                                    }
+                                  },
+                                  "type": {
+                                    "qualType": "int"
+                                  },
+                                  "valueCategory": "lvalue",
+                                  "referencedDecl": {
+                                    "id": "0x6005d6ac2260",
+                                    "kind": "ParmVarDecl",
+                                    "name": "x",
+                                    "type": {
+                                      "qualType": "int"
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": "0x6005d6ac24d0",
+                              "kind": "IntegerLiteral",
+                              "range": {
+                                "begin": {
+                                  "offset": 175,
+                                  "col": 21,
+                                  "tokLen": 2
+                                },
+                                "end": {
+                                  "offset": 175,
+                                  "col": 21,
+                                  "tokLen": 2
+                                }
+                              },
+                              "type": {
+                                "qualType": "int"
+                              },
+                              "valueCategory": "prvalue",
+                              "value": "42"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "0x6005d6ac2598",
+              "kind": "ReturnStmt",
+              "range": {
+                "begin": {
+                  "offset": 182,
+                  "line": 8,
+                  "col": 3,
+                  "tokLen": 6
+                },
+                "end": {
+                  "offset": 189,
+                  "col": 10,
+                  "tokLen": 6
+                }
+              },
+              "inner": [
+                {
+                  "id": "0x6005d6ac2580",
+                  "kind": "ImplicitCastExpr",
+                  "range": {
+                    "begin": {
+                      "offset": 189,
+                      "col": 10,
+                      "tokLen": 6
+                    },
+                    "end": {
+                      "offset": 189,
+                      "col": 10,
+                      "tokLen": 6
+                    }
+                  },
+                  "type": {
+                    "qualType": "int"
+                  },
+                  "valueCategory": "prvalue",
+                  "castKind": "LValueToRValue",
+                  "inner": [
+                    {
+                      "id": "0x6005d6ac2560",
+                      "kind": "DeclRefExpr",
+                      "range": {
+                        "begin": {
+                          "offset": 189,
+                          "col": 10,
+                          "tokLen": 6
+                        },
+                        "end": {
+                          "offset": 189,
+                          "col": 10,
+                          "tokLen": 6
+                        }
+                      },
+                      "type": {
+                        "qualType": "int"
+                      },
+                      "valueCategory": "lvalue",
+                      "referencedDecl": {
+                        "id": "0x6005d6ac2448",
+                        "kind": "VarDecl",
+                        "name": "result",
+                        "type": {
+                          "qualType": "int"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0x6005d6ac2890",
+          "kind": "FullComment",
+          "loc": {
+            "offset": 3,
+            "line": 1,
+            "col": 4,
+            "tokLen": 1
+          },
+          "range": {
+            "begin": {
+              "offset": 3,
+              "col": 4,
+              "tokLen": 1
+            },
+            "end": {
+              "offset": 134,
+              "line": 4,
+              "col": 42,
+              "tokLen": 1
+            }
+          },
+          "inner": [
+            {
+              "id": "0x6005d6ac2660",
+              "kind": "ParagraphComment",
+              "loc": {
+                "offset": 3,
+                "line": 1,
+                "col": 4,
+                "tokLen": 1
+              },
+              "range": {
+                "begin": {
+                  "offset": 3,
+                  "col": 4,
+                  "tokLen": 1
+                },
+                "end": {
+                  "offset": 7,
+                  "line": 2,
+                  "col": 3,
+                  "tokLen": 0
+                }
+              },
+              "inner": [
+                {
+                  "id": "0x6005d6ac2610",
+                  "kind": "TextComment",
+                  "loc": {
+                    "offset": 3,
+                    "line": 1,
+                    "col": 4,
+                    "tokLen": 1
+                  },
+                  "range": {
+                    "begin": {
+                      "offset": 3,
+                      "col": 4,
+                      "tokLen": 1
+                    },
+                    "end": {
+                      "offset": 3,
+                      "col": 4,
+                      "tokLen": 1
+                    }
+                  },
+                  "text": "*"
+                },
+                {
+                  "id": "0x6005d6ac2630",
+                  "kind": "TextComment",
+                  "loc": {
+                    "offset": 7,
+                    "line": 2,
+                    "col": 3,
+                    "tokLen": 0
+                  },
+                  "range": {
+                    "begin": {
+                      "offset": 7,
+                      "col": 3,
+                      "tokLen": 0
+                    },
+                    "end": {
+                      "offset": 7,
+                      "col": 3,
+                      "tokLen": 0
+                    }
+                  },
+                  "text": " "
+                }
+              ]
+            },
+            {
+              "id": "0x6005d6ac2680",
+              "kind": "BlockCommandComment",
+              "loc": {
+                "offset": 9,
+                "col": 5,
+                "tokLen": 5
+              },
+              "range": {
+                "begin": {
+                  "offset": 8,
+                  "col": 4,
+                  "tokLen": 1
+                },
+                "end": {
+                  "offset": 64,
+                  "line": 3,
+                  "col": 3,
+                  "tokLen": 0
+                }
+              },
+              "name": "brief",
+              "inner": [
+                {
+                  "id": "0x6005d6ac2700",
+                  "kind": "ParagraphComment",
+                  "loc": {
+                    "offset": 14,
+                    "line": 2,
+                    "col": 10,
+                    "tokLen": 0
+                  },
+                  "range": {
+                    "begin": {
+                      "offset": 14,
+                      "col": 10,
+                      "tokLen": 0
+                    },
+                    "end": {
+                      "offset": 64,
+                      "line": 3,
+                      "col": 3,
+                      "tokLen": 0
+                    }
+                  },
+                  "inner": [
+                    {
+                      "id": "0x6005d6ac26b0",
+                      "kind": "TextComment",
+                      "loc": {
+                        "offset": 14,
+                        "line": 2,
+                        "col": 10,
+                        "tokLen": 0
+                      },
+                      "range": {
+                        "begin": {
+                          "offset": 14,
+                          "col": 10,
+                          "tokLen": 0
+                        },
+                        "end": {
+                          "offset": 60,
+                          "col": 56,
+                          "tokLen": 1
+                        }
+                      },
+                      "text": " A simple function to demonstrate AST creation."
+                    },
+                    {
+                      "id": "0x6005d6ac26d0",
+                      "kind": "TextComment",
+                      "loc": {
+                        "offset": 64,
+                        "line": 3,
+                        "col": 3,
+                        "tokLen": 0
+                      },
+                      "range": {
+                        "begin": {
+                          "offset": 64,
+                          "col": 3,
+                          "tokLen": 0
+                        },
+                        "end": {
+                          "offset": 64,
+                          "col": 3,
+                          "tokLen": 0
+                        }
+                      },
+                      "text": " "
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "0x6005d6ac2720",
+              "kind": "ParamCommandComment",
+              "loc": {
+                "offset": 66,
+                "col": 5,
+                "tokLen": 5
+              },
+              "range": {
+                "begin": {
+                  "offset": 65,
+                  "col": 4,
+                  "tokLen": 1
+                },
+                "end": {
+                  "offset": 95,
+                  "line": 4,
+                  "col": 3,
+                  "tokLen": 0
+                }
+              },
+              "direction": "in",
+              "param": "x",
+              "paramIdx": 0,
+              "inner": [
+                {
+                  "id": "0x6005d6ac27d0",
+                  "kind": "ParagraphComment",
+                  "loc": {
+                    "offset": 73,
+                    "line": 3,
+                    "col": 12,
+                    "tokLen": 0
+                  },
+                  "range": {
+                    "begin": {
+                      "offset": 73,
+                      "col": 12,
+                      "tokLen": 0
+                    },
+                    "end": {
+                      "offset": 95,
+                      "line": 4,
+                      "col": 3,
+                      "tokLen": 0
+                    }
+                  },
+                  "inner": [
+                    {
+                      "id": "0x6005d6ac2780",
+                      "kind": "TextComment",
+                      "loc": {
+                        "offset": 73,
+                        "line": 3,
+                        "col": 12,
+                        "tokLen": 0
+                      },
+                      "range": {
+                        "begin": {
+                          "offset": 73,
+                          "col": 12,
+                          "tokLen": 0
+                        },
+                        "end": {
+                          "offset": 91,
+                          "col": 30,
+                          "tokLen": 1
+                        }
+                      },
+                      "text": " The input integer."
+                    },
+                    {
+                      "id": "0x6005d6ac27a0",
+                      "kind": "TextComment",
+                      "loc": {
+                        "offset": 95,
+                        "line": 4,
+                        "col": 3,
+                        "tokLen": 0
+                      },
+                      "range": {
+                        "begin": {
+                          "offset": 95,
+                          "col": 3,
+                          "tokLen": 0
+                        },
+                        "end": {
+                          "offset": 95,
+                          "col": 3,
+                          "tokLen": 0
+                        }
+                      },
+                      "text": " "
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "0x6005d6ac27f0",
+              "kind": "BlockCommandComment",
+              "loc": {
+                "offset": 97,
+                "col": 5,
+                "tokLen": 6
+              },
+              "range": {
+                "begin": {
+                  "offset": 96,
+                  "col": 4,
+                  "tokLen": 1
+                },
+                "end": {
+                  "offset": 134,
+                  "col": 42,
+                  "tokLen": 1
+                }
+              },
+              "name": "return",
+              "inner": [
+                {
+                  "id": "0x6005d6ac2850",
+                  "kind": "ParagraphComment",
+                  "loc": {
+                    "offset": 103,
+                    "col": 11,
+                    "tokLen": 0
+                  },
+                  "range": {
+                    "begin": {
+                      "offset": 103,
+                      "col": 11,
+                      "tokLen": 0
+                    },
+                    "end": {
+                      "offset": 134,
+                      "col": 42,
+                      "tokLen": 1
+                    }
+                  },
+                  "inner": [
+                    {
+                      "id": "0x6005d6ac2820",
+                      "kind": "TextComment",
+                      "loc": {
+                        "offset": 103,
+                        "col": 11,
+                        "tokLen": 0
+                      },
+                      "range": {
+                        "begin": {
+                          "offset": 103,
+                          "col": 11,
+                          "tokLen": 0
+                        },
+                        "end": {
+                          "offset": 134,
+                          "col": 42,
+                          "tokLen": 1
+                        }
+                      },
+                      "text": " The result of dividing x by 42."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
