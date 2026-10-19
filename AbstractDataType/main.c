@@ -4,7 +4,7 @@
  * @brief To compile and run the demo, execute the following:
  * $ cd .\AbstractDataType\
  * $ mingw32-make all
- * 
+ *
  * or alternatively with CMake:
  * $ cd .\AbstractDataType\
  * $ cmake -S . -B build
@@ -24,19 +24,23 @@
 #include "queue.h"
 
 int main(void) {
-    queue* q = q_create(5);
+  queue* q = q_create(5);
+  if (q == NULL) {
+    fputs("Failed to create queue\n", stderr);
+    return EXIT_FAILURE;
+  }
 
-    q_endqueue(q, 23);
-    q_endqueue(q, 34);
-    q_endqueue(q, 45);
-    q_endqueue(q, 56);
-    q_endqueue(q, 78);
+  q_endqueue(q, 23);
+  q_endqueue(q, 34);
+  q_endqueue(q, 45);
+  q_endqueue(q, 56);
+  q_endqueue(q, 78);
 
-    int t;
-    while ((t = q_dequeue(q)) != QUEUE_EMPTY) {
-        printf("t = %d\n", t);
-    }
+  int t;
+  while ((t = q_dequeue(q)) != QUEUE_EMPTY) {
+    printf("t = %d\n", t);
+  }
 
-    q_destroy(q);
-    return 0;
+  q_destroy(q);
+  return 0;
 }

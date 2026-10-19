@@ -33,8 +33,8 @@ typedef struct \_queue queue;
 
 - **Description**: Creates a queue with a specified maximum size.
 - **Parameters**:
-  - `int max_size`: The maximum size of the queue.
-- **Returns**: A pointer to the created queue.
+  - `int max_size`: The maximum size of the queue; must be greater than zero.
+- **Returns**: A pointer to the created queue, or `NULL` if the capacity is invalid, its allocation size cannot be represented, or either memory allocation fails. A failed creation releases any partially allocated memory.
 
 #### `void q_destroy(queue *q)`
 
@@ -100,3 +100,13 @@ int main() {
 
 - This implementation uses an opaque data type for the queue to hide its internal structure and encourage encapsulation.
 - Ensure to handle the memory management properly by destroying the queue when it is no longer needed.
+
+## Build and Test
+
+```sh
+cmake -S . -B build -DBUILD_TESTING=ON
+cmake --build build --config Debug
+ctest --test-dir build -C Debug --output-on-failure
+```
+
+The regression test forces each allocation to fail separately and verifies that creation returns `NULL` without retaining memory. It also checks invalid capacities and normal FIFO and wrap-around behavior.
